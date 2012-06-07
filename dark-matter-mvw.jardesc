@@ -11,7 +11,6 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
-        <folder path="/dark-matter-mvw/extjars"/>
         <javaElement handleIdentifier="=dark-matter-mvw/src"/>
     </selectedElements>
 </jardesc>
