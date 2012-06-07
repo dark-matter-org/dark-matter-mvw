@@ -11,13 +11,7 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
-        <file path="/dark-matter-mvw/dark-matter-mvw mvwdoc.launch"/>
         <folder path="/dark-matter-mvw/extjars"/>
-        <file path="/dark-matter-mvw/dark-matter-mvw DMW.launch"/>
-        <file path="/dark-matter-mvw/.classpath"/>
         <javaElement handleIdentifier="=dark-matter-mvw/src"/>
-        <file path="/dark-matter-mvw/.project"/>
-        <file path="/dark-matter-mvw/dark-matter-mvw DMO.launch"/>
-        <file path="/dark-matter-mvw/dark-matter-mvw dmsdoc.launch"/>
     </selectedElements>
 </jardesc>
