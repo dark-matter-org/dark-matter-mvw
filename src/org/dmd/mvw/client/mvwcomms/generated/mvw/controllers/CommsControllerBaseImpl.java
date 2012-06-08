@@ -2,7 +2,6 @@ package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:154)
-import com.google.gwt.event.shared.EventBus;                                            // Used by eventBus - (RunContextItem.java:320)
 import de.novanic.eventservice.client.event.RemoteEventService;                         // Used by eventService - (RunContextItem.java:320)
 import org.dmd.dmc.DmcOmni;                                                             // Support for schema loading - (Component.java:242)
 import org.dmd.dmp.client.DMPServiceAsync;                                              // Used by dmpConnection - (RunContextItem.java:320)
@@ -15,6 +14,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;                             
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;                                    // DMP communications - (Component.java:392)
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;                             // DMP communications - (Component.java:393)
 import org.dmd.dms.extended.ActionTriggerInfo;                                          // Sends action requests - (Component.java:273)
+import org.dmd.mvw.client.mvw.MvwEventBus;                                              // Used by eventBus - (RunContextItem.java:320)
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;                            // Mvw run context - (RunContextItem.java:310)
 import org.dmd.mvw.client.mvwcomms.extended.CommsController;                            // Used by commsController - (RunContextItem.java:320)
 import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;                  // Mvwcomms run context - (RunContextItem.java:310)
@@ -30,7 +30,7 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
 
     protected final CommsController commsController;
     protected final DMPServiceAsync dmpConnection;
-    protected final EventBus eventBus;
+    protected final MvwEventBus eventBus;
     protected final RemoteEventService eventService;
 
     private final int PRIMEEVENTCHANNELACTIONCALLBACK = 0;

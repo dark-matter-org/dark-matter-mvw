@@ -6,10 +6,7 @@ description	The mvw module provides base functionality on which all Modules
 
 RunContextItem
 itemName		eventBus
-useClass     	com.google.gwt.event.shared.EventBus
-//importThis		com.google.gwt.event.shared.SimpleEventBus
-//construction 	new SimpleEventBus()
-importThis		org.dmd.mvw.client.mvw.MvwEventBus
+useClass     	org.dmd.mvw.client.mvw.MvwEventBus
 construction 	new MvwEventBus()
 itemOrder    	1
 description		The overall application event bus.
@@ -25,7 +22,7 @@ description		The overall application event bus.
 RunContextItem
 itemName		placeController
 useClass     	org.dmd.mvw.client.mvw.MvwAsyncPlaceController
-construction 	new MvwAsyncPlaceController(this, (com.google.gwt.event.shared.EventBus) eventBus)
+construction 	new MvwAsyncPlaceController(this, (com.google.web.bindery.event.shared.EventBus) eventBus)
 itemOrder    	2
 description		The place controller is used to initiate navigation to different
  places by calling its goTo() method.

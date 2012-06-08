@@ -1,10 +1,25 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-mvw
+//	Copyright (c) 2012 dark-matter-mvw committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.mvw.client.mvw;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.event.shared.UmbrellaException;
+import com.google.web.bindery.event.shared.Event;
+import com.google.web.bindery.event.shared.SimpleEventBus;
 
 /**
  * The MvwEventBus extends the usual SimpleEventBus to handle the incredibly annoying
@@ -26,7 +41,7 @@ public class MvwEventBus extends SimpleEventBus {
 	}
 
 	@Override
-	public void fireEvent(GwtEvent<?> event) {
+	public void fireEvent(Event<?> event) {
 		try{
 			super.fireEvent(event);
 		}
@@ -54,7 +69,7 @@ public class MvwEventBus extends SimpleEventBus {
 	}
 	
 	@Override
-	public void fireEventFromSource(GwtEvent<?> event, Object source) {
+	public void fireEventFromSource(Event<?> event, Object source) {
 		try{
 			super.fireEventFromSource(event,source);
 		}
