@@ -1,0 +1,1 @@
+Note: the gwt-user.jar contains the source code associated with gwt-servlet.jar and is attached as the source jar for debug purposes.
