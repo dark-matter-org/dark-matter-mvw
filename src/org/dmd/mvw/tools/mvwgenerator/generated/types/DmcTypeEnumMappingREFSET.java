@@ -25,44 +25,44 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * The DmcTypeGxtEnumMappingREFSET provides storage for a set of GxtEnumMappingREF
+ * The DmcTypeEnumMappingREFSET provides storage for a set of EnumMappingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implements Serializable {
+public class DmcTypeEnumMappingREFSET extends DmcTypeEnumMappingREF implements Serializable {
     
-    protected Set<GxtEnumMappingREF> value;
+    protected Set<EnumMappingREF> value;
     
-    public DmcTypeGxtEnumMappingREFSET(){
+    public DmcTypeEnumMappingREFSET(){
         value = null;
     }
     
-    public DmcTypeGxtEnumMappingREFSET(DmcAttributeInfo ai){
+    public DmcTypeEnumMappingREFSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<GxtEnumMappingREF>();
+            value = new HashSet<EnumMappingREF>();
         else
-            value = new TreeSet<GxtEnumMappingREF>();
+            value = new TreeSet<EnumMappingREF>();
     }
     
     @Override
-    public DmcTypeGxtEnumMappingREFSET getNew(){
-        return(new DmcTypeGxtEnumMappingREFSET(attrInfo));
+    public DmcTypeEnumMappingREFSET getNew(){
+        return(new DmcTypeEnumMappingREFSET(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
-    public DmcAttribute<GxtEnumMappingREF> cloneIt(){
+    public DmcAttribute<EnumMappingREF> cloneIt(){
         synchronized(this){
-            DmcTypeGxtEnumMappingREFSET rc = getNew();
-            for(GxtEnumMappingREF val: value)
+            DmcTypeEnumMappingREFSET rc = getNew();
+            for(EnumMappingREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -74,9 +74,9 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
-    public GxtEnumMappingREF add(Object v) throws DmcValueException {
+    public EnumMappingREF add(Object v) throws DmcValueException {
         synchronized(this){
-            GxtEnumMappingREF rc = typeCheck(v);
+            EnumMappingREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -90,9 +90,9 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
-    public GxtEnumMappingREF del(Object v){
+    public EnumMappingREF del(Object v){
         synchronized(this){
-            GxtEnumMappingREF rc = null;
+            EnumMappingREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -114,22 +114,22 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
-    public Iterator<GxtEnumMappingREF> getMV(){
+    public Iterator<EnumMappingREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<GxtEnumMappingREF>(value)).iterator() );
+                return( (new HashSet<EnumMappingREF>(value)).iterator() );
             else
-                return( (new TreeSet<GxtEnumMappingREF>(value)).iterator() );
+                return( (new TreeSet<EnumMappingREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
-    public Set<GxtEnumMappingREF> getMVCopy(){
+    public Set<EnumMappingREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<GxtEnumMappingREF>(value));
+                return(new HashSet<EnumMappingREF>(value));
             else
-                return(new TreeSet<GxtEnumMappingREF>(value));
+                return(new TreeSet<EnumMappingREF>(value));
         }
     }
     
@@ -151,7 +151,7 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
                 return(false);
             
             try {
-                GxtEnumMappingREF val = typeCheck(v);
+                EnumMappingREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

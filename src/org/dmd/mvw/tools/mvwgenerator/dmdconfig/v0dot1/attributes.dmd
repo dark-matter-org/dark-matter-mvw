@@ -755,6 +755,21 @@ type			Boolean
 description		Indicates that a controller is the target for centralized handling of asyncronous
  code loading errors.
 
+AttributeDefinition
+name			mappingGenerator
+dmdID			102
+type			EnumMappingGenerator
+description		A reference to the generator that will create the enum mapping code.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
+
+AttributeDefinition
+name			enumGeneratorClass
+dmdID			103
+type			String
+description		The fully qualified Java class name of a class that implements the MvwEnumMappingGeneratorIF.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
 
 //AttributeDefinition
 //name			mandatoryStyle

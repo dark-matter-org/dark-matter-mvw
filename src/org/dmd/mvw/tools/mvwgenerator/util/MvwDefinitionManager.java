@@ -38,6 +38,7 @@ import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
+import org.dmd.mvw.tools.mvwgenerator.extended.EnumMappingGenerator;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.I18NConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
@@ -50,7 +51,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.EnumMapping;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
@@ -82,31 +83,33 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	// This is the first module that we loaded, and thus the target of the
 	// code generation activity this time round
-	Module										codeGenModule;
-	WebApplication								application;
+	Module											codeGenModule;
+	WebApplication									application;
 	
 	// This is the current module that we're reading
-	Module										currentModule;
+	Module											currentModule;
 	
-	TreeMap<CamelCaseName, Module>				modules;
+	TreeMap<CamelCaseName, Module>					modules;
 	
 //	TreeMap<CamelCaseName, MvwEvent>			mvwEevents;
 	
-	TreeMap<CamelCaseName, Event>				events;
+	TreeMap<CamelCaseName, Event>					events;
 	
-	TreeMap<CamelCaseName, Controller>			controllers;
+	TreeMap<CamelCaseName, Controller>				controllers;
 	
-	TreeMap<CamelCaseName, Presenter>			presenters;
+	TreeMap<CamelCaseName, Presenter>				presenters;
 	
-	TreeMap<CamelCaseName, Activity>			activities;
+	TreeMap<CamelCaseName, Activity>				activities;
 	
-	TreeMap<CamelCaseName, Component>			components;
+	TreeMap<CamelCaseName, Component>				components;
 	
-	TreeMap<CamelCaseName, Place>				places;
+	TreeMap<CamelCaseName, Place>					places;
 	
-	TreeMap<CamelCaseName, SubPlace>			subPlaces;
+	TreeMap<CamelCaseName, SubPlace>				subPlaces;
 	
-	TreeMap<CamelCaseName, View>				views;
+	TreeMap<CamelCaseName, View>					views;
+	
+	TreeMap<CamelCaseName, EnumMappingGenerator>	enumGenerators;
 	
 	Controller									centralRpcErrorHandler;
 	
@@ -146,7 +149,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, FormBindingDefinition>	formBindings;
 	
-	TreeMap<CamelCaseName, GxtEnumMapping>			enumMappings;
+	TreeMap<CamelCaseName, EnumMapping>			enumMappings;
 	
 	
 	// Gets set to true is any of our components send requests
@@ -176,6 +179,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		places			= new TreeMap<CamelCaseName, Place>();
 		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
+		enumGenerators	= new TreeMap<CamelCaseName, EnumMappingGenerator>();
 		
 		contexts		= new TreeMap<String, RunContextItemCollection>();
 		defaultContext 	= new RunContextItemCollection("Default");
@@ -201,7 +205,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
-		enumMappings			= new TreeMap<CamelCaseName, GxtEnumMapping>();
+		enumMappings			= new TreeMap<CamelCaseName, EnumMapping>();
 	}
 	
 	/**
@@ -289,7 +293,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		return(formBindings);
 	}
 	
-	public TreeMap<CamelCaseName,GxtEnumMapping> getEnumMappings(){
+	public TreeMap<CamelCaseName,EnumMapping> getEnumMappings(){
 		return(enumMappings);
 	}
 	
@@ -592,6 +596,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof SubPlace){
 			subPlaces.put(def.getCamelCaseName(), (SubPlace) def);
 		}
+		else if (def instanceof EnumMappingGenerator){
+			enumGenerators.put(def.getCamelCaseName(), (EnumMappingGenerator) def);
+		}
 		else if (def instanceof RunContextItem){
 			RunContextItem rci = (RunContextItem) def;
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
@@ -691,8 +698,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			FormBindingDefinition fbd = (FormBindingDefinition) def;
 			formBindings.put(fbd.getBindingName(), fbd);
 		}
-		else if (def instanceof GxtEnumMapping){
-			GxtEnumMapping gem = (GxtEnumMapping) def;
+		else if (def instanceof EnumMapping){
+			EnumMapping gem = (EnumMapping) def;
 			enumMappings.put(gem.getMappingName(), gem);
 		}
 		
@@ -989,7 +996,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		
 		if (enumMappings.size() > 0){
-			for(GxtEnumMapping mapping: enumMappings.values()){
+			for(EnumMapping mapping: enumMappings.values()){
 				if (mapping.getDefinedInModule() == codeGenModule){
 					EnumDefinition ed = readSchemas.isEnum(mapping.getEnumName());
 					if (ed == null){
@@ -1114,6 +1121,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(Place place: places.values()){
 			place.initCodeGenInfo();
+		}
+		for(EnumMappingGenerator gen: enumGenerators.values()){
+			gen.init();
 		}
 		for(ActionBinding action: actions.values()){
 			action.initCodeGenInfo();
@@ -1262,6 +1272,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		return subPlaces;
 	}
 
+	public TreeMap<CamelCaseName, EnumMappingGenerator> getEnumGenerators() {
+		return enumGenerators;
+	}
+
 	public TreeMap<CamelCaseName, View> getViews() {
 		return views;
 	}
@@ -1368,6 +1382,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		for(SubPlace def: mdm.subPlaces.values()){
 			subPlaces.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(EnumMappingGenerator gen: mdm.enumGenerators.values()){
+			enumGenerators.put(gen.getCamelCaseName(), gen);
+			allDefs.put(gen.getCamelCaseName(), gen);
 		}
 		
 		for(View def: mdm.views.values()){
