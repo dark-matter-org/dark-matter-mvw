@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGxtEnumMappingREFMV;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingREFMV;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
-public class GxtEnumMappingREFMVAdapter extends DmcTypeGxtEnumMappingREFMV implements DmcAdapterIF {
+public class EnumMappingREFMVAdapter extends DmcTypeEnumMappingREFMV implements DmcAdapterIF {
 
-    transient DmcTypeGxtEnumMappingREFMV existingValue;
+    transient DmcTypeEnumMappingREFMV existingValue;
 
-    public GxtEnumMappingREFMVAdapter(DmcAttributeInfo ai){
+    public EnumMappingREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
     }
 
@@ -39,7 +39,7 @@ public class GxtEnumMappingREFMVAdapter extends DmcTypeGxtEnumMappingREFMV imple
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeGxtEnumMappingREFMV) attr;
+    	existingValue = (DmcTypeEnumMappingREFMV) attr;
     	if (existingValue != null)
     		value = existingValue.getMVCopy();
     }

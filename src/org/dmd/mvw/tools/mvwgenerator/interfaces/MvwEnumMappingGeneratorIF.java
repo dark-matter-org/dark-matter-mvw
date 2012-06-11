@@ -2,7 +2,7 @@ package org.dmd.mvw.tools.mvwgenerator.interfaces;
 
 import java.io.IOException;
 
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.EnumMapping;
 
 /**
  * The MvwEnumMappingGeneratorIF interface defines an object that generate the appropriate
@@ -12,6 +12,6 @@ import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
  */
 public interface MvwEnumMappingGeneratorIF {
 
-	public void formatEnumMapping(String outdir, GxtEnumMapping mapping) throws IOException;
+	public void formatEnumMapping(String outdir, EnumMapping mapping) throws IOException;
 	
 }

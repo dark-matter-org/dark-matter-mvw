@@ -6,15 +6,15 @@ import java.util.Iterator;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.GenUtility;
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.GxtEnumMappingDMW;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EnumMappingDMW;
 
-public class GxtEnumMapping extends GxtEnumMappingDMW {
+public class EnumMapping extends EnumMappingDMW {
 	
 	EnumDefinition	edef;
 	
 	EnumValue		unsetValue;
 
-	public GxtEnumMapping(){
+	public EnumMapping(){
 		edef = null;
 	}
 	

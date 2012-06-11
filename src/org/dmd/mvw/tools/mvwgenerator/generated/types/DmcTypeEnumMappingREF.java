@@ -22,12 +22,12 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.CamelCaseName;
 
-import org.dmd.mvw.tools.mvwgenerator.generated.types.GxtEnumMappingREF;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingREF;
 
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.GxtEnumMappingDMO;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type GxtEnumMapping
+ * This is the generated DmcAttribute derivative for values of type EnumMapping
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -35,19 +35,19 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.GxtEnumMappingDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:585)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeGxtEnumMappingREF extends DmcTypeNamedObjectREF<GxtEnumMappingREF, CamelCaseName> {
+abstract public class DmcTypeEnumMappingREF extends DmcTypeNamedObjectREF<EnumMappingREF, CamelCaseName> {
 
-    public DmcTypeGxtEnumMappingREF(){
+    public DmcTypeEnumMappingREF(){
     
     }
 
-    public DmcTypeGxtEnumMappingREF(DmcAttributeInfo ai){
+    public DmcTypeEnumMappingREF(DmcAttributeInfo ai){
         super(ai);
     }
 
     @Override
-    protected GxtEnumMappingREF getNewHelper(){
-        return(new GxtEnumMappingREF());
+    protected EnumMappingREF getNewHelper(){
+        return(new EnumMappingREF());
     }
 
     @Override
@@ -57,49 +57,49 @@ abstract public class DmcTypeGxtEnumMappingREF extends DmcTypeNamedObjectREF<Gxt
 
     @Override
     protected String getDMOClassName(){
-        return( GxtEnumMappingDMO.class.getName());
+        return( EnumMappingDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof GxtEnumMappingDMO)
+        if (value instanceof EnumMappingDMO)
             return(true);
         return(false);
     }
 
     @Override
-    protected GxtEnumMappingREF typeCheck(Object value) throws DmcValueException {
-        GxtEnumMappingREF rc = null;
+    protected EnumMappingREF typeCheck(Object value) throws DmcValueException {
+        EnumMappingREF rc = null;
 
-        if (value instanceof GxtEnumMappingREF)
-            rc = (GxtEnumMappingREF)value;
-        else if (value instanceof GxtEnumMappingDMO)
-            rc = new GxtEnumMappingREF((GxtEnumMappingDMO)value);
+        if (value instanceof EnumMappingREF)
+            rc = (EnumMappingREF)value;
+        else if (value instanceof EnumMappingDMO)
+            rc = new EnumMappingREF((EnumMappingDMO)value);
         else if (value instanceof CamelCaseName)
-            rc = new GxtEnumMappingREF((CamelCaseName)value);
+            rc = new EnumMappingREF((CamelCaseName)value);
         else if (value instanceof String)
-            rc = new GxtEnumMappingREF((String)value);
+            rc = new EnumMappingREF((String)value);
         else
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with GxtEnumMappingREF, GxtEnumMappingDMO or String expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with EnumMappingREF, EnumMappingDMO or String expected."));
 
         return(rc);
     }
 
     @Override
-    public void serializeValue(DmcOutputStreamIF dos, GxtEnumMappingREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, EnumMappingREF value) throws Exception {
         value.serializeIt(dos);
     }
 
     @Override
-    public GxtEnumMappingREF deserializeValue(DmcInputStreamIF dis) throws Exception {
-        GxtEnumMappingREF rc = new GxtEnumMappingREF();
+    public EnumMappingREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+        EnumMappingREF rc = new EnumMappingREF();
         rc.deserializeIt(dis);
         return(rc);
     }
 
     @Override
-    public GxtEnumMappingREF cloneValue(GxtEnumMappingREF value){
-        return(new GxtEnumMappingREF(value));
+    public EnumMappingREF cloneValue(EnumMappingREF value){
+        return(new EnumMappingREF(value));
     }
 
 

@@ -13,7 +13,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.EnumMapping;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -178,10 +178,11 @@ public class MvwGenerator {
 		}
 		
 		if (defManager.getEnumMappings().size() > 0){
-			for(GxtEnumMapping gem: defManager.getEnumMappings().values()){
+			for(EnumMapping gem: defManager.getEnumMappings().values()){
 				if (gem.getDefinedInModule() == defManager.codeGenModule){
 					createGenDir(formsdir);
-					GxtEnumMappingFormatter.formatEnumMapping(formsdir, gem);
+					gem.getMappingGenerator().formatEnumMapping(formsdir, gem);
+//					GxtEnumMappingFormatter.formatEnumMapping(formsdir, gem);
 				}
 			}
 		}
