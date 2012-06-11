@@ -16,35 +16,42 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                  // Always required - (GenUtility.java:197)
-import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:301)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:328)
+import java.io.Serializable;                                                                    // Always required - (GenUtility.java:197)
+import java.util.*;                                                                             // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                                                // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcNamedObjectIF;                                                            // Named object - (GenUtility.java:348)
+import org.dmd.dmc.DmcOmni;                                                                     // Lazy resolution - (GenUtility.java:293)
+import org.dmd.dmc.DmcSliceInfo;                                                                // Required for object slicing - (GenUtility.java:202)
+import org.dmd.dmc.DmcValueException;                                                           // Any attributes - (GenUtility.java:214)
+import org.dmd.dmc.types.CamelCaseName;                                                         // Naming attribute type - (GenUtility.java:343)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                                     // Required for MODREC constructor - (GenUtility.java:201)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                            // Required type - (GenUtility.java:301)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                      // Required type - (GenUtility.java:301)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                           // Required for MODREC constructor - (GenUtility.java:200)
+import org.dmd.dms.generated.types.DmcTypeStringSET;                                            // Required type - (GenUtility.java:301)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                             // Required type - (GenUtility.java:301)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO;                    // Type specific set/add - (GenUtility.java:280)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                           // Base class - (GenUtility.java:328)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingGeneratorREFSV;         // Reference type - (GenUtility.java:273)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingGeneratorREF;                  // Helper class - (GenUtility.java:308)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The GxtEnumMapping class allows for generation of a set of static data
+ * The EnumMapping class allows for generation of a set of static data
  * instances that represent the values from the specified enumeration (type).
- * NOTE: this mechanism is only  useful if you are using the Sencha's GXT
- * widget set. <p /> Enum values are comprised of an integer, a name, a
- * description and optionally, a label as follows - int name description :
- * label. If you specify useNameAsLabel, the uppercase name value of the enum
- * is used to display the value of the. If useNameAsLabel is not specified,
- * the label will be used if it has been specified. Otherwise, the
- * description is used.
+ * Depending on the widget set you're using, you will specify different
+ * mappingGenerators; these are defined as extensions to the standard MVW
+ * generation mechanisms. For example, the dark-matter-gxt project defines
+ * the GXTEnumGenerator generator that will generate code that maps an enum
+ * to code that can be used with a selector widget. <p /> Enum values are
+ * comprised of an integer, a name, a description and optionally, a label as
+ * follows - int name description : label. If you specify useNameAsLabel, the
+ * uppercase name value of the enum is used to display the value of the. If
+ * useNameAsLabel is not specified, the label will be used if it has been
+ * specified. Otherwise, the description is used.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -52,9 +59,9 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
+public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
 
-    public final static String constructionClassName = "GxtEnumMapping";
+    public final static String constructionClassName = "EnumMapping";
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -69,11 +76,11 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
-    public GxtEnumMappingDMO() {
-        super("GxtEnumMapping");
+    public EnumMappingDMO() {
+        super("EnumMapping");
     }
 
-    protected GxtEnumMappingDMO(String oc) {
+    protected EnumMappingDMO(String oc) {
         super(oc);
     }
 
@@ -86,26 +93,26 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     }
 
     @Override
-    public GxtEnumMappingDMO getNew(){
-        GxtEnumMappingDMO rc = new GxtEnumMappingDMO();
+    public EnumMappingDMO getNew(){
+        EnumMappingDMO rc = new EnumMappingDMO();
         return(rc);
     }
 
     @Override
-    public GxtEnumMappingDMO getSlice(DmcSliceInfo info){
-        GxtEnumMappingDMO rc = new GxtEnumMappingDMO();
+    public EnumMappingDMO getSlice(DmcSliceInfo info){
+        EnumMappingDMO rc = new EnumMappingDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public GxtEnumMappingDMO(DmcTypeModifierMV mods) {
-        super("GxtEnumMapping");
+    public EnumMappingDMO(DmcTypeModifierMV mods) {
+        super("EnumMapping");
         modrec(true);
         setModifier(mods);
     }
 
-    public GxtEnumMappingDMO getModificationRecorder(){
-        GxtEnumMappingDMO rc = new GxtEnumMappingDMO();
+    public EnumMappingDMO getModificationRecorder(){
+        EnumMappingDMO rc = new EnumMappingDMO();
         rc.setMappingName(getMappingName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         rc.modrec(true);
@@ -127,8 +134,8 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof GxtEnumMappingDMO){
-            return( getObjectName().equals( ((GxtEnumMappingDMO) obj).getObjectName()) );
+        if (obj instanceof EnumMappingDMO){
+            return( getObjectName().equals( ((EnumMappingDMO) obj).getObjectName()) );
         }
         return(false);
     }
@@ -466,6 +473,78 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remUnsetValue(){
          rem(MvwDMSAG.__unsetValue);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    public EnumMappingGeneratorREF getMappingGenerator(){
+        DmcTypeEnumMappingGeneratorREFSV attr = (DmcTypeEnumMappingGeneratorREFSV) get(MvwDMSAG.__mappingGenerator);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to EnumMappingGenerator without attempting lazy resolution (if turned on).
+     */
+    public EnumMappingGeneratorREF getMappingGeneratorREF(){
+        DmcTypeEnumMappingGeneratorREFSV attr = (DmcTypeEnumMappingGeneratorREFSV) get(MvwDMSAG.__mappingGenerator);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets mappingGenerator to the specified value.
+     * @param value EnumMappingGeneratorDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:676)
+    public void setMappingGenerator(EnumMappingGeneratorDMO value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__mappingGenerator);
+        if (attr == null)
+            attr = new DmcTypeEnumMappingGeneratorREFSV(MvwDMSAG.__mappingGenerator);
+        else
+            ((DmcTypeEnumMappingGeneratorREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__mappingGenerator,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets mappingGenerator to the specified value.
+     * @param value A value compatible with DmcTypeEnumMappingGeneratorREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    public void setMappingGenerator(Object value) throws DmcValueException {
+        DmcTypeEnumMappingGeneratorREFSV attr  = (DmcTypeEnumMappingGeneratorREFSV) get(MvwDMSAG.__mappingGenerator);
+        if (attr == null)
+            attr = new DmcTypeEnumMappingGeneratorREFSV(MvwDMSAG.__mappingGenerator);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(MvwDMSAG.__mappingGenerator,attr);
+    }
+
+    /**
+     * Removes the mappingGenerator attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    public void remMappingGenerator(){
+         rem(MvwDMSAG.__mappingGenerator);
     }
 
 

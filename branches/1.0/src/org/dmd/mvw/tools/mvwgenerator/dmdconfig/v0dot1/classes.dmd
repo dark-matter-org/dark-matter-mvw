@@ -498,7 +498,7 @@ description		The EnumMapping class allows for generation of a set of static data
  that represent the values from the specified enumeration (type). Depending on the widget set
  you're using, you will specify different mappingGenerators; these are defined as extensions
  to the standard MVW generation mechanisms. For example, the dark-matter-gxt project defines
- the GXTEnumGen generator that will generate code that maps an enum to code that can be used with
+ the GXTEnumGenerator generator that will generate code that maps an enum to code that can be used with
  a selector widget.
  <p />
  Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label.
@@ -509,7 +509,14 @@ description		The EnumMapping class allows for generation of a set of static data
 ClassDefinition
 name			EnumMappingGenerator
 classType		STRUCTURAL
+dmdID			27
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		camelCaseName
+must			camelCaseName
+must			enumGeneratorClass
+description		The EnumMappingGenerator definition allows for the specification of code
+ generation extension that generates enum mapping code for a particular widget set.
+ 
+ 
 

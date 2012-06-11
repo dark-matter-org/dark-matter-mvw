@@ -22,14 +22,14 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF; // base import
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.GxtEnumMappingDMO; // primitive type
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO; // primitive type
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV; 
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 /**
- * This is the generated DmcAttribute derivative for values of type GxtEnumMapping
+ * This is the generated DmcAttribute derivative for values of type EnumMappingGenerator
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -37,38 +37,38 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:420)
  */
 @SuppressWarnings("serial")
-public class GxtEnumMappingREF extends DmcNamedObjectNontransportableREF<GxtEnumMappingDMO> {
+public class EnumMappingGeneratorREF extends DmcNamedObjectNontransportableREF<EnumMappingGeneratorDMO> {
 
-    public final static DmcAttributeInfo __mappingName = new DmcAttributeInfo("mappingName",890,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     
-    public GxtEnumMappingREF(){
+    public EnumMappingGeneratorREF(){
     }
 
-    public GxtEnumMappingREF(GxtEnumMappingDMO o){
+    public EnumMappingGeneratorREF(EnumMappingGeneratorDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
-    public GxtEnumMappingREF(CamelCaseName n) throws DmcValueException {
+    public EnumMappingGeneratorREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__mappingName);
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 
-    public GxtEnumMappingREF(String n) throws DmcValueException {
+    public EnumMappingGeneratorREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__mappingName);
+         myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
          myName.set(n);
     }
 
-    public GxtEnumMappingREF(GxtEnumMappingREF original){
+    public EnumMappingGeneratorREF(EnumMappingGeneratorREF original){
         myName = original.myName;
         object = original.object;
     }
 
-    public void setObject(GxtEnumMappingDMO o){
+    public void setObject(EnumMappingGeneratorDMO o){
          object = o;
          if (object != null)
              myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
@@ -77,8 +77,8 @@ public class GxtEnumMappingREF extends DmcNamedObjectNontransportableREF<GxtEnum
     /**
      * Clones this reference.
      */
-    public GxtEnumMappingREF cloneMe(){
-        GxtEnumMappingREF rc = new GxtEnumMappingREF();
+    public EnumMappingGeneratorREF cloneMe(){
+        EnumMappingGeneratorREF rc = new EnumMappingGeneratorREF();
         rc.myName = myName;
         rc.object = object;
         return(rc);
@@ -87,7 +87,7 @@ public class GxtEnumMappingREF extends DmcNamedObjectNontransportableREF<GxtEnum
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null)
-            myName = new DmcTypeCamelCaseNameSV(__mappingName);
+            myName = new DmcTypeCamelCaseNameSV(__camelCaseName);
         myName.set(n);
     }
 

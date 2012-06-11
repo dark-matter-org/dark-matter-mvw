@@ -20,43 +20,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeGxtEnumMappingREFSV provides storage for a single-valued GxtEnumMappingREF
+ * The DmcTypeEnumMappingREFSV provides storage for a single-valued EnumMappingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGxtEnumMappingREFSV extends DmcTypeGxtEnumMappingREF implements Serializable {
+public class DmcTypeEnumMappingREFSV extends DmcTypeEnumMappingREF implements Serializable {
     
-    protected GxtEnumMappingREF value;
+    protected EnumMappingREF value;
     
-    public DmcTypeGxtEnumMappingREFSV(){
+    public DmcTypeEnumMappingREFSV(){
     
     }
     
-    public DmcTypeGxtEnumMappingREFSV(DmcAttributeInfo ai){
+    public DmcTypeEnumMappingREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeGxtEnumMappingREFSV getNew(){
-        return(new DmcTypeGxtEnumMappingREFSV(attrInfo));
+    public DmcTypeEnumMappingREFSV getNew(){
+        return(new DmcTypeEnumMappingREFSV(attrInfo));
     }
     
-    public DmcTypeGxtEnumMappingREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeGxtEnumMappingREFSV(ai));
+    public DmcTypeEnumMappingREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeEnumMappingREFSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
-    public DmcAttribute<GxtEnumMappingREF> cloneIt(){
-        DmcTypeGxtEnumMappingREFSV rc = getNew();
+    public DmcAttribute<EnumMappingREF> cloneIt(){
+        DmcTypeEnumMappingREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
-    public GxtEnumMappingREF getSVCopy(){
+    public EnumMappingREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -64,8 +64,8 @@ public class DmcTypeGxtEnumMappingREFSV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
-    public GxtEnumMappingREF set(Object v) throws DmcValueException {
-        GxtEnumMappingREF rc = typeCheck(v);
+    public EnumMappingREF set(Object v) throws DmcValueException {
+        EnumMappingREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -81,7 +81,7 @@ public class DmcTypeGxtEnumMappingREFSV extends DmcTypeGxtEnumMappingREF impleme
     }
     
     @Override
-    public GxtEnumMappingREF getSV(){
+    public EnumMappingREF getSV(){
         return(value);
     }
     

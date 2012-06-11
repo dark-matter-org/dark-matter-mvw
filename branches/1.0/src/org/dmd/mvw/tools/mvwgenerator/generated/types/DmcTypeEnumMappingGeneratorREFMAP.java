@@ -27,55 +27,55 @@ import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmc.types.CamelCaseName;    // key type import
 /**
- * The DmcTypeGxtEnumMappingREFMAP provides storage for a map of GxtEnumMappingREF
+ * The DmcTypeEnumMappingGeneratorREFMAP provides storage for a map of EnumMappingGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF<GxtEnumMappingREF,CamelCaseName> {
-public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implements Serializable {
+// public class DmcTypeEnumMappingGeneratorREFMAP extends DmcTypeEnumMappingGeneratorREF<EnumMappingGeneratorREF,CamelCaseName> {
+public class DmcTypeEnumMappingGeneratorREFMAP extends DmcTypeEnumMappingGeneratorREF implements Serializable {
     
-    protected Map<CamelCaseName,GxtEnumMappingREF> value;
+    protected Map<CamelCaseName,EnumMappingGeneratorREF> value;
     
-    public DmcTypeGxtEnumMappingREFMAP(){
+    public DmcTypeEnumMappingGeneratorREFMAP(){
         value = null;
     }
     
-    public DmcTypeGxtEnumMappingREFMAP(DmcAttributeInfo ai){
+    public DmcTypeEnumMappingGeneratorREFMAP(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<CamelCaseName,GxtEnumMappingREF>();
+            value = new HashMap<CamelCaseName,EnumMappingGeneratorREF>();
         else
-            value = new TreeMap<CamelCaseName,GxtEnumMappingREF>();
+            value = new TreeMap<CamelCaseName,EnumMappingGeneratorREF>();
     }
     
     public CamelCaseName firstKey(){
         if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
-            TreeMap<CamelCaseName,GxtEnumMappingREF> map = (TreeMap<CamelCaseName,GxtEnumMappingREF>)value;
+            TreeMap<CamelCaseName,EnumMappingGeneratorREF> map = (TreeMap<CamelCaseName,EnumMappingGeneratorREF>)value;
             return(map.firstKey());
         }
         throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
-    public DmcTypeGxtEnumMappingREFMAP getNew(){
-        return(new DmcTypeGxtEnumMappingREFMAP(attrInfo));
+    public DmcTypeEnumMappingGeneratorREFMAP getNew(){
+        return(new DmcTypeEnumMappingGeneratorREFMAP(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
-    public DmcAttribute<GxtEnumMappingREF> cloneIt(){
+    public DmcAttribute<EnumMappingGeneratorREF> cloneIt(){
         synchronized(this){
-            DmcTypeGxtEnumMappingREFMAP rc = getNew();
-            for(GxtEnumMappingREF val: value.values())
+            DmcTypeEnumMappingGeneratorREFMAP rc = getNew();
+            for(EnumMappingGeneratorREF val: value.values())
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -87,13 +87,13 @@ public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
-    public GxtEnumMappingREF add(Object v) throws DmcValueException {
+    public EnumMappingGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
-            GxtEnumMappingREF newval = typeCheck(v);
+            EnumMappingGeneratorREF newval = typeCheck(v);
             if (value == null)
                 initValue();
             CamelCaseName key = (CamelCaseName)((DmcMappedAttributeIF)newval).getKey();
-            GxtEnumMappingREF oldval = value.put(key,newval);
+            EnumMappingGeneratorREF oldval = value.put(key,newval);
             
             if (oldval != null){
                 // We had a value with this key, ensure that the value actually changed
@@ -107,7 +107,7 @@ public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
-    public GxtEnumMappingREF del(Object key){
+    public EnumMappingGeneratorREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
@@ -118,25 +118,25 @@ public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
-    public Iterator<GxtEnumMappingREF> getMV(){
+    public Iterator<EnumMappingGeneratorREF> getMV(){
         synchronized(this){
-            Map<CamelCaseName,GxtEnumMappingREF> clone = null;
+            Map<CamelCaseName,EnumMappingGeneratorREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,GxtEnumMappingREF>(value);
+                clone = new HashMap<CamelCaseName,EnumMappingGeneratorREF>(value);
             else
-                clone = new TreeMap<CamelCaseName,GxtEnumMappingREF>(value);
+                clone = new TreeMap<CamelCaseName,EnumMappingGeneratorREF>(value);
             return(clone.values().iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
-    public Map<CamelCaseName,GxtEnumMappingREF> getMVCopy(){
+    public Map<CamelCaseName,EnumMappingGeneratorREF> getMVCopy(){
         synchronized(this){
-            Map<CamelCaseName,GxtEnumMappingREF> clone = null;
+            Map<CamelCaseName,EnumMappingGeneratorREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,GxtEnumMappingREF>(value);
+                clone = new HashMap<CamelCaseName,EnumMappingGeneratorREF>(value);
             else
-                clone = new TreeMap<CamelCaseName,GxtEnumMappingREF>(value);
+                clone = new TreeMap<CamelCaseName,EnumMappingGeneratorREF>(value);
             return(clone);
         }
     }
@@ -153,7 +153,7 @@ public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implem
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
-    public GxtEnumMappingREF getByKey(Object key){
+    public EnumMappingGeneratorREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
                 return(value.get((CamelCaseName) key));
@@ -167,7 +167,7 @@ public class DmcTypeGxtEnumMappingREFMAP extends DmcTypeGxtEnumMappingREF implem
     public boolean contains(Object v){
         synchronized(this){
             try {
-                GxtEnumMappingREF val = typeCheck(v);
+                EnumMappingGeneratorREF val = typeCheck(v);
                 return(value.containsValue(val));
             } catch (DmcValueException e) {
                 return(false);

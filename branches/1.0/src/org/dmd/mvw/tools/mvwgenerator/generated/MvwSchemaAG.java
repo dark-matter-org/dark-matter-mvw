@@ -43,7 +43,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _FormBindingDefinition;
     public static ClassDefinition _FieldEditorDefinition;
     public static ClassDefinition _FormImplementationConfig;
-    public static ClassDefinition _GxtEnumMapping;
+    public static ClassDefinition _EnumMapping;
+    public static ClassDefinition _EnumMappingGenerator;
 
     public static AttributeDefinition _definedInModule;
     public static AttributeDefinition _firesEvent;
@@ -138,6 +139,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _firedInThisModule;
     public static AttributeDefinition _codeSplit;
     public static AttributeDefinition _centralAsyncErrorHandler;
+    public static AttributeDefinition _mappingGenerator;
+    public static AttributeDefinition _enumGeneratorClass;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -755,28 +758,49 @@ public class MvwSchemaAG extends SchemaDefinition {
             addClassDefList(_FormImplementationConfig);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
-            ClassDefinitionDMO _GxtEnumMappingOBJ = new ClassDefinitionDMO();
-            _GxtEnumMapping = new ClassDefinition(_GxtEnumMappingOBJ,MvwDMSAG.__GxtEnumMapping);
-            _GxtEnumMappingOBJ.setName("GxtEnumMapping");
-            _GxtEnumMappingOBJ.setDmdID("826");
-            _GxtEnumMappingOBJ.setClassType("STRUCTURAL");
-            _GxtEnumMappingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _GxtEnumMappingOBJ.setLineNumber("504");
-            _GxtEnumMappingOBJ.setDescription("The GxtEnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). NOTE: this mechanism is only  useful if you are using the Sencha's GXT widget set. <p /> Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label. If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise, the description is used.");
-            _GxtEnumMappingOBJ.setDerivedFrom("MvwDefinition");
-            _GxtEnumMappingOBJ.setIsNamedBy("mappingName");
-            _GxtEnumMappingOBJ.setUseWrapperType("EXTENDED");
-            _GxtEnumMappingOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.GxtEnumMappingREF");
-            _GxtEnumMappingOBJ.setDmwIteratorClass("GxtEnumMappingIterableDMW");
-            _GxtEnumMappingOBJ.addMay("useNameAsLabel");
-            _GxtEnumMappingOBJ.addMay("skipEnumValue");
-            _GxtEnumMappingOBJ.addMust("mappingName");
-            _GxtEnumMappingOBJ.addMust("enumName");
-            _GxtEnumMappingOBJ.addMust("unsetValue");
-            _GxtEnumMappingOBJ.setSubpackage("forms");
-            _GxtEnumMappingOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.GxtEnumMappingIterableDMW");
-            _GxtEnumMapping.setDefinedIn(this);
-            addClassDefList(_GxtEnumMapping);
+            ClassDefinitionDMO _EnumMappingOBJ = new ClassDefinitionDMO();
+            _EnumMapping = new ClassDefinition(_EnumMappingOBJ,MvwDMSAG.__EnumMapping);
+            _EnumMappingOBJ.setName("EnumMapping");
+            _EnumMappingOBJ.setDmdID("826");
+            _EnumMappingOBJ.setClassType("STRUCTURAL");
+            _EnumMappingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _EnumMappingOBJ.setLineNumber("508");
+            _EnumMappingOBJ.setDescription("The EnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). Depending on the widget set you're using, you will specify different mappingGenerators; these are defined as extensions to the standard MVW generation mechanisms. For example, the dark-matter-gxt project defines the GXTEnumGenerator generator that will generate code that maps an enum to code that can be used with a selector widget. <p /> Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label. If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise, the description is used.");
+            _EnumMappingOBJ.setDerivedFrom("MvwDefinition");
+            _EnumMappingOBJ.setIsNamedBy("mappingName");
+            _EnumMappingOBJ.setUseWrapperType("EXTENDED");
+            _EnumMappingOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingREF");
+            _EnumMappingOBJ.setDmwIteratorClass("EnumMappingIterableDMW");
+            _EnumMappingOBJ.addMay("useNameAsLabel");
+            _EnumMappingOBJ.addMay("skipEnumValue");
+            _EnumMappingOBJ.addMust("mappingName");
+            _EnumMappingOBJ.addMust("enumName");
+            _EnumMappingOBJ.addMust("unsetValue");
+            _EnumMappingOBJ.addMust("mappingGenerator");
+            _EnumMappingOBJ.setSubpackage("forms");
+            _EnumMappingOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EnumMappingIterableDMW");
+            _EnumMapping.setDefinedIn(this);
+            addClassDefList(_EnumMapping);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            ClassDefinitionDMO _EnumMappingGeneratorOBJ = new ClassDefinitionDMO();
+            _EnumMappingGenerator = new ClassDefinition(_EnumMappingGeneratorOBJ,MvwDMSAG.__EnumMappingGenerator);
+            _EnumMappingGeneratorOBJ.setName("EnumMappingGenerator");
+            _EnumMappingGeneratorOBJ.setDmdID("827");
+            _EnumMappingGeneratorOBJ.setClassType("STRUCTURAL");
+            _EnumMappingGeneratorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _EnumMappingGeneratorOBJ.setLineNumber("520");
+            _EnumMappingGeneratorOBJ.setDescription("The EnumMappingGenerator definition allows for the specification of code generation extension that generates enum mapping code for a particular widget set.");
+            _EnumMappingGeneratorOBJ.setDerivedFrom("MvwDefinition");
+            _EnumMappingGeneratorOBJ.setIsNamedBy("camelCaseName");
+            _EnumMappingGeneratorOBJ.setUseWrapperType("EXTENDED");
+            _EnumMappingGeneratorOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingGeneratorREF");
+            _EnumMappingGeneratorOBJ.setDmwIteratorClass("EnumMappingGeneratorIterableDMW");
+            _EnumMappingGeneratorOBJ.addMust("camelCaseName");
+            _EnumMappingGeneratorOBJ.addMust("enumGeneratorClass");
+            _EnumMappingGeneratorOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EnumMappingGeneratorIterableDMW");
+            _EnumMappingGenerator.setDefinedIn(this);
+            addClassDefList(_EnumMappingGenerator);
 
     }
 
@@ -1935,6 +1959,30 @@ public class MvwSchemaAG extends SchemaDefinition {
             _centralAsyncErrorHandlerOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _centralAsyncErrorHandlerOBJ.setLineNumber("757");
             addAttributeDefList(_centralAsyncErrorHandler);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _mappingGeneratorOBJ = new AttributeDefinitionDMO();
+            _mappingGenerator = new AttributeDefinition(_mappingGeneratorOBJ);
+            _mappingGeneratorOBJ.setType("EnumMappingGenerator");
+            _mappingGeneratorOBJ.setName("mappingGenerator");
+            _mappingGeneratorOBJ.setDmdID("902");
+            _mappingGeneratorOBJ.setDescription("A reference to the generator that will create the enum mapping code. <p/> An example of this can be seen in the dark-matter-gxt project.");
+            _mappingGenerator.setDefinedIn(this);
+            _mappingGeneratorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _mappingGeneratorOBJ.setLineNumber("765");
+            addAttributeDefList(_mappingGenerator);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _enumGeneratorClassOBJ = new AttributeDefinitionDMO();
+            _enumGeneratorClass = new AttributeDefinition(_enumGeneratorClassOBJ);
+            _enumGeneratorClassOBJ.setType("String");
+            _enumGeneratorClassOBJ.setName("enumGeneratorClass");
+            _enumGeneratorClassOBJ.setDmdID("903");
+            _enumGeneratorClassOBJ.setDescription("The fully qualified Java class name of a class that implements the MvwEnumMappingGeneratorIF. <p/> An example of this can be seen in the dark-matter-gxt project.");
+            _enumGeneratorClass.setDefinedIn(this);
+            _enumGeneratorClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-mvw/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _enumGeneratorClassOBJ.setLineNumber("773");
+            addAttributeDefList(_enumGeneratorClass);
 
     }
 

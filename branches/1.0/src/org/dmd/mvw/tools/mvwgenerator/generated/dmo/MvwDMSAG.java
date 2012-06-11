@@ -70,6 +70,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __editObject = new DmcAttributeInfo("editObject", 886, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __editorName = new DmcAttributeInfo("editorName", 888, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __elementName = new DmcAttributeInfo("elementName", 868, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __enumGeneratorClass = new DmcAttributeInfo("enumGeneratorClass", 903, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firedInThisModule = new DmcAttributeInfo("firedInThisModule", 899, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
@@ -84,6 +85,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __local = new DmcAttributeInfo("local", 832, "Event", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __localEvent = new DmcAttributeInfo("localEvent", 814, "EventWithArgs", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView", 841, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mappingGenerator = new DmcAttributeInfo("mappingGenerator", 902, "EnumMappingGenerator", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mappingName = new DmcAttributeInfo("mappingName", 890, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __menuImplementation = new DmcAttributeInfo("menuImplementation", 883, "MenuImplementationConfig", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __menuOrder = new DmcAttributeInfo("menuOrder", 872, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -127,11 +129,12 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__activityName);
     public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__controllerName);
     public final static DmcClassInfo __Presenter = new DmcClassInfo("Presenter", 807, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__presenterName);
+    public final static DmcClassInfo __EnumMapping = new DmcClassInfo("EnumMapping", 826, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__mappingName);
+    public final static DmcClassInfo __EnumMappingGenerator = new DmcClassInfo("EnumMappingGenerator", 827, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MetaDMSAG.__camelCaseName);
     public final static DmcClassInfo __Event = new DmcClassInfo("Event", 802, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__eventName);
     public final static DmcClassInfo __FieldEditorDefinition = new DmcClassInfo("FieldEditorDefinition", 824, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__editorName);
     public final static DmcClassInfo __FormBindingDefinition = new DmcClassInfo("FormBindingDefinition", 823, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__bindingName);
     public final static DmcClassInfo __FormImplementationConfig = new DmcClassInfo("FormImplementationConfig", 825, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__configName);
-    public final static DmcClassInfo __GxtEnumMapping = new DmcClassInfo("GxtEnumMapping", 826, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__mappingName);
     public final static DmcClassInfo __MenuElementDefinition = new DmcClassInfo("MenuElementDefinition", 816, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__elementName);
     public final static DmcClassInfo __Menu = new DmcClassInfo("Menu", 817, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MenuElementDefinition,MvwDMSAG.__elementName);
     public final static DmcClassInfo __MenuBar = new DmcClassInfo("MenuBar", 818, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Menu,MvwDMSAG.__elementName);
@@ -211,6 +214,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__editObject.id,__editObject);
         _SmAp.put(__editorName.id,__editorName);
         _SmAp.put(__elementName.id,__elementName);
+        _SmAp.put(__enumGeneratorClass.id,__enumGeneratorClass);
         _SmAp.put(__eventName.id,__eventName);
         _SmAp.put(__firedInThisModule.id,__firedInThisModule);
         _SmAp.put(__firesEvent.id,__firesEvent);
@@ -225,6 +229,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__local.id,__local);
         _SmAp.put(__localEvent.id,__localEvent);
         _SmAp.put(__managesView.id,__managesView);
+        _SmAp.put(__mappingGenerator.id,__mappingGenerator);
         _SmAp.put(__mappingName.id,__mappingName);
         _SmAp.put(__menuImplementation.id,__menuImplementation);
         _SmAp.put(__menuOrder.id,__menuOrder);
@@ -266,11 +271,12 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__Activity.id,__Activity);
         _CmAp.put(__Component.id,__Component);
         _CmAp.put(__Controller.id,__Controller);
+        _CmAp.put(__EnumMapping.id,__EnumMapping);
+        _CmAp.put(__EnumMappingGenerator.id,__EnumMappingGenerator);
         _CmAp.put(__Event.id,__Event);
         _CmAp.put(__FieldEditorDefinition.id,__FieldEditorDefinition);
         _CmAp.put(__FormBindingDefinition.id,__FormBindingDefinition);
         _CmAp.put(__FormImplementationConfig.id,__FormImplementationConfig);
-        _CmAp.put(__GxtEnumMapping.id,__GxtEnumMapping);
         _CmAp.put(__I18NConfig.id,__I18NConfig);
         _CmAp.put(__Menu.id,__Menu);
         _CmAp.put(__MenuBar.id,__MenuBar);
@@ -438,11 +444,15 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
         __FormImplementationConfig.addMust(__configName);
 
-        __GxtEnumMapping.addMust(__mappingName);
-        __GxtEnumMapping.addMust(MetaDMSAG.__enumName);
-        __GxtEnumMapping.addMust(__unsetValue);
-        __GxtEnumMapping.addMay(__useNameAsLabel);
-        __GxtEnumMapping.addMay(__skipEnumValue);
+        __EnumMapping.addMust(__mappingName);
+        __EnumMapping.addMust(MetaDMSAG.__enumName);
+        __EnumMapping.addMust(__unsetValue);
+        __EnumMapping.addMust(__mappingGenerator);
+        __EnumMapping.addMay(__useNameAsLabel);
+        __EnumMapping.addMay(__skipEnumValue);
+
+        __EnumMappingGenerator.addMust(MetaDMSAG.__camelCaseName);
+        __EnumMappingGenerator.addMust(__enumGeneratorClass);
 
 
     }
