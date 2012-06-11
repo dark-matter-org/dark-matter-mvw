@@ -756,14 +756,21 @@ description		Indicates that a controller is the target for centralized handling 
  code loading errors.
 
 AttributeDefinition
-name			enumGeneratorClass
+name			mappingGenerator
 dmdID			102
-type			String
-description		The fully qualified name of a Java class that implements the MvwEnumGeneratorIF
- that is used generate the code required to map a DMS EnumDefinition to code that makes that 
- enum usable with a particular widget set.
+type			EnumMappingGenerator
+description		A reference to the generator that will create the enum mapping code.
  <p/>
  An example of this can be seen in the dark-matter-gxt project.
+
+AttributeDefinition
+name			enumGeneratorClass
+dmdID			103
+type			String
+description		The fully qualified Java class name of a class that implements the MvwEnumMappingGeneratorIF.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89
