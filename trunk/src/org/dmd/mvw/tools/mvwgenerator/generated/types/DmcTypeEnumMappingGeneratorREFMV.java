@@ -22,37 +22,37 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeGxtEnumMappingREFMV provides storage for a multi-valued GxtEnumMappingREF
+ * The DmcTypeEnumMappingGeneratorREFMV provides storage for a multi-valued EnumMappingGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF implements Serializable {
+public class DmcTypeEnumMappingGeneratorREFMV extends DmcTypeEnumMappingGeneratorREF implements Serializable {
     
-    protected ArrayList<GxtEnumMappingREF> value;
+    protected ArrayList<EnumMappingGeneratorREF> value;
     
-    public DmcTypeGxtEnumMappingREFMV(){
+    public DmcTypeEnumMappingGeneratorREFMV(){
     
     }
     
-    public DmcTypeGxtEnumMappingREFMV(DmcAttributeInfo ai){
+    public DmcTypeEnumMappingGeneratorREFMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeGxtEnumMappingREFMV getNew(){
-        return(new DmcTypeGxtEnumMappingREFMV(attrInfo));
+    public DmcTypeEnumMappingGeneratorREFMV getNew(){
+        return(new DmcTypeEnumMappingGeneratorREFMV(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
-    public DmcAttribute<GxtEnumMappingREF> cloneIt(){
+    public DmcAttribute<EnumMappingGeneratorREF> cloneIt(){
         synchronized(this){
-            DmcTypeGxtEnumMappingREFMV rc = getNew();
+            DmcTypeEnumMappingGeneratorREFMV rc = getNew();
             if (attrInfo.indexSize == 0){
-                for(GxtEnumMappingREF val: value)
+                for(EnumMappingGeneratorREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -73,11 +73,11 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
-    public GxtEnumMappingREF add(Object v) throws DmcValueException {
+    public EnumMappingGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
-            GxtEnumMappingREF rc = typeCheck(v);
+            EnumMappingGeneratorREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<GxtEnumMappingREF>();
+                value = new ArrayList<EnumMappingGeneratorREF>();
             value.add(rc);
             return(rc);
         }
@@ -85,10 +85,10 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
-    public GxtEnumMappingREF del(Object v){
+    public EnumMappingGeneratorREF del(Object v){
         synchronized(this){
-            GxtEnumMappingREF key = null;
-            GxtEnumMappingREF rc = null;
+            EnumMappingGeneratorREF key = null;
+            EnumMappingGeneratorREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -106,17 +106,17 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
-    public Iterator<GxtEnumMappingREF> getMV(){
+    public Iterator<EnumMappingGeneratorREF> getMV(){
         synchronized(this){
-            ArrayList<GxtEnumMappingREF> clone = new ArrayList<GxtEnumMappingREF>(value);
+            ArrayList<EnumMappingGeneratorREF> clone = new ArrayList<EnumMappingGeneratorREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
-    public ArrayList<GxtEnumMappingREF> getMVCopy(){
+    public ArrayList<EnumMappingGeneratorREF> getMVCopy(){
         synchronized(this){
-            ArrayList<GxtEnumMappingREF> clone = new ArrayList<GxtEnumMappingREF>(value);
+            ArrayList<EnumMappingGeneratorREF> clone = new ArrayList<EnumMappingGeneratorREF>(value);
             return(clone);
         }
     }
@@ -137,7 +137,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
-    public GxtEnumMappingREF getMVnth(int index){
+    public EnumMappingGeneratorREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -147,7 +147,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
-    public GxtEnumMappingREF setMVnth(int index, Object v) throws DmcValueException {
+    public EnumMappingGeneratorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
@@ -155,13 +155,13 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
             if ( (index < 0) || (index >= attrInfo.indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
-            GxtEnumMappingREF rc = null;
+            EnumMappingGeneratorREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<GxtEnumMappingREF>(attrInfo.indexSize);
+                value = new ArrayList<EnumMappingGeneratorREF>(attrInfo.indexSize);
                 for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
@@ -203,7 +203,7 @@ public class DmcTypeGxtEnumMappingREFMV extends DmcTypeGxtEnumMappingREF impleme
                 return(false);
 
             try {
-                GxtEnumMappingREF val = typeCheck(v);
+                EnumMappingGeneratorREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

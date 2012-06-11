@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGxtEnumMappingREFSET;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingREFSET;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
-public class GxtEnumMappingREFSETAdapter extends DmcTypeGxtEnumMappingREFSET implements DmcAdapterIF {
+public class EnumMappingREFSETAdapter extends DmcTypeEnumMappingREFSET implements DmcAdapterIF {
 
-    transient DmcTypeGxtEnumMappingREFSET existingValue;
+    transient DmcTypeEnumMappingREFSET existingValue;
 
-    public GxtEnumMappingREFSETAdapter(DmcAttributeInfo ai){
+    public EnumMappingREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
     }
 
@@ -39,7 +39,7 @@ public class GxtEnumMappingREFSETAdapter extends DmcTypeGxtEnumMappingREFSET imp
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeGxtEnumMappingREFSET) attr;
+    	existingValue = (DmcTypeEnumMappingREFSET) attr;
     	if (existingValue != null)
     		value = existingValue.getMVCopy();
     }

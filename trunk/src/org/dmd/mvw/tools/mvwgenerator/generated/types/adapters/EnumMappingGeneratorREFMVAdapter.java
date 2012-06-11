@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGxtEnumMappingREFSV;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingGeneratorREFMV;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
-public class GxtEnumMappingREFSVAdapter extends DmcTypeGxtEnumMappingREFSV implements DmcAdapterIF {
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
+public class EnumMappingGeneratorREFMVAdapter extends DmcTypeEnumMappingGeneratorREFMV implements DmcAdapterIF {
 
-    transient DmcTypeGxtEnumMappingREFSV existingValue;
+    transient DmcTypeEnumMappingGeneratorREFMV existingValue;
 
-    public GxtEnumMappingREFSVAdapter(DmcAttributeInfo ai){
+    public EnumMappingGeneratorREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
     }
 
@@ -34,24 +34,24 @@ public class GxtEnumMappingREFSVAdapter extends DmcTypeGxtEnumMappingREFSV imple
     	if (existingValue == null)
     		value = null;
     	else
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeGxtEnumMappingREFSV) attr;
+    	existingValue = (DmcTypeEnumMappingGeneratorREFMV) attr;
     	if (existingValue != null)
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public boolean valueChanged(){
-    	   return(valueChangedSV(existingValue, this));
+    	   return(valueChangedMV(existingValue, this));
     }
 
     @Override
     public void addMods(DmcTypeModifierMV mods){
-    	   addModsSV(mods, existingValue, this);
+    	   addModsMV(mods, existingValue, this);
     }
 
     @Override

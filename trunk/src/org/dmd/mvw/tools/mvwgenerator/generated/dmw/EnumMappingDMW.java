@@ -2,79 +2,84 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.HashSet;                                                      // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1016)
-import java.util.Iterator;                                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2048)
-import org.dmd.dmc.*;                                                          // If any attributes - (BaseDMWGeneratorNewest.java:903)
-import org.dmd.dmc.types.CamelCaseName;                                        // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dms.*;                                                          // Always 2 - (BaseDMWGeneratorNewest.java:888)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                            // For multi-valued String - (BaseDMWGeneratorNewest.java:1913)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                  // Derived class - (BaseDMWGeneratorNewest.java:1064)
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.GxtEnumMappingDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                  // Attribute skipEnumValue from the mvw schema - (BaseDMWGeneratorNewest.java:720)
+import java.util.HashSet;                                                              // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1016)
+import java.util.Iterator;                                                             // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2048)
+import org.dmd.dmc.*;                                                                  // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.CamelCaseName;                                                // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dms.*;                                                                  // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                                    // For multi-valued String - (BaseDMWGeneratorNewest.java:1913)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                  // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.mvw.tools.mvwgenerator.extended.EnumMappingGenerator;                   // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                          // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.EnumMapping;                      // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingDMO;                    // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                          // Attribute skipEnumValue from the mvw schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingGeneratorREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
 
 
 /**
- * The GxtEnumMapping class allows for generation of a set of static data
+ * The EnumMapping class allows for generation of a set of static data
  * instances that represent the values from the specified enumeration (type).
- * NOTE: this mechanism is only  useful if you are using the Sencha's GXT
- * widget set. <p /> Enum values are comprised of an integer, a name, a
- * description and optionally, a label as follows - int name description :
- * label. If you specify useNameAsLabel, the uppercase name value of the enum
- * is used to display the value of the. If useNameAsLabel is not specified,
- * the label will be used if it has been specified. Otherwise, the
- * description is used.
+ * Depending on the widget set you're using, you will specify different
+ * mappingGenerators; these are defined as extensions to the standard MVW
+ * generation mechanisms. For example, the dark-matter-gxt project defines
+ * the GXTEnumGenerator generator that will generate code that maps an enum
+ * to code that can be used with a selector widget. <p /> Enum values are
+ * comprised of an integer, a name, a description and optionally, a label as
+ * follows - int name description : label. If you specify useNameAsLabel, the
+ * uppercase name value of the enum is used to display the value of the. If
+ * useNameAsLabel is not specified, the label will be used if it has been
+ * specified. Otherwise, the description is used.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
  * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:366)
  */
-abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcNamedObjectIF {
+abstract public class EnumMappingDMW extends MvwDefinition implements DmcNamedObjectIF {
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:443)
-    public GxtEnumMappingDMW() {
-        super(new GxtEnumMappingDMO(), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._GxtEnumMapping);
+    public EnumMappingDMW() {
+        super(new EnumMappingDMO(), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._EnumMapping);
     }
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:449)
-    public GxtEnumMappingDMW(DmcTypeModifierMV mods) {
-        super(new GxtEnumMappingDMO(mods), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._GxtEnumMapping);
+    public EnumMappingDMW(DmcTypeModifierMV mods) {
+        super(new EnumMappingDMO(mods), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._EnumMapping);
     }
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:491)
-    public GxtEnumMapping getModificationRecorder(){
-        GxtEnumMapping rc = new GxtEnumMapping();
+    public EnumMapping getModificationRecorder(){
+        EnumMapping rc = new EnumMapping();
         rc.setMappingName(getMappingName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         return(rc);
     }
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:512)
-    public GxtEnumMappingDMW(GxtEnumMappingDMO obj) {
-        super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._GxtEnumMapping);
+    public EnumMappingDMW(EnumMappingDMO obj) {
+        super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._EnumMapping);
     }
 
-    public GxtEnumMapping cloneIt() {
-        GxtEnumMapping rc = new GxtEnumMapping();
+    public EnumMapping cloneIt() {
+        EnumMapping rc = new EnumMapping();
         rc.setDmcObject(getDMO().cloneIt());
         return(rc);
     }
 
-    public GxtEnumMappingDMO getDMO() {
-        return((GxtEnumMappingDMO) core);
+    public EnumMappingDMO getDMO() {
+        return((EnumMappingDMO) core);
     }
 
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
-    protected GxtEnumMappingDMW(GxtEnumMappingDMO obj, ClassDefinition cd) {
+    protected EnumMappingDMW(EnumMappingDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public CamelCaseName getObjectName(){
-        return(((GxtEnumMappingDMO) core).getMappingName());
+        return(((EnumMappingDMO) core).getMappingName());
     }
 
     public int hashCode(){
@@ -82,19 +87,19 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        return(((GxtEnumMappingDMO) core).getObjectNameAttribute());
+        return(((EnumMappingDMO) core).getObjectNameAttribute());
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof GxtEnumMappingDMW){
-            return( getObjectName().equals( ((GxtEnumMappingDMW) obj).getObjectName()) );
+        if (obj instanceof EnumMappingDMW){
+            return( getObjectName().equals( ((EnumMappingDMW) obj).getObjectName()) );
         }
         return(false);
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getEnumName(){
-        return(((GxtEnumMappingDMO) core).getEnumName());
+        return(((EnumMappingDMO) core).getEnumName());
     }
 
     /**
@@ -103,7 +108,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setEnumName(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).setEnumName(value);
+        ((EnumMappingDMO) core).setEnumName(value);
     }
 
     /**
@@ -112,7 +117,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setEnumName(String value){
-        ((GxtEnumMappingDMO) core).setEnumName(value);
+        ((EnumMappingDMO) core).setEnumName(value);
     }
 
     /**
@@ -120,12 +125,53 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remEnumName(){
-        ((GxtEnumMappingDMO) core).remEnumName();
+        ((EnumMappingDMO) core).remEnumName();
+    }
+
+    /**
+     * @return A EnumMappingGenerator object.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
+    public EnumMappingGenerator getMappingGenerator(){
+        EnumMappingGeneratorREF ref = ((EnumMappingDMO) core).getMappingGenerator();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((EnumMappingGenerator)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the mappingGenerator to the specified value.
+     * @param value A value compatible with EnumMappingGeneratorREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
+    public void setMappingGenerator(EnumMappingGenerator value) {
+        ((EnumMappingDMO) core).setMappingGenerator(value.getDMO());
+    }
+
+    /**
+     * Sets the mappingGenerator to the specified value.
+     * @param value A value compatible with EnumMappingGeneratorREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
+    public void setMappingGenerator(Object value) throws DmcValueException {
+        ((EnumMappingDMO) core).setMappingGenerator(value);
+    }
+
+    /**
+     * Removes the mappingGenerator attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    public void remMappingGenerator(){
+        ((EnumMappingDMO) core).remMappingGenerator();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public CamelCaseName getMappingName(){
-        return(((GxtEnumMappingDMO) core).getMappingName());
+        return(((EnumMappingDMO) core).getMappingName());
     }
 
     /**
@@ -134,7 +180,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setMappingName(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).setMappingName(value);
+        ((EnumMappingDMO) core).setMappingName(value);
     }
 
     /**
@@ -143,7 +189,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setMappingName(CamelCaseName value){
-        ((GxtEnumMappingDMO) core).setMappingName(value);
+        ((EnumMappingDMO) core).setMappingName(value);
     }
 
     /**
@@ -151,7 +197,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remMappingName(){
-        ((GxtEnumMappingDMO) core).remMappingName();
+        ((EnumMappingDMO) core).remMappingName();
     }
 
     /**
@@ -159,7 +205,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getSkipEnumValueSize(){
-        return(((GxtEnumMappingDMO) core).getSkipEnumValueSize());
+        return(((EnumMappingDMO) core).getSkipEnumValueSize());
     }
 
     /**
@@ -167,7 +213,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getSkipEnumValueIsEmpty(){
-        if (((GxtEnumMappingDMO) core).getSkipEnumValueSize() == 0)
+        if (((EnumMappingDMO) core).getSkipEnumValueSize() == 0)
             return(true);
         return(false);
     }
@@ -177,7 +223,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getSkipEnumValueHasValue(){
-        if (((GxtEnumMappingDMO) core).getSkipEnumValueSize() == 0)
+        if (((EnumMappingDMO) core).getSkipEnumValueSize() == 0)
             return(false);
         return(true);
     }
@@ -191,7 +237,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
         if (attr == null)
             return(StringIterableDMW.emptyList);
         
-        return(new StringIterableDMW(((GxtEnumMappingDMO) core).getSkipEnumValue()));
+        return(new StringIterableDMW(((EnumMappingDMO) core).getSkipEnumValue()));
     }
 
     /**
@@ -200,7 +246,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1943)
     public void addSkipEnumValue(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
+        ((EnumMappingDMO) core).addSkipEnumValue(value);
     }
 
     /**
@@ -209,7 +255,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1953)
     public void addSkipEnumValue(String value){
-        ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
+        ((EnumMappingDMO) core).addSkipEnumValue(value);
     }
 
     /**
@@ -218,7 +264,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
     public boolean skipEnumValueContains(String value){
-        return(((GxtEnumMappingDMO) core).skipEnumValueContains(value));
+        return(((EnumMappingDMO) core).skipEnumValueContains(value));
     }
 
     /**
@@ -247,7 +293,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2079)
     public void delSkipEnumValue(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
+        ((EnumMappingDMO) core).delSkipEnumValue(value);
     }
 
     /**
@@ -256,7 +302,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2088)
     public void delSkipEnumValue(String value){
-        ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
+        ((EnumMappingDMO) core).delSkipEnumValue(value);
     }
 
     /**
@@ -264,12 +310,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remSkipEnumValue(){
-        ((GxtEnumMappingDMO) core).remSkipEnumValue();
+        ((EnumMappingDMO) core).remSkipEnumValue();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUnsetValue(){
-        return(((GxtEnumMappingDMO) core).getUnsetValue());
+        return(((EnumMappingDMO) core).getUnsetValue());
     }
 
     /**
@@ -278,7 +324,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUnsetValue(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).setUnsetValue(value);
+        ((EnumMappingDMO) core).setUnsetValue(value);
     }
 
     /**
@@ -287,7 +333,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUnsetValue(String value){
-        ((GxtEnumMappingDMO) core).setUnsetValue(value);
+        ((EnumMappingDMO) core).setUnsetValue(value);
     }
 
     /**
@@ -295,12 +341,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUnsetValue(){
-        ((GxtEnumMappingDMO) core).remUnsetValue();
+        ((EnumMappingDMO) core).remUnsetValue();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Boolean isUseNameAsLabel(){
-        return(((GxtEnumMappingDMO) core).isUseNameAsLabel());
+        return(((EnumMappingDMO) core).isUseNameAsLabel());
     }
 
     /**
@@ -309,7 +355,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUseNameAsLabel(Object value) throws DmcValueException {
-        ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
+        ((EnumMappingDMO) core).setUseNameAsLabel(value);
     }
 
     /**
@@ -318,7 +364,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUseNameAsLabel(Boolean value){
-        ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
+        ((EnumMappingDMO) core).setUseNameAsLabel(value);
     }
 
     /**
@@ -326,7 +372,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUseNameAsLabel(){
-        ((GxtEnumMappingDMO) core).remUseNameAsLabel();
+        ((EnumMappingDMO) core).remUseNameAsLabel();
     }
 
 

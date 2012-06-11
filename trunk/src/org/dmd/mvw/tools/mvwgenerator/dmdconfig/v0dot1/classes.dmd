@@ -481,7 +481,7 @@ must			configName
 description		The  
 
 ClassDefinition
-name			GxtEnumMapping
+name			EnumMapping
 classType		STRUCTURAL
 subpackage		forms
 dmdID			26
@@ -491,15 +491,32 @@ isNamedBy		mappingName
 must			mappingName
 must			enumName
 must			unsetValue
+must			mappingGenerator
 may				useNameAsLabel
 may				skipEnumValue
-description		The GxtEnumMapping class allows for generation of a set of static data instances
- that represent the values from the specified enumeration (type). NOTE: this mechanism is only 
- useful if you are using the Sencha's GXT widget set.
+description		The EnumMapping class allows for generation of a set of static data instances
+ that represent the values from the specified enumeration (type). Depending on the widget set
+ you're using, you will specify different mappingGenerators; these are defined as extensions
+ to the standard MVW generation mechanisms. For example, the dark-matter-gxt project defines
+ the GXTEnumGenerator generator that will generate code that maps an enum to code that can be used with
+ a selector widget.
  <p />
  Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label.
  If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value
  of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise,
  the description is used.
+ 
+ClassDefinition
+name			EnumMappingGenerator
+classType		STRUCTURAL
+dmdID			27
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		camelCaseName
+must			camelCaseName
+must			enumGeneratorClass
+description		The EnumMappingGenerator definition allows for the specification of code
+ generation extension that generates enum mapping code for a particular widget set.
+ 
  
 
