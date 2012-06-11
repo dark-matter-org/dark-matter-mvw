@@ -755,7 +755,15 @@ type			Boolean
 description		Indicates that a controller is the target for centralized handling of asyncronous
  code loading errors.
 
-
+AttributeDefinition
+name			enumGeneratorClass
+dmdID			102
+type			String
+description		The fully qualified name of a Java class that implements the MvwEnumGeneratorIF
+ that is used generate the code required to map a DMS EnumDefinition to code that makes that 
+ enum usable with a particular widget set.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89
