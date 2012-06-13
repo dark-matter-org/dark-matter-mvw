@@ -387,6 +387,37 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    public Boolean isCodeSplit(){
+        return(((ViewDMO) core).isCodeSplit());
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    public void setCodeSplit(Object value) throws DmcValueException {
+        ((ViewDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    public void setCodeSplit(Boolean value){
+        ((ViewDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Removes the codeSplit attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    public void remCodeSplit(){
+        ((ViewDMO) core).remCodeSplit();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public OperationSpec getCreateEvent(){
         return(((ViewDMO) core).getCreateEvent());
     }

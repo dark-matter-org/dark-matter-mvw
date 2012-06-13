@@ -125,6 +125,19 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 		return(presenterImplImports);
 	}
 	
+	/**
+	 * @return the fully qualified name of this view's extended implementation.
+	 */
+	public String getExtendedClassImport(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended." + getViewName());
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage() + "." + getViewName());
+		
+	}
+	
+
+	
 	public void initCodeGenInfo() throws ResultException, DmcValueException {
 		if (!initialized){
 			initialized 			= true;
@@ -137,10 +150,20 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 			
 			presenterImplImports	= new ImportManager();
 			presenterImplImports.addImport(getPresenterImport(), "Presenter interface");
-			presenterImplImports.addImport(getViewImport(), "View interface");
+			
+			if (!isCodeSplit())
+				presenterImplImports.addImport(getViewImport(), "View interface");
 			
 			viewImplImports			= new ImportManager();
 			viewImplMethods			= new StringBuffer();
+			
+			if (isCodeSplit()){
+				// We add the async method required by the presenter to get the view
+				MethodWithArgs method = new MethodWithArgs("void async" + getViewName() + "Ready(" + getViewName() + " v) Called when the asynchronously created view is ready");
+				addPresenterMethod(method);
+				
+				addPresenterImport(getExtendedClassImport());
+			}
 			
 			if (getUsesRunContextItemHasValue()){
 				viewImplImports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Using run context items");
@@ -316,5 +339,21 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 		
 		return(sb.toString());
 	}
+
+	/**
+	 * @return the import for ViewAsyncIF associated with this presenter. 
+	 */
+	public String getAsyncImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "AsyncIF");
+	}
+	
+
+	/**
+	 * @return the ViewAsyncIF name for this view. 
+	 */
+	public String getAsyncInterface(){
+		return(getViewName() + "AsyncIF");
+	}
+	
 
 }

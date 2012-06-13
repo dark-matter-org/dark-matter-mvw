@@ -561,11 +561,22 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			else
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + view.getSubpackage() + "." + view.getViewName());
 				
-			// BIG NOTE: we don't specify the arguments to the constructor, this will depend on figuring
-			// out if the component needs run context items
-			rci.setConstruction("new " + view.getViewName());
+			if (view.getUsesRunContextItemHasValue()){
+				if (view.isCodeSplit())
+					rci.setConstruction("new " + view.getViewName() + "(presenter, thisContext)");
+				else
+					rci.setConstruction("new " + view.getViewName() + "(presenter, this)");
+			}
+			else
+				rci.setConstruction("new " + view.getViewName() + "(presenter)");
+
+//			// BIG NOTE: we don't specify the arguments to the constructor, this will depend on figuring
+//			// out if the component needs run context items. We determine this in the RunContextItem.
+//			rci.setConstruction("new " + view.getViewName());
+			
+			
 			// NOTE: in addition to setting the construction mechanism, we also set the view
-			// on the context item so that it knows how create the on demand methed that takes
+			// on the context item so that it knows how to create the on demand method that takes
 			// the View's presenter.
 			rci.setView(view);
 			rci.setDefinedInModule(view.getDefinedInModule());
@@ -583,7 +594,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			rci.setCreateOnDemand(true);
 //			rci.setTheOne(view.isTheOne());
 			
-			// Tell the presenter its item
+			// Tell the view its item
 			view.setRunContextItem(rci);
 
 		}
@@ -712,41 +723,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			if (component.getFiresEventHasValue())
 				component.getDMO().addUsesRunContextItem("eventBus");
 			
-			
-			
-//			if (component.getSendsGetRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else 
 			if (component.getSendsRequestHasValue()){
 				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
-//			else if (component.getSendsActionRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else if (component.getSendsCreateRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else if (component.getSendsDeleteRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else if (component.getSendsSetRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else if (component.getSendsLoginRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
-//			else if (component.getSendsLogoutRequestHasValue()){
-//				component.getDMO().addUsesRunContextItem("commsController");
-//				needMvwComms = true;
-//			}
 		}
 	}
 	
