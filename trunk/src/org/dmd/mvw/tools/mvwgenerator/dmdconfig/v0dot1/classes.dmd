@@ -76,6 +76,7 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		viewName
 must			viewName
+may				codeSplit
 may				useBaseClass
 may				local
 may				broadcast

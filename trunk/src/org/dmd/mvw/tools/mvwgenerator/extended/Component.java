@@ -146,18 +146,6 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 				usesRunContext.set(true);
 			else if (getUsesRunContextItemHasValue())
 				usesRunContext.set(true);
-//			else if (getSendsGetRequestHasValue())
-//				usesRunContext.set(true);
-//			else if (getSendsSetRequestHasValue())
-//				usesRunContext.set(true);
-//			else if (getSendsCreateRequestHasValue())
-//				usesRunContext.set(true);
-//			else if (getSendsDeleteRequestHasValue())
-//				usesRunContext.set(true);
-//			else if (getSendsLoginRequestHasValue())
-//				usesRunContext.set(true);
-//			else if (getSendsLogoutRequestHasValue())
-//				usesRunContext.set(true);
 			else if (getSendsRequestHasValue())
 				usesRunContext.set(true);
 				

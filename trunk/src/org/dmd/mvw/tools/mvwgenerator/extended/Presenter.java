@@ -50,6 +50,21 @@ public class Presenter extends PresenterDMW {
 			if (handlesObjectEvents())
 				presenterInterfaces.append(", EventHandlerIF");
 		}
+		
+		// If we refer to any asynchronously loaded code, we have to implement the appropriate interfaces
+		if (getUsesRunContextItemHasValue()){
+			for(RunContextItem rci: getUsesRunContextItemIterable()){
+				if (rci.refersToAsyncCode()){
+					if (presenterInterfaces.length() == 0){
+						presenterInterfaces.append("implements " + rci.getAsyncInterface());
+					}
+					else{
+						presenterInterfaces.append(", " + rci.getAsyncInterface());
+					}
+				}
+			}
+		}
+		
 //		if (isCentralDMPErrorHandler()){
 //			if (presenterInterfaces.length() > 0)
 //				presenterInterfaces.append(", ");

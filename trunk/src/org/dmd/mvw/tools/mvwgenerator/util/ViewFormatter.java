@@ -26,10 +26,11 @@ import org.dmd.util.exceptions.DebugInfo;
 public class ViewFormatter {
 
 	static public void formatViewInterface(String outdir, View view) throws IOException{
+		
+		if (view.isCodeSplit())
+			ViewFormatter.formatPresenterAsyncIF(outdir, view);
+			
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, view.getViewName().getNameString() + "IF.java");
-
-//        ImportManager.reset();
-//        view.getInterfaceImports();
 
         out.write("package " + view.getDefinedInModule().getGenPackage() + ".generated.mvw.views;\n\n");
         
@@ -43,8 +44,6 @@ public class ViewFormatter {
         out.write(view.getPresenterMethods());
         
         out.write("    }\n\n");
-        
-//        out.write("    public void setPresenter(" + view.getViewName() + "Presenter presenter);\n\n");
         
         out.write(view.getViewMethods());
         
@@ -104,4 +103,26 @@ public class ViewFormatter {
         
         out.close();
 	}
+	
+	static void formatPresenterAsyncIF(String outdir, View view) throws IOException {
+		
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, view.getViewName() + "AsyncIF.java");
+
+        out.write("package " + view.getDefinedInModule().getGenPackage() + ".generated.mvw.views;\n\n");
+        
+        out.write("import " + view.getExtendedClassImport() + ";\n\n");
+        
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("public interface " + view.getViewName() + "AsyncIF {\n\n");
+        
+        out.write("    public void async" + view.getViewName() + "Ready(" + view.getViewName() + " v);\n");
+        
+        out.write("}\n");
+
+        out.write("\n");
+        
+        out.close();
+	}
+
+
 }

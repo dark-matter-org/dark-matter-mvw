@@ -78,7 +78,7 @@ public class RunContextFormatter {
 
         for (RunContextItem rci :rcic.byOrder.values()){
         	// Note: we only need the imports required by the view implementation, not the full run context impl
-        	rci.addUsageImplImports(manager);
+        	rci.addUsageImplImports(manager, true);
         }
         out.write(manager.getFormattedImports() + "\n");
         

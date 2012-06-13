@@ -312,6 +312,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Module.addMay(__usingStandardSubpackages);
 
         __View.addMust(__viewName);
+        __View.addMay(__codeSplit);
         __View.addMay(__useBaseClass);
         __View.addMay(__local);
         __View.addMay(__broadcast);
