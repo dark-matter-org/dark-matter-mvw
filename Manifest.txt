@@ -3,5 +3,5 @@ Specification-Title: dark-matter Model View Whatever
 Specification-Version: 1.1.0
 Specification-Vendor: dark-matter-data committers
 Implementation-Title: org.dmd.mvw
-Implementation-Version: svn16
+Implementation-Version: svn19
 Implementation-Vendor: dark-matter-data committers
