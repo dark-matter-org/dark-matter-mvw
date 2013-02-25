@@ -14,7 +14,7 @@ public class I18NConfigREFSETAdapter extends DmcTypeI18NConfigREFSET implements 
     transient DmcTypeI18NConfigREFSET existingValue;
 
     public I18NConfigREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

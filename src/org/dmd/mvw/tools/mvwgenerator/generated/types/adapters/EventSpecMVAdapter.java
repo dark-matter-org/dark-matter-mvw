@@ -14,7 +14,7 @@ public class EventSpecMVAdapter extends DmcTypeEventSpecMV implements DmcAdapter
     transient DmcTypeEventSpecMV existingValue;
 
     public EventSpecMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

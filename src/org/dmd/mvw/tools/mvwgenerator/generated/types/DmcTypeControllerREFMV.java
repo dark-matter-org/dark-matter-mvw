@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeControllerREFMV provides storage for a multi-valued ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Serializable {
+    
+    private final static Iterator<ControllerREF> emptyList = (new ArrayList<ControllerREF>()).iterator();
     
     protected ArrayList<ControllerREF> value;
     
@@ -43,15 +45,19 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     
     @Override
     public DmcTypeControllerREFMV getNew(){
-        return(new DmcTypeControllerREFMV(attrInfo));
+        return(new DmcTypeControllerREFMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<ControllerREF> cloneIt(){
         synchronized(this){
             DmcTypeControllerREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(ControllerREF val: value)
                 try {
                     rc.add(val);
@@ -72,7 +78,7 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ControllerREF add(Object v) throws DmcValueException {
         synchronized(this){
             ControllerREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public ControllerREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ControllerREF key = null;
             ControllerREF rc = null;
             try {
@@ -105,38 +114,43 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<ControllerREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ControllerREF> clone = new ArrayList<ControllerREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<ControllerREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ControllerREF> clone = new ArrayList<ControllerREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ControllerREF>());
+            else 
+                return(new ArrayList<ControllerREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public ControllerREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,14 +160,14 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public ControllerREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             ControllerREF rc = null;
             
@@ -161,8 +175,8 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ControllerREF>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<ControllerREF>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -173,13 +187,13 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -196,7 +210,7 @@ public class DmcTypeControllerREFMV extends DmcTypeControllerREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

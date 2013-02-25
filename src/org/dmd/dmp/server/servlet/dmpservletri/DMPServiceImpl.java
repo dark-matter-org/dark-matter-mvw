@@ -18,6 +18,7 @@ package org.dmd.dmp.server.servlet.dmpservletri;
 import java.io.File;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmp.client.DMPService;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
@@ -128,6 +129,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DmcRuleExceptionSet e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

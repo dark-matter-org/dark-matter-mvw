@@ -14,7 +14,7 @@ public class SeparatorREFSETAdapter extends DmcTypeSeparatorREFSET implements Dm
     transient DmcTypeSeparatorREFSET existingValue;
 
     public SeparatorREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

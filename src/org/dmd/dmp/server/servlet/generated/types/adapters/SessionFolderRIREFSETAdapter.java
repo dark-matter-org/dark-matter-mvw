@@ -14,7 +14,7 @@ public class SessionFolderRIREFSETAdapter extends DmcTypeSessionFolderRIREFSET i
     transient DmcTypeSessionFolderRIREFSET existingValue;
 
     public SessionFolderRIREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

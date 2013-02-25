@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeFormImplementationConfigREFSET provides storage for a set of FormImplementationConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementationConfigREF implements Serializable {
+    
+     private final static Iterator<FormImplementationConfigREF> emptyList =  (new HashSet<FormImplementationConfigREF>()).iterator();
+    
     
     protected Set<FormImplementationConfigREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FormImplementationConfigREF>();
         else
             value = new TreeSet<FormImplementationConfigREF>();
@@ -54,14 +57,18 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     
     @Override
     public DmcTypeFormImplementationConfigREFSET getNew(){
-        return(new DmcTypeFormImplementationConfigREFSET(attrInfo));
+        return(new DmcTypeFormImplementationConfigREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<FormImplementationConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeFormImplementationConfigREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(FormImplementationConfigREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public FormImplementationConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             FormImplementationConfigREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public FormImplementationConfigREF del(Object v){
         synchronized(this){
             FormImplementationConfigREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<FormImplementationConfigREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FormImplementationConfigREF>(value)).iterator() );
             else
                 return( (new TreeSet<FormImplementationConfigREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<FormImplementationConfigREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<FormImplementationConfigREF>(value));
-            else
-                return(new TreeSet<FormImplementationConfigREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<FormImplementationConfigREF>());
+                else
+                    return(new HashSet<FormImplementationConfigREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<FormImplementationConfigREF>(value));
+                else
+                    return(new TreeSet<FormImplementationConfigREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeFormImplementationConfigREFSET extends DmcTypeFormImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

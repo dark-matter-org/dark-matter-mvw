@@ -14,7 +14,7 @@ public class ControllerREFSVAdapter extends DmcTypeControllerREFSV implements Dm
     transient DmcTypeControllerREFSV existingValue;
 
     public ControllerREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

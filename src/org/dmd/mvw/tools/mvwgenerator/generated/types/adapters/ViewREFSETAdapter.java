@@ -14,7 +14,7 @@ public class ViewREFSETAdapter extends DmcTypeViewREFSET implements DmcAdapterIF
     transient DmcTypeViewREFSET existingValue;
 
     public ViewREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

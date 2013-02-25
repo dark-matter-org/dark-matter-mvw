@@ -14,7 +14,7 @@ public class FormBindingDefinitionREFMVAdapter extends DmcTypeFormBindingDefinit
     transient DmcTypeFormBindingDefinitionREFMV existingValue;
 
     public FormBindingDefinitionREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

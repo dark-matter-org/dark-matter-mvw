@@ -14,7 +14,7 @@ public class EventScopeEnumSETAdapter extends DmcTypeEventScopeEnumSET implement
     transient DmcTypeEventScopeEnumSET existingValue;
 
     public EventScopeEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

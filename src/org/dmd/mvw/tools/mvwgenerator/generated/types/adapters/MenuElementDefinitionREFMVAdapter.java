@@ -14,7 +14,7 @@ public class MenuElementDefinitionREFMVAdapter extends DmcTypeMenuElementDefinit
     transient DmcTypeMenuElementDefinitionREFMV existingValue;
 
     public MenuElementDefinitionREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class MenuElementDefinitionREFMAPAdapter extends DmcTypeMenuElementDefini
     transient DmcTypeMenuElementDefinitionREFMAP existingValue;
 
     public MenuElementDefinitionREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

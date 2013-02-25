@@ -14,7 +14,7 @@ public class WebApplicationREFSETAdapter extends DmcTypeWebApplicationREFSET imp
     transient DmcTypeWebApplicationREFSET existingValue;
 
     public WebApplicationREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

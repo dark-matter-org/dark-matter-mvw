@@ -14,7 +14,7 @@ public class EventREFMAPAdapter extends DmcTypeEventREFMAP implements DmcAdapter
     transient DmcTypeEventREFMAP existingValue;
 
     public EventREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

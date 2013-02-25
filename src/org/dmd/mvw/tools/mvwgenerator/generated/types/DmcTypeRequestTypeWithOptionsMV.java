@@ -27,11 +27,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    //
  * The DmcTypeRequestTypeWithOptionsMV provides storage for a multi-valued RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptions implements Serializable {
+    
+    private final static Iterator<RequestTypeWithOptions> emptyList = (new ArrayList<RequestTypeWithOptions>()).iterator();
     
     protected ArrayList<RequestTypeWithOptions> value;
     
@@ -45,15 +47,19 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     
     @Override
     public DmcTypeRequestTypeWithOptionsMV getNew(){
-        return(new DmcTypeRequestTypeWithOptionsMV(attrInfo));
+        return(new DmcTypeRequestTypeWithOptionsMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<RequestTypeWithOptions> cloneIt(){
         synchronized(this){
             DmcTypeRequestTypeWithOptionsMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(RequestTypeWithOptions val: value)
                 try {
                     rc.add(val);
@@ -74,7 +80,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public RequestTypeWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
             RequestTypeWithOptions rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public RequestTypeWithOptions del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             RequestTypeWithOptions key = null;
             RequestTypeWithOptions rc = null;
             try {
@@ -107,38 +116,43 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<RequestTypeWithOptions> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<RequestTypeWithOptions> getMVCopy(){
         synchronized(this){
-            ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<RequestTypeWithOptions>());
+            else 
+                return(new ArrayList<RequestTypeWithOptions>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public RequestTypeWithOptions getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,14 +162,14 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public RequestTypeWithOptions setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             RequestTypeWithOptions rc = null;
             
@@ -163,8 +177,8 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<RequestTypeWithOptions>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<RequestTypeWithOptions>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -175,13 +189,13 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -198,7 +212,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

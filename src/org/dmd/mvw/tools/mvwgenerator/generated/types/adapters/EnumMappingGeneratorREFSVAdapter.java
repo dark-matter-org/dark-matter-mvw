@@ -14,7 +14,7 @@ public class EnumMappingGeneratorREFSVAdapter extends DmcTypeEnumMappingGenerato
     transient DmcTypeEnumMappingGeneratorREFSV existingValue;
 
     public EnumMappingGeneratorREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

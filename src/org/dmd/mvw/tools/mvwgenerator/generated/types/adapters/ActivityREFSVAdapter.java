@@ -14,7 +14,7 @@ public class ActivityREFSVAdapter extends DmcTypeActivityREFSV implements DmcAda
     transient DmcTypeActivityREFSV existingValue;
 
     public ActivityREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class SessionFolderRIREFMAPAdapter extends DmcTypeSessionFolderRIREFMAP i
     transient DmcTypeSessionFolderRIREFMAP existingValue;
 
     public SessionFolderRIREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

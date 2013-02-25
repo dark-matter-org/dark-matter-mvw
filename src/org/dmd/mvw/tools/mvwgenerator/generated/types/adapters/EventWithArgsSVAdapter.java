@@ -14,7 +14,7 @@ public class EventWithArgsSVAdapter extends DmcTypeEventWithArgsSV implements Dm
     transient DmcTypeEventWithArgsSV existingValue;
 
     public EventWithArgsSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

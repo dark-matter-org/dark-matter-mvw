@@ -14,7 +14,7 @@ public class I18NConfigREFMAPAdapter extends DmcTypeI18NConfigREFMAP implements 
     transient DmcTypeI18NConfigREFMAP existingValue;
 
     public I18NConfigREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -26,11 +26,13 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;    // D
  * The DmcTypeRequestOptionEnumMV provides storage for a multi-valued RequestOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum implements Serializable {
+    
+    private final static Iterator<RequestOptionEnum> emptyList = (new ArrayList<RequestOptionEnum>()).iterator();
     
     protected ArrayList<RequestOptionEnum> value;
     
@@ -44,15 +46,19 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     
     @Override
     public DmcTypeRequestOptionEnumMV getNew(){
-        return(new DmcTypeRequestOptionEnumMV(attrInfo));
+        return(new DmcTypeRequestOptionEnumMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<RequestOptionEnum> cloneIt(){
         synchronized(this){
             DmcTypeRequestOptionEnumMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(RequestOptionEnum val: value)
                 try {
                     rc.add(val);
@@ -73,7 +79,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public RequestOptionEnum add(Object v) throws DmcValueException {
         synchronized(this){
             RequestOptionEnum rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public RequestOptionEnum del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             RequestOptionEnum key = null;
             RequestOptionEnum rc = null;
             try {
@@ -106,38 +115,43 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<RequestOptionEnum> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<RequestOptionEnum> clone = new ArrayList<RequestOptionEnum>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<RequestOptionEnum> getMVCopy(){
         synchronized(this){
-            ArrayList<RequestOptionEnum> clone = new ArrayList<RequestOptionEnum>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<RequestOptionEnum>());
+            else 
+                return(new ArrayList<RequestOptionEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public RequestOptionEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,14 +161,14 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public RequestOptionEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             RequestOptionEnum rc = null;
             
@@ -162,8 +176,8 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<RequestOptionEnum>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<RequestOptionEnum>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -174,13 +188,13 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -197,7 +211,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

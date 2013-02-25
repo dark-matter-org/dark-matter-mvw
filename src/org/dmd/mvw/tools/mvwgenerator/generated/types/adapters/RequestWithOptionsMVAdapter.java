@@ -14,7 +14,7 @@ public class RequestWithOptionsMVAdapter extends DmcTypeRequestWithOptionsMV imp
     transient DmcTypeRequestWithOptionsMV existingValue;
 
     public RequestWithOptionsMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

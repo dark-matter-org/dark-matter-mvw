@@ -26,11 +26,13 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;    // DmcT
  * The DmcTypeEventScopeEnumMV provides storage for a multi-valued EventScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Serializable {
+    
+    private final static Iterator<EventScopeEnum> emptyList = (new ArrayList<EventScopeEnum>()).iterator();
     
     protected ArrayList<EventScopeEnum> value;
     
@@ -44,15 +46,19 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     
     @Override
     public DmcTypeEventScopeEnumMV getNew(){
-        return(new DmcTypeEventScopeEnumMV(attrInfo));
+        return(new DmcTypeEventScopeEnumMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<EventScopeEnum> cloneIt(){
         synchronized(this){
             DmcTypeEventScopeEnumMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(EventScopeEnum val: value)
                 try {
                     rc.add(val);
@@ -73,7 +79,7 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public EventScopeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             EventScopeEnum rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public EventScopeEnum del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             EventScopeEnum key = null;
             EventScopeEnum rc = null;
             try {
@@ -106,38 +115,43 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<EventScopeEnum> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<EventScopeEnum> clone = new ArrayList<EventScopeEnum>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<EventScopeEnum> getMVCopy(){
         synchronized(this){
-            ArrayList<EventScopeEnum> clone = new ArrayList<EventScopeEnum>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<EventScopeEnum>());
+            else 
+                return(new ArrayList<EventScopeEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public EventScopeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,14 +161,14 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public EventScopeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             EventScopeEnum rc = null;
             
@@ -162,8 +176,8 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<EventScopeEnum>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<EventScopeEnum>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -174,13 +188,13 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -197,7 +211,7 @@ public class DmcTypeEventScopeEnumMV extends DmcTypeEventScopeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

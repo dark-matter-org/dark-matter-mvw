@@ -14,7 +14,7 @@ public class FormBindingDefinitionREFSVAdapter extends DmcTypeFormBindingDefinit
     transient DmcTypeFormBindingDefinitionREFSV existingValue;
 
     public FormBindingDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

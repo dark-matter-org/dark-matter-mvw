@@ -14,7 +14,7 @@ public class EventSpecSETAdapter extends DmcTypeEventSpecSET implements DmcAdapt
     transient DmcTypeEventSpecSET existingValue;
 
     public EventSpecSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

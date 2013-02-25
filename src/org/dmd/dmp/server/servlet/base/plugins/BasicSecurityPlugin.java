@@ -117,7 +117,12 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 				}
 				else{
 					SessionRI session = new SessionRI(pluginManager.getCache(),pluginManager.getRequestTracker());
-					session.setDotName(new DotName("sf." + request.getServletRequest().getSession().getId()));
+					try {
+						session.setDotName(new DotName("sf." + request.getServletRequest().getSession().getId()));
+					} catch (DmcValueException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					session.setSessionIDRI(request.getServletRequest().getSession().getId());
 					session.setSessionHostRI(request.getServletRequest().getRemoteHost());
 					session.setUserRefRI(user);

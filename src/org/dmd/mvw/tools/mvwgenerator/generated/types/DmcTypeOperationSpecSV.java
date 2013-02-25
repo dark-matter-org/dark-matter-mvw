@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecSV provides storage for a single-valued OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
  */
 @SuppressWarnings("serial")
@@ -42,7 +42,7 @@ public class DmcTypeOperationSpecSV extends DmcTypeOperationSpec implements Seri
     }
     
     public DmcTypeOperationSpecSV getNew(){
-        return(new DmcTypeOperationSpecSV(attrInfo));
+        return(new DmcTypeOperationSpecSV(getAttributeInfo()));
     }
     
     public DmcTypeOperationSpecSV getNew(DmcAttributeInfo ai){
@@ -50,14 +50,14 @@ public class DmcTypeOperationSpecSV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public DmcAttribute<OperationSpec> cloneIt(){
         DmcTypeOperationSpecSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public OperationSpec getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeOperationSpecSV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
     public OperationSpec set(Object v) throws DmcValueException {
         OperationSpec rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

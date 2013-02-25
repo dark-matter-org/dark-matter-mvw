@@ -14,7 +14,7 @@ public class SubMenuREFMAPAdapter extends DmcTypeSubMenuREFMAP implements DmcAda
     transient DmcTypeSubMenuREFMAP existingValue;
 
     public SubMenuREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

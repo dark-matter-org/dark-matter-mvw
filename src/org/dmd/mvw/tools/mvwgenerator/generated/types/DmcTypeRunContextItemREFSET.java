@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeRunContextItemREFSET provides storage for a set of RunContextItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implements Serializable {
+    
+     private final static Iterator<RunContextItemREF> emptyList =  (new HashSet<RunContextItemREF>()).iterator();
+    
     
     protected Set<RunContextItemREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<RunContextItemREF>();
         else
             value = new TreeSet<RunContextItemREF>();
@@ -54,14 +57,18 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     
     @Override
     public DmcTypeRunContextItemREFSET getNew(){
-        return(new DmcTypeRunContextItemREFSET(attrInfo));
+        return(new DmcTypeRunContextItemREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<RunContextItemREF> cloneIt(){
         synchronized(this){
             DmcTypeRunContextItemREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(RunContextItemREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public RunContextItemREF add(Object v) throws DmcValueException {
         synchronized(this){
             RunContextItemREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public RunContextItemREF del(Object v){
         synchronized(this){
             RunContextItemREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<RunContextItemREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RunContextItemREF>(value)).iterator() );
             else
                 return( (new TreeSet<RunContextItemREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<RunContextItemREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<RunContextItemREF>(value));
-            else
-                return(new TreeSet<RunContextItemREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<RunContextItemREF>());
+                else
+                    return(new HashSet<RunContextItemREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<RunContextItemREF>(value));
+                else
+                    return(new TreeSet<RunContextItemREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeRunContextItemREFSET extends DmcTypeRunContextItemREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

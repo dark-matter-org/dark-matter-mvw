@@ -14,7 +14,7 @@ public class ControllerREFMAPAdapter extends DmcTypeControllerREFMAP implements 
     transient DmcTypeControllerREFMAP existingValue;
 
     public ControllerREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

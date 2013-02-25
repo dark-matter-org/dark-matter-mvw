@@ -14,7 +14,7 @@ public class UserFolderRIREFMAPAdapter extends DmcTypeUserFolderRIREFMAP impleme
     transient DmcTypeUserFolderRIREFMAP existingValue;
 
     public UserFolderRIREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

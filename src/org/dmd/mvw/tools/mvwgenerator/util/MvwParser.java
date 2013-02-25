@@ -34,8 +34,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
@@ -47,7 +49,6 @@ import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
-import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The DmgConfigParser 
@@ -74,6 +75,8 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
     // The files that have been loaded already.
     // Key: filename
     HashMap<String,ModuleDMO>	loadedFiles;
+    
+    DmvRuleManager				ruleManager;
     	
 	public MvwParser(SchemaManager sm, ConfigFinder cf, MvwDefinitionManager dm){
 		schema 			= sm;
@@ -82,15 +85,16 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		finder 			= cf;
 		factory 		= new DmwObjectFactory(sm);
 		defManager		= dm;
+		ruleManager		= new DmvRuleManager();
 	}
 	
-	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException {
+	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		defManager.reset();
 		parseConfigInternal(cl);
 		defManager.resolveDefinitions();
 	}
 	
-	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException{
+	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		if (cl.isFromJAR())
 			System.out.println("Reading: " + cl.getFileName() + " - from " + cl.getJarFilename());
 		else
@@ -137,7 +141,7 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	@Override
-	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
+	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		MvwDefinition definition = null;
 		
 		try {
@@ -180,18 +184,22 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		
 		definition.setDefinedInModule(currentModule);
 
-		try {
-			definition.getDMO().validate();
-		} catch (DmcValueExceptionSet e) {
-			ResultException ex = new ResultException();
-			for(DmcValueException dve: e.getExceptions()){
-				ex.addError(dve.getLocalizedMessage());
-			}
-			ex.setLocationInfo(infile, lineNumber);
-			ex.result.lastResult().moreMessages("Object class: " + definition.getConstructionClassName());
-			
-			throw(ex);
-		}
+//		try {
+			ruleManager.executeAttributeValidation(definition.getDMO());
+			ruleManager.executeObjectValidation(definition.getDMO());
+//		} catch (DmcValueExceptionSet e) {
+//			ResultException ex = new ResultException();
+//			for(DmcValueException dve: e.getExceptions()){
+//				ex.addError(dve.getLocalizedMessage());
+//			}
+//			ex.setLocationInfo(infile, lineNumber);
+//			ex.result.lastResult().moreMessages("Object class: " + definition.getConstructionClassName());
+//			
+//			throw(ex);
+//		} catch (DmcRuleExceptionSet e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		defManager.addDefinition(definition);
 		

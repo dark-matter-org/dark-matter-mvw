@@ -14,7 +14,7 @@ public class ComponentREFSVAdapter extends DmcTypeComponentREFSV implements DmcA
     transient DmcTypeComponentREFSV existingValue;
 
     public ComponentREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

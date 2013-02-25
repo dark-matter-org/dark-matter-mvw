@@ -14,7 +14,7 @@ public class MenuBarREFSVAdapter extends DmcTypeMenuBarREFSV implements DmcAdapt
     transient DmcTypeMenuBarREFSV existingValue;
 
     public MenuBarREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSubPlaceREFSET provides storage for a set of SubPlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Serializable {
+    
+     private final static Iterator<SubPlaceREF> emptyList =  (new HashSet<SubPlaceREF>()).iterator();
+    
     
     protected Set<SubPlaceREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<SubPlaceREF>();
         else
             value = new TreeSet<SubPlaceREF>();
@@ -54,14 +57,18 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     
     @Override
     public DmcTypeSubPlaceREFSET getNew(){
-        return(new DmcTypeSubPlaceREFSET(attrInfo));
+        return(new DmcTypeSubPlaceREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<SubPlaceREF> cloneIt(){
         synchronized(this){
             DmcTypeSubPlaceREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SubPlaceREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public SubPlaceREF add(Object v) throws DmcValueException {
         synchronized(this){
             SubPlaceREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public SubPlaceREF del(Object v){
         synchronized(this){
             SubPlaceREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<SubPlaceREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SubPlaceREF>(value)).iterator() );
             else
                 return( (new TreeSet<SubPlaceREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<SubPlaceREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SubPlaceREF>(value));
-            else
-                return(new TreeSet<SubPlaceREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SubPlaceREF>());
+                else
+                    return(new HashSet<SubPlaceREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SubPlaceREF>(value));
+                else
+                    return(new TreeSet<SubPlaceREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSubMenuREFSET provides storage for a set of SubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializable {
+    
+     private final static Iterator<SubMenuREF> emptyList =  (new HashSet<SubMenuREF>()).iterator();
+    
     
     protected Set<SubMenuREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<SubMenuREF>();
         else
             value = new TreeSet<SubMenuREF>();
@@ -54,14 +57,18 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     
     @Override
     public DmcTypeSubMenuREFSET getNew(){
-        return(new DmcTypeSubMenuREFSET(attrInfo));
+        return(new DmcTypeSubMenuREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<SubMenuREF> cloneIt(){
         synchronized(this){
             DmcTypeSubMenuREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SubMenuREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public SubMenuREF add(Object v) throws DmcValueException {
         synchronized(this){
             SubMenuREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public SubMenuREF del(Object v){
         synchronized(this){
             SubMenuREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<SubMenuREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SubMenuREF>(value)).iterator() );
             else
                 return( (new TreeSet<SubMenuREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<SubMenuREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SubMenuREF>(value));
-            else
-                return(new TreeSet<SubMenuREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SubMenuREF>());
+                else
+                    return(new HashSet<SubMenuREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SubMenuREF>(value));
+                else
+                    return(new TreeSet<SubMenuREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSubMenuREFSET extends DmcTypeSubMenuREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,7 +14,7 @@ public class SubMenuREFMVAdapter extends DmcTypeSubMenuREFMV implements DmcAdapt
     transient DmcTypeSubMenuREFMV existingValue;
 
     public SubMenuREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

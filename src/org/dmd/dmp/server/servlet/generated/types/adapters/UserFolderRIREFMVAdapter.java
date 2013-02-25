@@ -14,7 +14,7 @@ public class UserFolderRIREFMVAdapter extends DmcTypeUserFolderRIREFMV implement
     transient DmcTypeUserFolderRIREFMV existingValue;
 
     public UserFolderRIREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

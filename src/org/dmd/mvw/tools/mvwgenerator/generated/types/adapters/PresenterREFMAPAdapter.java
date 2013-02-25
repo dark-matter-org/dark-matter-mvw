@@ -14,7 +14,7 @@ public class PresenterREFMAPAdapter extends DmcTypePresenterREFMAP implements Dm
     transient DmcTypePresenterREFMAP existingValue;
 
     public PresenterREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

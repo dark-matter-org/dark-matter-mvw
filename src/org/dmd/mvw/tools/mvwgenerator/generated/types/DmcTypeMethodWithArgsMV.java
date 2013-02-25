@@ -27,11 +27,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType
  * The DmcTypeMethodWithArgsMV provides storage for a multi-valued MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Serializable {
+    
+    private final static Iterator<MethodWithArgs> emptyList = (new ArrayList<MethodWithArgs>()).iterator();
     
     protected ArrayList<MethodWithArgs> value;
     
@@ -45,15 +47,19 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     
     @Override
     public DmcTypeMethodWithArgsMV getNew(){
-        return(new DmcTypeMethodWithArgsMV(attrInfo));
+        return(new DmcTypeMethodWithArgsMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<MethodWithArgs> cloneIt(){
         synchronized(this){
             DmcTypeMethodWithArgsMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(MethodWithArgs val: value)
                 try {
                     rc.add(val);
@@ -74,7 +80,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public MethodWithArgs add(Object v) throws DmcValueException {
         synchronized(this){
             MethodWithArgs rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public MethodWithArgs del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             MethodWithArgs key = null;
             MethodWithArgs rc = null;
             try {
@@ -107,38 +116,43 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<MethodWithArgs> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<MethodWithArgs> getMVCopy(){
         synchronized(this){
-            ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<MethodWithArgs>());
+            else 
+                return(new ArrayList<MethodWithArgs>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public MethodWithArgs getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,14 +162,14 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public MethodWithArgs setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             MethodWithArgs rc = null;
             
@@ -163,8 +177,8 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<MethodWithArgs>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<MethodWithArgs>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -175,13 +189,13 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -198,7 +212,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

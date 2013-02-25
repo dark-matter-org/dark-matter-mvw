@@ -15,27 +15,22 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                        // Always required - (GenUtility.java:197)
-import java.util.*;                                                                 // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                                    // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                                // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcOmni;                                                         // Lazy resolution - (GenUtility.java:293)
-import org.dmd.dmc.DmcSliceInfo;                                                    // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                               // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                             // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                                 // Required type - (GenUtility.java:301)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                    // Type specific set/add - (GenUtility.java:280)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;               // Base class - (GenUtility.java:328)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ActivityREF;                  // Helper class - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActivityREFSV;         // Reference type - (GenUtility.java:273)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                                        // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                                                    // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                                // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcOmni;                                                         // Lazy resolution - (GenUtility.java:316)
+import org.dmd.dmc.DmcSliceInfo;                                                    // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                               // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.CamelCaseName;                                             // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                         // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                          // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                 // Required type - (GenUtility.java:324)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                    // Type specific set/add - (GenUtility.java:303)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;               // Base class - (GenUtility.java:351)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ActivityREF;                  // Helper class - (GenUtility.java:331)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActivityREFSV;         // Reference type - (GenUtility.java:296)
 
 /**
  * null
@@ -50,17 +45,8 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
 
     public final static String constructionClassName = "Place";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public PlaceDMO() {
@@ -69,14 +55,6 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
 
     protected PlaceDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -115,11 +93,13 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MvwDMSAG.__placeName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof PlaceDMO){
             return( getObjectName().equals( ((PlaceDMO) obj).getObjectName()) );
@@ -127,6 +107,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)
@@ -135,7 +116,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public CamelCaseName getPlaceName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -148,7 +129,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets placeName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setPlaceName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -167,7 +148,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets placeName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setPlaceName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -180,12 +161,12 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the placeName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remPlaceName(){
          rem(MvwDMSAG.__placeName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getPlacePrefix(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -198,7 +179,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets placePrefix to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setPlacePrefix(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -217,7 +198,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets placePrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setPlacePrefix(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -230,12 +211,12 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the placePrefix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remPlacePrefix(){
          rem(MvwDMSAG.__placePrefix);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
     public ActivityREF getRunsActivity(){
         DmcTypeActivityREFSV attr = (DmcTypeActivityREFSV) get(MvwDMSAG.__runsActivity);
         if (attr == null)
@@ -266,7 +247,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets runsActivity to the specified value.
      * @param value ActivityDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:676)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:699)
     public void setRunsActivity(ActivityDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__runsActivity);
         if (attr == null)
@@ -287,7 +268,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets runsActivity to the specified value.
      * @param value A value compatible with DmcTypeActivityREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setRunsActivity(Object value) throws DmcValueException {
         DmcTypeActivityREFSV attr  = (DmcTypeActivityREFSV) get(MvwDMSAG.__runsActivity);
         if (attr == null)
@@ -302,7 +283,7 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the runsActivity attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remRunsActivity(){
          rem(MvwDMSAG.__runsActivity);
     }

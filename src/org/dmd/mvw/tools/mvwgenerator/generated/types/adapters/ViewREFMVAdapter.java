@@ -14,7 +14,7 @@ public class ViewREFMVAdapter extends DmcTypeViewREFMV implements DmcAdapterIF {
     transient DmcTypeViewREFMV existingValue;
 
     public ViewREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

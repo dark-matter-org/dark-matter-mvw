@@ -14,7 +14,7 @@ public class SelectionTypeEnumSVAdapter extends DmcTypeSelectionTypeEnumSV imple
     transient DmcTypeSelectionTypeEnumSV existingValue;
 
     public SelectionTypeEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

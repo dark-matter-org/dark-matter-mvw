@@ -14,7 +14,7 @@ public class PresenterREFSETAdapter extends DmcTypePresenterREFSET implements Dm
     transient DmcTypePresenterREFSET existingValue;
 
     public PresenterREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

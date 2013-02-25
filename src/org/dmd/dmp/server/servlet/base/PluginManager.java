@@ -29,12 +29,16 @@ import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl;
 import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.dmp.server.servlet.generated.DmpServerSchemaAG;
+import org.dmd.dmp.server.servlet.generated.dmo.DmpServerDMSAG;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
+import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
-import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.util.DmcUncheckedObject;
 
 /**
  * The PluginManager reads a plugin configuration and loads and instantiates
@@ -86,6 +90,8 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	CacheIF									cache;
 	DmpServletPlugin						cachePlugin;
 	
+	DmvRuleManager							ruleManager;
+	
 	
 	public PluginManager(DMPServiceImpl s) throws ResultException, DmcValueException {
 //		schema 		= new SchemaManager();
@@ -108,6 +114,10 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		startOrder		= new TreeMap<Integer, DmpServletPlugin>();
 		
 		securityManager	= null;
+		
+		ruleManager		= new DmvRuleManager();
+		ruleManager.loadRules(DmpDMSAG.instance());
+		ruleManager.loadRules(DmpServerDMSAG.instance());
 	}
 	
 //	public SchemaManager getSchema(){
@@ -135,8 +145,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	 * @param fn the name of the plugin configuration file.
 	 * @throws ResultException
 	 * @throws DmcValueException
+	 * @throws DmcRuleExceptionSet 
 	 */
-	public void loadPlugins(String fn) throws ResultException, DmcValueException {
+	public void loadPlugins(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		File pluginFile = new File(fn);
 		
 		if (!pluginFile.exists()){
@@ -216,7 +227,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 	
-	public void init() throws ResultException, DmcValueException{
+	public void init() throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		
 		requestTrackerPlugin.init();
 		
@@ -315,16 +326,20 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 			config.setCamelCaseName(config.getPluginName());
 		
 		try {
-			config.getDMO().validate();
-		} catch (DmcValueExceptionSet e) {
-			ResultException ex = new ResultException();
-			for(DmcValueException dve: e.getExceptions()){
-				ex.addError(dve.getLocalizedMessage());
-			}
-			ex.setLocationInfo(infile, lineNumber);
-			ex.result.lastResult().moreMessages("Object class: " + config.getConstructionClassName());
-			
-			throw(ex);
+			ruleManager.executeAttributeValidation(config.getDmcObject());
+			ruleManager.executeObjectValidation(config.getDmcObject());
+//		} catch (DmcValueExceptionSet e) {
+//			ResultException ex = new ResultException();
+//			for(DmcValueException dve: e.getExceptions()){
+//				ex.addError(dve.getLocalizedMessage());
+//			}
+//			ex.setLocationInfo(infile, lineNumber);
+//			ex.result.lastResult().moreMessages("Object class: " + config.getConstructionClassName());
+//			
+//			throw(ex);
+		} catch (DmcRuleExceptionSet e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		if (pluginConfigs.get(config.getObjectName()) != null){

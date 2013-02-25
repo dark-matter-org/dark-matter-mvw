@@ -14,7 +14,7 @@ public class DisplayDataSpecSVAdapter extends DmcTypeDisplayDataSpecSV implement
     transient DmcTypeDisplayDataSpecSV existingValue;
 
     public DisplayDataSpecSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

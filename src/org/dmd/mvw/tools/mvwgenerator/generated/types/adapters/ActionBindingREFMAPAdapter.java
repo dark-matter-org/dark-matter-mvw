@@ -14,7 +14,7 @@ public class ActionBindingREFMAPAdapter extends DmcTypeActionBindingREFMAP imple
     transient DmcTypeActionBindingREFMAP existingValue;
 
     public ActionBindingREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

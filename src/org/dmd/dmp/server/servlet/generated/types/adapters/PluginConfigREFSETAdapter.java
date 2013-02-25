@@ -14,7 +14,7 @@ public class PluginConfigREFSETAdapter extends DmcTypePluginConfigREFSET impleme
     transient DmcTypePluginConfigREFSET existingValue;
 
     public PluginConfigREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

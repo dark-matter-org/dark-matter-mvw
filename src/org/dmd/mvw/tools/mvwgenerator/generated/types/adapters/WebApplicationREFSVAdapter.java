@@ -14,7 +14,7 @@ public class WebApplicationREFSVAdapter extends DmcTypeWebApplicationREFSV imple
     transient DmcTypeWebApplicationREFSV existingValue;
 
     public WebApplicationREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

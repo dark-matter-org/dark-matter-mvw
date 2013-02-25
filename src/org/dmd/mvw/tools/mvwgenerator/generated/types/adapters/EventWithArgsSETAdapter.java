@@ -14,7 +14,7 @@ public class EventWithArgsSETAdapter extends DmcTypeEventWithArgsSET implements 
     transient DmcTypeEventWithArgsSET existingValue;
 
     public EventWithArgsSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

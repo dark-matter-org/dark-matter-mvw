@@ -14,7 +14,7 @@ public class PluginConfigREFMVAdapter extends DmcTypePluginConfigREFMV implement
     transient DmcTypePluginConfigREFMV existingValue;
 
     public PluginConfigREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

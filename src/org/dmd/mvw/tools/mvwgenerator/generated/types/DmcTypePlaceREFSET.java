@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePlaceREFSET provides storage for a set of PlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable {
+    
+     private final static Iterator<PlaceREF> emptyList =  (new HashSet<PlaceREF>()).iterator();
+    
     
     protected Set<PlaceREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<PlaceREF>();
         else
             value = new TreeSet<PlaceREF>();
@@ -54,14 +57,18 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     
     @Override
     public DmcTypePlaceREFSET getNew(){
-        return(new DmcTypePlaceREFSET(attrInfo));
+        return(new DmcTypePlaceREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<PlaceREF> cloneIt(){
         synchronized(this){
             DmcTypePlaceREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(PlaceREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public PlaceREF add(Object v) throws DmcValueException {
         synchronized(this){
             PlaceREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public PlaceREF del(Object v){
         synchronized(this){
             PlaceREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<PlaceREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PlaceREF>(value)).iterator() );
             else
                 return( (new TreeSet<PlaceREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<PlaceREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<PlaceREF>(value));
-            else
-                return(new TreeSet<PlaceREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<PlaceREF>());
+                else
+                    return(new HashSet<PlaceREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<PlaceREF>(value));
+                else
+                    return(new TreeSet<PlaceREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypePlaceREFSET extends DmcTypePlaceREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

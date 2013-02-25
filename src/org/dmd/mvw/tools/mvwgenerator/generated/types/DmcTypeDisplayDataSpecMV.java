@@ -27,11 +27,13 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;   
  * The DmcTypeDisplayDataSpecMV provides storage for a multi-valued DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements Serializable {
+    
+    private final static Iterator<DisplayDataSpec> emptyList = (new ArrayList<DisplayDataSpec>()).iterator();
     
     protected ArrayList<DisplayDataSpec> value;
     
@@ -45,15 +47,19 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     
     @Override
     public DmcTypeDisplayDataSpecMV getNew(){
-        return(new DmcTypeDisplayDataSpecMV(attrInfo));
+        return(new DmcTypeDisplayDataSpecMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<DisplayDataSpec> cloneIt(){
         synchronized(this){
             DmcTypeDisplayDataSpecMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(DisplayDataSpec val: value)
                 try {
                     rc.add(val);
@@ -74,7 +80,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public DisplayDataSpec add(Object v) throws DmcValueException {
         synchronized(this){
             DisplayDataSpec rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public DisplayDataSpec del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             DisplayDataSpec key = null;
             DisplayDataSpec rc = null;
             try {
@@ -107,38 +116,43 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<DisplayDataSpec> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<DisplayDataSpec> getMVCopy(){
         synchronized(this){
-            ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<DisplayDataSpec>());
+            else 
+                return(new ArrayList<DisplayDataSpec>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public DisplayDataSpec getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,14 +162,14 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public DisplayDataSpec setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             DisplayDataSpec rc = null;
             
@@ -163,8 +177,8 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<DisplayDataSpec>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<DisplayDataSpec>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -175,13 +189,13 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -198,7 +212,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

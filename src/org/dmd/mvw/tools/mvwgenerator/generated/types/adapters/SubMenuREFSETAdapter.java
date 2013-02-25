@@ -14,7 +14,7 @@ public class SubMenuREFSETAdapter extends DmcTypeSubMenuREFSET implements DmcAda
     transient DmcTypeSubMenuREFSET existingValue;
 
     public SubMenuREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

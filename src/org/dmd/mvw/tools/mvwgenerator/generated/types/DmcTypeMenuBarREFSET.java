@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMenuBarREFSET provides storage for a set of MenuBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializable {
+    
+     private final static Iterator<MenuBarREF> emptyList =  (new HashSet<MenuBarREF>()).iterator();
+    
     
     protected Set<MenuBarREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MenuBarREF>();
         else
             value = new TreeSet<MenuBarREF>();
@@ -54,14 +57,18 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     
     @Override
     public DmcTypeMenuBarREFSET getNew(){
-        return(new DmcTypeMenuBarREFSET(attrInfo));
+        return(new DmcTypeMenuBarREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<MenuBarREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuBarREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(MenuBarREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public MenuBarREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuBarREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public MenuBarREF del(Object v){
         synchronized(this){
             MenuBarREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<MenuBarREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MenuBarREF>(value)).iterator() );
             else
                 return( (new TreeSet<MenuBarREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<MenuBarREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<MenuBarREF>(value));
-            else
-                return(new TreeSet<MenuBarREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<MenuBarREF>());
+                else
+                    return(new HashSet<MenuBarREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<MenuBarREF>(value));
+                else
+                    return(new TreeSet<MenuBarREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

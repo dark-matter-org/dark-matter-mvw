@@ -14,7 +14,7 @@ public class RunContextItemREFMAPAdapter extends DmcTypeRunContextItemREFMAP imp
     transient DmcTypeRunContextItemREFMAP existingValue;
 
     public RunContextItemREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

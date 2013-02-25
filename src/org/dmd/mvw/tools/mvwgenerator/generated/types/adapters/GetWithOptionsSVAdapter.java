@@ -14,7 +14,7 @@ public class GetWithOptionsSVAdapter extends DmcTypeGetWithOptionsSV implements 
     transient DmcTypeGetWithOptionsSV existingValue;
 
     public GetWithOptionsSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

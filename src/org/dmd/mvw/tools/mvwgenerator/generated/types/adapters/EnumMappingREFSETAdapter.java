@@ -14,7 +14,7 @@ public class EnumMappingREFSETAdapter extends DmcTypeEnumMappingREFSET implement
     transient DmcTypeEnumMappingREFSET existingValue;
 
     public EnumMappingREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

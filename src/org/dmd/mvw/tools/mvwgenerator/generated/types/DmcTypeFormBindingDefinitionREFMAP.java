@@ -30,12 +30,14 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeFormBindingDefinitionREFMAP provides storage for a map of FormBindingDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefinitionREF<FormBindingDefinitionREF,CamelCaseName> {
 public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefinitionREF implements Serializable {
+    
+    private final static Iterator<FormBindingDefinitionREF> emptyList = (new HashMap<CamelCaseName,FormBindingDefinitionREF>()).values().iterator();
     
     protected Map<CamelCaseName,FormBindingDefinitionREF> value;
     
@@ -49,32 +51,36 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<CamelCaseName,FormBindingDefinitionREF>();
         else
             value = new TreeMap<CamelCaseName,FormBindingDefinitionREF>();
     }
     
     public CamelCaseName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<CamelCaseName,FormBindingDefinitionREF> map = (TreeMap<CamelCaseName,FormBindingDefinitionREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeFormBindingDefinitionREFMAP getNew(){
-        return(new DmcTypeFormBindingDefinitionREFMAP(attrInfo));
+        return(new DmcTypeFormBindingDefinitionREFMAP(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<FormBindingDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFormBindingDefinitionREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(FormBindingDefinitionREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public FormBindingDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FormBindingDefinitionREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public FormBindingDefinitionREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
             else
@@ -117,11 +127,15 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<FormBindingDefinitionREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<CamelCaseName,FormBindingDefinitionREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,FormBindingDefinitionREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,FormBindingDefinitionREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<CamelCaseName,FormBindingDefinitionREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,FormBindingDefinitionREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,FormBindingDefinitionREF>(value);
-            else
-                clone = new TreeMap<CamelCaseName,FormBindingDefinitionREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<CamelCaseName,FormBindingDefinitionREF>();
+                else
+                    clone = new HashMap<CamelCaseName,FormBindingDefinitionREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<CamelCaseName,FormBindingDefinitionREF>();
+                else
+                    clone = new TreeMap<CamelCaseName,FormBindingDefinitionREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public FormBindingDefinitionREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof CamelCaseName)
                 return(value.get((CamelCaseName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 FormBindingDefinitionREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof CamelCaseName)
                 return(value.containsKey(key));
             return(false);

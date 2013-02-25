@@ -14,7 +14,7 @@ public class SelectionTypeEnumSETAdapter extends DmcTypeSelectionTypeEnumSET imp
     transient DmcTypeSelectionTypeEnumSET existingValue;
 
     public SelectionTypeEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

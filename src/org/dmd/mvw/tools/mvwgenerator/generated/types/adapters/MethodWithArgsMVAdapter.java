@@ -14,7 +14,7 @@ public class MethodWithArgsMVAdapter extends DmcTypeMethodWithArgsMV implements 
     transient DmcTypeMethodWithArgsMV existingValue;
 
     public MethodWithArgsMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

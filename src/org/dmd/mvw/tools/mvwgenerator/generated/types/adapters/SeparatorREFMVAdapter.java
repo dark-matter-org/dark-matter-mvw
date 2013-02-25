@@ -14,7 +14,7 @@ public class SeparatorREFMVAdapter extends DmcTypeSeparatorREFMV implements DmcA
     transient DmcTypeSeparatorREFMV existingValue;
 
     public SeparatorREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

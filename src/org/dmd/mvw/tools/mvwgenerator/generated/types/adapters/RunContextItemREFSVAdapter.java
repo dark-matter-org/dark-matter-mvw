@@ -14,7 +14,7 @@ public class RunContextItemREFSVAdapter extends DmcTypeRunContextItemREFSV imple
     transient DmcTypeRunContextItemREFSV existingValue;
 
     public RunContextItemREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The RequestOptionEnum indicates a set of modifiers that direct code
+ * The RequestOptionEnum indicates a set of modifiers that direct\n code
  * generation for standard Dark Matter Protocol request handling.
  * <P>
  * Generated from the mvw schema at version 0.1

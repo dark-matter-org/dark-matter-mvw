@@ -14,7 +14,7 @@ public class GetWithOptionsSETAdapter extends DmcTypeGetWithOptionsSET implement
     transient DmcTypeGetWithOptionsSET existingValue;
 
     public GetWithOptionsSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

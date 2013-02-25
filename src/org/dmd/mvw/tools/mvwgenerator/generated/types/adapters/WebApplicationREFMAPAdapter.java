@@ -14,7 +14,7 @@ public class WebApplicationREFMAPAdapter extends DmcTypeWebApplicationREFMAP imp
     transient DmcTypeWebApplicationREFMAP existingValue;
 
     public WebApplicationREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

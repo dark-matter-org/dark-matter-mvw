@@ -14,7 +14,7 @@ public class SeparatorREFMAPAdapter extends DmcTypeSeparatorREFMAP implements Dm
     transient DmcTypeSeparatorREFMAP existingValue;
 
     public SeparatorREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

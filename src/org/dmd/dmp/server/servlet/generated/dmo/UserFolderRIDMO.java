@@ -15,23 +15,18 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:197)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcHierarchicNamedObjectIF;                // Named object - (GenUtility.java:346)
-import org.dmd.dmc.DmcNamedObjectIF;                          // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:324)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.DotName;                             // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeDotNameSV;          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:200)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcHierarchicNamedObjectIF;                // Named object - (GenUtility.java:369)
+import org.dmd.dmc.DmcNamedObjectIF;                          // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:347)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.DotName;                             // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeDotNameSV;          // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:223)
 
 /**
  * The UserFolderRI provides for a grouping of UserRI objects.
@@ -46,17 +41,8 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
     public final static String constructionClassName = "UserFolderRI";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public UserFolderRIDMO() {
@@ -65,14 +51,6 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
     protected UserFolderRIDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -116,11 +94,13 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(getObjectName());
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__dotName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof UserFolderRIDMO){
             return( getObjectName().equals( ((UserFolderRIDMO) obj).getObjectName()) );
@@ -128,6 +108,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         DotName objn = getObjectName();
         if (objn == null)
@@ -136,7 +117,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -149,7 +130,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -168,7 +149,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -181,7 +162,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }

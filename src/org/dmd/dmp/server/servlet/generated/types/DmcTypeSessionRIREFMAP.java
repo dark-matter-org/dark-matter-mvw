@@ -30,12 +30,14 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeSessionRIREFMAP provides storage for a map of SessionRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF<SessionRIREF,DotName> {
 public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Serializable {
+    
+    private final static Iterator<SessionRIREF> emptyList = (new HashMap<DotName,SessionRIREF>()).values().iterator();
     
     protected Map<DotName,SessionRIREF> value;
     
@@ -49,32 +51,36 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<DotName,SessionRIREF>();
         else
             value = new TreeMap<DotName,SessionRIREF>();
     }
     
     public DotName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<DotName,SessionRIREF> map = (TreeMap<DotName,SessionRIREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeSessionRIREFMAP getNew(){
-        return(new DmcTypeSessionRIREFMAP(attrInfo));
+        return(new DmcTypeSessionRIREFMAP(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<SessionRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionRIREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SessionRIREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public SessionRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionRIREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public SessionRIREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof DotName)
                 return(value.remove(key));
             else
@@ -117,11 +127,15 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<SessionRIREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<DotName,SessionRIREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<DotName,SessionRIREF>(value);
             else
                 clone = new TreeMap<DotName,SessionRIREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<DotName,SessionRIREF> getMVCopy(){
         synchronized(this){
             Map<DotName,SessionRIREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<DotName,SessionRIREF>(value);
-            else
-                clone = new TreeMap<DotName,SessionRIREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<DotName,SessionRIREF>();
+                else
+                    clone = new HashMap<DotName,SessionRIREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<DotName,SessionRIREF>();
+                else
+                    clone = new TreeMap<DotName,SessionRIREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public SessionRIREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof DotName)
                 return(value.get((DotName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 SessionRIREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof DotName)
                 return(value.containsKey(key));
             return(false);

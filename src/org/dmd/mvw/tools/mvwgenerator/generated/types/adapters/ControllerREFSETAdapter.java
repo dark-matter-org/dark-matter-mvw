@@ -14,7 +14,7 @@ public class ControllerREFSETAdapter extends DmcTypeControllerREFSET implements 
     transient DmcTypeControllerREFSET existingValue;
 
     public ControllerREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

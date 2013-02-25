@@ -15,22 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                          // Always required - (GenUtility.java:197)
-import java.util.*;                                                                   // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                                      // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:301)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;         // Base class - (GenUtility.java:328)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                                          // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                                                      // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:324)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;         // Base class - (GenUtility.java:351)
 
 /**
- * The Menu is a common base for all definitions associated with the
+ * The Menu is a common base for all definitions associated with\n the
  * definition of menus of different types e.g. toolbars, menubars, popups etc.
  * <P>
  * Generated from the mvw schema at version 0.1
@@ -43,17 +38,8 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
 
     public final static String constructionClassName = "Menu";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public MenuDMO() {
@@ -62,14 +48,6 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
 
     protected MenuDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
@@ -81,11 +59,13 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MvwDMSAG.__elementName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof MenuDMO){
             return( getObjectName().equals( ((MenuDMO) obj).getObjectName()) );
@@ -93,6 +73,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)
@@ -101,7 +82,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public CamelCaseName getElementName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -114,7 +95,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setElementName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -133,7 +114,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setElementName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -146,7 +127,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remElementName(){
          rem(MvwDMSAG.__elementName);
     }

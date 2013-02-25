@@ -14,7 +14,7 @@ public class UserRIREFSVAdapter extends DmcTypeUserRIREFSV implements DmcAdapter
     transient DmcTypeUserRIREFSV existingValue;
 
     public UserRIREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

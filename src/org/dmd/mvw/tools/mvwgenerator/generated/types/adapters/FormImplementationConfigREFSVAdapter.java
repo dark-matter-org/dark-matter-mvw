@@ -14,7 +14,7 @@ public class FormImplementationConfigREFSVAdapter extends DmcTypeFormImplementat
     transient DmcTypeFormImplementationConfigREFSV existingValue;
 
     public FormImplementationConfigREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

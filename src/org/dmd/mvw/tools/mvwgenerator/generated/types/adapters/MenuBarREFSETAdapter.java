@@ -14,7 +14,7 @@ public class MenuBarREFSETAdapter extends DmcTypeMenuBarREFSET implements DmcAda
     transient DmcTypeMenuBarREFSET existingValue;
 
     public MenuBarREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override
