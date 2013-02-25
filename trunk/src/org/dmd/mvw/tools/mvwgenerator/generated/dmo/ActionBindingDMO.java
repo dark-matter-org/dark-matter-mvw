@@ -15,38 +15,33 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                         // Always required - (GenUtility.java:197)
-import java.util.*;                                                                  // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                                     // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcOmni;                                                          // Lazy resolution - (GenUtility.java:293)
-import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                                // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                    // Type specific set/add - (GenUtility.java:280)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                // Base class - (GenUtility.java:328)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ComponentREF;                  // Helper class - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeComponentREFSV;         // Reference type - (GenUtility.java:273)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                                         // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                                                     // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcOmni;                                                          // Lazy resolution - (GenUtility.java:316)
+import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                                // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                    // Type specific set/add - (GenUtility.java:303)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                // Base class - (GenUtility.java:351)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ComponentREF;                  // Helper class - (GenUtility.java:331)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeComponentREFSV;         // Reference type - (GenUtility.java:296)
 
 /**
  * The ActionBinding class allows for the definition of an intermediate
- * component that binds behavioural triggers e.g. menu items, toolbar buttons
- * etc. to action implementors e.g. Controllers, Presenters and Activities.
- * The ActionBinding serves the same purpose as the
- * com.google.gwt.user.client.Command interface, but provides some additional
- * useful functionality. The implementation of the ActionBinding (see
- * org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of
- * TriggerIF interfaces, which are the various implementations of the menu
+ * component that binds\n behavioural triggers e.g. menu items, toolbar
+ * buttons etc. to action implementors e.g. Controllers,\n Presenters and
+ * Activities. The ActionBinding serves the same purpose as the
+ * com.google.gwt.user.client.Command\n interface, but provides some
+ * additional useful functionality. The implementation of the ActionBinding
+ * (see\n org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of
+ * TriggerIF interfaces, which are the various\n implementations of the menu
  * items, toolbar buttons etc. An implementing component can enable/disable
- * its Actions which, in turn, can enable/disable its triggers.
+ * its\n Actions which, in turn, can enable/disable its triggers.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -58,17 +53,8 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
 
     public final static String constructionClassName = "ActionBinding";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public ActionBindingDMO() {
@@ -77,14 +63,6 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
 
     protected ActionBindingDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -123,11 +101,13 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MvwDMSAG.__actionBindingName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof ActionBindingDMO){
             return( getObjectName().equals( ((ActionBindingDMO) obj).getObjectName()) );
@@ -135,6 +115,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)
@@ -143,7 +124,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
     public ComponentREF getImplementedBy(){
         DmcTypeComponentREFSV attr = (DmcTypeComponentREFSV) get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -174,7 +155,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
      * Sets implementedBy to the specified value.
      * @param value ComponentDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:676)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:699)
     public void setImplementedBy(ComponentDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -195,7 +176,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
      * Sets implementedBy to the specified value.
      * @param value A value compatible with DmcTypeComponentREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setImplementedBy(Object value) throws DmcValueException {
         DmcTypeComponentREFSV attr  = (DmcTypeComponentREFSV) get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -210,12 +191,12 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
     /**
      * Removes the implementedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remImplementedBy(){
          rem(MvwDMSAG.__implementedBy);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public CamelCaseName getActionBindingName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionBindingName);
         if (attr == null)
@@ -228,7 +209,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
      * Sets actionBindingName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setActionBindingName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__actionBindingName);
         if (attr == null)
@@ -247,7 +228,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
      * Sets actionBindingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setActionBindingName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionBindingName);
         if (attr == null)
@@ -260,7 +241,7 @@ public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObje
     /**
      * Removes the actionBindingName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remActionBindingName(){
          rem(MvwDMSAG.__actionBindingName);
     }

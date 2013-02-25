@@ -14,7 +14,7 @@ public class I18NConfigREFMVAdapter extends DmcTypeI18NConfigREFMV implements Dm
     transient DmcTypeI18NConfigREFMV existingValue;
 
     public I18NConfigREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

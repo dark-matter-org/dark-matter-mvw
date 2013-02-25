@@ -14,7 +14,7 @@ public class EventREFSVAdapter extends DmcTypeEventREFSV implements DmcAdapterIF
     transient DmcTypeEventREFSV existingValue;
 
     public EventREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

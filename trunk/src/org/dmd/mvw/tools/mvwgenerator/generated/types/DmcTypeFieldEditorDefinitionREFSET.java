@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeFieldEditorDefinitionREFSET provides storage for a set of FieldEditorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefinitionREF implements Serializable {
+    
+     private final static Iterator<FieldEditorDefinitionREF> emptyList =  (new HashSet<FieldEditorDefinitionREF>()).iterator();
+    
     
     protected Set<FieldEditorDefinitionREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FieldEditorDefinitionREF>();
         else
             value = new TreeSet<FieldEditorDefinitionREF>();
@@ -54,14 +57,18 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     
     @Override
     public DmcTypeFieldEditorDefinitionREFSET getNew(){
-        return(new DmcTypeFieldEditorDefinitionREFSET(attrInfo));
+        return(new DmcTypeFieldEditorDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<FieldEditorDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFieldEditorDefinitionREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(FieldEditorDefinitionREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public FieldEditorDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FieldEditorDefinitionREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public FieldEditorDefinitionREF del(Object v){
         synchronized(this){
             FieldEditorDefinitionREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<FieldEditorDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FieldEditorDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<FieldEditorDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<FieldEditorDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<FieldEditorDefinitionREF>(value));
-            else
-                return(new TreeSet<FieldEditorDefinitionREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<FieldEditorDefinitionREF>());
+                else
+                    return(new HashSet<FieldEditorDefinitionREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<FieldEditorDefinitionREF>(value));
+                else
+                    return(new TreeSet<FieldEditorDefinitionREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeFieldEditorDefinitionREFSET extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

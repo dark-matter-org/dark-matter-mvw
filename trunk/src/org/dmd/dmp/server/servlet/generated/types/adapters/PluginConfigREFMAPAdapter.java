@@ -14,7 +14,7 @@ public class PluginConfigREFMAPAdapter extends DmcTypePluginConfigREFMAP impleme
     transient DmcTypePluginConfigREFMAP existingValue;
 
     public PluginConfigREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

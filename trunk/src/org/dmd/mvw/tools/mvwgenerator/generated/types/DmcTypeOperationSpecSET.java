@@ -30,11 +30,14 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecSET provides storage for a set of OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Serializable {
+    
+     private final static Iterator<OperationSpec> emptyList =  (new HashSet<OperationSpec>()).iterator();
+    
     
     protected Set<OperationSpec> value;
     
@@ -48,7 +51,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<OperationSpec>();
         else
             value = new TreeSet<OperationSpec>();
@@ -56,14 +59,18 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     
     @Override
     public DmcTypeOperationSpecSET getNew(){
-        return(new DmcTypeOperationSpecSET(attrInfo));
+        return(new DmcTypeOperationSpecSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<OperationSpec> cloneIt(){
         synchronized(this){
             DmcTypeOperationSpecSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(OperationSpec val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public OperationSpec add(Object v) throws DmcValueException {
         synchronized(this){
             OperationSpec rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public OperationSpec del(Object v){
         synchronized(this){
             OperationSpec rc = null;
@@ -115,28 +122,39 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<OperationSpec> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<OperationSpec>(value)).iterator() );
             else
                 return( (new TreeSet<OperationSpec>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<OperationSpec> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<OperationSpec>(value));
-            else
-                return(new TreeSet<OperationSpec>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<OperationSpec>());
+                else
+                    return(new HashSet<OperationSpec>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<OperationSpec>(value));
+                else
+                    return(new TreeSet<OperationSpec>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

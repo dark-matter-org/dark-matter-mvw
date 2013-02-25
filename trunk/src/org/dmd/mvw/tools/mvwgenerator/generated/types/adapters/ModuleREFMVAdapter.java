@@ -14,7 +14,7 @@ public class ModuleREFMVAdapter extends DmcTypeModuleREFMV implements DmcAdapter
     transient DmcTypeModuleREFMV existingValue;
 
     public ModuleREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

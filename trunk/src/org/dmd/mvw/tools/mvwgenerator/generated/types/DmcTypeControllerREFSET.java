@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeControllerREFSET provides storage for a set of ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Serializable {
+    
+     private final static Iterator<ControllerREF> emptyList =  (new HashSet<ControllerREF>()).iterator();
+    
     
     protected Set<ControllerREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ControllerREF>();
         else
             value = new TreeSet<ControllerREF>();
@@ -54,14 +57,18 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     
     @Override
     public DmcTypeControllerREFSET getNew(){
-        return(new DmcTypeControllerREFSET(attrInfo));
+        return(new DmcTypeControllerREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<ControllerREF> cloneIt(){
         synchronized(this){
             DmcTypeControllerREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ControllerREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public ControllerREF add(Object v) throws DmcValueException {
         synchronized(this){
             ControllerREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public ControllerREF del(Object v){
         synchronized(this){
             ControllerREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<ControllerREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ControllerREF>(value)).iterator() );
             else
                 return( (new TreeSet<ControllerREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<ControllerREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ControllerREF>(value));
-            else
-                return(new TreeSet<ControllerREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ControllerREF>());
+                else
+                    return(new HashSet<ControllerREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ControllerREF>(value));
+                else
+                    return(new TreeSet<ControllerREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

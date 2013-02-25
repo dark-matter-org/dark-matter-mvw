@@ -30,12 +30,14 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeWebApplicationREFMAP provides storage for a map of WebApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF<WebApplicationREF,CamelCaseName> {
 public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implements Serializable {
+    
+    private final static Iterator<WebApplicationREF> emptyList = (new HashMap<CamelCaseName,WebApplicationREF>()).values().iterator();
     
     protected Map<CamelCaseName,WebApplicationREF> value;
     
@@ -49,32 +51,36 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<CamelCaseName,WebApplicationREF>();
         else
             value = new TreeMap<CamelCaseName,WebApplicationREF>();
     }
     
     public CamelCaseName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<CamelCaseName,WebApplicationREF> map = (TreeMap<CamelCaseName,WebApplicationREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeWebApplicationREFMAP getNew(){
-        return(new DmcTypeWebApplicationREFMAP(attrInfo));
+        return(new DmcTypeWebApplicationREFMAP(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<WebApplicationREF> cloneIt(){
         synchronized(this){
             DmcTypeWebApplicationREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(WebApplicationREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public WebApplicationREF add(Object v) throws DmcValueException {
         synchronized(this){
             WebApplicationREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public WebApplicationREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
             else
@@ -117,11 +127,15 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<WebApplicationREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<CamelCaseName,WebApplicationREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,WebApplicationREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,WebApplicationREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<CamelCaseName,WebApplicationREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,WebApplicationREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,WebApplicationREF>(value);
-            else
-                clone = new TreeMap<CamelCaseName,WebApplicationREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<CamelCaseName,WebApplicationREF>();
+                else
+                    clone = new HashMap<CamelCaseName,WebApplicationREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<CamelCaseName,WebApplicationREF>();
+                else
+                    clone = new TreeMap<CamelCaseName,WebApplicationREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public WebApplicationREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof CamelCaseName)
                 return(value.get((CamelCaseName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 WebApplicationREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeWebApplicationREFMAP extends DmcTypeWebApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof CamelCaseName)
                 return(value.containsKey(key));
             return(false);

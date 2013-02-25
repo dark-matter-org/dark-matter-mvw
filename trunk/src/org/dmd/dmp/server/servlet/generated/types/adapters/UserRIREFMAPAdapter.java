@@ -14,7 +14,7 @@ public class UserRIREFMAPAdapter extends DmcTypeUserRIREFMAP implements DmcAdapt
     transient DmcTypeUserRIREFMAP existingValue;
 
     public UserRIREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

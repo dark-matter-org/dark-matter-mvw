@@ -30,11 +30,14 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions;    // DmcType
  * The DmcTypeGetWithOptionsSET provides storage for a set of GetWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements Serializable {
+    
+     private final static Iterator<GetWithOptions> emptyList =  (new HashSet<GetWithOptions>()).iterator();
+    
     
     protected Set<GetWithOptions> value;
     
@@ -48,7 +51,7 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<GetWithOptions>();
         else
             value = new TreeSet<GetWithOptions>();
@@ -56,14 +59,18 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     
     @Override
     public DmcTypeGetWithOptionsSET getNew(){
-        return(new DmcTypeGetWithOptionsSET(attrInfo));
+        return(new DmcTypeGetWithOptionsSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<GetWithOptions> cloneIt(){
         synchronized(this){
             DmcTypeGetWithOptionsSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(GetWithOptions val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public GetWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
             GetWithOptions rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public GetWithOptions del(Object v){
         synchronized(this){
             GetWithOptions rc = null;
@@ -115,28 +122,39 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<GetWithOptions> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<GetWithOptions>(value)).iterator() );
             else
                 return( (new TreeSet<GetWithOptions>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<GetWithOptions> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<GetWithOptions>(value));
-            else
-                return(new TreeSet<GetWithOptions>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<GetWithOptions>());
+                else
+                    return(new HashSet<GetWithOptions>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<GetWithOptions>(value));
+                else
+                    return(new TreeSet<GetWithOptions>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeGetWithOptionsSET extends DmcTypeGetWithOptions implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

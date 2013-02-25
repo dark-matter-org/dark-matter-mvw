@@ -14,7 +14,7 @@ public class SessionFolderRIREFMVAdapter extends DmcTypeSessionFolderRIREFMV imp
     transient DmcTypeSessionFolderRIREFMV existingValue;
 
     public SessionFolderRIREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

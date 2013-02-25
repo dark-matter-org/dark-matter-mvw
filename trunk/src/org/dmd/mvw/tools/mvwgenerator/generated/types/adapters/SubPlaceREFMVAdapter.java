@@ -14,7 +14,7 @@ public class SubPlaceREFMVAdapter extends DmcTypeSubPlaceREFMV implements DmcAda
     transient DmcTypeSubPlaceREFMV existingValue;
 
     public SubPlaceREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

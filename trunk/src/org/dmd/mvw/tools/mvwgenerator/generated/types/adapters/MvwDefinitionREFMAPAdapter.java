@@ -14,7 +14,7 @@ public class MvwDefinitionREFMAPAdapter extends DmcTypeMvwDefinitionREFMAP imple
     transient DmcTypeMvwDefinitionREFMAP existingValue;
 
     public MvwDefinitionREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

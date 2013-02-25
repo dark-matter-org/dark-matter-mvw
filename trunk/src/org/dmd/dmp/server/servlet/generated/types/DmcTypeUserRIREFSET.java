@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserRIREFSET provides storage for a set of UserRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializable {
+    
+     private final static Iterator<UserRIREF> emptyList =  (new HashSet<UserRIREF>()).iterator();
+    
     
     protected Set<UserRIREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<UserRIREF>();
         else
             value = new TreeSet<UserRIREF>();
@@ -54,14 +57,18 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     
     @Override
     public DmcTypeUserRIREFSET getNew(){
-        return(new DmcTypeUserRIREFSET(attrInfo));
+        return(new DmcTypeUserRIREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<UserRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserRIREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UserRIREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public UserRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserRIREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public UserRIREF del(Object v){
         synchronized(this){
             UserRIREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<UserRIREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UserRIREF>(value)).iterator() );
             else
                 return( (new TreeSet<UserRIREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<UserRIREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<UserRIREF>(value));
-            else
-                return(new TreeSet<UserRIREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<UserRIREF>());
+                else
+                    return(new HashSet<UserRIREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<UserRIREF>(value));
+                else
+                    return(new TreeSet<UserRIREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

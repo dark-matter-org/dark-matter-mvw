@@ -14,7 +14,7 @@ public class FormImplementationConfigREFSETAdapter extends DmcTypeFormImplementa
     transient DmcTypeFormImplementationConfigREFSET existingValue;
 
     public FormImplementationConfigREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

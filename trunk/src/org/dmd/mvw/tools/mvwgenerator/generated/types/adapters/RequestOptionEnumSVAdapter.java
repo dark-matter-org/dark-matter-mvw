@@ -14,7 +14,7 @@ public class RequestOptionEnumSVAdapter extends DmcTypeRequestOptionEnumSV imple
     transient DmcTypeRequestOptionEnumSV existingValue;
 
     public RequestOptionEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

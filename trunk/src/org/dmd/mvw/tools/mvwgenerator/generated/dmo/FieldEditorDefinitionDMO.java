@@ -15,36 +15,32 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                  // Always required - (GenUtility.java:197)
-import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:301)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:328)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                                  // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:324)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:351)
 
 /**
  * The FieldEditor class allows for the definition of implementation specific
- * field editors. The specified class must implement the
- * org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by
- * the FormBinder that is generated for each FormBindingDefinition instance
+ * field\n editors. The specified class must implement the
+ * org.dmd.dmc.DmcPresentationIF\n interface so that it can be initialized by
+ * the FormBinder that is generated for each FormBindingDefinition\n instance
  * and so that it can interact with the AttributeTracker and the
- * SetRequestGenerator. <p/> When dealing with indexed attributes, the
- * default behaviour is to create a form binding with an editor instance for
- * each index slot. However, in some cases, you want to use a single complex
- * editor that handles the attribute. By setting useSingleEditor to true, the
- * form binding will contain a single editor for an indexed attribute.
+ * SetRequestGenerator.\n <p/>\n When dealing with indexed attributes, the
+ * default behaviour is to create a\n form binding with an editor instance
+ * for each index slot. However, in some cases, you\n want to use a single
+ * complex editor that handles the attribute. By setting useSingleEditor\n to
+ * true, the form binding will contain a single editor for an indexed
+ * attribute.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -56,17 +52,8 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
 
     public final static String constructionClassName = "FieldEditorDefinition";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public FieldEditorDefinitionDMO() {
@@ -75,14 +62,6 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
 
     protected FieldEditorDefinitionDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -121,11 +100,13 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MvwDMSAG.__editorName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof FieldEditorDefinitionDMO){
             return( getObjectName().equals( ((FieldEditorDefinitionDMO) obj).getObjectName()) );
@@ -133,6 +114,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)
@@ -141,7 +123,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public Boolean isUseSingleEditor(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -154,7 +136,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useSingleEditor to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setUseSingleEditor(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -173,7 +155,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useSingleEditor to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setUseSingleEditor(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -186,12 +168,12 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useSingleEditor attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remUseSingleEditor(){
          rem(MvwDMSAG.__useSingleEditor);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public CamelCaseName getEditorName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -204,7 +186,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editorName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setEditorName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -223,7 +205,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editorName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setEditorName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -236,12 +218,12 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the editorName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remEditorName(){
          rem(MvwDMSAG.__editorName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getUseClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -254,7 +236,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setUseClass(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -273,7 +255,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setUseClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -286,7 +268,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remUseClass(){
          rem(MvwDMSAG.__useClass);
     }

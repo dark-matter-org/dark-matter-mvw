@@ -1,19 +1,22 @@
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
-import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Required attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:546)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:546)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:538)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:860)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:794)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:793)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:795)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:796)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:797)
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Required attribute from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:813)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:813)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:801)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:802)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;               // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:807)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:828)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:124)
 public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
 
@@ -37,12 +40,20 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __startOrder = new DmcAttributeInfo("startOrder", 702, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchemaClass = new DmcAttributeInfo("useSchemaClass", 704, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userRefRI = new DmcAttributeInfo("userRefRI", 708, "UserRI", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __PluginConfig = new DmcClassInfo("PluginConfig", 701, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
-    public final static DmcClassInfo __SessionFolderRI = new DmcClassInfo("SessionFolderRI", 704, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
-    public final static DmcClassInfo __SessionRI = new DmcClassInfo("SessionRI", 705, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
-    public final static DmcClassInfo __UserFolderRI = new DmcClassInfo("UserFolderRI", 702, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
-    public final static DmcClassInfo __UserRI = new DmcClassInfo("UserRI", 703, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
 
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:162)
+    public final static DmcTypeInfo __type_PluginConfig = new DmcTypeInfo("PluginConfig", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_SessionFolderRI = new DmcTypeInfo("SessionFolderRI", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_SessionRI = new DmcTypeInfo("SessionRI", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_UserFolderRI = new DmcTypeInfo("UserFolderRI", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_UserRI = new DmcTypeInfo("UserRI", OriginalTypeEnum.REFERENCE);
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:203)
+    public final static DmcClassInfo __PluginConfig = new DmcClassInfo("PluginConfig","org.dmd.dmp.server.servlet.generated.dmo.PluginConfigDMO", 701, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
+    public final static DmcClassInfo __SessionFolderRI = new DmcClassInfo("SessionFolderRI","org.dmd.dmp.server.servlet.generated.dmo.SessionFolderRIDMO", 704, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __SessionRI = new DmcClassInfo("SessionRI","org.dmd.dmp.server.servlet.generated.dmo.SessionRIDMO", 705, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __UserFolderRI = new DmcClassInfo("UserFolderRI","org.dmd.dmp.server.servlet.generated.dmo.UserFolderRIDMO", 702, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __UserRI = new DmcClassInfo("UserRI","org.dmd.dmp.server.servlet.generated.dmo.UserRIDMO", 703, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -54,6 +65,10 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
 
+    static  HashMap<String, DmcTypeInfo> _TImAp;
+
+    static  ArrayList<RuleIF>             _RmAp;
+
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
 
@@ -64,6 +79,10 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
+
+        _TImAp = new HashMap<String, DmcTypeInfo>();
+
+        _RmAp = new ArrayList<RuleIF>();
 
         _SmAp.put(__idRI.id,__idRI);
         _SmAp.put(__pluginClass.id,__pluginClass);
@@ -154,6 +173,11 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
     }
 
 
+    public Iterator<DmcTypeInfo> getTypeInfo(){
+        return(_TImAp.values().iterator());
+    }
+
+
     public String getSchemaName(){
         return(schemaName);
     }
@@ -171,6 +195,11 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
     public int getSchemaMaxID(){
         return(schemaMaxID);
+    }
+
+
+    public Iterator<RuleIF> getRules(){
+        return(_RmAp.iterator());
     }
 
 

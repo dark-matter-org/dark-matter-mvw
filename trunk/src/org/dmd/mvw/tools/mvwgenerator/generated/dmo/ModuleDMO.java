@@ -15,31 +15,27 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                                  // Always required - (GenUtility.java:197)
-import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dmg.generated.dmo.DmgDMSAG;                                    // Attribute from dmg schema - (GenUtility.java:176)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                           // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:301)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:328)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                                  // Always required - (GenUtility.java:220)
+import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:215)
+import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:371)
+import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:366)
+import org.dmd.dmg.generated.dmo.DmgDMSAG;                                    // Attribute from dmg schema - (GenUtility.java:193)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                           // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:324)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:351)
 
 /**
- * The Module is used to define a reusable set of MVW functionality which can
- * be referred to in Application definitions or other Module definitions.
+ * The Module is used to define a reusable set of MVW functionality which\n
+ * can be referred to in Application definitions or other Module definitions.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -51,17 +47,8 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "Module";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public ModuleDMO() {
@@ -70,14 +57,6 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
 
     protected ModuleDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -116,11 +95,13 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MvwDMSAG.__moduleName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof ModuleDMO){
             return( getObjectName().equals( ((ModuleDMO) obj).getObjectName()) );
@@ -128,6 +109,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         CamelCaseName objn = getObjectName();
         if (objn == null)
@@ -140,7 +122,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
     public Iterator<String> getDependsOnModule(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -152,7 +134,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1091)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
     public String getNthDependsOnModule(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -165,7 +147,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Adds another dependsOnModule to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1105)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1128)
     public DmcAttribute<?> addDependsOnModule(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -185,7 +167,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1180)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1203)
     public boolean dependsOnModuleContains(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -197,7 +179,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Adds another dependsOnModule value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
     public DmcAttribute<?> addDependsOnModule(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -211,7 +193,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Returns the number of values in dependsOnModule
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
     public int getDependsOnModuleSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         if (attr == null){
@@ -227,7 +209,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Deletes a dependsOnModule value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1287)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
     public DmcAttribute<?> delDependsOnModule(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         
@@ -243,7 +225,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Deletes a dependsOnModule from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1303)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
     public DmcAttribute<?> delDependsOnModule(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__dependsOnModule);
         
@@ -258,7 +240,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the dependsOnModule attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remDependsOnModule(){
          rem(MvwDMSAG.__dependsOnModule);
     }
@@ -267,7 +249,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
     public Iterator<String> getDependsOnSchema(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -279,7 +261,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1091)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
     public String getNthDependsOnSchema(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -292,7 +274,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Adds another dependsOnSchema to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1105)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1128)
     public DmcAttribute<?> addDependsOnSchema(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -312,7 +294,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1180)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1203)
     public boolean dependsOnSchemaContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -324,7 +306,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Adds another dependsOnSchema value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
     public DmcAttribute<?> addDependsOnSchema(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -338,7 +320,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Returns the number of values in dependsOnSchema
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
     public int getDependsOnSchemaSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         if (attr == null){
@@ -354,7 +336,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Deletes a dependsOnSchema value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1287)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
     public DmcAttribute<?> delDependsOnSchema(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         
@@ -370,7 +352,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Deletes a dependsOnSchema from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1303)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
     public DmcAttribute<?> delDependsOnSchema(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnSchema);
         
@@ -385,12 +367,12 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the dependsOnSchema attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remDependsOnSchema(){
          rem(MetaDMSAG.__dependsOnSchema);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public Boolean isUsingStandardSubpackages(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__usingStandardSubpackages);
         if (attr == null)
@@ -403,7 +385,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets usingStandardSubpackages to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setUsingStandardSubpackages(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__usingStandardSubpackages);
         if (attr == null)
@@ -422,7 +404,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets usingStandardSubpackages to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setUsingStandardSubpackages(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__usingStandardSubpackages);
         if (attr == null)
@@ -435,12 +417,12 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the usingStandardSubpackages attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remUsingStandardSubpackages(){
          rem(MvwDMSAG.__usingStandardSubpackages);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public CamelCaseName getModuleName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__moduleName);
         if (attr == null)
@@ -453,7 +435,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets moduleName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setModuleName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__moduleName);
         if (attr == null)
@@ -472,7 +454,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets moduleName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setModuleName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__moduleName);
         if (attr == null)
@@ -485,12 +467,12 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the moduleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remModuleName(){
          rem(MvwDMSAG.__moduleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getGenPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__genPackage);
         if (attr == null)
@@ -503,7 +485,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets genPackage to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setGenPackage(String value) {
         DmcAttribute<?> attr = get(DmgDMSAG.__genPackage);
         if (attr == null)
@@ -522,7 +504,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets genPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setGenPackage(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmgDMSAG.__genPackage);
         if (attr == null)
@@ -535,7 +517,7 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the genPackage attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remGenPackage(){
          rem(DmgDMSAG.__genPackage);
     }

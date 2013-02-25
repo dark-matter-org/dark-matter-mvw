@@ -14,7 +14,7 @@ public class PlaceREFMAPAdapter extends DmcTypePlaceREFMAP implements DmcAdapter
     transient DmcTypePlaceREFMAP existingValue;
 
     public PlaceREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

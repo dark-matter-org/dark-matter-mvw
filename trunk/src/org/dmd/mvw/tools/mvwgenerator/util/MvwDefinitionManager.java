@@ -26,6 +26,7 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dms.AttributeDefinition;
@@ -330,8 +331,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * @param def
 	 * @throws ResultException
 	 * @throws DmcValueException 
+	 * @throws DmcRuleExceptionSet 
 	 */
-	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException {
+	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		checkAndAdd(def,allDefs);
 		
 		setSubpackage(def);

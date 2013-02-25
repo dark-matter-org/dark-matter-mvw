@@ -14,7 +14,7 @@ public class SubPlaceREFMAPAdapter extends DmcTypeSubPlaceREFMAP implements DmcA
     transient DmcTypeSubPlaceREFMAP existingValue;
 
     public SubPlaceREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

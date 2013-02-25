@@ -14,7 +14,7 @@ public class RequestWithOptionsSETAdapter extends DmcTypeRequestWithOptionsSET i
     transient DmcTypeRequestWithOptionsSET existingValue;
 
     public RequestWithOptionsSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

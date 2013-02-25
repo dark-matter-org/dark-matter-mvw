@@ -14,7 +14,7 @@ public class EditFieldSETAdapter extends DmcTypeEditFieldSET implements DmcAdapt
     transient DmcTypeEditFieldSET existingValue;
 
     public EditFieldSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

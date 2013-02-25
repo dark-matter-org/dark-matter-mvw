@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeViewREFSET provides storage for a set of ViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
+    
+     private final static Iterator<ViewREF> emptyList =  (new HashSet<ViewREF>()).iterator();
+    
     
     protected Set<ViewREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ViewREF>();
         else
             value = new TreeSet<ViewREF>();
@@ -54,14 +57,18 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     
     @Override
     public DmcTypeViewREFSET getNew(){
-        return(new DmcTypeViewREFSET(attrInfo));
+        return(new DmcTypeViewREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<ViewREF> cloneIt(){
         synchronized(this){
             DmcTypeViewREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ViewREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public ViewREF add(Object v) throws DmcValueException {
         synchronized(this){
             ViewREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public ViewREF del(Object v){
         synchronized(this){
             ViewREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<ViewREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ViewREF>(value)).iterator() );
             else
                 return( (new TreeSet<ViewREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<ViewREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ViewREF>(value));
-            else
-                return(new TreeSet<ViewREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ViewREF>());
+                else
+                    return(new HashSet<ViewREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ViewREF>(value));
+                else
+                    return(new TreeSet<ViewREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeViewREFSET extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

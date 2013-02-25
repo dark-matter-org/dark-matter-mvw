@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionBindingREFMV provides storage for a multi-valued ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implements Serializable {
+    
+    private final static Iterator<ActionBindingREF> emptyList = (new ArrayList<ActionBindingREF>()).iterator();
     
     protected ArrayList<ActionBindingREF> value;
     
@@ -43,15 +45,19 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     
     @Override
     public DmcTypeActionBindingREFMV getNew(){
-        return(new DmcTypeActionBindingREFMV(attrInfo));
+        return(new DmcTypeActionBindingREFMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
             DmcTypeActionBindingREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(ActionBindingREF val: value)
                 try {
                     rc.add(val);
@@ -72,7 +78,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionBindingREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public ActionBindingREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ActionBindingREF key = null;
             ActionBindingREF rc = null;
             try {
@@ -105,38 +114,43 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<ActionBindingREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ActionBindingREF>());
+            else 
+                return(new ArrayList<ActionBindingREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public ActionBindingREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,14 +160,14 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public ActionBindingREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             ActionBindingREF rc = null;
             
@@ -161,8 +175,8 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ActionBindingREF>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<ActionBindingREF>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -173,13 +187,13 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -196,7 +210,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

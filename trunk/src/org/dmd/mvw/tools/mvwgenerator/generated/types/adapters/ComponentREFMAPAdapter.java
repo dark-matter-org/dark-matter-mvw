@@ -14,7 +14,7 @@ public class ComponentREFMAPAdapter extends DmcTypeComponentREFMAP implements Dm
     transient DmcTypeComponentREFMAP existingValue;
 
     public ComponentREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

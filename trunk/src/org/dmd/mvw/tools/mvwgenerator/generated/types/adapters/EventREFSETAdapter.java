@@ -14,7 +14,7 @@ public class EventREFSETAdapter extends DmcTypeEventREFSET implements DmcAdapter
     transient DmcTypeEventREFSET existingValue;
 
     public EventREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

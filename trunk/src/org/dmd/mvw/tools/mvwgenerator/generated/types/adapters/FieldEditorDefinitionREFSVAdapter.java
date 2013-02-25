@@ -14,7 +14,7 @@ public class FieldEditorDefinitionREFSVAdapter extends DmcTypeFieldEditorDefinit
     transient DmcTypeFieldEditorDefinitionREFSV existingValue;
 
     public FieldEditorDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

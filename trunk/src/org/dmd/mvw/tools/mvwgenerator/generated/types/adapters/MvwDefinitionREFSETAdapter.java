@@ -14,7 +14,7 @@ public class MvwDefinitionREFSETAdapter extends DmcTypeMvwDefinitionREFSET imple
     transient DmcTypeMvwDefinitionREFSET existingValue;
 
     public MvwDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class RequestWithOptionsSVAdapter extends DmcTypeRequestWithOptionsSV imp
     transient DmcTypeRequestWithOptionsSV existingValue;
 
     public RequestWithOptionsSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

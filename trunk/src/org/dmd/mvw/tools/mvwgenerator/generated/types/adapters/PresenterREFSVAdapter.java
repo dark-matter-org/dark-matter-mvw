@@ -14,7 +14,7 @@ public class PresenterREFSVAdapter extends DmcTypePresenterREFSV implements DmcA
     transient DmcTypePresenterREFSV existingValue;
 
     public PresenterREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

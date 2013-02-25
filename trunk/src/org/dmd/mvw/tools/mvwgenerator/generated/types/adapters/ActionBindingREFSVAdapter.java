@@ -14,7 +14,7 @@ public class ActionBindingREFSVAdapter extends DmcTypeActionBindingREFSV impleme
     transient DmcTypeActionBindingREFSV existingValue;
 
     public ActionBindingREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

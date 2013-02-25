@@ -14,7 +14,7 @@ public class RequestOptionEnumSETAdapter extends DmcTypeRequestOptionEnumSET imp
     transient DmcTypeRequestOptionEnumSET existingValue;
 
     public RequestOptionEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

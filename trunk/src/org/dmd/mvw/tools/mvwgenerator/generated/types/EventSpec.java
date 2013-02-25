@@ -15,24 +15,24 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.types;
 
-import java.io.Serializable;
-import org.dmd.dmc.DmcInputStreamIF;
-import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.dmc.types.IntegerVar;
-import org.dmd.dmc.DmcValueException;
-
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                         // Primitive type
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;            // Internally generated type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type
-
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
+// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:101)
+import java.io.Serializable;                                                                  // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
+import org.dmd.dmc.DmcInputStreamIF;                                                          // Standard serialization techniques - (ComplexTypeFormatter.java:71)
+import org.dmd.dmc.DmcOutputStreamIF;                                                         // Standard serialization techniques - (ComplexTypeFormatter.java:72)
+import org.dmd.dmc.DmcValueException;                                                         // Standard value exception - (ComplexTypeFormatter.java:94)
+import org.dmd.dmc.types.IntegerVar;                                                          // To support getNextField() - (ComplexTypeFormatter.java:73)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type - (ComplexTypeFormatter.java:460)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                         // Primitive type - (ComplexTypeFormatter.java:442)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type - (ComplexTypeFormatter.java:442)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;            // Internally generated type - (ComplexTypeFormatter.java:460)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:460)
 @SuppressWarnings("serial")
 /**
  * The EventSpec class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:108)
  */
 public class EventSpec implements Serializable {
 
@@ -62,7 +62,7 @@ public class EventSpec implements Serializable {
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:114)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:135)
      */
     public EventSpec(String f1, SelectionTypeEnum f2, EventScopeEnum f3) throws DmcValueException {
         varName = DmcTypeStringSTATIC.instance.typeCheck(f1);
@@ -72,10 +72,12 @@ public class EventSpec implements Serializable {
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:147)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:175)
      */
-    public EventSpec(String input) throws DmcValueException {
+    public EventSpec(String initialInput) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
+        String input = initialInput.trim();
+        input = input.replaceAll("(\\s)+", " ");
         varName = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"varName",false));
         cardinality = DmcTypeSelectionTypeEnumSTATIC.instance.typeCheck(getNextField(input,seppos,"cardinality",false));
         scope = DmcTypeEventScopeEnumSTATIC.instance.typeCheck(getNextField(input,seppos,"scope",true));
@@ -83,7 +85,7 @@ public class EventSpec implements Serializable {
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:172)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:207)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringSTATIC.instance.serializeValue(dos, varName);
@@ -93,7 +95,7 @@ public class EventSpec implements Serializable {
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:189)
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:224)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         varName = DmcTypeStringSTATIC.instance.deserializeValue(dis);

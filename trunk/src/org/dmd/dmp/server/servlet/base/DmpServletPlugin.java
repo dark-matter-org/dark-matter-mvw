@@ -16,6 +16,7 @@
 package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl;
 import org.dmd.dmp.server.servlet.extended.PluginConfig;
@@ -97,8 +98,9 @@ public class DmpServletPlugin {
 	 * Derived classes should perform any initialization logic required. If a
 	 * plugin has indicated that it depends on another plugin, it is safe to 
 	 * assume that the other plugin has been initialized.
+	 * @throws DmcRuleExceptionSet 
 	 */
-	protected void init() throws ResultException, DmcValueException {
+	protected void init() throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		
 	}
 	

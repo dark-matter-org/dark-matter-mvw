@@ -14,7 +14,7 @@ public class ActivityREFMAPAdapter extends DmcTypeActivityREFMAP implements DmcA
     transient DmcTypeActivityREFMAP existingValue;
 
     public ActivityREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

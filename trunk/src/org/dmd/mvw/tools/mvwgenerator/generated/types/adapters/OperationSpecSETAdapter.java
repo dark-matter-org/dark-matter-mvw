@@ -14,7 +14,7 @@ public class OperationSpecSETAdapter extends DmcTypeOperationSpecSET implements 
     transient DmcTypeOperationSpecSET existingValue;
 
     public OperationSpecSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class ActivityREFSETAdapter extends DmcTypeActivityREFSET implements DmcA
     transient DmcTypeActivityREFSET existingValue;
 
     public ActivityREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

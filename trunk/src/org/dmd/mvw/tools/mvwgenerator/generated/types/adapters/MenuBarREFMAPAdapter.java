@@ -14,7 +14,7 @@ public class MenuBarREFMAPAdapter extends DmcTypeMenuBarREFMAP implements DmcAda
     transient DmcTypeMenuBarREFMAP existingValue;
 
     public MenuBarREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

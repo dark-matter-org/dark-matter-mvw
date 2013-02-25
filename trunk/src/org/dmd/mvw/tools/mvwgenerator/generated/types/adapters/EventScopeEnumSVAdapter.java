@@ -14,7 +14,7 @@ public class EventScopeEnumSVAdapter extends DmcTypeEventScopeEnumSV implements 
     transient DmcTypeEventScopeEnumSV existingValue;
 
     public EventScopeEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

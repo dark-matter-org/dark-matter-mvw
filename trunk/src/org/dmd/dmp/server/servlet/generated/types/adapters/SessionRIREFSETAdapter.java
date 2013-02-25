@@ -14,7 +14,7 @@ public class SessionRIREFSETAdapter extends DmcTypeSessionRIREFSET implements Dm
     transient DmcTypeSessionRIREFSET existingValue;
 
     public SessionRIREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

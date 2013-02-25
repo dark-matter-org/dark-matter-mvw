@@ -2,18 +2,18 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                                // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.*;                                                                // If any attributes - (BaseDMWGeneratorNewest.java:905)
 import org.dmd.dmc.types.CamelCaseName;                                              // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dms.*;                                                                // Always 2 - (BaseDMWGeneratorNewest.java:888)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
-import org.dmd.mvw.tools.mvwgenerator.extended.EnumMappingGenerator;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                        // Derived class - (BaseDMWGeneratorNewest.java:1064)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.ClassDefinition;                                                  // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.mvw.tools.mvwgenerator.extended.EnumMappingGenerator;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                        // Derived class - (BaseDMWGeneratorNewest.java:1066)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
 
 
 /**
- * The EnumMappingGenerator definition allows for the specification of code
+ * The EnumMappingGenerator definition allows for the specification of code\n
  * generation extension that generates enum mapping code for a particular
  * widget set.
  * <P>
@@ -62,7 +62,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1115)
     public CamelCaseName getObjectName(){
         return(((EnumMappingGeneratorDMO) core).getCamelCaseName());
     }
@@ -82,7 +82,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public CamelCaseName getCamelCaseName(){
         return(((EnumMappingGeneratorDMO) core).getCamelCaseName());
     }
@@ -91,7 +91,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setCamelCaseName(Object value) throws DmcValueException {
         ((EnumMappingGeneratorDMO) core).setCamelCaseName(value);
     }
@@ -100,7 +100,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setCamelCaseName(CamelCaseName value){
         ((EnumMappingGeneratorDMO) core).setCamelCaseName(value);
     }
@@ -108,12 +108,12 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remCamelCaseName(){
         ((EnumMappingGeneratorDMO) core).remCamelCaseName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public String getEnumGeneratorClass(){
         return(((EnumMappingGeneratorDMO) core).getEnumGeneratorClass());
     }
@@ -122,7 +122,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
      * Sets enumGeneratorClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setEnumGeneratorClass(Object value) throws DmcValueException {
         ((EnumMappingGeneratorDMO) core).setEnumGeneratorClass(value);
     }
@@ -131,7 +131,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
      * Sets enumGeneratorClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setEnumGeneratorClass(String value){
         ((EnumMappingGeneratorDMO) core).setEnumGeneratorClass(value);
     }
@@ -139,7 +139,7 @@ abstract public class EnumMappingGeneratorDMW extends MvwDefinition implements D
     /**
      * Removes the enumGeneratorClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remEnumGeneratorClass(){
         ((EnumMappingGeneratorDMO) core).remEnumGeneratorClass();
     }

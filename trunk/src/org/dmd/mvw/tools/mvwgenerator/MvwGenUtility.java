@@ -22,6 +22,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmg.generated.DmgSchemaAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
@@ -328,6 +329,8 @@ public class MvwGenUtility {
 						System.err.println("\n" + e.toString());
 					} catch (DmcValueException e) {
 						e.printStackTrace();
+					} catch (DmcRuleExceptionSet e) {
+						System.err.println("\n" + e.toString());
 					}
                 }
             }
@@ -362,6 +365,11 @@ public class MvwGenUtility {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
+		} catch (DmcRuleExceptionSet e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.err.println(e.toString());
 			System.exit(1);
 		}
 		

@@ -30,12 +30,14 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeEnumMappingREFMAP provides storage for a map of EnumMappingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF<EnumMappingREF,CamelCaseName> {
 public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements Serializable {
+    
+    private final static Iterator<EnumMappingREF> emptyList = (new HashMap<CamelCaseName,EnumMappingREF>()).values().iterator();
     
     protected Map<CamelCaseName,EnumMappingREF> value;
     
@@ -49,32 +51,36 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<CamelCaseName,EnumMappingREF>();
         else
             value = new TreeMap<CamelCaseName,EnumMappingREF>();
     }
     
     public CamelCaseName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<CamelCaseName,EnumMappingREF> map = (TreeMap<CamelCaseName,EnumMappingREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeEnumMappingREFMAP getNew(){
-        return(new DmcTypeEnumMappingREFMAP(attrInfo));
+        return(new DmcTypeEnumMappingREFMAP(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<EnumMappingREF> cloneIt(){
         synchronized(this){
             DmcTypeEnumMappingREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(EnumMappingREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public EnumMappingREF add(Object v) throws DmcValueException {
         synchronized(this){
             EnumMappingREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public EnumMappingREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
             else
@@ -117,11 +127,15 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<EnumMappingREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<CamelCaseName,EnumMappingREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,EnumMappingREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,EnumMappingREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<CamelCaseName,EnumMappingREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,EnumMappingREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,EnumMappingREF>(value);
-            else
-                clone = new TreeMap<CamelCaseName,EnumMappingREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<CamelCaseName,EnumMappingREF>();
+                else
+                    clone = new HashMap<CamelCaseName,EnumMappingREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<CamelCaseName,EnumMappingREF>();
+                else
+                    clone = new TreeMap<CamelCaseName,EnumMappingREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public EnumMappingREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof CamelCaseName)
                 return(value.get((CamelCaseName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 EnumMappingREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeEnumMappingREFMAP extends DmcTypeEnumMappingREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof CamelCaseName)
                 return(value.containsKey(key));
             return(false);

@@ -14,7 +14,7 @@ public class MenuItemREFMAPAdapter extends DmcTypeMenuItemREFMAP implements DmcA
     transient DmcTypeMenuItemREFMAP existingValue;
 
     public MenuItemREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class MenuElementTypeAndCommentSVAdapter extends DmcTypeMenuElementTypeAn
     transient DmcTypeMenuElementTypeAndCommentSV existingValue;
 
     public MenuElementTypeAndCommentSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

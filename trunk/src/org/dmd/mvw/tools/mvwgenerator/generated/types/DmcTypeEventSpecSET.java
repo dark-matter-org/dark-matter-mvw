@@ -30,11 +30,14 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventSpec;    // Dm
  * The DmcTypeEventSpecSET provides storage for a set of EventSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializable {
+    
+     private final static Iterator<EventSpec> emptyList =  (new HashSet<EventSpec>()).iterator();
+    
     
     protected Set<EventSpec> value;
     
@@ -48,7 +51,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<EventSpec>();
         else
             value = new TreeSet<EventSpec>();
@@ -56,14 +59,18 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     
     @Override
     public DmcTypeEventSpecSET getNew(){
-        return(new DmcTypeEventSpecSET(attrInfo));
+        return(new DmcTypeEventSpecSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<EventSpec> cloneIt(){
         synchronized(this){
             DmcTypeEventSpecSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(EventSpec val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public EventSpec add(Object v) throws DmcValueException {
         synchronized(this){
             EventSpec rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public EventSpec del(Object v){
         synchronized(this){
             EventSpec rc = null;
@@ -115,28 +122,39 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<EventSpec> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<EventSpec>(value)).iterator() );
             else
                 return( (new TreeSet<EventSpec>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<EventSpec> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<EventSpec>(value));
-            else
-                return(new TreeSet<EventSpec>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<EventSpec>());
+                else
+                    return(new HashSet<EventSpec>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<EventSpec>(value));
+                else
+                    return(new TreeSet<EventSpec>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

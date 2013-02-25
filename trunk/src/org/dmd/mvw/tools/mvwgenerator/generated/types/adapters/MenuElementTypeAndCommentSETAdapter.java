@@ -14,7 +14,7 @@ public class MenuElementTypeAndCommentSETAdapter extends DmcTypeMenuElementTypeA
     transient DmcTypeMenuElementTypeAndCommentSET existingValue;
 
     public MenuElementTypeAndCommentSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

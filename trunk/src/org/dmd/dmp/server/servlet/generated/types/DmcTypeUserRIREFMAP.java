@@ -30,12 +30,14 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeUserRIREFMAP provides storage for a map of UserRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF<UserRIREF,DotName> {
 public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializable {
+    
+    private final static Iterator<UserRIREF> emptyList = (new HashMap<DotName,UserRIREF>()).values().iterator();
     
     protected Map<DotName,UserRIREF> value;
     
@@ -49,32 +51,36 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<DotName,UserRIREF>();
         else
             value = new TreeMap<DotName,UserRIREF>();
     }
     
     public DotName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<DotName,UserRIREF> map = (TreeMap<DotName,UserRIREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeUserRIREFMAP getNew(){
-        return(new DmcTypeUserRIREFMAP(attrInfo));
+        return(new DmcTypeUserRIREFMAP(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<UserRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserRIREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UserRIREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public UserRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserRIREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public UserRIREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof DotName)
                 return(value.remove(key));
             else
@@ -117,11 +127,15 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<UserRIREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<DotName,UserRIREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<DotName,UserRIREF>(value);
             else
                 clone = new TreeMap<DotName,UserRIREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<DotName,UserRIREF> getMVCopy(){
         synchronized(this){
             Map<DotName,UserRIREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<DotName,UserRIREF>(value);
-            else
-                clone = new TreeMap<DotName,UserRIREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<DotName,UserRIREF>();
+                else
+                    clone = new HashMap<DotName,UserRIREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<DotName,UserRIREF>();
+                else
+                    clone = new TreeMap<DotName,UserRIREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public UserRIREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof DotName)
                 return(value.get((DotName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 UserRIREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeUserRIREFMAP extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof DotName)
                 return(value.containsKey(key));
             return(false);

@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMenuImplementationConfigREFMV provides storage for a multi-valued MenuImplementationConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementationConfigREF implements Serializable {
+    
+    private final static Iterator<MenuImplementationConfigREF> emptyList = (new ArrayList<MenuImplementationConfigREF>()).iterator();
     
     protected ArrayList<MenuImplementationConfigREF> value;
     
@@ -43,15 +45,19 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     
     @Override
     public DmcTypeMenuImplementationConfigREFMV getNew(){
-        return(new DmcTypeMenuImplementationConfigREFMV(attrInfo));
+        return(new DmcTypeMenuImplementationConfigREFMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<MenuImplementationConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuImplementationConfigREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(MenuImplementationConfigREF val: value)
                 try {
                     rc.add(val);
@@ -72,7 +78,7 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public MenuImplementationConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuImplementationConfigREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public MenuImplementationConfigREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             MenuImplementationConfigREF key = null;
             MenuImplementationConfigREF rc = null;
             try {
@@ -105,38 +114,43 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<MenuImplementationConfigREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<MenuImplementationConfigREF> clone = new ArrayList<MenuImplementationConfigREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<MenuImplementationConfigREF> getMVCopy(){
         synchronized(this){
-            ArrayList<MenuImplementationConfigREF> clone = new ArrayList<MenuImplementationConfigREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<MenuImplementationConfigREF>());
+            else 
+                return(new ArrayList<MenuImplementationConfigREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public MenuImplementationConfigREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,14 +160,14 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public MenuImplementationConfigREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             MenuImplementationConfigREF rc = null;
             
@@ -161,8 +175,8 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<MenuImplementationConfigREF>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<MenuImplementationConfigREF>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -173,13 +187,13 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -196,7 +210,7 @@ public class DmcTypeMenuImplementationConfigREFMV extends DmcTypeMenuImplementat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

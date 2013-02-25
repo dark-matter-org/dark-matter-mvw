@@ -14,7 +14,7 @@ public class MenuItemREFSVAdapter extends DmcTypeMenuItemREFSV implements DmcAda
     transient DmcTypeMenuItemREFSV existingValue;
 
     public MenuItemREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

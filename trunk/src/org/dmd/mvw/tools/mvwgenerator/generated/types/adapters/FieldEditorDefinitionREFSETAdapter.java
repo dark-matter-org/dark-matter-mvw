@@ -14,7 +14,7 @@ public class FieldEditorDefinitionREFSETAdapter extends DmcTypeFieldEditorDefini
     transient DmcTypeFieldEditorDefinitionREFSET existingValue;
 
     public FieldEditorDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

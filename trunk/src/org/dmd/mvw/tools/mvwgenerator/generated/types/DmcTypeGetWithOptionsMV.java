@@ -27,11 +27,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions;    // DmcType
  * The DmcTypeGetWithOptionsMV provides storage for a multi-valued GetWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Serializable {
+    
+    private final static Iterator<GetWithOptions> emptyList = (new ArrayList<GetWithOptions>()).iterator();
     
     protected ArrayList<GetWithOptions> value;
     
@@ -45,15 +47,19 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     
     @Override
     public DmcTypeGetWithOptionsMV getNew(){
-        return(new DmcTypeGetWithOptionsMV(attrInfo));
+        return(new DmcTypeGetWithOptionsMV(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<GetWithOptions> cloneIt(){
         synchronized(this){
             DmcTypeGetWithOptionsMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+    
+            if (value == null)
+                return(rc);
+    
+            if (getAttributeInfo().indexSize == 0){
                 for(GetWithOptions val: value)
                 try {
                     rc.add(val);
@@ -74,7 +80,7 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public GetWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
             GetWithOptions rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public GetWithOptions del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             GetWithOptions key = null;
             GetWithOptions rc = null;
             try {
@@ -107,38 +116,43 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<GetWithOptions> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<GetWithOptions> clone = new ArrayList<GetWithOptions>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<GetWithOptions> getMVCopy(){
         synchronized(this){
-            ArrayList<GetWithOptions> clone = new ArrayList<GetWithOptions>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<GetWithOptions>());
+            else 
+                return(new ArrayList<GetWithOptions>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public GetWithOptions getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,14 +162,14 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public GetWithOptions setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             GetWithOptions rc = null;
             
@@ -163,8 +177,8 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<GetWithOptions>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<GetWithOptions>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -175,13 +189,13 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -198,7 +212,7 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,7 +14,7 @@ public class OperationSpecMVAdapter extends DmcTypeOperationSpecMV implements Dm
     transient DmcTypeOperationSpecMV existingValue;
 
     public OperationSpecMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

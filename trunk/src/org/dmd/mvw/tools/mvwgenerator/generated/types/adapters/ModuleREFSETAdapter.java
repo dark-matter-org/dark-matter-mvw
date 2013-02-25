@@ -14,7 +14,7 @@ public class ModuleREFSETAdapter extends DmcTypeModuleREFSET implements DmcAdapt
     transient DmcTypeModuleREFSET existingValue;
 
     public ModuleREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -32,6 +32,7 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.types.NameContainer;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.CreateResponse;
@@ -60,7 +61,7 @@ import org.dmd.dmw.DmwOmni;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
-import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -120,7 +121,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     }
 	
 	@Override
-	protected void init() throws ResultException {
+	protected void init() throws ResultException, DmcRuleExceptionSet {
 //		schema		= pluginManager.getSchema();
 		theCache	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
 		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
@@ -182,7 +183,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		ourThread.interrupt();
 	}
 	
-	void loadPersistedObjects() throws ResultException {
+	void loadPersistedObjects() throws ResultException, DmcRuleExceptionSet {
 		File persisted = new File(PERSISTENCE_FILE);
 		
 		try {

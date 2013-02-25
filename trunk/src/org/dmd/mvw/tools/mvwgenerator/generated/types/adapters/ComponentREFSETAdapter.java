@@ -14,7 +14,7 @@ public class ComponentREFSETAdapter extends DmcTypeComponentREFSET implements Dm
     transient DmcTypeComponentREFSET existingValue;
 
     public ComponentREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class SessionRIREFSVAdapter extends DmcTypeSessionRIREFSV implements DmcA
     transient DmcTypeSessionRIREFSV existingValue;
 
     public SessionRIREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

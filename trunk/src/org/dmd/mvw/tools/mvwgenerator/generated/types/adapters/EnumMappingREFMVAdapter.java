@@ -14,7 +14,7 @@ public class EnumMappingREFMVAdapter extends DmcTypeEnumMappingREFMV implements 
     transient DmcTypeEnumMappingREFMV existingValue;
 
     public EnumMappingREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

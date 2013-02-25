@@ -14,7 +14,7 @@ public class PlaceREFSVAdapter extends DmcTypePlaceREFSV implements DmcAdapterIF
     transient DmcTypePlaceREFSV existingValue;
 
     public PlaceREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

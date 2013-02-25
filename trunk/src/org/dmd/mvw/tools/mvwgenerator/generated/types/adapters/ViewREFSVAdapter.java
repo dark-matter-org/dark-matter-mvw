@@ -14,7 +14,7 @@ public class ViewREFSVAdapter extends DmcTypeViewREFSV implements DmcAdapterIF {
     transient DmcTypeViewREFSV existingValue;
 
     public ViewREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

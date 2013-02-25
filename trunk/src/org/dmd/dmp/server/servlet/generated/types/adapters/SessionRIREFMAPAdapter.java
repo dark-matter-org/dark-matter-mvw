@@ -14,7 +14,7 @@ public class SessionRIREFMAPAdapter extends DmcTypeSessionRIREFMAP implements Dm
     transient DmcTypeSessionRIREFMAP existingValue;
 
     public SessionRIREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

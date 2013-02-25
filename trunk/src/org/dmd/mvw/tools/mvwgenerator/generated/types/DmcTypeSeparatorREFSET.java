@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSeparatorREFSET provides storage for a set of SeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Serializable {
+    
+     private final static Iterator<SeparatorREF> emptyList =  (new HashSet<SeparatorREF>()).iterator();
+    
     
     protected Set<SeparatorREF> value;
     
@@ -46,7 +49,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<SeparatorREF>();
         else
             value = new TreeSet<SeparatorREF>();
@@ -54,14 +57,18 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     
     @Override
     public DmcTypeSeparatorREFSET getNew(){
-        return(new DmcTypeSeparatorREFSET(attrInfo));
+        return(new DmcTypeSeparatorREFSET(getAttributeInfo()));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<SeparatorREF> cloneIt(){
         synchronized(this){
             DmcTypeSeparatorREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SeparatorREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public SeparatorREF add(Object v) throws DmcValueException {
         synchronized(this){
             SeparatorREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public SeparatorREF del(Object v){
         synchronized(this){
             SeparatorREF rc = null;
@@ -113,28 +120,39 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<SeparatorREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (value == null)
+                return(emptyList);
+
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SeparatorREF>(value)).iterator() );
             else
                 return( (new TreeSet<SeparatorREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<SeparatorREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SeparatorREF>(value));
-            else
-                return(new TreeSet<SeparatorREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SeparatorREF>());
+                else
+                    return(new HashSet<SeparatorREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SeparatorREF>(value));
+                else
+                    return(new TreeSet<SeparatorREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

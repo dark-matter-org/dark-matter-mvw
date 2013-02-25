@@ -14,7 +14,7 @@ public class UserFolderRIREFSETAdapter extends DmcTypeUserFolderRIREFSET impleme
     transient DmcTypeUserFolderRIREFSET existingValue;
 
     public UserFolderRIREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The SelectionTypeEnum indicates the selection mode of operations
+ * The SelectionTypeEnum indicates the selection mode of operations\n
  * associated with object selection or object deletion.
  * <P>
  * Generated from the mvw schema at version 0.1
