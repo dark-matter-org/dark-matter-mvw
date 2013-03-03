@@ -1,0 +1,19 @@
+Module
+moduleName      dmt
+dependsOnSchema dmt
+genPackage      org.dmd.dmt.client
+description     The dmtTest module allows for testing of MVW generation mechanisms.
+
+FieldEditorDefinition
+editorName		DMTBasicObjectField
+useClass		org.dmd.dmt.client.editors.DMTBasicObjectField
+description		Used to display TestBasicObjectFixed objects.
+
+FormBindingDefinition
+bindingName			TestBasicNamedObjectFixedBinding
+editObject			TestBasicNamedObjectFixed
+editField			mvIdxUnnamedObj DMTBasicObjectField MUST : Basic Objects
+description			This binding definition lets us test the concept of editting an
+ indexed collection of unnamed objects. The DMTBasicObjectField is merely a test stub
+ class that implements the DmcPresentationIF but doesn't actually use any GWT or GXT
+ code. 
