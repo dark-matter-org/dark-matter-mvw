@@ -1,0 +1,1 @@
+The Model View Whatever framework provides a code generation framework for GWT applications based on the Model View Presenter and Activities/Places concepts.
