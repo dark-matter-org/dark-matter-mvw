@@ -276,6 +276,12 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		Class<?> pluginClass = null;
 		
 		try {
+			if (pc.getPluginClass() == null) {
+				ResultException ex = new ResultException();
+				ex.addError("Mandatory attribute pluginClass not specified");
+				ex.setLocationInfo(pc.getFile(), pc.getLineNumber());
+				throw(ex);
+			}
 			pluginClass = Class.forName(pc.getPluginClass());
 		} catch (ClassNotFoundException e) {
 			ResultException ex = new ResultException();
