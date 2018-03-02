@@ -16,34 +16,51 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:101)
-import java.io.Serializable;                                                                  // To prevent serialization warnings - (ComplexTypeFormatter.java:70)
-import org.dmd.dmc.DmcInputStreamIF;                                                          // Standard serialization techniques - (ComplexTypeFormatter.java:71)
-import org.dmd.dmc.DmcOutputStreamIF;                                                         // Standard serialization techniques - (ComplexTypeFormatter.java:72)
-import org.dmd.dmc.DmcValueException;                                                         // Standard value exception - (ComplexTypeFormatter.java:94)
-import org.dmd.dmc.types.IntegerVar;                                                          // To support getNextField() - (ComplexTypeFormatter.java:73)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type - (ComplexTypeFormatter.java:460)
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                         // Primitive type - (ComplexTypeFormatter.java:442)
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type - (ComplexTypeFormatter.java:442)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;            // Internally generated type - (ComplexTypeFormatter.java:460)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type - (ComplexTypeFormatter.java:460)
+// Called from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:148)
+import java.io.Serializable;                                                                  // To prevent serialization warnings - (NewComplexTypeFormatter.java:113)
+import java.util.ArrayList;                                                                   // To store ParsedNameValuePairs - (NewComplexTypeFormatter.java:120)
+import org.dmd.dmc.DmcAttributeInfo;                                                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:118)
+import org.dmd.dmc.DmcInputStreamIF;                                                          // Standard serialization techniques - (NewComplexTypeFormatter.java:114)
+import org.dmd.dmc.DmcOutputStreamIF;                                                         // Standard serialization techniques - (NewComplexTypeFormatter.java:115)
+import org.dmd.dmc.DmcValueException;                                                         // Standard value exception - (NewComplexTypeFormatter.java:143)
+import org.dmd.dmc.util.ComplexTypeSplitter;                                                  // For parsing initial input - (NewComplexTypeFormatter.java:119)
+import org.dmd.dmc.util.JSONUtil;                                                             // To perform escaping of things in JSON - (NewComplexTypeFormatter.java:122)
+import org.dmd.dmc.util.ParsedNameValuePair;                                                  // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
+import org.dmd.dms.generated.enums.DataTypeEnum;                                              // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                             // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type - (NewComplexTypeFormatter.java:1141)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                         // Primitive type - (NewComplexTypeFormatter.java:1124)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type - (NewComplexTypeFormatter.java:1124)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;            // Internally generated type - (NewComplexTypeFormatter.java:1141)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1141)
+
+
+
 @SuppressWarnings("serial")
 /**
  * The EventSpec class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:108)
+ * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:155)
  */
 public class EventSpec implements Serializable {
 
+    final static int requiredParts = 3;
+
     // A variable name previously defined, usually in a displayData attribute
-    String varName;
+    String varNameV;
+
+    final static DmcAttributeInfo varNameAI = new DmcAttributeInfo("varName",0,"String",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     // Indicates whether the data is single or multi-valued
-    SelectionTypeEnum cardinality;
+    SelectionTypeEnum cardinalityV;
+
+    final static DmcAttributeInfo cardinalityAI = new DmcAttributeInfo("cardinality",0,"SelectionTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     // The scope of the event
-    EventScopeEnum scope;
+    EventScopeEnum scopeV;
+
+    final static DmcAttributeInfo scopeAI = new DmcAttributeInfo("scope",0,"EventScopeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.UNKNOWN, 0, false);
 
     /**
      * Default constructor.
@@ -55,106 +72,94 @@ public class EventSpec implements Serializable {
      * Copy constructor.
      */
     public EventSpec(EventSpec original){
-        varName = original.varName;
-        cardinality = original.cardinality;
-        scope = original.scope;
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+        varNameV =  original.varNameV;
+        cardinalityV =  original.cardinalityV;
+        scopeV =  original.scopeV;
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:135)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:186)
      */
-    public EventSpec(String f1, SelectionTypeEnum f2, EventScopeEnum f3) throws DmcValueException {
-        varName = DmcTypeStringSTATIC.instance.typeCheck(f1);
-        cardinality = DmcTypeSelectionTypeEnumSTATIC.instance.typeCheck(f2);
-        scope = DmcTypeEventScopeEnumSTATIC.instance.typeCheck(f3);
+    public EventSpec(String varName_, SelectionTypeEnum cardinality_, EventScopeEnum scope_) throws DmcValueException {
+        varNameV = DmcTypeStringSTATIC.instance.typeCheck(varName_);
+        cardinalityV = DmcTypeSelectionTypeEnumSTATIC.instance.typeCheck(cardinality_);
+        scopeV = DmcTypeEventScopeEnumSTATIC.instance.typeCheck(scope_);
     }
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:175)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:269)
      */
     public EventSpec(String initialInput) throws DmcValueException {
-        IntegerVar seppos = new IntegerVar(-1);
-        String input = initialInput.trim();
-        input = input.replaceAll("(\\s)+", " ");
-        varName = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"varName",false));
-        cardinality = DmcTypeSelectionTypeEnumSTATIC.instance.typeCheck(getNextField(input,seppos,"cardinality",false));
-        scope = DmcTypeEventScopeEnumSTATIC.instance.typeCheck(getNextField(input,seppos,"scope",true));
+        initialize(initialInput);
+    }
+    /**
+     * Initialize content based on string form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:277)
+     */
+    void initialize(String initialInput) throws DmcValueException {
+        ArrayList<ParsedNameValuePair> nvp = ComplexTypeSplitter.parse(initialInput);
+
+        if (nvp.size() < requiredParts)
+            throw(new DmcValueException("Missing required values for complex type: EventSpec\nValue: " + initialInput));
+
+        varNameV = DmcTypeStringSTATIC.instance.typeCheck(nvp.get(0).getValue());
+        cardinalityV = DmcTypeSelectionTypeEnumSTATIC.instance.typeCheck(nvp.get(1).getValue());
+        scopeV = DmcTypeEventScopeEnumSTATIC.instance.typeCheck(nvp.get(2).getValue());
     }
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:207)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-        DmcTypeStringSTATIC.instance.serializeValue(dos, varName);
-        DmcTypeSelectionTypeEnumSTATIC.instance.serializeValue(dos, cardinality);
-        DmcTypeEventScopeEnumSTATIC.instance.serializeValue(dos, scope);
+        dos.writeUTF(toString());
     }
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:224)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        varName = DmcTypeStringSTATIC.instance.deserializeValue(dis);
-        cardinality = DmcTypeSelectionTypeEnumSTATIC.instance.deserializeValue(dis);
-        scope = DmcTypeEventScopeEnumSTATIC.instance.deserializeValue(dis);
+        initialize(dis.readUTF());
     }
 
     /**
      * String form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:403)
      */
     public String toString(){
-        return(varName.toString() + " " + cardinality.toString() + " " + scope.toString());
+        StringBuffer sb = new StringBuffer();
+        sb.append(varNameV.toString());
+        sb.append(' ');
+        sb.append(cardinalityV.toString());
+        sb.append(' ');
+        sb.append(scopeV.toString());
+        return(sb.toString());
+    }
+
+    /**
+     * JSON form.
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     */
+    public void toJSON(StringBuffer sb, int padding, String indent){
+        sb.append(indent + "{\n");
+        sb.append(indent + "  \"varName\": \"" + JSONUtil.escape(varNameV.toString()) + "\",\n");
+        sb.append(indent + "  \"cardinality\": \"" + JSONUtil.escape(cardinalityV.toString()) + "\",\n");
+        sb.append(indent + "  \"scope\": \"" + JSONUtil.escape(scopeV.toString()) + "\"");
+        sb.append("\n" + indent + "}");
     }
 
     public String getVarName(){
-        return(varName);
+        return(varNameV);
     }
 
     public SelectionTypeEnum getCardinality(){
-        return(cardinality);
+        return(cardinalityV);
     }
 
     public EventScopeEnum getScope(){
-        return(scope);
-    }
-
-    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
-    	   String rc = null;
-    	   int start = seppos.intValue();
-
-    	   if ( (start+1) >= input.length())
-    		   throw (new DmcValueException("Missing value for field: " + fn + " in complex type: EventSpec"));
-
-    	   if (last){
-    	       rc = input.substring(start+1);
-    	   }
-    	   else{
-    	       int pos = -1;
-    	       if (start > 0)
-    		       pos = input.indexOf(" ", start+1);
-    	       else
-    		       pos = input.indexOf(" ");
-
-    	       if (pos == -1)
-    		       throw (new DmcValueException("Missing value for field: " + fn + " in complex type: EventSpec"));
-
-    		   while(pos < (input.length()-1)){
-    		       if ( input.charAt(pos+1) == ' ')
-    		           pos++;
-    		       else
-    		           break;
-    		   }
-
-    	       rc = input.substring(start+1, pos).trim();
-
-    	       seppos.set(pos);
-        }
-
-        return(rc);
+        return(scopeV);
     }
 
 }

@@ -19,7 +19,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.util.FileUpdateManager;

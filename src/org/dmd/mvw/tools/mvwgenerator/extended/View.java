@@ -19,7 +19,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewDMW;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;

@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEnumMappingGeneratorREFSV provides storage for a single-valued EnumMappingGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1994)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:528)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumMappingGeneratorREFSV extends DmcTypeEnumMappingGeneratorREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeEnumMappingGeneratorREFSV extends DmcTypeEnumMappingGenerato
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2026)
     public DmcAttribute<EnumMappingGeneratorREF> cloneIt(){
         DmcTypeEnumMappingGeneratorREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2037)
     public EnumMappingGeneratorREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeEnumMappingGeneratorREFSV extends DmcTypeEnumMappingGenerato
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2049)
     public EnumMappingGeneratorREF set(Object v) throws DmcValueException {
         EnumMappingGeneratorREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

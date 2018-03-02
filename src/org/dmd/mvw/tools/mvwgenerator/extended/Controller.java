@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerDMW;
 import org.dmd.util.exceptions.ResultException;

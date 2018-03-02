@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;

@@ -3,6 +3,7 @@ package org.dmd.dmp.server.servlet.base;
 import java.net.URL;
 import static org.junit.Assert.*;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.util.exceptions.ResultException;
@@ -24,7 +25,7 @@ public class PluginManagerTest {
 	}
 
 	@Test
-	public void testInvalidObject() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testInvalidObject() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("invalidObject.oif");
 
@@ -39,7 +40,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testUnknownObject() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testUnknownObject() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("unknownObject.oif");
 
@@ -54,7 +55,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testMissingAttribute() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testMissingAttribute() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("missingAttributes.oif");
 
@@ -69,7 +70,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testBadPluginClass() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testBadPluginClass() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("classNotFound.oif");
 
@@ -84,7 +85,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testMissingSecurity() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testMissingSecurity() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("missingSecurity.oif");
 
@@ -99,7 +100,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testMissingRequestTracker() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testMissingRequestTracker() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("missingRequestTracker.oif");
 
@@ -114,7 +115,7 @@ public class PluginManagerTest {
 	}
 	
 	@Test
-	public void testBasicPlugins() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void testBasicPlugins() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		PluginManager pm = new PluginManager(null);
 		URL url = this.getClass().getResource("basicPlugins.oif");
 

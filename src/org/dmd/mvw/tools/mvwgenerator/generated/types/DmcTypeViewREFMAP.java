@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeViewREFMAP provides storage for a map of ViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeViewREFMAP extends DmcTypeViewREF<ViewREF,CamelCaseName> {
@@ -73,7 +73,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
     public DmcAttribute<ViewREF> cloneIt(){
         synchronized(this){
             DmcTypeViewREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
     public ViewREF add(Object v) throws DmcValueException {
         synchronized(this){
             ViewREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
     public ViewREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
     public Iterator<ViewREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
     public Map<CamelCaseName,ViewREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,ViewREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
     public ViewREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeViewREFMAP extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

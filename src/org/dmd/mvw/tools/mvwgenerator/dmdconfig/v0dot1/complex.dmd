@@ -29,9 +29,9 @@
  
 ComplexTypeDefinition
 name DisplayDataSpec
-field ClassDefinition   dataClass   The class of object to be displayed
-field SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued
-field String            varName     The variable name used to indicate this piece of data
+requiredPart ClassDefinition   dataClass   "The class of object to be displayed"
+requiredPart SelectionTypeEnum cardinality "Indicates whether the data is single or multi-valued"
+requiredPart String            varName     "The variable name used to indicate this piece of data"
 description The DisplayDataSpec type is used to specify the type and cardinality of
  data that is being display in a View. It also indicates a variable name for the 
  data that is used when we generate the interface methods and events associated
@@ -39,23 +39,23 @@ description The DisplayDataSpec type is used to specify the type and cardinality
 
 ComplexTypeDefinition
 name EventSpec
-field String            varName     A variable name previously defined, usually in a displayData attribute
-field SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued
-field EventScopeEnum    scope       The scope of the event
+requiredPart String            varName     "A variable name previously defined, usually in a displayData attribute"
+requiredPart SelectionTypeEnum cardinality "Indicates whether the data is single or multi-valued"
+requiredPart EventScopeEnum    scope       "The scope of the event"
 description The EventSpec type is used to indicate the events to be generated when
  selection and deletion of objects takes place.
 
 ComplexTypeDefinition
 name OperationSpec
-field String            varName     A variable name previously defined, usually in a displayData attribute
-field EventScopeEnum    scope       The scope of the event
+requiredPart String            varName     "A variable name previously defined, usually in a displayData attribute"
+requiredPart EventScopeEnum    scope       "The scope of the event"
 description The OperationSpec type is used to indicate the events to be generated when an object
  is associated with some operation e.g. clicked, modified, created etc.
 
 ComplexTypeDefinition
 name MenuElementTypeAndComment
 fieldSeparator :
-field String type    The name of this implementation.
-field String comment The class used to implement the required behaviour.
+requiredPart String type    "The name of this implementation."
+requiredPart String comment "The class used to implement the required behaviour."
 description The MenuElementTypeAndComment type is used to indicate the strings that map to 
  various menu and menu item implementations supported by a a particular menu implementation.

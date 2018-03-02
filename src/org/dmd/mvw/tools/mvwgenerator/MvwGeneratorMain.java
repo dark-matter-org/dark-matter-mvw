@@ -17,6 +17,7 @@ package org.dmd.mvw.tools.mvwgenerator;
 
 import java.io.IOException;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.util.exceptions.ResultException;
@@ -43,6 +44,9 @@ public class MvwGeneratorMain {
 		} catch (DmcValueException e) {
 			e.printStackTrace();
 		} catch (DmcValueExceptionSet e) {
+			e.printStackTrace();
+		} catch (DmcNameClashException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
