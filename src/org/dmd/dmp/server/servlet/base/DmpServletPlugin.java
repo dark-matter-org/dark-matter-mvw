@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
@@ -99,8 +100,9 @@ public class DmpServletPlugin {
 	 * plugin has indicated that it depends on another plugin, it is safe to 
 	 * assume that the other plugin has been initialized.
 	 * @throws DmcRuleExceptionSet 
+	 * @throws DmcNameClashException 
 	 */
-	protected void init() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	protected void init() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		
 	}
 	

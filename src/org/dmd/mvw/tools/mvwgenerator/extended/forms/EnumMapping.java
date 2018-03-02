@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.types.EnumValue;
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EnumMappingDMW;
 
 public class EnumMapping extends EnumMappingDMW {

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dms.doc.web.Converter;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 
@@ -56,7 +57,11 @@ public class ModulePage {
 	
 	static void dumpModule(Module module, BufferedWriter out) throws IOException {
 		out.write("      <div class=\"module-name\">" + module.getCamelCaseName() + " </div>\n\n");
-		out.write("      <div class=\"description\">" + module.getDescription() + " </div>\n\n");
+		
+		if (module.getDescriptionHasValue())
+			out.write("      <div class=\"description\">" + Converter.convert(module.getDescriptionIterable()) + " </div>\n\n");
+		else
+			out.write("      <div class=\"description\">No description</div>\n\n");
 	}
 	
 	static void dumpIndex(Module module, BufferedWriter out) throws IOException {

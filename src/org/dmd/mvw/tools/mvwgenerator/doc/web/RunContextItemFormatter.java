@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dms.doc.web.Converter;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;
@@ -44,7 +45,7 @@ public class RunContextItemFormatter {
 		
 		out.write("            <div class=\"argvector\">" + CodeFormatter.foldFullyQualified(rci.getUseClass(), 90) + " </div> <p/> \n");
 		
-		out.write("            " + rci.getDescription() + "\n");
+		out.write("            " + Converter.convert(rci.getDescriptionIterable()) + "\n");
 		out.write("            </td>\n");
 		
 		out.write("        </tr>\n");

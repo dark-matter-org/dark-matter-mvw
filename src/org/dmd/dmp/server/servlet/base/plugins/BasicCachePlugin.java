@@ -26,6 +26,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcHierarchicObjectName;
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -121,7 +122,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     }
 	
 	@Override
-	protected void init() throws ResultException, DmcRuleExceptionSet {
+	protected void init() throws ResultException, DmcRuleExceptionSet, DmcNameClashException {
 //		schema		= pluginManager.getSchema();
 		theCache	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
 		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
@@ -183,7 +184,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		ourThread.interrupt();
 	}
 	
-	void loadPersistedObjects() throws ResultException, DmcRuleExceptionSet {
+	void loadPersistedObjects() throws ResultException, DmcRuleExceptionSet, DmcNameClashException {
 		File persisted = new File(PERSISTENCE_FILE);
 		
 		try {
@@ -290,7 +291,13 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		if (request.isTrackingEnabled())
 			logger.trace("Processing create request for: " + request.getNewObject().getConstructionClassName());
 
-		DmwNamedObjectWrapper wrapper = (DmwNamedObjectWrapper) request.getNewObjectWrapped();
+		DmwNamedObjectWrapper wrapper = null;
+		try {
+			wrapper = (DmwNamedObjectWrapper) request.getNewObjectWrapped();
+		} catch (DmcNameClashException | DmcValueException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		if (wrapper.getObjectName() == null){
 			// The object doesn't have a name, we'll try to generate one for it
@@ -647,6 +654,11 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 			ex.addError(e.getMessage());
 			if (e.getAttributeName() != null)
 				ex.result.lastResult().moreMessages("Attribute: " + e.getAttributeName());
+			ex.setLocationInfo(infile, lineNumber);
+			throw(ex);
+		} catch (DmcNameClashException e) {
+			ResultException ex = new ResultException();
+			ex.addError(e.getMessage());
 			ex.setLocationInfo(infile, lineNumber);
 			throw(ex);
 		}

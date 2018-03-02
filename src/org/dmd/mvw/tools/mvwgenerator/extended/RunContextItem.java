@@ -17,7 +17,7 @@ package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemDMW;
 import org.dmd.util.codegen.ImportManager;

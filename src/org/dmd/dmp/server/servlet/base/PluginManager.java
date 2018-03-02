@@ -19,6 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -145,8 +146,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	 * @throws ResultException
 	 * @throws DmcValueException
 	 * @throws DmcRuleExceptionSet 
+	 * @throws DmcNameClashException 
 	 */
-	public void loadPlugins(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void loadPlugins(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		File pluginFile = new File(fn);
 		
 		if (!pluginFile.exists()){
@@ -226,7 +228,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 	
-	public void init() throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void init() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		
 		requestTrackerPlugin.init();
 		
@@ -314,6 +316,11 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 			throw(ex);
 		} catch (ClassCastException e){
 			ResultException ex = new ResultException("Invalid object in plugin config file: " + uco.classes.get(0));
+			ex.result.lastResult().fileName(infile);
+			ex.result.lastResult().lineNumber(lineNumber);
+			throw(ex);
+		} catch (DmcNameClashException e) {
+			ResultException ex = new ResultException("Name clash for class: " + uco.classes.get(0));
 			ex.result.lastResult().fileName(infile);
 			ex.result.lastResult().lineNumber(lineNumber);
 			throw(ex);

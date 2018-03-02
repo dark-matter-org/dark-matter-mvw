@@ -1,23 +1,24 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
-import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
-import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dms.ClassDefinition;                                                   // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.ClassDefinitionREF;                                // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.mvw.tools.mvwgenerator.extended.I18NConfig;                            // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                         // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FormBindingDefinitionDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                         // Attribute editField from the mvw schema - (BaseDMWGeneratorNewest.java:720)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EditFieldIterableDMW;             // For multi-valued EditField - (BaseDMWGeneratorNewest.java:1919)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF;                  // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.mvw.tools.mvwgenerator.types.EditField;                                // Primitive type - (BaseDMWGeneratorNewest.java:968)
+// Called from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:442)
+import java.util.ArrayList;                                                           // Support for MULTI attribute - (BaseDMWGenerator.java:2226)
+import java.util.Iterator;                                                            // Support copy of MV objects - (BaseDMWGenerator.java:2240)
+import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGenerator.java:1087)
+import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGenerator.java:1062)
+import org.dmd.dms.ClassDefinition;                                                   // Passing derived class def up the hierarchy - (BaseDMWGenerator.java:1067)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGenerator.java:1072)
+import org.dmd.dms.generated.types.ClassDefinitionREF;                                // Is reference type REF - (BaseDMWGenerator.java:1115)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGenerator.java:1071)
+import org.dmd.mvw.tools.mvwgenerator.extended.I18NConfig;                            // Is reference type - (BaseDMWGenerator.java:1107)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                         // Derived class - (BaseDMWGenerator.java:1248)
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;           // Required for getModificationRecorder() - (BaseDMWGenerator.java:1076)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FormBindingDefinitionDMO;         // Class not auxiliary or abstract - (BaseDMWGenerator.java:1252)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                         // Attribute editField from the mvw schema - (BaseDMWGenerator.java:897)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EditFieldIterableDMW;             // For multi-valued EditField - (BaseDMWGenerator.java:2103)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF;                  // Is reference type REF - (BaseDMWGenerator.java:1115)
+import org.dmd.mvw.tools.mvwgenerator.types.EditField;                                // Primitive type - (BaseDMWGenerator.java:1150)
+
 
 
 /**
@@ -28,21 +29,21 @@ import org.dmd.mvw.tools.mvwgenerator.types.EditField;                          
  * Generated from the mvw schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:366)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:479)
  */
 abstract public class FormBindingDefinitionDMW extends MvwDefinition implements DmcNamedObjectIF {
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:443)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:558)
     public FormBindingDefinitionDMW() {
         super(new FormBindingDefinitionDMO(), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._FormBindingDefinition);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:449)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:564)
     public FormBindingDefinitionDMW(DmcTypeModifierMV mods) {
         super(new FormBindingDefinitionDMO(mods), org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._FormBindingDefinition);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:491)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:606)
     public FormBindingDefinition getModificationRecorder(){
         FormBindingDefinition rc = new FormBindingDefinition();
         rc.setBindingName(getBindingName());
@@ -50,7 +51,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
         return(rc);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:512)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:627)
     public FormBindingDefinitionDMW(FormBindingDefinitionDMO obj) {
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._FormBindingDefinition);
     }
@@ -65,12 +66,12 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
         return((FormBindingDefinitionDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGenerator.dumpWrapper(BaseDMWGenerator.java:642)
     protected FormBindingDefinitionDMW(FormBindingDefinitionDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1115)
+    // org.dmd.dmg.generators.BaseDMWGenerator.getAccessFunctions(BaseDMWGenerator.java:1297)
     public CamelCaseName getObjectName(){
         return(((FormBindingDefinitionDMO) core).getBindingName());
     }
@@ -90,7 +91,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public CamelCaseName getBindingName(){
         return(((FormBindingDefinitionDMO) core).getBindingName());
     }
@@ -99,7 +100,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets bindingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
     public void setBindingName(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).setBindingName(value);
     }
@@ -108,7 +109,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets bindingName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
     public void setBindingName(CamelCaseName value){
         ((FormBindingDefinitionDMO) core).setBindingName(value);
     }
@@ -116,7 +117,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the bindingName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remBindingName(){
         ((FormBindingDefinitionDMO) core).remBindingName();
     }
@@ -124,7 +125,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return The number of EditField items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1671)
     public int getEditFieldSize(){
         return(((FormBindingDefinitionDMO) core).getEditFieldSize());
     }
@@ -132,7 +133,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return true if there are no EditFieldDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1679)
     public boolean getEditFieldIsEmpty(){
         if (((FormBindingDefinitionDMO) core).getEditFieldSize() == 0)
             return(true);
@@ -142,7 +143,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return true if there are any EditFieldDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:1689)
     public boolean getEditFieldHasValue(){
         if (((FormBindingDefinitionDMO) core).getEditFieldSize() == 0)
             return(false);
@@ -152,7 +153,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return An Iterator of EditField objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1923)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2107)
     public EditFieldIterableDMW getEditFieldIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__editField);
         if (attr == null)
@@ -165,7 +166,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Adds another editField value.
      * @param value A value compatible with EditField
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1949)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2133)
     public void addEditField(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).addEditField(value);
     }
@@ -174,7 +175,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Adds another editField value.
      * @param value A value compatible with EditField
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2143)
     public void addEditField(EditField value){
         ((FormBindingDefinitionDMO) core).addEditField(value);
     }
@@ -183,7 +184,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Returns true if the collection contains the editField value.
      * @param value A value compatible with EditField
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2016)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2200)
     public boolean editFieldContains(EditField value){
         return(((FormBindingDefinitionDMO) core).editFieldContains(value));
     }
@@ -191,7 +192,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return A COPY of the collection of EditField objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2244)
     @SuppressWarnings("unchecked")
     public ArrayList<EditField> getEditFieldCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__editField);
@@ -212,7 +213,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Deletes a editField value.
      * @param value The EditField to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2085)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2271)
     public void delEditField(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).delEditField(value);
     }
@@ -221,7 +222,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Deletes a editField value.
      * @param value The EditField to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2094)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2280)
     public void delEditField(EditField value){
         ((FormBindingDefinitionDMO) core).delEditField(value);
     }
@@ -229,7 +230,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the editField attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatMV(BaseDMWGenerator.java:2292)
     public void remEditField(){
         ((FormBindingDefinitionDMO) core).remEditField();
     }
@@ -237,7 +238,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return A ClassDefinition object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1434)
     public ClassDefinition getEditObject(){
         ClassDefinitionREF ref = ((FormBindingDefinitionDMO) core).getEditObject();
         if (ref == null)
@@ -253,7 +254,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets the editObject to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1519)
     public void setEditObject(ClassDefinition value) {
         ((FormBindingDefinitionDMO) core).setEditObject(value.getDMO());
     }
@@ -262,7 +263,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets the editObject to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1528)
     public void setEditObject(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).setEditObject(value);
     }
@@ -270,12 +271,12 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the editObject attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remEditObject(){
         ((FormBindingDefinitionDMO) core).remEditObject();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public Boolean isStrictlyChecked(){
         return(((FormBindingDefinitionDMO) core).isStrictlyChecked());
     }
@@ -284,7 +285,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets strictlyChecked to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
     public void setStrictlyChecked(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).setStrictlyChecked(value);
     }
@@ -293,7 +294,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets strictlyChecked to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
     public void setStrictlyChecked(Boolean value){
         ((FormBindingDefinitionDMO) core).setStrictlyChecked(value);
     }
@@ -301,12 +302,12 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the strictlyChecked attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remStrictlyChecked(){
         ((FormBindingDefinitionDMO) core).remStrictlyChecked();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public Boolean isTipsFromI18N(){
         return(((FormBindingDefinitionDMO) core).isTipsFromI18N());
     }
@@ -315,7 +316,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets tipsFromI18N to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
     public void setTipsFromI18N(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).setTipsFromI18N(value);
     }
@@ -324,7 +325,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets tipsFromI18N to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
     public void setTipsFromI18N(Boolean value){
         ((FormBindingDefinitionDMO) core).setTipsFromI18N(value);
     }
@@ -332,7 +333,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the tipsFromI18N attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remTipsFromI18N(){
         ((FormBindingDefinitionDMO) core).remTipsFromI18N();
     }
@@ -340,7 +341,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * @return A I18NConfig object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1434)
     public I18NConfig getUseI18NConfig(){
         I18NConfigREF ref = ((FormBindingDefinitionDMO) core).getUseI18NConfig();
         if (ref == null)
@@ -356,7 +357,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets the useI18NConfig to the specified value.
      * @param value A value compatible with I18NConfigREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1519)
     public void setUseI18NConfig(I18NConfig value) {
         ((FormBindingDefinitionDMO) core).setUseI18NConfig(value.getDMO());
     }
@@ -365,7 +366,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
      * Sets the useI18NConfig to the specified value.
      * @param value A value compatible with I18NConfigREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1528)
     public void setUseI18NConfig(Object value) throws DmcValueException {
         ((FormBindingDefinitionDMO) core).setUseI18NConfig(value);
     }
@@ -373,7 +374,7 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the useI18NConfig attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
     public void remUseI18NConfig(){
         ((FormBindingDefinitionDMO) core).remUseI18NConfig();
     }

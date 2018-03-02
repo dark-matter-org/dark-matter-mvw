@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.CamelCaseName;
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -93,7 +94,7 @@ public class MvwGenUtility {
 	StringArrayList			jars 		= new StringArrayList();
 	
 	
-	public MvwGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+	public MvwGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcNameClashException {
 		initHelp();
 		cl = new CommandLine();
         cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
@@ -207,7 +208,7 @@ public class MvwGenUtility {
 	
 
 	
-	public void run(){
+	public void run() throws DmcNameClashException{
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         Classifier		classifier 	= new Classifier();
@@ -342,7 +343,7 @@ public class MvwGenUtility {
         }
 	}
 	
-	void generateFromConfig(ConfigVersion currConfig){
+	void generateFromConfig(ConfigVersion currConfig) throws DmcNameClashException{
     	try {
 			parser.parseConfig(currConfig.getLatestVersion());
 			

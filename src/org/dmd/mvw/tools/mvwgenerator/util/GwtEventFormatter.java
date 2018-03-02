@@ -19,7 +19,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;

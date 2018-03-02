@@ -18,6 +18,7 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -73,13 +74,13 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		ruleManager		= new DmvRuleManager();
 	}
 	
-	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		defManager.reset();
 		parseConfigInternal(cl);
 		defManager.resolveDefinitions();
 	}
 	
-	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		if (cl.isFromJAR())
 			System.out.println("Reading: " + cl.getFileName() + " - from " + cl.getJarFilename());
 		else
@@ -126,7 +127,7 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	@Override
-	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		MvwDefinition definition = null;
 		
 		try {

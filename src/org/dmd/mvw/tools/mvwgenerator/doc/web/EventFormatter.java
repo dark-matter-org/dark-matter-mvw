@@ -22,6 +22,7 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dms.doc.web.Converter;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;
@@ -44,7 +45,10 @@ public class EventFormatter {
 			out.write("            <div class=\"argvector\">" + event.getArgVector() + " </div> <p/> \n");
 		}
 		
-		out.write("            " + event.getDescription() + "\n");
+		if (event.getDescriptionHasValue()) {
+			// TODO: should be able to get the description with new lines
+			out.write("            " + Converter.convert(event.getDescriptionIterable()) + "\n");
+		}
 		out.write("            </td>\n");
 		
 		out.write("        </tr>\n");

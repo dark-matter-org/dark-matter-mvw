@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -158,14 +159,14 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	CamelCaseName								key;
 	
-	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException{
+	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException, DmcNameClashException{
 		schema 			= s;
 		schemaParser	= sp;
 		key				= new CamelCaseName();
 		init();
 	}
 	
-	void init() throws ResultException, DmcValueException{
+	void init() throws ResultException, DmcValueException, DmcNameClashException{
 		allDefs 		= new TreeMap<CamelCaseName, MvwDefinition>();
 		modules 		= new TreeMap<CamelCaseName, Module>();
 //		mvwEevents 		= new TreeMap<CamelCaseName, MvwEvent>();
@@ -298,7 +299,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		return(enumMappings);
 	}
 	
-	public void reset() throws ResultException, DmcValueException{
+	public void reset() throws ResultException, DmcValueException, DmcNameClashException{
 		init();
 	}
 	
@@ -332,8 +333,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 * @throws DmcRuleExceptionSet 
+	 * @throws DmcNameClashException 
 	 */
-	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void addDefinition(MvwDefinition def) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		checkAndAdd(def,allDefs);
 		
 		setSubpackage(def);
@@ -368,7 +370,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("historyMapper");
-				rci.setDescription("This is the auto generated run context item that provides a handle to the application specific PlaceHistoryMapper for a web application.");
+				rci.addDescription("This is the auto generated run context item that provides a handle to the application specific PlaceHistoryMapper for a web application.");
 				rci.setItemOrder(7);
 				rci.setUseClass(codeGenModule.getGenPackage() + ".generated.mvw.places." + app.getAppName() + "PlaceHistoryMapper");
 				rci.setConstruction("GWT.create(" + app.getAppName() + "PlaceHistoryMapper.class)");
@@ -401,7 +403,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(controllerRCI.getContextImpl());
 				
 				controllerRCI.setItemName(controller.getControllerName().getNameString() + "RCI");
-				controllerRCI.setDescription("The auto generated run context item for the " + controller.getControllerName());
+				controllerRCI.addDescription("The auto generated run context item for the " + controller.getControllerName());
 				
 				if (controller.getSubpackage() == null)
 					controllerRCI.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getControllerName());
@@ -493,7 +495,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(presenter.getPresenterName().getNameString() + "RCI");
-			rci.setDescription("The auto generated run context item for the " + presenter.getPresenterName());
+			rci.addDescription("The auto generated run context item for the " + presenter.getPresenterName());
 			
 			if (presenter.getSubpackage() == null)
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + presenter.getPresenterName());
@@ -556,7 +558,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(view.getViewName().getNameString() + "RCI");
-			rci.setDescription("The auto generated run context item for the " + view.getViewName());
+			rci.addDescription("The auto generated run context item for the " + view.getViewName());
 			
 			if (view.getSubpackage() == null)
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + view.getViewName());
@@ -673,7 +675,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("menuFactory");
-				rci.setDescription("The auto generated run context item for the generic menuFactory; this was created because a MenuImplementationConfig was provided by the " + menuImplementation.getDefinedInModule().getModuleName() + " module");
+				rci.addDescription("The auto generated run context item for the generic menuFactory; this was created because a MenuImplementationConfig was provided by the " + menuImplementation.getDefinedInModule().getModuleName() + " module");
 
 				rci.setUseClass("org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory");
 				rci.setItemOrder(16);
@@ -755,7 +757,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 	}
 	
-	public void resolveDefinitions() throws ResultException, DmcValueException {
+	public void resolveDefinitions() throws ResultException, DmcValueException, DmcNameClashException {
 		ResultException errors = null;
 		
 		if (needMvwComms){
@@ -1310,8 +1312,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * This method is used to build a superset of definitions read from many different
 	 * .mvw files.
 	 * @param mdm The 
+	 * @throws DmcNameClashException 
 	 */
-	public void mergeDefinitions(MvwDefinitionManager mdm){
+	public void mergeDefinitions(MvwDefinitionManager mdm) throws DmcNameClashException{
 		Iterator<SchemaDefinition>	schemas = mdm.readSchemas.getSchemas();
 		while(schemas.hasNext()){
 			SchemaDefinition sd = schemas.next();
