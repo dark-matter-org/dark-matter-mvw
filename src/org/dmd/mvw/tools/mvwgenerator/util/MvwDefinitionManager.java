@@ -19,8 +19,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcNameClashObjectSet;
+import org.dmd.dmc.DmcNameClashResolverIF;
 import org.dmd.dmc.DmcNameResolverIF;
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -32,6 +36,7 @@ import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.DSDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
@@ -72,7 +77,7 @@ import org.dmd.util.exceptions.ResultException;
  * The MvwDefinitionManager manages a set of MVW definitions read from one or more .mvw 
  * configuration files.
  */
-public class MvwDefinitionManager implements DmcNameResolverIF {
+public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameResolverWithClashSupportIF {
 	
 	SchemaManager								schema;
 	
@@ -771,7 +776,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		for(MvwDefinition def : allDefs.values()){
 			try {
-				def.resolveReferences(this);
+				def.resolveReferences(this,this);
 			} catch (DmcValueExceptionSet e) {
 				if (errors == null)
 					errors = new ResultException();
@@ -1454,5 +1459,46 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
+		DmcNamedObjectIF rc = null;
+		
+		MvwDefinition 	d 	= allDefs.get(name);
+		
+		if (d == null){
+			// Fall back and check the schema
+//			rc = schema.findNamedDMO(name);
+			rc = schema.findNamedObjectMayClash(object, name, schema, ai);
+			
+			if (rc == null){
+				// Try the schemas we read
+//				rc = readSchemas.findNamedDMO(name);
+				rc = readSchemas.findNamedObjectMayClash(object, name, readSchemas, ai);
+			}
+		}
+		else
+			rc = (DmcNamedObjectIF) d.getDmcObject();
+		
+		
+		return (DmcNamedObjectIF) (rc);
+	}
+
+	@Override
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
+        DmcNamedObjectIF rc = null;
+        MvwDefinition resolving = (MvwDefinition) obj.getContainer();
+    
+        Iterator<DmcNamedObjectIF> it = ncos.getMatches();
+        while(it.hasNext()){
+        		MvwDefinition def = (MvwDefinition) it.next();
+
+            if (resolving.getDefinedInModule().equals(def.getDefinedInModule())){
+                rc = def;
+                break;
+            }
+        }
+        return(rc);
 	}
 }

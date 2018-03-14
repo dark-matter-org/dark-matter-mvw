@@ -221,6 +221,7 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
             if (ri == null)
             {
                 logger.error("No record of request for " + resp.toOIF());
+                logger.error("Did you accidentally send the same response twice?");
                 return;
             }
             responseHandler = ri.responseHandler;
