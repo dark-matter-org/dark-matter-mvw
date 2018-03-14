@@ -15,9 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MvwDefinitionDMW;
+import org.dmd.mvw.tools.mvwgenerator.util.MvwDefinitionManager;
 
 abstract public class MvwDefinition extends MvwDefinitionDMW {
 	
@@ -27,6 +29,11 @@ abstract public class MvwDefinition extends MvwDefinitionDMW {
 
 	protected MvwDefinition(MvwDefinitionDMO obj, ClassDefinition cd){
 		super(obj,cd);
+	}
+
+	public void resolveReferences(MvwDefinitionManager mvwDefinitionManager, MvwDefinitionManager mvwDefinitionManager2) throws DmcValueExceptionSet {
+		super.resolveReferences(mvwDefinitionManager, mvwDefinitionManager2);
+		
 	}
 	
 }

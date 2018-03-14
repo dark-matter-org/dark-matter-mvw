@@ -208,9 +208,22 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 					sendMessage(response);
 				}
 			}, 300);
+			logger.debug("Sending synchronous priming response...");
+		}
+		else{
+			rc = request.getResponse();
+			rc.setLastResponse(false);
+			
+			if (request.getTimeoutSeconds() == null) {
+				requestTracker.processRequest(request, this);
+			}
+			else {
+				requestTracker.processRequest(request, this, request.getTimeoutSeconds());
+			}
+			
+//			logger.debug("Sending synchronous response for ActionRequest: \n*****\n" + request.toOIF() + "\n\n" + rc.toOIF() + "*****");
 		}
 		
-		logger.debug("Sending synchronous priming response...");
 		
 //		if (request.isTrackingEnabled())
 //			logger.debug(request.toOIF());
