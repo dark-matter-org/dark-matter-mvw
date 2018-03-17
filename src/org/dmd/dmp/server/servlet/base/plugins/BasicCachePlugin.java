@@ -117,12 +117,12 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
     
     @Override
-    public void preInit() throws ResultException {
-    	DmcOmni.instance().backRefTracking(true);
+    public void preInit() throws ResultException, DmcValueException {
+    		DmcOmni.instance().backRefTracking(true);
     }
 	
 	@Override
-	protected void init() throws ResultException, DmcRuleExceptionSet, DmcNameClashException {
+	protected void init() throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 //		schema		= pluginManager.getSchema();
 		theCache	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
 		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
