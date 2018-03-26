@@ -15,21 +15,21 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                     // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                                                 // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                             // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcOmni;                                                      // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcSliceInfo;                                                 // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                            // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.CamelCaseName;                                          // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                       // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                              // Required type - (GenUtility.java:336)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;                    // Base class - (GenUtility.java:364)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSV;         // Reference type - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                  // Helper class - (GenUtility.java:343)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                     // Always required - (GenUtility.java:227)
+import org.dmd.dmc.DmcAttribute;                                                 // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                             // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcOmni;                                                      // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcSliceInfo;                                                 // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                            // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.CamelCaseName;                                          // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                       // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                              // Required type - (GenUtility.java:339)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;                    // Base class - (GenUtility.java:367)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSV;         // Reference type - (GenUtility.java:311)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                  // Helper class - (GenUtility.java:346)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -115,7 +115,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getPlaceName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -128,7 +128,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placeName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setPlaceName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -147,7 +147,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placeName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setPlaceName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -160,12 +160,12 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the placeName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remPlaceName(){
          rem(MvwDMSAG.__placeName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getPlacePrefix(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -178,7 +178,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placePrefix to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setPlacePrefix(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -197,7 +197,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placePrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setPlacePrefix(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -210,12 +210,12 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the placePrefix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remPlacePrefix(){
          rem(MvwDMSAG.__placePrefix);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:667)
     public PlaceREF getParentPlace(){
         DmcTypePlaceREFSV attr = (DmcTypePlaceREFSV) get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -246,7 +246,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets parentPlace to the specified value.
      * @param value PlaceDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setParentPlace(PlaceDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -267,7 +267,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets parentPlace to the specified value.
      * @param value A value compatible with DmcTypePlaceREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setParentPlace(Object value) throws DmcValueException {
         DmcTypePlaceREFSV attr  = (DmcTypePlaceREFSV) get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -282,7 +282,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the parentPlace attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remParentPlace(){
          rem(MvwDMSAG.__parentPlace);
     }

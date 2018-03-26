@@ -15,23 +15,23 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                  // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                                              // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcHierarchicNamedObjectIF;                                // Named object - (GenUtility.java:382)
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcObject;                                                 // Structural class - (GenUtility.java:359)
-import org.dmd.dmc.DmcOmni;                                                   // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.DotName;                                             // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dmp.server.servlet.generated.dmo.UserRIDMO;                    // Type specific set/add - (GenUtility.java:315)
-import org.dmd.dmp.server.servlet.generated.types.DmcTypeUserRIREFSV;         // Reference type - (GenUtility.java:308)
-import org.dmd.dmp.server.servlet.generated.types.UserRIREF;                  // Helper class - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeDotNameSV;                          // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:336)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                  // Always required - (GenUtility.java:227)
+import org.dmd.dmc.DmcAttribute;                                              // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcHierarchicNamedObjectIF;                                // Named object - (GenUtility.java:385)
+import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcObject;                                                 // Structural class - (GenUtility.java:362)
+import org.dmd.dmc.DmcOmni;                                                   // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.DotName;                                             // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dmp.server.servlet.generated.dmo.UserRIDMO;                    // Type specific set/add - (GenUtility.java:318)
+import org.dmd.dmp.server.servlet.generated.types.DmcTypeUserRIREFSV;         // Reference type - (GenUtility.java:311)
+import org.dmd.dmp.server.servlet.generated.types.UserRIREF;                  // Helper class - (GenUtility.java:346)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeDotNameSV;                          // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:339)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -127,7 +127,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -140,7 +140,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -159,7 +159,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -172,12 +172,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getSessionIDRI(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpServerDMSAG.__sessionIDRI);
         if (attr == null)
@@ -190,7 +190,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionIDRI to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setSessionIDRI(String value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__sessionIDRI);
         if (attr == null)
@@ -209,7 +209,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionIDRI to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setSessionIDRI(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpServerDMSAG.__sessionIDRI);
         if (attr == null)
@@ -222,12 +222,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the sessionIDRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remSessionIDRI(){
          rem(DmpServerDMSAG.__sessionIDRI);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getSessionHostRI(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpServerDMSAG.__sessionHostRI);
         if (attr == null)
@@ -240,7 +240,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionHostRI to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setSessionHostRI(String value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__sessionHostRI);
         if (attr == null)
@@ -259,7 +259,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionHostRI to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setSessionHostRI(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpServerDMSAG.__sessionHostRI);
         if (attr == null)
@@ -272,12 +272,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the sessionHostRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remSessionHostRI(){
          rem(DmpServerDMSAG.__sessionHostRI);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:667)
     public UserRIREF getUserRefRI(){
         DmcTypeUserRIREFSV attr = (DmcTypeUserRIREFSV) get(DmpServerDMSAG.__userRefRI);
         if (attr == null)
@@ -308,7 +308,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets userRefRI to the specified value.
      * @param value UserRIDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setUserRefRI(UserRIDMO value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__userRefRI);
         if (attr == null)
@@ -329,7 +329,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets userRefRI to the specified value.
      * @param value A value compatible with DmcTypeUserRIREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setUserRefRI(Object value) throws DmcValueException {
         DmcTypeUserRIREFSV attr  = (DmcTypeUserRIREFSV) get(DmpServerDMSAG.__userRefRI);
         if (attr == null)
@@ -344,7 +344,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the userRefRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remUserRefRI(){
          rem(DmpServerDMSAG.__userRefRI);
     }

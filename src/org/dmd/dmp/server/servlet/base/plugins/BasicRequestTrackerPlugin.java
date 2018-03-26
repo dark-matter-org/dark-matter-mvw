@@ -209,7 +209,17 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
             return;
         }
         
-        int requestId = resp.getRequestIDSize() == 1 ? resp.getLastRequestID() : resp.removeLastRequestID();
+//        int requestId = resp.getRequestIDSize() == 1 ? resp.getLastRequestID() : resp.removeLastRequestID();
+        int requestId = -1;
+        
+        if (resp.getRequestIDSize() == 1) {
+            logger.debug("Just one request ID");
+        		requestId = resp.getLastRequestID();
+        }
+        else {
+            logger.debug("Multiple request IDs");
+        		requestId = resp.removeLastRequestID();
+        }
         
         logger.debug("Handling response for tracking ID: " + requestId);
         
@@ -217,7 +227,18 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
         RequestInfo ri = null;
         synchronized (outstandingRequests)
         {
-            ri = resp.isLastResponse() ? outstandingRequests.remove(requestId) : outstandingRequests.get(requestId);
+            logger.debug("Handling response: \n" + resp.toOIF());
+
+            if (resp.isLastResponse()) {
+	        		logger.debug("Last response - removing outstanding request for requestId: " + requestId);
+	        		ri = outstandingRequests.remove(requestId);
+	        	}
+	        	else {
+	        		logger.debug("More responses expected for requestId: " + requestId);
+	        		ri = outstandingRequests.get(requestId);
+	        	}
+	        	
+//            ri = resp.isLastResponse() ? outstandingRequests.remove(requestId) : outstandingRequests.get(requestId);
             if (ri == null)
             {
                 logger.error("No record of request for " + resp.toOIF());

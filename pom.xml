@@ -52,7 +52,14 @@
     <dependency>
       <groupId>com.connectifex</groupId>
       <artifactId>dark-matter-data</artifactId>
-      <version>3.0.5</version>
+      <version>3.0.6</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.connectifex</groupId>
+      <artifactId>dark-matter-data</artifactId>
+      <version>3.0.6</version>
+	  <classifier>sources</classifier>
     </dependency>
     
 	<!-- https://mvnrepository.com/artifact/de.novanic.gwteventservice/eventservice -->

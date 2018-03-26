@@ -15,17 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                   // Always required - (GenUtility.java:224)
-import org.dmd.dmc.DmcAttribute;                                               // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                           // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcSliceInfo;                                               // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                          // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.CamelCaseName;                                        // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                     // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;         // Base class - (GenUtility.java:364)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                   // Always required - (GenUtility.java:227)
+import org.dmd.dmc.DmcAttribute;                                               // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                           // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcSliceInfo;                                               // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                          // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.CamelCaseName;                                        // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                     // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;         // Base class - (GenUtility.java:367)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -113,7 +113,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getItemName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -126,7 +126,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
      * Sets itemName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setItemName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -145,7 +145,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
      * Sets itemName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setItemName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -158,7 +158,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
     /**
      * Removes the itemName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remItemName(){
          rem(MvwDMSAG.__itemName);
     }

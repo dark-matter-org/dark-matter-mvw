@@ -2216,11 +2216,11 @@ public class MvwSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _DisplayDataSpecOBJ = new ComplexTypeDefinitionDMO();
             _DisplayDataSpec = new ComplexTypeDefinition(_DisplayDataSpecOBJ);
+            _DisplayDataSpecOBJ.addRequiredPart("ClassDefinition dataClass \"The class of object to be displayed\"");
+            _DisplayDataSpecOBJ.addRequiredPart("SelectionTypeEnum cardinality \"Indicates whether the data is single or multi-valued\"");
+            _DisplayDataSpecOBJ.addRequiredPart("String varName \"The variable name used to indicate this piece of data\"");
             _DisplayDataSpecOBJ.addDescription("The DisplayDataSpec type is used to specify the type and cardinality of\n data that is being display in a View. It also indicates a variable name for the \n data that is used when we generate the interface methods and events associated\n with the View.");
             _DisplayDataSpecOBJ.setName("DisplayDataSpec");
-            _DisplayDataSpecOBJ.addField("ClassDefinition dataClass The class of object to be displayed");
-            _DisplayDataSpecOBJ.addField("SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued");
-            _DisplayDataSpecOBJ.addField("String varName The variable name used to indicate this piece of data");
             _DisplayDataSpecOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/complex.dmd");
             _DisplayDataSpecOBJ.setDotName("mvw.DisplayDataSpec.ComplexTypeDefinition");
             _DisplayDataSpecOBJ.setLineNumber("39");
@@ -2230,11 +2230,11 @@ public class MvwSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _EventSpecOBJ = new ComplexTypeDefinitionDMO();
             _EventSpec = new ComplexTypeDefinition(_EventSpecOBJ);
+            _EventSpecOBJ.addRequiredPart("String varName \"A variable name previously defined, usually in a displayData attribute\"");
+            _EventSpecOBJ.addRequiredPart("SelectionTypeEnum cardinality \"Indicates whether the data is single or multi-valued\"");
+            _EventSpecOBJ.addRequiredPart("EventScopeEnum scope \"The scope of the event\"");
             _EventSpecOBJ.addDescription("The EventSpec type is used to indicate the events to be generated when\n selection and deletion of objects takes place.");
             _EventSpecOBJ.setName("EventSpec");
-            _EventSpecOBJ.addField("String varName A variable name previously defined, usually in a displayData attribute");
-            _EventSpecOBJ.addField("SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued");
-            _EventSpecOBJ.addField("EventScopeEnum scope The scope of the event");
             _EventSpecOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/complex.dmd");
             _EventSpecOBJ.setDotName("mvw.EventSpec.ComplexTypeDefinition");
             _EventSpecOBJ.setLineNumber("47");
@@ -2244,10 +2244,10 @@ public class MvwSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _OperationSpecOBJ = new ComplexTypeDefinitionDMO();
             _OperationSpec = new ComplexTypeDefinition(_OperationSpecOBJ);
+            _OperationSpecOBJ.addRequiredPart("String varName \"A variable name previously defined, usually in a displayData attribute\"");
+            _OperationSpecOBJ.addRequiredPart("EventScopeEnum scope \"The scope of the event\"");
             _OperationSpecOBJ.addDescription("The OperationSpec type is used to indicate the events to be generated when an object\n is associated with some operation e.g. clicked, modified, created etc.");
             _OperationSpecOBJ.setName("OperationSpec");
-            _OperationSpecOBJ.addField("String varName A variable name previously defined, usually in a displayData attribute");
-            _OperationSpecOBJ.addField("EventScopeEnum scope The scope of the event");
             _OperationSpecOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/complex.dmd");
             _OperationSpecOBJ.setDotName("mvw.OperationSpec.ComplexTypeDefinition");
             _OperationSpecOBJ.setLineNumber("54");
@@ -2257,11 +2257,11 @@ public class MvwSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             ComplexTypeDefinitionDMO _MenuElementTypeAndCommentOBJ = new ComplexTypeDefinitionDMO();
             _MenuElementTypeAndComment = new ComplexTypeDefinition(_MenuElementTypeAndCommentOBJ);
+            _MenuElementTypeAndCommentOBJ.addRequiredPart("String type \"The name of this implementation.\"");
+            _MenuElementTypeAndCommentOBJ.addRequiredPart("String comment \"The class used to implement the required behaviour.\"");
             _MenuElementTypeAndCommentOBJ.addDescription("The MenuElementTypeAndComment type is used to indicate the strings that map to \n various menu and menu item implementations supported by a a particular menu implementation.");
             _MenuElementTypeAndCommentOBJ.setName("MenuElementTypeAndComment");
             _MenuElementTypeAndCommentOBJ.setFieldSeparator(":");
-            _MenuElementTypeAndCommentOBJ.addField("String type The name of this implementation.");
-            _MenuElementTypeAndCommentOBJ.addField("String comment The class used to implement the required behaviour.");
             _MenuElementTypeAndCommentOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/complex.dmd");
             _MenuElementTypeAndCommentOBJ.setDotName("mvw.MenuElementTypeAndComment.ComplexTypeDefinition");
             _MenuElementTypeAndCommentOBJ.setLineNumber("61");

@@ -70,7 +70,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	// The plugins that we've loaded
 	TreeMap<DmcObjectName,PluginConfig>		pluginConfigs;
 	
-	TreeMap<Integer,DmpServletPlugin>		startOrder;
+	// Key: integer start order
+	// Value: an array of plugins to be started at that order 
+	TreeMap<Integer,ArrayList<DmpServletPlugin>>		startOrder;
 	
 	// The servlet in which we're running
 	DMPServiceImpl							servlet;
@@ -111,7 +113,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		configParser	= new DmcUncheckedOIFParser(this);
 		
 		pluginConfigs	= new TreeMap<DmcObjectName, PluginConfig>();
-		startOrder		= new TreeMap<Integer, DmpServletPlugin>();
+		startOrder		= new TreeMap<Integer, ArrayList<DmpServletPlugin>>();
 		
 		securityManager	= null;
 		
@@ -192,7 +194,13 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 				}
 			}
 			else{
-				startOrder.put(sp.getStartOrder(), plugin);
+				ArrayList<DmpServletPlugin> plugins = startOrder.get(sp.getStartOrder());
+				
+				if (plugins == null) {
+					plugins = new ArrayList<>();
+					startOrder.put(sp.getStartOrder(), plugins);
+				}
+				plugins.add(plugin);
 			}
 		}
 		
@@ -223,8 +231,11 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		securityPlugin.preInit();
 		
-		for(DmpServletPlugin sp: startOrder.values()){
-			sp.preInit();
+		for(Integer order: startOrder.keySet()) {
+			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
+			for(DmpServletPlugin sp: plugins){
+				sp.preInit();
+			}
 		}
 	}
 	
@@ -236,8 +247,11 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		securityPlugin.init();
 		
-		for(DmpServletPlugin sp: startOrder.values()){
-			sp.init();
+		for(Integer order: startOrder.keySet()) {
+			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
+			for(DmpServletPlugin sp: plugins){
+				sp.init();
+			}
 		}
 	}
 	
@@ -249,15 +263,22 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		securityPlugin.start();
 		
-		for(DmpServletPlugin sp: startOrder.values()){
-			sp.start();
+		for(Integer order: startOrder.keySet()) {
+			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
+			for(DmpServletPlugin sp: plugins){
+				sp.start();
+			}
 		}
 	}
 	
 	public void shutdown(){
 		ArrayList<DmpServletPlugin> reverse = new ArrayList<DmpServletPlugin>();
-		for(DmpServletPlugin sp: startOrder.values()){
-			reverse.add(0, sp);
+		
+		for(Integer order: startOrder.keySet()) {
+			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
+			for(DmpServletPlugin sp: plugins){
+				reverse.add(0,sp);
+			}
 		}
 		
 		for(DmpServletPlugin sp: reverse){

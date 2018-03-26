@@ -15,25 +15,25 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                                    // Always required - (GenUtility.java:224)
-import java.util.*;                                                                             // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                                                // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                                            // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcOmni;                                                                     // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcSliceInfo;                                                                // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                                           // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.CamelCaseName;                                                         // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                                     // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                            // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                      // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                           // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSET;                                            // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                                             // Required type - (GenUtility.java:336)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO;                    // Type specific set/add - (GenUtility.java:315)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                           // Base class - (GenUtility.java:364)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingGeneratorREFSV;         // Reference type - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingGeneratorREF;                  // Helper class - (GenUtility.java:343)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                                    // Always required - (GenUtility.java:227)
+import java.util.*;                                                                             // Always required if we have any MV attributes - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                                                                // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                                            // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcOmni;                                                                     // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcSliceInfo;                                                                // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                                           // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.CamelCaseName;                                                         // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                                     // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                            // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                      // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                           // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringSET;                                            // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                             // Required type - (GenUtility.java:339)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EnumMappingGeneratorDMO;                    // Type specific set/add - (GenUtility.java:318)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                           // Base class - (GenUtility.java:367)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEnumMappingGeneratorREFSV;         // Reference type - (GenUtility.java:311)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingGeneratorREF;                  // Helper class - (GenUtility.java:346)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -132,7 +132,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Boolean isUseNameAsLabel(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__useNameAsLabel);
         if (attr == null)
@@ -145,7 +145,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets useNameAsLabel to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setUseNameAsLabel(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useNameAsLabel);
         if (attr == null)
@@ -164,7 +164,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets useNameAsLabel to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setUseNameAsLabel(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__useNameAsLabel);
         if (attr == null)
@@ -177,7 +177,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the useNameAsLabel attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remUseNameAsLabel(){
          rem(MvwDMSAG.__useNameAsLabel);
     }
@@ -186,7 +186,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public Iterator<String> getSkipEnumValue(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -198,7 +198,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1133)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public String getNthSkipEnumValue(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -211,7 +211,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Adds another skipEnumValue to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1147)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1150)
     public DmcAttribute<?> addSkipEnumValue(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -231,7 +231,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1222)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1225)
     public boolean skipEnumValueContains(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -243,7 +243,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Adds another skipEnumValue value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addSkipEnumValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -257,7 +257,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Returns the number of values in skipEnumValue
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getSkipEnumValueSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         if (attr == null){
@@ -273,7 +273,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Deletes a skipEnumValue value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1329)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1332)
     public DmcAttribute<?> delSkipEnumValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         
@@ -289,7 +289,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Deletes a skipEnumValue from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1348)
     public DmcAttribute<?> delSkipEnumValue(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
         
@@ -304,12 +304,12 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the skipEnumValue attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remSkipEnumValue(){
          rem(MvwDMSAG.__skipEnumValue);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getMappingName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__mappingName);
         if (attr == null)
@@ -322,7 +322,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets mappingName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setMappingName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__mappingName);
         if (attr == null)
@@ -341,7 +341,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets mappingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setMappingName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__mappingName);
         if (attr == null)
@@ -354,12 +354,12 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the mappingName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remMappingName(){
          rem(MvwDMSAG.__mappingName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getEnumName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__enumName);
         if (attr == null)
@@ -372,7 +372,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets enumName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setEnumName(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__enumName);
         if (attr == null)
@@ -391,7 +391,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets enumName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setEnumName(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__enumName);
         if (attr == null)
@@ -404,12 +404,12 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the enumName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remEnumName(){
          rem(MetaDMSAG.__enumName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getUnsetValue(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__unsetValue);
         if (attr == null)
@@ -422,7 +422,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets unsetValue to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setUnsetValue(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__unsetValue);
         if (attr == null)
@@ -441,7 +441,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets unsetValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setUnsetValue(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__unsetValue);
         if (attr == null)
@@ -454,12 +454,12 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the unsetValue attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remUnsetValue(){
          rem(MvwDMSAG.__unsetValue);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:664)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:667)
     public EnumMappingGeneratorREF getMappingGenerator(){
         DmcTypeEnumMappingGeneratorREFSV attr = (DmcTypeEnumMappingGeneratorREFSV) get(MvwDMSAG.__mappingGenerator);
         if (attr == null)
@@ -490,7 +490,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets mappingGenerator to the specified value.
      * @param value EnumMappingGeneratorDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:718)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setMappingGenerator(EnumMappingGeneratorDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__mappingGenerator);
         if (attr == null)
@@ -511,7 +511,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
      * Sets mappingGenerator to the specified value.
      * @param value A value compatible with DmcTypeEnumMappingGeneratorREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setMappingGenerator(Object value) throws DmcValueException {
         DmcTypeEnumMappingGeneratorREFSV attr  = (DmcTypeEnumMappingGeneratorREFSV) get(MvwDMSAG.__mappingGenerator);
         if (attr == null)
@@ -526,7 +526,7 @@ public class EnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObject
     /**
      * Removes the mappingGenerator attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remMappingGenerator(){
          rem(MvwDMSAG.__mappingGenerator);
     }
