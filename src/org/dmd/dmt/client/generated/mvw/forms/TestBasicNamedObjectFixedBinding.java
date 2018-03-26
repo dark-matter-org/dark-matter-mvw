@@ -13,6 +13,7 @@ import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                               
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                     // For the object we're editting - (FormBindingFormatter.java:69)
 import org.dmd.dmt.shared.generated.types.adapters.TestBasicObjectFixedMVAdapter;         // Adapter for mvIdxUnnamedObj - (FormBindingFormatter.java:61)
 
+
 // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:75)
 public class TestBasicNamedObjectFixedBinding {
 

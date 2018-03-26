@@ -15,30 +15,30 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                                          // Always required - (GenUtility.java:224)
-import java.util.*;                                                                   // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                                      // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution - (GenUtility.java:328)
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                                   // Required type - (GenUtility.java:336)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                     // Base class - (GenUtility.java:364)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Type specific set/add - (GenUtility.java:315)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                     // Type specific set/add - (GenUtility.java:315)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                          // Type specific set/add - (GenUtility.java:315)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                  // Helper class - (GenUtility.java:343)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;         // Reference type - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMV;          // Reference type - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;               // Reference type - (GenUtility.java:308)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;                   // Helper class - (GenUtility.java:343)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                        // Helper class - (GenUtility.java:343)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                                          // Always required - (GenUtility.java:227)
+import java.util.*;                                                                   // Always required if we have any MV attributes - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                                                      // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution - (GenUtility.java:331)
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                   // Required type - (GenUtility.java:339)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                     // Base class - (GenUtility.java:367)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Type specific set/add - (GenUtility.java:318)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                     // Type specific set/add - (GenUtility.java:318)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                          // Type specific set/add - (GenUtility.java:318)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                  // Helper class - (GenUtility.java:346)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;         // Reference type - (GenUtility.java:311)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMV;          // Reference type - (GenUtility.java:311)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;               // Reference type - (GenUtility.java:311)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;                   // Helper class - (GenUtility.java:346)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                        // Helper class - (GenUtility.java:346)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -139,7 +139,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getUseBaseClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useBaseClass);
         if (attr == null)
@@ -152,7 +152,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets useBaseClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setUseBaseClass(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useBaseClass);
         if (attr == null)
@@ -171,7 +171,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets useBaseClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setUseBaseClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__useBaseClass);
         if (attr == null)
@@ -184,12 +184,12 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the useBaseClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remUseBaseClass(){
          rem(MvwDMSAG.__useBaseClass);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Boolean isAbstractActivity(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__abstractActivity);
         if (attr == null)
@@ -202,7 +202,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets abstractActivity to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setAbstractActivity(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__abstractActivity);
         if (attr == null)
@@ -221,7 +221,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets abstractActivity to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setAbstractActivity(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__abstractActivity);
         if (attr == null)
@@ -234,7 +234,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the abstractActivity attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remAbstractActivity(){
          rem(MvwDMSAG.__abstractActivity);
     }
@@ -243,7 +243,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of ControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:979)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
     public Iterator<ControllerREF> getUsesController(){
         DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -263,7 +263,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of ControllerREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:999)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public Iterator<ControllerREF> getUsesControllerREFs(){
         DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -276,7 +276,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another usesController to the specified value.
      * @param value Controller
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1013)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
     public DmcAttribute<?> addUsesController(ControllerDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -296,7 +296,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addUsesController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -310,7 +310,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Returns the number of values in usesController
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null){
@@ -326,7 +326,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
     public DmcAttribute<?> delUsesController(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         
@@ -341,7 +341,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
     }
@@ -350,7 +350,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of ViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:979)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
     public Iterator<ViewREF> getManagesView(){
         DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -370,7 +370,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of ViewREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:999)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public Iterator<ViewREF> getManagesViewREFs(){
         DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -383,7 +383,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another managesView to the specified value.
      * @param value View
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1013)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
     public DmcAttribute<?> addManagesView(ViewDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -403,7 +403,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another managesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addManagesView(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -417,7 +417,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Returns the number of values in managesView
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getManagesViewSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null){
@@ -433,7 +433,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
     public DmcAttribute<?> delManagesView(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         
@@ -448,7 +448,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remManagesView(){
          rem(MvwDMSAG.__managesView);
     }
@@ -457,7 +457,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of PresenterDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:979)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
     public Iterator<PresenterREF> getInstantiatesPresenter(){
         DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -477,7 +477,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of PresenterREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:999)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public Iterator<PresenterREF> getInstantiatesPresenterREFs(){
         DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -490,7 +490,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another instantiatesPresenter to the specified value.
      * @param value Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1013)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
     public DmcAttribute<?> addInstantiatesPresenter(PresenterDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -510,7 +510,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -524,7 +524,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Returns the number of values in instantiatesPresenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getInstantiatesPresenterSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null){
@@ -540,7 +540,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         
@@ -555,12 +555,12 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Boolean isCodeSplit(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -573,7 +573,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets codeSplit to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setCodeSplit(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -592,7 +592,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets codeSplit to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setCodeSplit(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -605,12 +605,12 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the codeSplit attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remCodeSplit(){
          rem(MvwDMSAG.__codeSplit);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getActivityName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__activityName);
         if (attr == null)
@@ -623,7 +623,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets activityName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setActivityName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__activityName);
         if (attr == null)
@@ -642,7 +642,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Sets activityName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setActivityName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__activityName);
         if (attr == null)
@@ -655,7 +655,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the activityName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remActivityName(){
          rem(MvwDMSAG.__activityName);
     }

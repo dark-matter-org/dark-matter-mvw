@@ -15,22 +15,22 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:405)
-import java.io.Serializable;                                       // Always required - (GenUtility.java:224)
-import java.util.*;                                                // Always required if we have any MV attributes - (GenUtility.java:221)
-import org.dmd.dmc.DmcAttribute;                                   // Named object - (GenUtility.java:385)
-import org.dmd.dmc.DmcNamedObjectIF;                               // Named object - (GenUtility.java:384)
-import org.dmd.dmc.DmcObject;                                      // Structural class - (GenUtility.java:359)
-import org.dmd.dmc.DmcSliceInfo;                                   // Required for object slicing - (GenUtility.java:229)
-import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:246)
-import org.dmd.dmc.types.CamelCaseName;                            // Naming attribute type - (GenUtility.java:379)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (GenUtility.java:228)
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;               // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;         // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;               // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:227)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                // Required type - (GenUtility.java:336)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:336)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:408)
+import java.io.Serializable;                                       // Always required - (GenUtility.java:227)
+import java.util.*;                                                // Always required if we have any MV attributes - (GenUtility.java:224)
+import org.dmd.dmc.DmcAttribute;                                   // Named object - (GenUtility.java:388)
+import org.dmd.dmc.DmcNamedObjectIF;                               // Named object - (GenUtility.java:387)
+import org.dmd.dmc.DmcObject;                                      // Structural class - (GenUtility.java:362)
+import org.dmd.dmc.DmcSliceInfo;                                   // Required for object slicing - (GenUtility.java:232)
+import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:249)
+import org.dmd.dmc.types.CamelCaseName;                            // Naming attribute type - (GenUtility.java:382)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (GenUtility.java:231)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;               // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;         // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;               // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:230)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                // Required type - (GenUtility.java:339)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:339)
 
 // Generated from: org.dmd.dms.util.DmoFormatter.getClassHeader(DmoFormatter.java:678)
 /**
@@ -118,7 +118,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Integer getStartOrder(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpServerDMSAG.__startOrder);
         if (attr == null)
@@ -131,7 +131,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets startOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setStartOrder(Integer value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__startOrder);
         if (attr == null)
@@ -150,7 +150,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets startOrder to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setStartOrder(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpServerDMSAG.__startOrder);
         if (attr == null)
@@ -163,12 +163,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the startOrder attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remStartOrder(){
          rem(DmpServerDMSAG.__startOrder);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Boolean isRunnable(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmpServerDMSAG.__runnable);
         if (attr == null)
@@ -181,7 +181,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets runnable to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setRunnable(Boolean value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__runnable);
         if (attr == null)
@@ -200,7 +200,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets runnable to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setRunnable(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(DmpServerDMSAG.__runnable);
         if (attr == null)
@@ -213,7 +213,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the runnable attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remRunnable(){
          rem(DmpServerDMSAG.__runnable);
     }
@@ -222,7 +222,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1121)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public Iterator<String> getDescription(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -234,7 +234,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1133)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public String getNthDescription(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -247,7 +247,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Adds another description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1147)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1150)
     public DmcAttribute<?> addDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -267,7 +267,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1222)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1225)
     public boolean descriptionContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -279,7 +279,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Adds another description value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1254)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
     public DmcAttribute<?> addDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -293,7 +293,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Returns the number of values in description
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1271)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
     public int getDescriptionSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null){
@@ -309,7 +309,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Deletes a description value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1329)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1332)
     public DmcAttribute<?> delDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -325,7 +325,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Deletes a description from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1348)
     public DmcAttribute<?> delDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         
@@ -340,12 +340,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1364)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -358,7 +358,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setLineNumber(Integer value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -377,7 +377,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -390,12 +390,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remLineNumber(){
          rem(MetaDMSAG.__lineNumber);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -408,7 +408,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setFile(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -427,7 +427,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setFile(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -440,12 +440,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remFile(){
          rem(MetaDMSAG.__file);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getCamelCaseName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -458,7 +458,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setCamelCaseName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -477,7 +477,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setCamelCaseName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -490,12 +490,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remCamelCaseName(){
          rem(MetaDMSAG.__camelCaseName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public CamelCaseName getPluginName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(DmpServerDMSAG.__pluginName);
         if (attr == null)
@@ -508,7 +508,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets pluginName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setPluginName(CamelCaseName value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__pluginName);
         if (attr == null)
@@ -527,7 +527,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets pluginName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setPluginName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(DmpServerDMSAG.__pluginName);
         if (attr == null)
@@ -540,12 +540,12 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the pluginName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remPluginName(){
          rem(DmpServerDMSAG.__pluginName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
     public String getPluginClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpServerDMSAG.__pluginClass);
         if (attr == null)
@@ -558,7 +558,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets pluginClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:833)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
     public void setPluginClass(String value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__pluginClass);
         if (attr == null)
@@ -577,7 +577,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
      * Sets pluginClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:886)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
     public void setPluginClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpServerDMSAG.__pluginClass);
         if (attr == null)
@@ -590,7 +590,7 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
     /**
      * Removes the pluginClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:906)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
     public void remPluginClass(){
          rem(DmpServerDMSAG.__pluginClass);
     }

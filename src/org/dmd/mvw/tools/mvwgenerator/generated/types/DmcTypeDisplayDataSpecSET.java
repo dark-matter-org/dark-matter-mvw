@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;   
  * The DmcTypeDisplayDataSpecSET provides storage for a set of DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2637)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
@@ -63,7 +63,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2675)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public DmcAttribute<DisplayDataSpec> cloneIt(){
         synchronized(this){
             DmcTypeDisplayDataSpecSET rc = getNew();
@@ -82,7 +82,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2698)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public DisplayDataSpec add(Object v) throws DmcValueException {
         synchronized(this){
             DisplayDataSpec rc = typeCheck(v);
@@ -98,7 +98,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public DisplayDataSpec del(Object v){
         synchronized(this){
             DisplayDataSpec rc = null;
@@ -122,7 +122,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2743)
     public Iterator<DisplayDataSpec> getMV(){
         synchronized(this){
             if (value == null)
@@ -135,7 +135,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2757)
     public Set<DisplayDataSpec> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
@@ -154,7 +154,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2774)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2777)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +164,7 @@ public class DmcTypeDisplayDataSpecSET extends DmcTypeDisplayDataSpec implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2788)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

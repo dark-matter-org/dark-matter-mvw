@@ -24,9 +24,13 @@ import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcNameClashException;
+import org.dmd.dmc.DmcNameClashObjectSet;
+import org.dmd.dmc.DmcNameClashResolverIF;
+import org.dmd.dmc.DmcNameResolverWithClashSupportIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -76,7 +80,7 @@ import org.slf4j.LoggerFactory;
  * Overview page - http://code.google.com/p/dark-matter-data/wiki/DMDOverview). The 'E'
  * stands for events.
  */
-public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runnable, DmcUncheckedOIFHandlerIF {
+public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runnable, DmcUncheckedOIFHandlerIF, DmcNameClashResolverIF, DmcNameResolverWithClashSupportIF {
 	
 	static String PERSISTENCE_FILE = "persistedObjects.oif";
 	
@@ -243,7 +247,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	///////////////////////////////////////////////////////////////////////////
 	// OBJECT MODIFICATION HANDLING
 	
-	private void processSetRequest(SetRequest request){
+	protected void processSetRequest(SetRequest request){
 		SetResponse response = null;
 		DMPEvent event = null;
 		
@@ -285,7 +289,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	///////////////////////////////////////////////////////////////////////////
 	// OBJECT CREATION HANDLING
 	
-	private void processCreateRequest(CreateRequest request){
+	protected void processCreateRequest(CreateRequest request){
 		CreateResponse 	response	= null;
 		
 		if (request.isTrackingEnabled())
@@ -306,7 +310,11 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 				if (ng == null){
 					// Not good, we don't have a name generator, so we can't proceed
 					response = (CreateResponse) request.getErrorResponse();
-					response.setResponseText("No name generator was available for objects of type: " + wrapper.getConstructionClassName());
+					response.setResponseText("Null object name and no name generator was available for objects of type: " + wrapper.getConstructionClassName());
+					
+					// Fire back the response
+					requestTracker.processResponse(response);
+					return;
 				}
 				else{
 					ng.createNameForObject(wrapper);
@@ -317,20 +325,27 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		// We attempt to resolve references in the object, this includes its class
 		// information and references to other objects
 		try {
-			wrapper.resolveReferences(this);
+			wrapper.resolveReferences(this,this);
 		} catch (DmcValueExceptionSet e) {
 			response = (CreateResponse) request.getErrorResponse();
 			response.setResponseText(e.toString());
+			
+			// Fire back the response
+			requestTracker.processResponse(response);
+			return;
 		}
 		
 		// We add the object to the cache - if anything goes wrong, an error response will be returned
-		response = addAndComplainIfNeeded(request, wrapper);
-		
-		if (response == null){
-			// The response will have been instantiated if we have an error condition e.g. no name generator
-			response = request.getResponse();
-			response.addObjectList(wrapper.getDmcObject());
+		if ((response = addAndComplainIfNeeded(request, wrapper)) != null) {
+			// Fire back the response
+			requestTracker.processResponse(response);
+			return;
 		}
+		
+		// If we've had errors, we would have sent the error and returned.
+		response = request.getResponse();
+		response.addObjectList(wrapper.getDmcObject());
+		response.setLastResponse(true);
 		
 		// Fire back the response
 		requestTracker.processResponse(response);
@@ -363,7 +378,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	///////////////////////////////////////////////////////////////////////////
 	// OBJECT DELETION HANDLING
 	
-	private void processDeleteRequest(DeleteRequest request){
+	protected void processDeleteRequest(DeleteRequest request){
 		LinkedList<DMPEvent> events = new LinkedList<DMPEvent>();
 		
 		// TODO: add code to handle tree deletion
@@ -789,6 +804,25 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		
 		throw(new IllegalStateException("Multiple name generators registered for class: " + ng.usedForClass().name));
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObjectMayClash(DmcObject object, DmcObjectName name, DmcNameClashResolverIF resolver, DmcAttributeInfo ai) throws DmcValueException {
+		DmcNamedObjectIF rc = null;
+
+		DmwNamedObjectWrapper obj = theCache.get(name);
+		
+		if (obj == null){
+			rc = DmwOmni.instance().getSchema().findNamedObjectMayClash(object, name, resolver, ai);
+		}
+		
+		return(rc);
+	}
+
+	@Override
+	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
+		throw(new IllegalStateException("NOT IMPLEMENTED"));
+		
 	}
 
 }

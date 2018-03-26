@@ -5,6 +5,7 @@ package org.dmd.mvw.client.mvwmenus.generated.mvw;
 import org.dmd.mvw.client.mvwmenus.extended.controllers.MenuController;         // Used by MenuControllerRCI - (RunContextItem.java:382)
 
 
+
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.RunContextFormatter.formatModuleRunContextInterface(RunContextFormatter.java:55)
 public interface MvwmenusRunContextIF {
 

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeI18NConfigREFMAP provides storage for a map of I18NConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:538)
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2924)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public DmcAttribute<I18NConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeI18NConfigREFMAP rc = getNew();
@@ -92,7 +92,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2944)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2947)
     public I18NConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             I18NConfigREF newval = typeCheck(v);
@@ -112,7 +112,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2965)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2968)
     public I18NConfigREF del(Object key){
         synchronized(this){
     
@@ -127,7 +127,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2981)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2984)
     public Iterator<I18NConfigREF> getMV(){
         synchronized(this){
     
@@ -143,7 +143,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2998)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3001)
     public Map<CamelCaseName,I18NConfigREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,I18NConfigREF> clone = null;
@@ -163,7 +163,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3019)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3022)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -174,7 +174,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3031)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3034)
     public I18NConfigREF getByKey(Object key){
         synchronized(this){
            if (value == null)
@@ -188,7 +188,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3046)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3049)
     public boolean contains(Object v){
         synchronized(this){
            if (value == null)
@@ -204,7 +204,7 @@ public class DmcTypeI18NConfigREFMAP extends DmcTypeI18NConfigREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3063)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3066)
     public boolean containsKey(Object key){
         synchronized(this){
            if (value == null)

@@ -25,6 +25,7 @@ import org.dmd.mvw.client.mvwcomms.generated.mvw.events.ForceCommsResetHandler; 
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;             // Required by LoginCompleteEvent - (Event.java:198)
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LogoutCompleteEvent;            // Required by LogoutCompleteEvent - (Event.java:198)
 
+
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:39)
 abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
 

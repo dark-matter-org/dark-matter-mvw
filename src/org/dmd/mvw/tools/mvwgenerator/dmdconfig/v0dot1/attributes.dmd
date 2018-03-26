@@ -423,7 +423,9 @@ AttributeDefinition
 name			abstractActivity
 dmdID			58
 type			Boolean
-description		Indicates that an Activity should be derived from AbstractActivity
+description		Indicates that an Activity should be derived from com.google.gwt.activity.shared.AbstractActivity.
+ This means that you don't want to take any action when the activity is cancelled or stopped e.g. you might
+ want to pop up a dialog asking if the user wants to navigate away from the current view.
 
 AttributeDefinition
 name			addedToRunContext
