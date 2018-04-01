@@ -117,8 +117,8 @@ public class Event extends EventDMW implements CodeGenComponentIF {
 			registerForEvent.append("                }\n");
 			registerForEvent.append("            });\n\n");
 			
-			abstractMethod.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			abstractMethod.append("    abstract protected void on" + capped + "(");
+			abstractMethod.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			abstractMethod.append("    abstract public void on" + capped + "(");
 			if (types.size() > 0){
 				boolean first = true;
 				for(int i=0; i<types.size(); i++){

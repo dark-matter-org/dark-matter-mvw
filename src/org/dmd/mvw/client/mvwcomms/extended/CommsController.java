@@ -215,6 +215,15 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		return(loggedIn);
 	}
 
+	/**
+	 * @return true if we've gone through the login process and primed the event channel.
+	 */
+	public boolean isCommsSessionReady(){
+		if (loggedIn && eventChannelReady)
+			return(true);
+		return(false);
+	}
+
 	////////////////////////////////////////////////////////////////////////////////
 	// LOGIN
 	

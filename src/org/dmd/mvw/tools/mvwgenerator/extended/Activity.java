@@ -75,6 +75,15 @@ public class Activity extends ActivityDMW {
 		return(interfaces.toString());
 	}
 	
+	/**
+	 * @return the import for base implementation of this activity.
+	 */
+	public String getBaseImplImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.activities." + getActivityName() + "BaseImpl");
+	}
+	
+
+	
 	@Override
 	public String getBaseClassName(){
 		String base = super.getBaseClassName();
@@ -97,6 +106,16 @@ public class Activity extends ActivityDMW {
 			return(getDefinedInModule().getGenPackage() + ".extended." + getActivityName());
 		else
 			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage() + "." + getActivityName());
+	}
+
+	/**
+	 * @return The fully qualified name of the class that extends this Activity's base implementation.
+	 */
+	public String getExtendedClassPackage(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended");
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage());
 	}
 
 

@@ -16,9 +16,14 @@
 package org.dmd.mvw.tools.mvwgenerator.util;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import org.dmd.dmc.types.CheapSplitter;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -105,4 +110,58 @@ public class ControllerFormatter {
         
         out.close();
 	}
+	
+	/**
+	 * We generate the initial extended version of the controller if it doesn't already exist.
+	 * @param extendir the directory just above where the MVW configuration is defined
+	 * @param controller the controller being created
+	 * @throws IOException
+	 */
+	static void formatInitialController(String extendir, Controller controller) throws IOException {
+		StringBuilder outdir = new StringBuilder(extendir);
+		
+		if (controller.getSubpackage() != null) {
+			ArrayList<String>	tokens = CheapSplitter.split(controller.getSubpackage(), '.', false, true);
+			for(String token: tokens) {
+				outdir.append(File.separator + token);
+			}
+		}
+		
+		File dir = new File(outdir.toString());
+		
+		if (!dir.exists()) {
+			DebugInfo.debug("Creating extended code directory:" + outdir.toString());
+			dir.mkdirs();
+		}
+		
+		String	fn		= outdir.toString() + File.separator + controller.getControllerName() + ".java";
+		File		file 	= new File(fn);
+		
+		if (!file.exists()) {
+			// NOTE: WE DON'T USE THE FileUpdateManager WHEN WRITING THESE FILES - otherwise, we wind up
+			// with problems of removing files that were previously dumped to the output directory, which
+			// is not what we want. The FileUpdateManager is only used for directories where all content 
+			// is generated.
+			BufferedWriter 	out = new BufferedWriter(new FileWriter(fn));
+
+	        out.write("package " + controller.getExtendedClassPackage() + ";\n\n");
+	        
+	        out.write("import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;\n");
+	        out.write("import " + controller.getBaseImplImport() + ";\n\n");
+	        
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("public class " + controller.getControllerName() + " extends " + controller.getControllerName() + "BaseImpl {\n\n");
+	        
+	        out.write("    public " + controller.getControllerName() + "(MvwRunContextIF rc){\n");
+	        out.write("        super(rc);\n");
+	        out.write("    }\n");
+
+	        out.write("}\n\n");
+	        
+	        out.write("\n");
+	        
+	        out.close();
+		}		
+	}
+	
 }
