@@ -38,6 +38,9 @@ import org.dmd.util.parsing.ConfigLocation;
  * The MvwGenerator coordinates the overall code generation associated with the MVW Generator tool.
  */
 public class MvwGenerator {
+	
+	// The folder where extended classes go
+	String					extendir;
 
 	// Folder where we'll be generating stuff
 	String 					gendir;
@@ -80,6 +83,7 @@ public class MvwGenerator {
 	
 	public void generateCode(ConfigLocation loc) throws IOException, ResultException {
 		gendir 			= loc.getConfigParentDirectory() + File.separator + "generated";
+		extendir 		= loc.getConfigParentDirectory() + File.separator + "extended";
 		mvwdir 			= gendir + File.separator + "mvw";
 		eventsdir		= mvwdir + File.separator + "events";
 		viewsdir		= mvwdir + File.separator + "views";
@@ -127,6 +131,8 @@ public class MvwGenerator {
 					createGenDir(viewsdir);
 					ViewFormatter.formatViewInterface(viewsdir, view);
 					ViewFormatter.formatViewBaseImpl(viewsdir, view);
+					
+					ViewFormatter.formatInitialView(extendir, view);
 				}
 			}
 		}
@@ -155,6 +161,8 @@ public class MvwGenerator {
 					createGenDir(presentersdir);
 					PresenterFormatter.formatPresenterBaseImpl(presentersdir, presenter);
 					
+					
+					PresenterFormatter.formatInitialPresenter(extendir, presenter);
 	//				// NOTE: Actions are always generated in the context of the component that 
 	//				// implements them, regardless of which module they are defined in
 	//				if (presenter.getImplementsActionHasValue()){
@@ -171,6 +179,8 @@ public class MvwGenerator {
 				if (activity.getDefinedInModule() == defManager.codeGenModule){
 					createGenDir(activitiesdir);
 					ActivityFormatter.formatActivity(activitiesdir, activity);
+					
+					ActivityFormatter.formatInitialActivity(extendir, activity);
 					
 					// NOTE: Actions are always generated in the context of the component that 
 					// implements them, regardless of which module they are defined in

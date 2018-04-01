@@ -135,6 +135,23 @@ public class Controller extends ControllerDMW implements CodeGenComponentIF {
 		}
 	}
 	
+	public String getExtendedClassPackage(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended");
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage());
+		
+	}
+	
+	/**
+	 * @return the import for base implementation of this presenter.
+	 */
+	public String getBaseImplImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.controllers." + getControllerName() + "BaseImpl");
+	}
+	
+
+	
 	@Override
 	public String genSubPackage(){
 		return("controllers");

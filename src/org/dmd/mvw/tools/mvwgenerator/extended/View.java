@@ -121,6 +121,10 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "IF");
 	}
 	
+	public String getBaseImplImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "BaseImpl");
+	}
+	
 	public ImportManager getPresenterImplImports(){
 		return(presenterImplImports);
 	}
@@ -133,6 +137,14 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 			return(getDefinedInModule().getGenPackage() + ".extended." + getViewName());
 		else
 			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage() + "." + getViewName());
+		
+	}
+	
+	public String getExtendedClassPackage(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended");
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage());
 		
 	}
 	
