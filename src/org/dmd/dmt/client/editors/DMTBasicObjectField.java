@@ -209,4 +209,10 @@ public class DMTBasicObjectField implements DmcPresentationIF {
 		throw(new IllegalStateException("delValue not implemented for attribute of value type: " + attribute.getAttributeInfo().valueType));
 	}
 
+	@Override
+	public boolean isValid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

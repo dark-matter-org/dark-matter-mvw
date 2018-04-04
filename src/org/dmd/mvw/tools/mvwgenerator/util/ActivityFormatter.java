@@ -54,7 +54,7 @@ public class ActivityFormatter {
     	
     	if (onDemand){
         	out.write("\n");
-        	out.write("    MvwRunContextIF runcontext;\n");
+        	out.write("    protected final MvwRunContextIF runcontext;\n");
     	}
 
     	out.write("\n");
