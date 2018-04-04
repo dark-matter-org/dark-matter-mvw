@@ -418,8 +418,10 @@ public class RunContextItem extends RunContextItemDMW {
 		}
 		
 		if (presenter != null){
-			if (presenter.isCodeSplit())
+			if (presenter.isCodeSplit()) {
 				im.addImport(presenter.getAsyncImport(), "Asynchronous creation of " + presenter.getPresenterName());
+				im.addImport(getUseClass(), "Used by " + getItemName());
+			}
 			else
 				im.addImport(getUseClass(), "Used by " + getItemName());
 		}
