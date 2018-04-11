@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.server.servlet.base.actions.ActionManagerIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
@@ -90,7 +91,12 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	// The handle to the plugin that implements our cache. If this role is unfilled
 	// after the load sequence, we throw an exception.
 	CacheIF									cache;
-	DmpServletPlugin						cachePlugin;
+	DmpServletPlugin							cachePlugin;
+	
+	// The handle to the plugin that will allow for execution of asynchronous
+	// action-based processing. This is NOT a required plugin
+	ActionManagerIF							actionManager;
+	DmpServletPlugin							actionManagerPlugin;
 	
 	DmvRuleManager							ruleManager;
 	
@@ -140,6 +146,13 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 
 	public CacheIF getCache(){
 		return(cache);
+	}
+
+	/**
+	 * @return the action manager with which you may register action handling functionality.
+	 */
+	public ActionManagerIF getActionManager(){
+		return(actionManager);
 	}
 
 	/**
@@ -193,6 +206,16 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 					throw(ex);
 				}
 			}
+			else if (plugin instanceof ActionManagerIF) {
+				if (actionManager == null) {
+					actionManager = (ActionManagerIF) plugin;
+					actionManagerPlugin = plugin;
+				}
+				else {
+					ResultException ex = new ResultException("Multiple action manager plugins specified.");
+					throw(ex);
+				}
+			}
 			else{
 				ArrayList<DmpServletPlugin> plugins = startOrder.get(sp.getStartOrder());
 				
@@ -231,6 +254,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		securityPlugin.preInit();
 		
+		if (actionManagerPlugin != null)
+			actionManagerPlugin.preInit();
+		
 		for(Integer order: startOrder.keySet()) {
 			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
 			for(DmpServletPlugin sp: plugins){
@@ -246,6 +272,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		cachePlugin.init();
 		
 		securityPlugin.init();
+
+		if (actionManagerPlugin != null)
+			actionManagerPlugin.init();
 		
 		for(Integer order: startOrder.keySet()) {
 			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
@@ -262,6 +291,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		cachePlugin.start();
 		
 		securityPlugin.start();
+		
+		if (actionManagerPlugin != null)
+			actionManagerPlugin.start();
 		
 		for(Integer order: startOrder.keySet()) {
 			ArrayList<DmpServletPlugin> plugins = startOrder.get(order);
@@ -284,6 +316,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		for(DmpServletPlugin sp: reverse){
 			sp.shutdown();
 		}
+		
+		if (actionManagerPlugin != null)
+			actionManagerPlugin.shutdown();
 		
 		securityPlugin.shutdown();
 		
