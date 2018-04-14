@@ -19,6 +19,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.dmd.dmp.server.DmpPipeIF;
+import org.dmd.dmp.server.extended.ActionCancelRequest;
+import org.dmd.dmp.server.extended.ActionCancelResponse;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.extended.CreateRequest;
@@ -230,6 +232,19 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		
 		return(rc);
 	}
+	
+	public ActionCancelResponse handleActionCancelRequest(ActionCancelRequest request){
+		request.setOriginatorID(cacheRegistration.getID());
+
+		ActionCancelResponse rc = request.getResponse();
+		rc.setLastResponse(false);
+		
+		requestTracker.processRequest(request, this);
+		
+		return(rc);
+	}
+	
+
 
 	///////////////////////////////////////////////////////////////////////////
 	// DmpPipeIF implementation

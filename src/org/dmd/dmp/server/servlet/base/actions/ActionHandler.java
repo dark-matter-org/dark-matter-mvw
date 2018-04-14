@@ -15,11 +15,19 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.actions;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
+import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.util.BooleanVar;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The ActionImplementation serves as a common base for all actions that can be
@@ -50,7 +58,20 @@ abstract public class ActionHandler implements Runnable {
 	// This flag will be set if the action is cancelled by the action manager
 	// Derived classes should perform a synchronized check against this flag
 	// within their run() method and exit the loop gracefully
-	protected BooleanVar			cancelled;
+	protected volatile BooleanVar cancelled;
+	
+	// Used to schedule our heartbeat task
+	private final ScheduledExecutorService	ses;
+	
+	// Handle to the heartbeat
+	private final ScheduledFuture<?>			heartbeatTask;
+	
+	// This is set to true when send() is used to send the last response
+	// so that we can prevent sending a heartbeat after the last response
+	private boolean							lastResponseSent;
+	
+    protected Logger							logger = LoggerFactory.getLogger(getClass());
+
 
 	public ActionHandler(Integer serverActionID, ActionRequest request, ActionManagerIF actionManager, CacheIF cache, RequestTrackerIF requestTracker) {
 		this.serverActionID = serverActionID;
@@ -59,6 +80,10 @@ abstract public class ActionHandler implements Runnable {
 		this.cache			= cache;
 		this.requestTracker	= requestTracker;
 		cancelled = new BooleanVar(false);
+		
+		ses = Executors.newSingleThreadScheduledExecutor();
+		heartbeatTask = ses.scheduleWithFixedDelay(new HeartbeatTask(this), 500, 3000, TimeUnit.MILLISECONDS);
+		lastResponseSent	= false;
 	}
 	
 	/**
@@ -83,14 +108,22 @@ abstract public class ActionHandler implements Runnable {
 	}
 		
 	/**
-	 * We set the cancelled flag to true and halt the heartbeat timer.
+	 * We set the cancelled flag to true. We don't know exactly when the action
+	 * will stop, so we let the heartbeat timer continue.
 	 * 
 	 */
 	public void cancel() {
 		synchronized (cancelled) {
 			cancelled.set(true);
 			
-			// TODO stop the heartbeat timer
+			// TODO: should we take this approach or allow for gracefully checking of the cancelled flag?
+//			Thread.currentThread().interrupt();
+		}
+	}
+	
+	public boolean cancelled() {
+		synchronized (cancelled) {
+			return(cancelled.booleanValue());
 		}
 	}
 	
@@ -102,8 +135,61 @@ abstract public class ActionHandler implements Runnable {
 	 * @param response the response to be sent.
 	 */
 	protected void sendResponse(ActionResponse response) {
-		response.setServerActionID(serverActionID);
-		responseSendTime = System.currentTimeMillis();
-		requestTracker.processResponse(response);
+		synchronized (requestTracker) {
+			// If, for some reason the last response was already sent, just ignore this
+			if (lastResponseSent)
+				return;
+			
+			logger.debug("sending response");
+
+			response.setServerActionID(serverActionID);
+			responseSendTime = System.currentTimeMillis();
+			requestTracker.processResponse(response);
+
+			if (response.isLastResponse()) {
+				logger.debug("Last response - cancelling heartbeat");
+				// Cancel the heartbeat and prevent further responses
+				lastResponseSent = true;
+				heartbeatTask.cancel(true);
+			}
+		}
 	}
+	
+	/**
+	 * Derived implementations should overload this method to validate the parameters
+	 * to the action or perform any other contextual checks to see if the action can
+	 * proceed.
+	 * @return an ActionResponse with a type of ERROR if a problem was found and null otherwise.
+	 */
+	abstract public ActionResponse canProceed();
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	public class HeartbeatTask implements Runnable {
+		
+		ActionHandler handler;
+		
+		public HeartbeatTask(ActionHandler handler) {
+			this.handler = handler;
+		}
+
+		@Override
+		public void run() {
+			handler.logger.debug("Heartbeat triggered");
+			
+			ActionResponse response = handler.request.getResponse();
+			response.setResponseType(ResponseTypeEnum.HEARTBEAT);
+			
+			if (handler.cancelled())
+				response.setResponseText("Cancel pending");
+			else
+				response.setResponseText("Still running");
+			
+			response.setLastResponse(false);
+			
+			handler.sendResponse(response);
+		}
+
+	}
+
 }
