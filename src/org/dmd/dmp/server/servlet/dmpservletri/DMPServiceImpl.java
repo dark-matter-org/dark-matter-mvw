@@ -21,6 +21,8 @@ import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmp.client.DMPService;
+import org.dmd.dmp.server.extended.ActionCancelRequest;
+import org.dmd.dmp.server.extended.ActionCancelResponse;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.extended.CreateRequest;
@@ -40,6 +42,8 @@ import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
+import org.dmd.dmp.shared.generated.dmo.ActionCancelRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ActionCancelResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -397,6 +401,35 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 
 		return null;
+	}
+
+	@Override
+	public ActionCancelResponseDMO actionCancel(ActionCancelRequestDMO actionCancelRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
+		ActionCancelRequest 	request 	= new ActionCancelRequest(actionCancelRequest, getThreadLocalRequest());
+		ActionCancelResponse	response 	= null;
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+		
+		try {
+			response = (ActionCancelResponse) pluginManager.getSecurityManager().validateSession(request);
+			
+			if (response == null){
+				SessionRI session = pluginManager.getSecurityManager().getSession(request);
+
+				response = session.handleActionCancelRequest(request);
+			}
+		} catch (DmcValueException e) {
+			response = request.getResponse();
+			response.setResponseType(ResponseTypeEnum.ERROR);
+			response.setResponseText(e.toString());
+			
+			e.printStackTrace();
+		}
+		
+		return(response.getDMO());
 	}
 	
 	

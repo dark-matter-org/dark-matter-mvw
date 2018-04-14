@@ -18,6 +18,7 @@ package org.dmd.mvw.client.mvwcomms.extended;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
+import org.dmd.dmp.client.ActionCancelResponseCallback;
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
 import org.dmd.dmp.client.CentralEventHandlerIF;
@@ -33,6 +34,7 @@ import org.dmd.dmp.client.LogoutResponseCallback;
 import org.dmd.dmp.client.ResponseCallback;
 import org.dmd.dmp.client.ResponseHandlerIF;
 import org.dmd.dmp.client.SetResponseCallback;
+import org.dmd.dmp.shared.generated.dmo.ActionCancelRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -425,6 +427,35 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.action(request, cb);
+			lastRequestTime = System.currentTimeMillis();
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	// ACTION CANCEL
+
+	/**
+	 * This method returns a new action cancel request that has its request ID and session
+	 * initialized. The action to be cancelled is specified via the serverActionID attribute.
+	 */
+	public ActionCancelRequestDMO getActionCancelRequest(){
+		ActionCancelRequestDMO request = new ActionCancelRequestDMO();
+		setTracking(request);
+		request.addRequestID(requestID++);
+		request.setSessionID(sessionID);
+
+		return(request);
+	}
+
+	public void sendActionCancelRequest(ActionCancelRequestDMO request, ResponseHandlerIF handler, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
+		if (sessionID == null){
+			throw(new IllegalStateException("Attempted to send action request but we're not logged in."));
+		}
+		else{
+			ActionCancelResponseCallback cb = new ActionCancelResponseCallback(request, handler, this, rpc, dmp);
+			checkRequestID(request);
+			requests.put(request.getNthRequestID(0), cb);
+			dmpConnection.actionCancel(request, cb);
 			lastRequestTime = System.currentTimeMillis();
 		}
 	}

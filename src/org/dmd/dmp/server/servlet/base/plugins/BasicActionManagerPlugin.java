@@ -16,11 +16,15 @@
 package org.dmd.dmp.server.servlet.base.plugins;
 
 import java.util.TreeMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmp.server.extended.ActionCancelRequest;
+import org.dmd.dmp.server.extended.ActionCancelResponse;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.extended.DMPMessage;
@@ -63,6 +67,11 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
     private int										actionID;
     private TreeMap<Integer,RunningActionWrapper>	runningActions;
     
+    // For now, we're just using a precanned Executor, limited to 10 threads
+    private static int	THREADS = 10;
+	private Executor		executor;
+
+    
     public BasicActionManagerPlugin() {
 		super();
 	}
@@ -97,7 +106,8 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			response.setResponseText(ex.getMessage() + "\n" + DebugInfo.extractTheStack(ex));
 			
 			// TODO cancel the heartbeat timer for the action
-			
+			logger.debug("Failure of action: " + actionHandler.serverActionID());
+		
 			runningActions.remove(actionHandler.serverActionID());
 			
 			requestTracker.processResponse(response);
@@ -107,6 +117,7 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 	@Override
 	public void actionComplete(ActionHandler actionHandler) {
 		synchronized (runningActions) {
+			logger.debug("Action complete for action: " + actionHandler.serverActionID());
 			runningActions.remove(actionHandler.serverActionID());
 		}
 	}
@@ -126,6 +137,8 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 		logger.debug("action manager");
 		
 		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
+		
+		executor = Executors.newFixedThreadPool(THREADS);
 		
 		registeredActions = new TreeMap<>();
 		
@@ -149,8 +162,35 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 					requestTracker.processResponse(response);
 				}
 				else {
-					queueActionRequest((ActionRequest) request);
+					queueRequest(request);
 				}
+			}
+			
+			public boolean acceptRequest(Request request) {
+				return true;
+			}
+		}
+		);
+		
+		requestTracker.bindRequestProcessor(ActionCancelRequest.class, new DmpRequestProcessorIF() {
+			
+			public void processRequest(Request request) {
+				ActionCancelRequest newRequest = (ActionCancelRequest) request;
+				
+				if (newRequest.getServerActionID() == null) {
+					ActionCancelResponse response = (ActionCancelResponse) newRequest.getErrorResponse();
+					response.setResponseText("Missing serverActionID attribute");
+					requestTracker.processResponse(response);
+				}
+				else {
+					if (runningActions.get(newRequest.getServerActionID()) == null) {
+						ActionCancelResponse response = (ActionCancelResponse) newRequest.getErrorResponse();
+						response.setResponseText("There is no running action with serverActionID: " + newRequest.getServerActionID());
+						requestTracker.processResponse(response);
+					}
+				}
+				queueRequest(request);
+				
 			}
 			
 			public boolean acceptRequest(Request request) {
@@ -177,7 +217,7 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 	 * Queues the specified request for subsequent processing
 	 * @param request the request
 	 */
-	private void queueActionRequest(ActionRequest request) {
+	private void queueRequest(Request request) {
 		addToQueue(request);
 	}
 	
@@ -205,13 +245,10 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
      * @param request the request to be processed
      */
 	private void processActionRequest(ActionRequest request) {
-		synchronized (runningActions) {
-			ActionResponse response = null;
-			
+		synchronized (runningActions) {			
 			if (request.isTrackingEnabled())
-				logger.info("Processing action request: " + request.getActionName());
-			
-			logger.info("processActionRequest: \n" + request);
+				logger.info("processActionRequest: \n" + request);
+
 			
 			// NOTE: We'll always have a factory because we check that we have a handler
 			// for the action when we first receive the request.
@@ -219,16 +256,69 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			
 			ActionHandler	handler = factory.newHandler(actionID++, request, this, cache, requestTracker);
 			
+			// Check that the action can proceed
+			ActionResponse errorResponse = handler.canProceed();
+			
+			if (errorResponse != null) {
+				errorResponse.setLastResponse(true);
+				requestTracker.processResponse(errorResponse);
+				return;
+			}
+			
 			// We wrap the handler to allow for catching exceptions
 			RunningActionWrapper runnable = new RunningActionWrapper(handler);
 			
 			// Hang on to the action so that it can be cancelled if required
 			runningActions.put(handler.serverActionID(), runnable);
 			
-			runnable.run();
+			logger.debug("Action running: " + handler.serverActionID() + "  runningActions.size(): " + runningActions.size());
 			
+			executor.execute(runnable);
+//			runnable.run();
 		}
 		
+	}
+	
+	/**
+	 * This method is called from our run() method to cancel a currently running request.
+	 * At the time the message was received, the action with the specified serverActionID
+	 * was running.
+	 * @param request the cancel action request
+	 */
+	private void processActionCancelRequest(ActionCancelRequest request){
+		synchronized (runningActions) {
+			if (request.isTrackingEnabled()) {
+				logger.debug("Running actions size: " + runningActions.size());
+				logger.info("processActionCancelRequest: \n" + request);
+			}
+
+			RunningActionWrapper runnable = runningActions.get(request.getServerActionID());
+			
+			if (runnable == null) {
+				logger.debug("Couldn't cancel action: " + request.getServerActionID());
+				
+				// It must have finished since we got the message
+				ActionCancelResponse response = request.getResponse();
+				response.setResponseText("Action finished before we could cancel.");
+				response.setResponseType(ResponseTypeEnum.SUCCESS);
+				response.setLastResponse(true);
+				requestTracker.processResponse(response);
+			}
+			else {
+				logger.debug("Cancelling action: " + request.getServerActionID());
+
+				runnable.theAction.cancel();
+			
+				// Indicate that the cancellation is pending - the action will return with
+				// ResponseTypeEnum of CANCELLED
+				ActionCancelResponse response = request.getResponse();
+				response.setResponseText("Action cancel pending.");
+				response.setResponseType(ResponseTypeEnum.SUCCESS);
+				response.setLastResponse(true);
+				requestTracker.processResponse(response);
+			}
+			
+		}
 	}
     
     ///////////////////////////////////////////////////////////////////////////
@@ -248,6 +338,9 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			
 			if (message instanceof ActionRequest) {
 				processActionRequest((ActionRequest)message);
+			}
+			else if (message instanceof ActionCancelRequest){
+				processActionCancelRequest((ActionCancelRequest)message);
 			}
 			else {
 				// For now we're not handling events from other sources, but, in

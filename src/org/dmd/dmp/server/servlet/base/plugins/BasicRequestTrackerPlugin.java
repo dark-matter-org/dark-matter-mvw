@@ -70,14 +70,25 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
         DmpResponseHandlerIF 	asyncResponseHandler;
         DmpResponseHandlerIF 	responseHandler;
         long               		timeoutTime;
+        
+        // The original timeout seconds - we keep this so that we can reset the value
+        // for the timeoutTime when responses are sent during asynch operations. We only
+        // timeout if we haven't seen a response in this many seconds
+        long						timeoutSeconds;
 
-        RequestInfo(Request req, DmpResponseHandlerIF firstResponseHandler, DmpResponseHandlerIF asyncResponseHandler, long timeoutTime)
+        RequestInfo(Request req, DmpResponseHandlerIF firstResponseHandler, DmpResponseHandlerIF asyncResponseHandler, long timeoutSeconds)
         {
-            this.req					= req;
+            this.req						= req;
             this.firstResponseHandler 	= firstResponseHandler;
             this.asyncResponseHandler	= asyncResponseHandler;
-            responseHandler 			= firstResponseHandler;
-            this.timeoutTime 			= timeoutTime;
+            responseHandler 				= firstResponseHandler;
+            this.timeoutSeconds			= timeoutSeconds;
+            
+            this.timeoutTime 			= System.currentTimeMillis() + (1000 * timeoutSeconds);
+        }
+        
+        void resetTimeout() {
+        		timeoutTime 	= System.currentTimeMillis() + (1000 * timeoutSeconds);
         }
     }
     
@@ -245,8 +256,14 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
                 logger.error("Did you accidentally send the same response twice?");
                 return;
             }
+            
             responseHandler = ri.responseHandler;
-            if (ri.responseHandler == ri.firstResponseHandler) ri.responseHandler = ri.asyncResponseHandler;
+            
+            if (ri.responseHandler == ri.firstResponseHandler) 
+            		ri.responseHandler = ri.asyncResponseHandler;
+            
+            // We've sent a response, so reset when we'll timeout if we don't get another
+            ri.resetTimeout();
         }
         responseHandler.handleResponse(ri.req, resp);
     }
@@ -301,7 +318,8 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
         	
             req.addRequestID(nextRequestId);
             req.setTimeMS(System.currentTimeMillis());
-            outstandingRequests.put(nextRequestId, new RequestInfo(req, firstResponseHandler, asyncResponseHandler, System.currentTimeMillis() + (timeoutSeconds * 1000)));
+//            outstandingRequests.put(nextRequestId, new RequestInfo(req, firstResponseHandler, asyncResponseHandler, System.currentTimeMillis() + (timeoutSeconds * 1000)));
+            outstandingRequests.put(nextRequestId, new RequestInfo(req, firstResponseHandler, asyncResponseHandler, timeoutSeconds));
         }
         requestProcessor.processRequest(req);
         return req.getLastRequestID();
