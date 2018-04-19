@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DeleteRequest;
+import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectWrapper;
@@ -70,9 +71,9 @@ public interface CacheIF extends DmcNameResolverIF {
 	///////////////////////////////////////////////////////////////////////////
 	// Direct access methods
 	
-	public void create(DmwNamedObjectWrapper obj);
+	public void create(DmwNamedObjectWrapper obj, Request request) throws ResultException;
 	
-	public void createAndNotify(DmwNamedObjectWrapper obj);
+	public void createAndNotify(DmwNamedObjectWrapper obj) throws ResultException;
 	
 	public void delete(DmwNamedObjectWrapper obj);
 	
@@ -82,9 +83,9 @@ public interface CacheIF extends DmcNameResolverIF {
 	
 	public void deleteAndNotify(DmcObjectName name);
 	
-	public void set(DmwNamedObjectWrapper obj);
+	public void set(DmwNamedObjectWrapper obj) throws ResultException;
 	
-	public void setAndNotify(DmwNamedObjectWrapper obj);
+	public void setAndNotify(DmwNamedObjectWrapper obj) throws ResultException;
 	
 	////////////////////////////////////////////////////////////////////////////
 	// Asynchronous operation processing

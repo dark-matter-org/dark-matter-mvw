@@ -152,6 +152,22 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			public void processRequest(Request request) {
 				ActionRequest newRequest = (ActionRequest) request;
 				
+				if (newRequest.getActionTrigger() == null) {
+					ActionResponse response = newRequest.getResponse();
+					response.setResponseType(ResponseTypeEnum.ERROR);
+					response.setLastResponse(true);
+					response.setResponseText("No action trigger info specified in Action Request. Make sure you're using the request creation mechanisms for Presenters in MVW.");
+					requestTracker.processResponse(response);
+				}
+				
+				if (newRequest.getActionName() == null) {
+					ActionResponse response = newRequest.getResponse();
+					response.setResponseType(ResponseTypeEnum.ERROR);
+					response.setLastResponse(true);
+					response.setResponseText("No action name specified in Action Request. Make sure you're using the request creation mechanisms for Presenters in MVW.");
+					requestTracker.processResponse(response);
+				}
+				
 				ActionFactory<?,?> factory = registeredActions.get(newRequest.getActionName());
 				
 				if (factory == null) {
@@ -254,7 +270,11 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			// for the action when we first receive the request.
 			ActionFactory<?,?> factory = registeredActions.get(request.getActionName());
 			
-			ActionHandler	handler = factory.newHandler(actionID++, request, this, cache, requestTracker);
+			// TODO: the cache isn't properly initialized in the DmpServletPlugin base - need
+			// a new method there to initialize the cache when it's ready
+			
+//			ActionHandler	handler = factory.newHandler(actionID++, request, this, cache, requestTracker);
+			ActionHandler	handler = factory.newHandler(actionID++, request, this, pluginManager.getCache(), requestTracker);
 			
 			// Check that the action can proceed
 			ActionResponse errorResponse = handler.canProceed();
