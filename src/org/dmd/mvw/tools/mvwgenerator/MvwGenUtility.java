@@ -34,6 +34,7 @@ import org.dmd.mvw.tools.mvwgenerator.util.MvwGenerator;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwParser;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Classifier;
@@ -90,6 +91,8 @@ public class MvwGenUtility {
 	BooleanVar				autogen 	= new BooleanVar();
 	StringBuffer			cfg			= new StringBuffer();
 	BooleanVar				debug 		= new BooleanVar();
+	BooleanVar				debugdmdcfg = new BooleanVar();
+	BooleanVar				debugmvwcfg = new BooleanVar();
 	StringBuffer			docdir		= new StringBuffer();
 	StringArrayList			jars 		= new StringArrayList();
 	
@@ -101,7 +104,9 @@ public class MvwGenUtility {
         cl.addOption("-srcdir",		srcdir,  	"The source directories to search.");
         cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
         cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
-        cl.addOption("-debug",   	debug,     	"Dump debug information.");
+        cl.addOption("-debug",   			debug,     	"Dump debug information.");
+        cl.addOption("-debugdmdcfg",   		debug,     	"Dump debug information for schema finder.");
+        cl.addOption("-debugmvwcfg",   		debug,     	"Dump debug information for mvw config finder.");
         cl.addOption("-docdir",   	docdir,     "The documentation directory.");
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .mvw config files.");
 		
@@ -134,7 +139,7 @@ public class MvwGenUtility {
 
 		schemaFinder = new ConfigFinder(searchdirs.iterator());
 
-		if (debug.booleanValue())
+		if (debugdmdcfg.booleanValue())
 			schemaFinder.debug(true);
 		
 		schemaFinder.addSuffix(".dms");
@@ -154,6 +159,8 @@ public class MvwGenUtility {
 		
 		
 		defManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
+		defManager.debug(debug.booleanValue());
+		defManager.schemadebug(debugdmdcfg.booleanValue());
 		
 		aggregateManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
 		
@@ -168,7 +175,7 @@ public class MvwGenUtility {
 		
 		docGenerator = new MvwHtmlDocGenerator(aggregateManager);
 		
-		if (debug.booleanValue())
+		if (debugmvwcfg.booleanValue())
 			configFinder.debug(true);
 		
 		configFinder.addSuffix(".mvw");
@@ -176,6 +183,7 @@ public class MvwGenUtility {
 		configFinder.findConfigs();
 		
 		parser = new MvwParser(baseWithMVWSchema, configFinder, defManager);
+		parser.debug(debug.booleanValue());
 		
 		codeGenerator = new MvwGenerator(defManager,System.out);
 		
@@ -185,7 +193,7 @@ public class MvwGenUtility {
 	
 	void initHelp(){
 		help = new StringBuffer();
-		help.append("mvwgen -h -cfg -workspace -srcdir -docdir <directory> -autogen\n\n");
+		help.append("mvwgen -h -cfg -workspace -srcdir -docdir <directory> -autogen -debug -debugmvwcfg -debugdmdcfg\n\n");
 		help.append("The mvwgen tool generates GWT MVP compatible interfaces and base implementation classes from\n");
         help.append("definitions found in .mvw configuration files. MVW configurations are recursivley discovered\n");
         help.append("in your development environment using commandline arguments:\n");
@@ -199,6 +207,12 @@ public class MvwGenUtility {
         help.append("-docdir indicates that you wish to generate documentation from all discovered .mvw files\n");
         help.append("        This must be used in conjunction with -autogen.\n");
         help.append("        You should use the same doc directory as that used for the schema documentation.\n");
+        help.append("\n");
+        help.append("-debug turns on generation debugging\n");
+        help.append("\n");
+        help.append("-debugmvwcfg turns on debug for the MVW config finder\n");
+        help.append("\n");
+        help.append("-debugdmdcfg turns on debug for the schema config finder\n");
         help.append("\n");
         help.append("-h dumps the help information.\n");
         help.append("\n");
@@ -221,7 +235,8 @@ public class MvwGenUtility {
         	for(ConfigVersion version: configFinder.getVersions().values()){
         		ConfigLocation loc = version.getLatestVersion();
         		
-//            		DebugInfo.debug(loc.toString());
+        		if (debug.booleanValue())
+            		DebugInfo.debug("MVW config: " + loc.getConfigName());
         		
         		if (!loc.isFromJAR()){
         			// Wasn't in a jar, so try to generate

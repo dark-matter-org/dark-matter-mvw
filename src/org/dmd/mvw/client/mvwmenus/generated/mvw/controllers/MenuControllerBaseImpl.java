@@ -4,7 +4,7 @@ package org.dmd.mvw.client.mvwmenus.generated.mvw.controllers;
 // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:157)
 
 
-// Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:39)
+// Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:44)
 abstract public class MenuControllerBaseImpl {
 
 

@@ -2,9 +2,9 @@ package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:157)
-import de.novanic.eventservice.client.event.RemoteEventService;                         // Used by eventService - (RunContextItem.java:428)
+import de.novanic.eventservice.client.event.RemoteEventService;                         // Used by eventService - (RunContextItem.java:430)
 import org.dmd.dmc.DmcOmni;                                                             // Support for schema loading - (Component.java:245)
-import org.dmd.dmp.client.DMPServiceAsync;                                              // Used by dmpConnection - (RunContextItem.java:428)
+import org.dmd.dmp.client.DMPServiceAsync;                                              // Used by dmpConnection - (RunContextItem.java:430)
 import org.dmd.dmp.client.ErrorOptionsEnum;                                             // DMP communications - (Component.java:393)
 import org.dmd.dmp.client.ResponseHandlerIF;                                            // DMP communications - (Component.java:392)
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;                               // Component sends ActionRequests - (Component.java:257)
@@ -14,9 +14,9 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;                             
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;                                    // DMP communications - (Component.java:395)
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;                             // DMP communications - (Component.java:396)
 import org.dmd.dms.extended.ActionTriggerInfo;                                          // Sends action requests - (Component.java:276)
-import org.dmd.mvw.client.mvw.MvwEventBus;                                              // Used by eventBus - (RunContextItem.java:428)
+import org.dmd.mvw.client.mvw.MvwEventBus;                                              // Used by eventBus - (RunContextItem.java:430)
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;                            // Mvw run context - (RunContextItem.java:405)
-import org.dmd.mvw.client.mvwcomms.extended.CommsController;                            // Used by commsController - (RunContextItem.java:428)
+import org.dmd.mvw.client.mvwcomms.extended.CommsController;                            // Used by commsController - (RunContextItem.java:430)
 import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;                  // Mvwcomms run context - (RunContextItem.java:405)
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionFailed;             // Required by CommsSessionFailed - (Event.java:198)
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionReady;              // Required by CommsSessionReady - (Event.java:198)
@@ -26,7 +26,7 @@ import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;     
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LogoutCompleteEvent;            // Required by LogoutCompleteEvent - (Event.java:198)
 
 
-// Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:39)
+// Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:44)
 abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
 
     protected final CommsController commsController;
@@ -119,8 +119,8 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
         }
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.initialize(Event.java:120)
-    abstract protected void onForceCommsReset();
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Event.initialize(Event.java:120)
+    abstract public void onForceCommsReset();
 
     abstract protected void handlePrimeEventChannelResponseError(ActionResponseDMO response);
 

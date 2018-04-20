@@ -73,16 +73,31 @@ public class ViewFormatter {
         
         out.write("    protected " + view.getViewName() + "PresenterIF presenter;\n\n");
         
+        boolean onDemand = false;
         if (view.getUsesRunContextItemHasValue()){
         	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
-        		out.write(rci.getImplVariable());
+        		if (rci.isCreateOnDemand()) {
+        			onDemand = true;
+        		}
+        		else {
+        			out.write(rci.getImplVariable());
+        		}
         	}
         	out.write("\n");
         }
         
+        if (onDemand)
+            out.write("    protected MvwRunContextIF runcontext;\n\n");
+        	
+        
         if (view.getUsesRunContextItemHasValue()){
+            out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
             out.write("    protected " + view.getViewName() + "BaseImpl(" + view.getViewName() + "PresenterIF p, MvwRunContextIF rc){\n");
             out.write("        presenter = p;\n\n");
+            
+            if (onDemand)
+                out.write("        runcontext = rc;\n\n");
+            
             if (view.getUsesRunContextItemHasValue()){
 	            	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
 	            		out.write(rci.getImplVariableAssignment());
@@ -91,6 +106,7 @@ public class ViewFormatter {
             out.write("    }\n\n");
         }
         else{
+            out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
             out.write("    protected " + view.getViewName() + "BaseImpl(" + view.getViewName() + "PresenterIF p){\n");
             out.write("        presenter = p;\n");
             out.write("    }\n\n");
@@ -101,7 +117,12 @@ public class ViewFormatter {
 //        out.write("    }\n");
 //        out.write("    \n");
         
-        out.write(view.getViewImplMethods());
+    	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
+    		out.write(rci.getOnDemandMethod());
+    	}
+        
+        
+    	out.write(view.getViewImplMethods());
         
         out.write("}\n\n");
         
