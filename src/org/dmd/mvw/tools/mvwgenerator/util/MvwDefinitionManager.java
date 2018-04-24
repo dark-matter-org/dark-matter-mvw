@@ -52,6 +52,8 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
+import org.dmd.mvw.tools.mvwgenerator.extended.PropertyAccess;
+import org.dmd.mvw.tools.mvwgenerator.extended.PropertyAccessGenerator;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
@@ -118,6 +120,8 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 	
 	TreeMap<CamelCaseName, EnumMappingGenerator>	enumGenerators;
 	
+	TreeMap<CamelCaseName, PropertyAccessGenerator>	propertyAccessGenerators;
+	
 	Controller									centralRpcErrorHandler;
 	
 	Controller									centralDmpErrorHandler;
@@ -157,6 +161,8 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 	TreeMap<CamelCaseName, FormBindingDefinition>	formBindings;
 	
 	TreeMap<CamelCaseName, EnumMapping>			enumMappings;
+	
+	TreeMap<CamelCaseName, PropertyAccess>			propertyAccessDefs;
 	
 	
 	// Gets set to true is any of our components send requests
@@ -199,6 +205,7 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		places			= new TreeMap<CamelCaseName, Place>();
 		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
 		enumGenerators	= new TreeMap<CamelCaseName, EnumMappingGenerator>();
+		propertyAccessGenerators	= new TreeMap<CamelCaseName, PropertyAccessGenerator>();
 		
 		contexts		= new TreeMap<String, RunContextItemCollection>();
 		defaultContext 	= new RunContextItemCollection("Default");
@@ -225,6 +232,7 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
 		enumMappings			= new TreeMap<CamelCaseName, EnumMapping>();
+		propertyAccessDefs		= new TreeMap<CamelCaseName, PropertyAccess>();
 	}
 	
 	/**
@@ -314,6 +322,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 	
 	public TreeMap<CamelCaseName,EnumMapping> getEnumMappings(){
 		return(enumMappings);
+	}
+	
+	public TreeMap<CamelCaseName,PropertyAccess> getPropertyAccessDefs(){
+		return(propertyAccessDefs);
 	}
 	
 	public void reset() throws ResultException, DmcValueException, DmcNameClashException{
@@ -646,6 +658,9 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		else if (def instanceof EnumMappingGenerator){
 			enumGenerators.put(def.getCamelCaseName(), (EnumMappingGenerator) def);
 		}
+		else if (def instanceof PropertyAccessGenerator){
+			propertyAccessGenerators.put(def.getCamelCaseName(), (PropertyAccessGenerator) def);
+		}
 		else if (def instanceof RunContextItem){
 			RunContextItem rci = (RunContextItem) def;
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
@@ -748,6 +763,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		else if (def instanceof EnumMapping){
 			EnumMapping gem = (EnumMapping) def;
 			enumMappings.put(gem.getMappingName(), gem);
+		}
+		else if (def instanceof PropertyAccess) {
+			PropertyAccess pa = (PropertyAccess) def;
+			propertyAccessDefs.put(pa.getPropertyAccessName(), pa);
 		}
 		
 		if (def instanceof Component){
@@ -1141,6 +1160,9 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		for(EnumMappingGenerator gen: enumGenerators.values()){
 			gen.init();
 		}
+		for(PropertyAccessGenerator gen: propertyAccessGenerators.values()){
+			gen.init();
+		}
 		for(ActionBinding action: actions.values()){
 			action.initCodeGenInfo();
 		}
@@ -1292,6 +1314,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		return enumGenerators;
 	}
 
+	public TreeMap<CamelCaseName, PropertyAccessGenerator> getPropertyAccessGenerators() {
+		return propertyAccessGenerators;
+	}
+
 	public TreeMap<CamelCaseName, View> getViews() {
 		return views;
 	}
@@ -1403,6 +1429,11 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		
 		for(EnumMappingGenerator gen: mdm.enumGenerators.values()){
 			enumGenerators.put(gen.getCamelCaseName(), gen);
+			allDefs.put(gen.getCamelCaseName(), gen);
+		}
+		
+		for(PropertyAccessGenerator gen: mdm.propertyAccessGenerators.values()){
+			propertyAccessGenerators.put(gen.getCamelCaseName(), gen);
 			allDefs.put(gen.getCamelCaseName(), gen);
 		}
 		

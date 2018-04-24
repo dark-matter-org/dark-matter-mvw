@@ -518,6 +518,31 @@ must			camelCaseName
 must			enumGeneratorClass
 description		The EnumMappingGenerator definition allows for the specification of code
  generation extension that generates enum mapping code for a particular widget set.
- 
- 
 
+ClassDefinition
+name			PropertyAccessGenerator
+classType		STRUCTURAL
+dmdID			28
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		camelCaseName
+must			camelCaseName
+must			propertyAccessGeneratorClass
+description		The PropertyAccessGenerator allows for the specification of the code
+ generation extension that generates property access code mechanisms for a particular
+ widget set.
+
+ClassDefinition
+name			PropertyAccess
+classType		STRUCTURAL
+dmdID			29
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		propertyAccessName
+must			propertyAccessName
+must			accessFor
+must			accessGenerator
+description The PropertyAccess class allows for the specification of a set of classes
+ for which you'd like to invoke the specified property access generator that creates
+ property access mechanisms.
+ 

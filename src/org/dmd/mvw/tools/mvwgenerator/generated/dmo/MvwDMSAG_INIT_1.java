@@ -359,6 +359,24 @@ public class MvwDMSAG_INIT_1 {
         MvwDMSAG.__EnumMappingGenerator.addMay(MetaDMSAG.__file);
         MvwDMSAG.__EnumMappingGenerator.addMay(MetaDMSAG.__lineNumber);
 
+    // 27 -- PropertyAccessGenerator
+        MvwDMSAG.__PropertyAccessGenerator.addMust(MetaDMSAG.__camelCaseName);
+        MvwDMSAG.__PropertyAccessGenerator.addMust(MvwDMSAG.__definedInModule);
+        MvwDMSAG.__PropertyAccessGenerator.addMust(MvwDMSAG.__propertyAccessGeneratorClass);
+        MvwDMSAG.__PropertyAccessGenerator.addMay(MetaDMSAG.__description);
+        MvwDMSAG.__PropertyAccessGenerator.addMay(MetaDMSAG.__file);
+        MvwDMSAG.__PropertyAccessGenerator.addMay(MetaDMSAG.__lineNumber);
+
+    // 28 -- PropertyAccess
+        MvwDMSAG.__PropertyAccess.addMust(MvwDMSAG.__accessFor);
+        MvwDMSAG.__PropertyAccess.addMust(MvwDMSAG.__accessGenerator);
+        MvwDMSAG.__PropertyAccess.addMust(MetaDMSAG.__camelCaseName);
+        MvwDMSAG.__PropertyAccess.addMust(MvwDMSAG.__definedInModule);
+        MvwDMSAG.__PropertyAccess.addMust(MvwDMSAG.__propertyAccessName);
+        MvwDMSAG.__PropertyAccess.addMay(MetaDMSAG.__description);
+        MvwDMSAG.__PropertyAccess.addMay(MetaDMSAG.__file);
+        MvwDMSAG.__PropertyAccess.addMay(MetaDMSAG.__lineNumber);
+
 
     }
 

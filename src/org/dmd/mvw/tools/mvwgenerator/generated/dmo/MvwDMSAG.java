@@ -32,6 +32,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     static int schemaMaxID = 1000;
 
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("mvw", "abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __accessFor = new DmcAttributeInfo("mvw", "accessFor", 905, "ClassDefinition", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __accessGenerator = new DmcAttributeInfo("mvw", "accessGenerator", 906, "PropertyAccessGenerator", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __actionBindingName = new DmcAttributeInfo("mvw", "actionBindingName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("mvw", "activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("mvw", "addToMenu", 870, "Menu", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
@@ -100,6 +102,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __presenterImport = new DmcAttributeInfo("mvw", "presenterImport", 836, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __presenterMethod = new DmcAttributeInfo("mvw", "presenterMethod", 824, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("mvw", "presenterName", 839, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __propertyAccessGeneratorClass = new DmcAttributeInfo("mvw", "propertyAccessGeneratorClass", 904, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __propertyAccessName = new DmcAttributeInfo("mvw", "propertyAccessName", 907, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __runsActivity = new DmcAttributeInfo("mvw", "runsActivity", 855, "Activity", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("mvw", "selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("mvw", "selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
@@ -157,6 +161,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_OperationSpec = new DmcTypeInfo("OperationSpec", OriginalTypeEnum.COMPLEXTYPE);
     public final static DmcTypeInfo __type_Place = new DmcTypeInfo("Place", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_Presenter = new DmcTypeInfo("Presenter", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_PropertyAccess = new DmcTypeInfo("PropertyAccess", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_PropertyAccessGenerator = new DmcTypeInfo("PropertyAccessGenerator", OriginalTypeEnum.REFERENCE);
     public final static DmcTypeInfo __type_RequestOptionEnum = new DmcTypeInfo("RequestOptionEnum", OriginalTypeEnum.ENUM);
     public final static DmcTypeInfo __type_RequestTypeWithOptions = new DmcTypeInfo("RequestTypeWithOptions", OriginalTypeEnum.TYPE);
     public final static DmcTypeInfo __type_RequestWithOptions = new DmcTypeInfo("RequestWithOptions", OriginalTypeEnum.TYPE);
@@ -191,6 +197,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __Module = new DmcClassInfo("Module","org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO", 1603, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__moduleName);
     public final static DmcClassInfo __Place = new DmcClassInfo("Place","org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO", 1608, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__placeName);
     public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace","org.dmd.mvw.tools.mvwgenerator.generated.dmo.SubPlaceDMO", 1609, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place,MvwDMSAG.__placeName);
+    public final static DmcClassInfo __PropertyAccess = new DmcClassInfo("PropertyAccess","org.dmd.mvw.tools.mvwgenerator.generated.dmo.PropertyAccessDMO", 1629, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__propertyAccessName);
+    public final static DmcClassInfo __PropertyAccessGenerator = new DmcClassInfo("PropertyAccessGenerator","org.dmd.mvw.tools.mvwgenerator.generated.dmo.PropertyAccessGeneratorDMO", 1628, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MetaDMSAG.__camelCaseName);
     public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem","org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO", 1611, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__itemName);
     public final static DmcClassInfo __I18NConfig = new DmcClassInfo("I18NConfig","org.dmd.mvw.tools.mvwgenerator.generated.dmo.I18NConfigDMO", 1614, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__RunContextItem,MvwDMSAG.__itemName);
     public final static DmcClassInfo __View = new DmcClassInfo("View","org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO", 1604, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__viewName);
