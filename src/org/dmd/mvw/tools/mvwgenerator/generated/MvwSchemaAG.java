@@ -45,6 +45,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _FormImplementationConfig;
     public static ClassDefinition _EnumMapping;
     public static ClassDefinition _EnumMappingGenerator;
+    public static ClassDefinition _PropertyAccessGenerator;
+    public static ClassDefinition _PropertyAccess;
 
     public static AttributeDefinition _definedInModule;
     public static AttributeDefinition _firesEvent;
@@ -141,6 +143,10 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _centralAsyncErrorHandler;
     public static AttributeDefinition _mappingGenerator;
     public static AttributeDefinition _enumGeneratorClass;
+    public static AttributeDefinition _propertyAccessGeneratorClass;
+    public static AttributeDefinition _accessFor;
+    public static AttributeDefinition _accessGenerator;
+    public static AttributeDefinition _propertyAccessName;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -838,6 +844,49 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EnumMappingGenerator.setDefinedIn(this);
             addClassDefList(_EnumMappingGenerator);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _PropertyAccessGeneratorOBJ = new ClassDefinitionDMO();
+            _PropertyAccessGenerator = new ClassDefinition(_PropertyAccessGeneratorOBJ,MvwDMSAG.__PropertyAccessGenerator);
+            _PropertyAccessGeneratorOBJ.setName("PropertyAccessGenerator");
+            _PropertyAccessGeneratorOBJ.setDmdID("1628");
+            _PropertyAccessGeneratorOBJ.setClassType("STRUCTURAL");
+            _PropertyAccessGeneratorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _PropertyAccessGeneratorOBJ.setLineNumber("534");
+            _PropertyAccessGeneratorOBJ.setIsNamedBy("meta.camelCaseName");
+            _PropertyAccessGeneratorOBJ.addDescription("The PropertyAccessGenerator allows for the specification of the code\n generation extension that generates property access code mechanisms for a particular\n widget set.");
+            _PropertyAccessGeneratorOBJ.setUseWrapperType("EXTENDED");
+            _PropertyAccessGeneratorOBJ.setDerivedFrom("mvw.MvwDefinition");
+            _PropertyAccessGeneratorOBJ.addMust("meta.camelCaseName");
+            _PropertyAccessGeneratorOBJ.addMust("mvw.propertyAccessGeneratorClass");
+            _PropertyAccessGeneratorOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.PropertyAccessGeneratorIterableDMW");
+            _PropertyAccessGeneratorOBJ.setDmwIteratorClass("PropertyAccessGeneratorIterableDMW");
+            _PropertyAccessGeneratorOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.PropertyAccessGeneratorREF");
+            _PropertyAccessGeneratorOBJ.setDotName("mvw.PropertyAccessGenerator.ClassDefinition");
+            _PropertyAccessGenerator.setDefinedIn(this);
+            addClassDefList(_PropertyAccessGenerator);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            ClassDefinitionDMO _PropertyAccessOBJ = new ClassDefinitionDMO();
+            _PropertyAccess = new ClassDefinition(_PropertyAccessOBJ,MvwDMSAG.__PropertyAccess);
+            _PropertyAccessOBJ.setName("PropertyAccess");
+            _PropertyAccessOBJ.setDmdID("1629");
+            _PropertyAccessOBJ.setClassType("STRUCTURAL");
+            _PropertyAccessOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _PropertyAccessOBJ.setLineNumber("548");
+            _PropertyAccessOBJ.setIsNamedBy("mvw.propertyAccessName");
+            _PropertyAccessOBJ.addDescription("The PropertyAccess class allows for the specification of a set of classes\n for which you'd like to invoke the specified property access generator that creates\n property access mechanisms.");
+            _PropertyAccessOBJ.setUseWrapperType("EXTENDED");
+            _PropertyAccessOBJ.setDerivedFrom("mvw.MvwDefinition");
+            _PropertyAccessOBJ.addMust("mvw.propertyAccessName");
+            _PropertyAccessOBJ.addMust("mvw.accessFor");
+            _PropertyAccessOBJ.addMust("mvw.accessGenerator");
+            _PropertyAccessOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.PropertyAccessIterableDMW");
+            _PropertyAccessOBJ.setDmwIteratorClass("PropertyAccessIterableDMW");
+            _PropertyAccessOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.PropertyAccessREF");
+            _PropertyAccessOBJ.setDotName("mvw.PropertyAccess.ClassDefinition");
+            _PropertyAccess.setDefinedIn(this);
+            addClassDefList(_PropertyAccess);
+
     }
 
     private void initAttributes1() throws DmcValueException {
@@ -1506,13 +1555,13 @@ public class MvwSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
             AttributeDefinitionDMO _abstractActivityOBJ = new AttributeDefinitionDMO();
             _abstractActivity = new AttributeDefinition(_abstractActivityOBJ);
-            _abstractActivityOBJ.addDescription("Indicates that an Activity should be derived from AbstractActivity");
+            _abstractActivityOBJ.addDescription("Indicates that an Activity should be derived from com.google.gwt.activity.shared.AbstractActivity.\n This means that you don't want to take any action when the activity is cancelled or stopped e.g. you might\n want to pop up a dialog asking if the user wants to navigate away from the current view.");
             _abstractActivityOBJ.setName("abstractActivity");
             _abstractActivityOBJ.setDmdID("858");
             _abstractActivityOBJ.setType("meta.Boolean");
             _abstractActivityOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _abstractActivityOBJ.setDotName("mvw.abstractActivity.AttributeDefinition");
-            _abstractActivityOBJ.setLineNumber("427");
+            _abstractActivityOBJ.setLineNumber("429");
             _abstractActivity.setDefinedIn(this);
             addAttributeDefList(_abstractActivity);
 
@@ -1526,7 +1575,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addedToRunContextOBJ.setNullReturnValue("true");
             _addedToRunContextOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _addedToRunContextOBJ.setDotName("mvw.addedToRunContext.AttributeDefinition");
-            _addedToRunContextOBJ.setLineNumber("436");
+            _addedToRunContextOBJ.setLineNumber("438");
             _addedToRunContext.setDefinedIn(this);
             addAttributeDefList(_addedToRunContext);
 
@@ -1539,7 +1588,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _instantiatesPresenterOBJ.setType("mvw.Presenter");
             _instantiatesPresenterOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _instantiatesPresenterOBJ.setDotName("mvw.instantiatesPresenter.AttributeDefinition");
-            _instantiatesPresenterOBJ.setLineNumber("446");
+            _instantiatesPresenterOBJ.setLineNumber("448");
             _instantiatesPresenterOBJ.setValueType("MULTI");
             _instantiatesPresenter.setDefinedIn(this);
             addAttributeDefList(_instantiatesPresenter);
@@ -1553,7 +1602,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _createOnDemandOBJ.setType("meta.Boolean");
             _createOnDemandOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _createOnDemandOBJ.setDotName("mvw.createOnDemand.AttributeDefinition");
-            _createOnDemandOBJ.setLineNumber("453");
+            _createOnDemandOBJ.setLineNumber("455");
             _createOnDemand.setDefinedIn(this);
             addAttributeDefList(_createOnDemand);
 
@@ -1566,7 +1615,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _instantiatesViewOBJ.setType("mvw.View");
             _instantiatesViewOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _instantiatesViewOBJ.setDotName("mvw.instantiatesView.AttributeDefinition");
-            _instantiatesViewOBJ.setLineNumber("462");
+            _instantiatesViewOBJ.setLineNumber("464");
             _instantiatesViewOBJ.setValueType("MULTI");
             _instantiatesView.setDefinedIn(this);
             addAttributeDefList(_instantiatesView);
@@ -1580,7 +1629,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _singletonOBJ.setType("meta.Boolean");
             _singletonOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _singletonOBJ.setDotName("mvw.singleton.AttributeDefinition");
-            _singletonOBJ.setLineNumber("471");
+            _singletonOBJ.setLineNumber("473");
             _singleton.setDefinedIn(this);
             addAttributeDefList(_singleton);
 
@@ -1593,7 +1642,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _usingStandardSubpackagesOBJ.setType("meta.Boolean");
             _usingStandardSubpackagesOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _usingStandardSubpackagesOBJ.setDotName("mvw.usingStandardSubpackages.AttributeDefinition");
-            _usingStandardSubpackagesOBJ.setLineNumber("481");
+            _usingStandardSubpackagesOBJ.setLineNumber("483");
             _usingStandardSubpackages.setDefinedIn(this);
             addAttributeDefList(_usingStandardSubpackages);
 
@@ -1606,7 +1655,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _configNameOBJ.setType("meta.CamelCaseName");
             _configNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _configNameOBJ.setDotName("mvw.configName.AttributeDefinition");
-            _configNameOBJ.setLineNumber("487");
+            _configNameOBJ.setLineNumber("489");
             _configName.setDefinedIn(this);
             addAttributeDefList(_configName);
 
@@ -1619,7 +1668,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultMenuBarOBJ.setType("mvw.MenuElementTypeAndComment");
             _defaultMenuBarOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultMenuBarOBJ.setDotName("mvw.defaultMenuBar.AttributeDefinition");
-            _defaultMenuBarOBJ.setLineNumber("493");
+            _defaultMenuBarOBJ.setLineNumber("495");
             _defaultMenuBar.setDefinedIn(this);
             addAttributeDefList(_defaultMenuBar);
 
@@ -1632,7 +1681,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateMenuBarOBJ.setType("mvw.MenuElementTypeAndComment");
             _alternateMenuBarOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateMenuBarOBJ.setDotName("mvw.alternateMenuBar.AttributeDefinition");
-            _alternateMenuBarOBJ.setLineNumber("500");
+            _alternateMenuBarOBJ.setLineNumber("502");
             _alternateMenuBarOBJ.setValueType("MULTI");
             _alternateMenuBar.setDefinedIn(this);
             addAttributeDefList(_alternateMenuBar);
@@ -1646,7 +1695,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _elementNameOBJ.setType("meta.CamelCaseName");
             _elementNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _elementNameOBJ.setDotName("mvw.elementName.AttributeDefinition");
-            _elementNameOBJ.setLineNumber("506");
+            _elementNameOBJ.setLineNumber("508");
             _elementName.setDefinedIn(this);
             addAttributeDefList(_elementName);
 
@@ -1659,7 +1708,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useImplOBJ.setType("meta.String");
             _useImplOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useImplOBJ.setDotName("mvw.useImpl.AttributeDefinition");
-            _useImplOBJ.setLineNumber("512");
+            _useImplOBJ.setLineNumber("514");
             _useImpl.setDefinedIn(this);
             addAttributeDefList(_useImpl);
 
@@ -1672,7 +1721,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addToMenuOBJ.setType("mvw.Menu");
             _addToMenuOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _addToMenuOBJ.setDotName("mvw.addToMenu.AttributeDefinition");
-            _addToMenuOBJ.setLineNumber("518");
+            _addToMenuOBJ.setLineNumber("520");
             _addToMenu.setDefinedIn(this);
             addAttributeDefList(_addToMenu);
 
@@ -1685,7 +1734,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alwaysEnabledOBJ.setType("meta.Boolean");
             _alwaysEnabledOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alwaysEnabledOBJ.setDotName("mvw.alwaysEnabled.AttributeDefinition");
-            _alwaysEnabledOBJ.setLineNumber("526");
+            _alwaysEnabledOBJ.setLineNumber("528");
             _alwaysEnabled.setDefinedIn(this);
             addAttributeDefList(_alwaysEnabled);
 
@@ -1698,7 +1747,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _menuOrderOBJ.setType("meta.String");
             _menuOrderOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _menuOrderOBJ.setDotName("mvw.menuOrder.AttributeDefinition");
-            _menuOrderOBJ.setLineNumber("533");
+            _menuOrderOBJ.setLineNumber("535");
             _menuOrder.setDefinedIn(this);
             addAttributeDefList(_menuOrder);
 
@@ -1711,7 +1760,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayLabelOBJ.setType("meta.String");
             _displayLabelOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayLabelOBJ.setDotName("mvw.displayLabel.AttributeDefinition");
-            _displayLabelOBJ.setLineNumber("539");
+            _displayLabelOBJ.setLineNumber("541");
             _displayLabel.setDefinedIn(this);
             addAttributeDefList(_displayLabel);
 
@@ -1724,7 +1773,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _actionBindingNameOBJ.setType("meta.CamelCaseName");
             _actionBindingNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _actionBindingNameOBJ.setDotName("mvw.actionBindingName.AttributeDefinition");
-            _actionBindingNameOBJ.setLineNumber("545");
+            _actionBindingNameOBJ.setLineNumber("547");
             _actionBindingName.setDefinedIn(this);
             addAttributeDefList(_actionBindingName);
 
@@ -1737,7 +1786,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _triggersActionOBJ.setType("mvw.ActionBinding");
             _triggersActionOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _triggersActionOBJ.setDotName("mvw.triggersAction.AttributeDefinition");
-            _triggersActionOBJ.setLineNumber("552");
+            _triggersActionOBJ.setLineNumber("554");
             _triggersAction.setDefinedIn(this);
             addAttributeDefList(_triggersAction);
 
@@ -1750,7 +1799,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultSubMenuOBJ.setType("mvw.MenuElementTypeAndComment");
             _defaultSubMenuOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultSubMenuOBJ.setDotName("mvw.defaultSubMenu.AttributeDefinition");
-            _defaultSubMenuOBJ.setLineNumber("558");
+            _defaultSubMenuOBJ.setLineNumber("560");
             _defaultSubMenu.setDefinedIn(this);
             addAttributeDefList(_defaultSubMenu);
 
@@ -1763,7 +1812,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateSubMenuOBJ.setType("mvw.MenuElementTypeAndComment");
             _alternateSubMenuOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateSubMenuOBJ.setDotName("mvw.alternateSubMenu.AttributeDefinition");
-            _alternateSubMenuOBJ.setLineNumber("565");
+            _alternateSubMenuOBJ.setLineNumber("567");
             _alternateSubMenuOBJ.setValueType("MULTI");
             _alternateSubMenu.setDefinedIn(this);
             addAttributeDefList(_alternateSubMenu);
@@ -1777,7 +1826,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultMenuItemOBJ.setType("mvw.MenuElementTypeAndComment");
             _defaultMenuItemOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultMenuItemOBJ.setDotName("mvw.defaultMenuItem.AttributeDefinition");
-            _defaultMenuItemOBJ.setLineNumber("571");
+            _defaultMenuItemOBJ.setLineNumber("573");
             _defaultMenuItem.setDefinedIn(this);
             addAttributeDefList(_defaultMenuItem);
 
@@ -1790,7 +1839,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateMenuItemOBJ.setType("mvw.MenuElementTypeAndComment");
             _alternateMenuItemOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateMenuItemOBJ.setDotName("mvw.alternateMenuItem.AttributeDefinition");
-            _alternateMenuItemOBJ.setLineNumber("578");
+            _alternateMenuItemOBJ.setLineNumber("580");
             _alternateMenuItemOBJ.setValueType("MULTI");
             _alternateMenuItem.setDefinedIn(this);
             addAttributeDefList(_alternateMenuItem);
@@ -1804,7 +1853,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _implementsActionOBJ.setType("mvw.ActionBinding");
             _implementsActionOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _implementsActionOBJ.setDotName("mvw.implementsAction.AttributeDefinition");
-            _implementsActionOBJ.setLineNumber("585");
+            _implementsActionOBJ.setLineNumber("587");
             _implementsActionOBJ.setValueType("MULTI");
             _implementsAction.setDefinedIn(this);
             addAttributeDefList(_implementsAction);
@@ -1819,7 +1868,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _implementedByOBJ.setInternalUse("true");
             _implementedByOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _implementedByOBJ.setDotName("mvw.implementedBy.AttributeDefinition");
-            _implementedByOBJ.setLineNumber("592");
+            _implementedByOBJ.setLineNumber("594");
             _implementedBy.setDefinedIn(this);
             addAttributeDefList(_implementedBy);
 
@@ -1832,7 +1881,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultSeparatorOBJ.setType("mvw.MenuElementTypeAndComment");
             _defaultSeparatorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultSeparatorOBJ.setDotName("mvw.defaultSeparator.AttributeDefinition");
-            _defaultSeparatorOBJ.setLineNumber("598");
+            _defaultSeparatorOBJ.setLineNumber("600");
             _defaultSeparator.setDefinedIn(this);
             addAttributeDefList(_defaultSeparator);
 
@@ -1845,7 +1894,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _menuImplementationOBJ.setType("mvw.MenuImplementationConfig");
             _menuImplementationOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _menuImplementationOBJ.setDotName("mvw.menuImplementation.AttributeDefinition");
-            _menuImplementationOBJ.setLineNumber("604");
+            _menuImplementationOBJ.setLineNumber("606");
             _menuImplementation.setDefinedIn(this);
             addAttributeDefList(_menuImplementation);
 
@@ -1858,7 +1907,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayLabelI18NOBJ.setType("meta.String");
             _displayLabelI18NOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayLabelI18NOBJ.setDotName("mvw.displayLabelI18N.AttributeDefinition");
-            _displayLabelI18NOBJ.setLineNumber("612");
+            _displayLabelI18NOBJ.setLineNumber("614");
             _displayLabelI18N.setDefinedIn(this);
             addAttributeDefList(_displayLabelI18N);
 
@@ -1871,7 +1920,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _bindingNameOBJ.setType("meta.CamelCaseName");
             _bindingNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _bindingNameOBJ.setDotName("mvw.bindingName.AttributeDefinition");
-            _bindingNameOBJ.setLineNumber("618");
+            _bindingNameOBJ.setLineNumber("620");
             _bindingName.setDefinedIn(this);
             addAttributeDefList(_bindingName);
 
@@ -1884,7 +1933,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editObjectOBJ.setType("meta.ClassDefinition");
             _editObjectOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editObjectOBJ.setDotName("mvw.editObject.AttributeDefinition");
-            _editObjectOBJ.setLineNumber("624");
+            _editObjectOBJ.setLineNumber("626");
             _editObject.setDefinedIn(this);
             addAttributeDefList(_editObject);
 
@@ -1897,7 +1946,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editFieldOBJ.setType("mvw.EditField");
             _editFieldOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editFieldOBJ.setDotName("mvw.editField.AttributeDefinition");
-            _editFieldOBJ.setLineNumber("633");
+            _editFieldOBJ.setLineNumber("635");
             _editFieldOBJ.setValueType("MULTI");
             _editField.setDefinedIn(this);
             addAttributeDefList(_editField);
@@ -1911,7 +1960,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editorNameOBJ.setType("meta.CamelCaseName");
             _editorNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editorNameOBJ.setDotName("mvw.editorName.AttributeDefinition");
-            _editorNameOBJ.setLineNumber("639");
+            _editorNameOBJ.setLineNumber("641");
             _editorName.setDefinedIn(this);
             addAttributeDefList(_editorName);
 
@@ -1925,7 +1974,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _strictlyCheckedOBJ.setNullReturnValue("true");
             _strictlyCheckedOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _strictlyCheckedOBJ.setDotName("mvw.strictlyChecked.AttributeDefinition");
-            _strictlyCheckedOBJ.setLineNumber("649");
+            _strictlyCheckedOBJ.setLineNumber("651");
             _strictlyChecked.setDefinedIn(this);
             addAttributeDefList(_strictlyChecked);
 
@@ -1938,7 +1987,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _mappingNameOBJ.setType("meta.CamelCaseName");
             _mappingNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _mappingNameOBJ.setDotName("mvw.mappingName.AttributeDefinition");
-            _mappingNameOBJ.setLineNumber("655");
+            _mappingNameOBJ.setLineNumber("657");
             _mappingName.setDefinedIn(this);
             addAttributeDefList(_mappingName);
 
@@ -1951,7 +2000,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _unsetValueOBJ.setType("meta.String");
             _unsetValueOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _unsetValueOBJ.setDotName("mvw.unsetValue.AttributeDefinition");
-            _unsetValueOBJ.setLineNumber("662");
+            _unsetValueOBJ.setLineNumber("664");
             _unsetValue.setDefinedIn(this);
             addAttributeDefList(_unsetValue);
 
@@ -1964,7 +2013,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useNameAsLabelOBJ.setType("meta.Boolean");
             _useNameAsLabelOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useNameAsLabelOBJ.setDotName("mvw.useNameAsLabel.AttributeDefinition");
-            _useNameAsLabelOBJ.setLineNumber("670");
+            _useNameAsLabelOBJ.setLineNumber("672");
             _useNameAsLabel.setDefinedIn(this);
             addAttributeDefList(_useNameAsLabel);
 
@@ -1977,7 +2026,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useI18NConfigOBJ.setType("mvw.I18NConfig");
             _useI18NConfigOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useI18NConfigOBJ.setDotName("mvw.useI18NConfig.AttributeDefinition");
-            _useI18NConfigOBJ.setLineNumber("683");
+            _useI18NConfigOBJ.setLineNumber("685");
             _useI18NConfig.setDefinedIn(this);
             addAttributeDefList(_useI18NConfig);
 
@@ -1990,7 +2039,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _tipsFromI18NOBJ.setType("meta.Boolean");
             _tipsFromI18NOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _tipsFromI18NOBJ.setDotName("mvw.tipsFromI18N.AttributeDefinition");
-            _tipsFromI18NOBJ.setLineNumber("690");
+            _tipsFromI18NOBJ.setLineNumber("692");
             _tipsFromI18N.setDefinedIn(this);
             addAttributeDefList(_tipsFromI18N);
 
@@ -2003,7 +2052,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _skipEnumValueOBJ.setType("meta.String");
             _skipEnumValueOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _skipEnumValueOBJ.setDotName("mvw.skipEnumValue.AttributeDefinition");
-            _skipEnumValueOBJ.setLineNumber("697");
+            _skipEnumValueOBJ.setLineNumber("699");
             _skipEnumValueOBJ.setValueType("HASHSET");
             _skipEnumValue.setDefinedIn(this);
             addAttributeDefList(_skipEnumValue);
@@ -2017,7 +2066,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _sendsRequestOBJ.setType("mvw.RequestTypeWithOptions");
             _sendsRequestOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _sendsRequestOBJ.setDotName("mvw.sendsRequest.AttributeDefinition");
-            _sendsRequestOBJ.setLineNumber("711");
+            _sendsRequestOBJ.setLineNumber("713");
             _sendsRequestOBJ.setValueType("MULTI");
             _sendsRequest.setDefinedIn(this);
             addAttributeDefList(_sendsRequest);
@@ -2031,7 +2080,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _autoCreatedOBJ.setType("meta.Boolean");
             _autoCreatedOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _autoCreatedOBJ.setDotName("mvw.autoCreated.AttributeDefinition");
-            _autoCreatedOBJ.setLineNumber("718");
+            _autoCreatedOBJ.setLineNumber("720");
             _autoCreated.setDefinedIn(this);
             addAttributeDefList(_autoCreated);
 
@@ -2044,7 +2093,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useSingleEditorOBJ.setType("meta.Boolean");
             _useSingleEditorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useSingleEditorOBJ.setDotName("mvw.useSingleEditor.AttributeDefinition");
-            _useSingleEditorOBJ.setLineNumber("727");
+            _useSingleEditorOBJ.setLineNumber("729");
             _useSingleEditor.setDefinedIn(this);
             addAttributeDefList(_useSingleEditor);
 
@@ -2058,7 +2107,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _firedInThisModuleOBJ.setNullReturnValue("true");
             _firedInThisModuleOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _firedInThisModuleOBJ.setDotName("mvw.firedInThisModule.AttributeDefinition");
-            _firedInThisModuleOBJ.setLineNumber("738");
+            _firedInThisModuleOBJ.setLineNumber("740");
             _firedInThisModule.setDefinedIn(this);
             addAttributeDefList(_firedInThisModule);
 
@@ -2072,7 +2121,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _codeSplitOBJ.setNullReturnValue("false");
             _codeSplitOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _codeSplitOBJ.setDotName("mvw.codeSplit.AttributeDefinition");
-            _codeSplitOBJ.setLineNumber("750");
+            _codeSplitOBJ.setLineNumber("752");
             _codeSplit.setDefinedIn(this);
             addAttributeDefList(_codeSplit);
 
@@ -2085,7 +2134,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _centralAsyncErrorHandlerOBJ.setType("meta.Boolean");
             _centralAsyncErrorHandlerOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _centralAsyncErrorHandlerOBJ.setDotName("mvw.centralAsyncErrorHandler.AttributeDefinition");
-            _centralAsyncErrorHandlerOBJ.setLineNumber("757");
+            _centralAsyncErrorHandlerOBJ.setLineNumber("759");
             _centralAsyncErrorHandler.setDefinedIn(this);
             addAttributeDefList(_centralAsyncErrorHandler);
 
@@ -2098,7 +2147,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _mappingGeneratorOBJ.setType("mvw.EnumMappingGenerator");
             _mappingGeneratorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _mappingGeneratorOBJ.setDotName("mvw.mappingGenerator.AttributeDefinition");
-            _mappingGeneratorOBJ.setLineNumber("765");
+            _mappingGeneratorOBJ.setLineNumber("767");
             _mappingGenerator.setDefinedIn(this);
             addAttributeDefList(_mappingGenerator);
 
@@ -2111,9 +2160,62 @@ public class MvwSchemaAG extends SchemaDefinition {
             _enumGeneratorClassOBJ.setType("meta.String");
             _enumGeneratorClassOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _enumGeneratorClassOBJ.setDotName("mvw.enumGeneratorClass.AttributeDefinition");
-            _enumGeneratorClassOBJ.setLineNumber("773");
+            _enumGeneratorClassOBJ.setLineNumber("775");
             _enumGeneratorClass.setDefinedIn(this);
             addAttributeDefList(_enumGeneratorClass);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _propertyAccessGeneratorClassOBJ = new AttributeDefinitionDMO();
+            _propertyAccessGeneratorClass = new AttributeDefinition(_propertyAccessGeneratorClassOBJ);
+            _propertyAccessGeneratorClassOBJ.addDescription("The fully qualified Java class name of a class that implements the MvwPropertyAccessGeneratorIF.\n <p/>\n An example of this can be seen in the dark-matter-gxt project.");
+            _propertyAccessGeneratorClassOBJ.setName("propertyAccessGeneratorClass");
+            _propertyAccessGeneratorClassOBJ.setDmdID("904");
+            _propertyAccessGeneratorClassOBJ.setType("meta.String");
+            _propertyAccessGeneratorClassOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _propertyAccessGeneratorClassOBJ.setDotName("mvw.propertyAccessGeneratorClass.AttributeDefinition");
+            _propertyAccessGeneratorClassOBJ.setLineNumber("783");
+            _propertyAccessGeneratorClass.setDefinedIn(this);
+            addAttributeDefList(_propertyAccessGeneratorClass);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _accessForOBJ = new AttributeDefinitionDMO();
+            _accessFor = new AttributeDefinition(_accessForOBJ);
+            _accessForOBJ.addDescription("Indicates a set of classes for which we want to generate property\n access mechanism.");
+            _accessForOBJ.setName("accessFor");
+            _accessForOBJ.setDmdID("905");
+            _accessForOBJ.setType("meta.ClassDefinition");
+            _accessForOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _accessForOBJ.setDotName("mvw.accessFor.AttributeDefinition");
+            _accessForOBJ.setLineNumber("791");
+            _accessForOBJ.setValueType("TREESET");
+            _accessFor.setDefinedIn(this);
+            addAttributeDefList(_accessFor);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _accessGeneratorOBJ = new AttributeDefinitionDMO();
+            _accessGenerator = new AttributeDefinition(_accessGeneratorOBJ);
+            _accessGeneratorOBJ.addDescription("A reference to the generator that will create the property access code.\n <p/>\n An example of this can be seen in the dark-matter-gxt project.");
+            _accessGeneratorOBJ.setName("accessGenerator");
+            _accessGeneratorOBJ.setDmdID("906");
+            _accessGeneratorOBJ.setType("mvw.PropertyAccessGenerator");
+            _accessGeneratorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _accessGeneratorOBJ.setDotName("mvw.accessGenerator.AttributeDefinition");
+            _accessGeneratorOBJ.setLineNumber("799");
+            _accessGenerator.setDefinedIn(this);
+            addAttributeDefList(_accessGenerator);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _propertyAccessNameOBJ = new AttributeDefinitionDMO();
+            _propertyAccessName = new AttributeDefinition(_propertyAccessNameOBJ);
+            _propertyAccessNameOBJ.addDescription("The name of a PropertyAccess specification.");
+            _propertyAccessNameOBJ.setName("propertyAccessName");
+            _propertyAccessNameOBJ.setDmdID("907");
+            _propertyAccessNameOBJ.setType("meta.CamelCaseName");
+            _propertyAccessNameOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _propertyAccessNameOBJ.setDotName("mvw.propertyAccessName.AttributeDefinition");
+            _propertyAccessNameOBJ.setLineNumber("805");
+            _propertyAccessName.setDefinedIn(this);
+            addAttributeDefList(_propertyAccessName);
 
     }
 

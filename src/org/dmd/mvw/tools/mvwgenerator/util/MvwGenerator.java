@@ -26,6 +26,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
+import org.dmd.mvw.tools.mvwgenerator.extended.PropertyAccess;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.EnumMapping;
@@ -72,6 +73,9 @@ public class MvwGenerator {
 	// The generated/mvw/forms
 	String 					formsdir;
 
+	// The generated/mvw/properties
+	String 					propertiesdir;
+
 	PrintStream				progressStream;
 	
 	MvwDefinitionManager	defManager;
@@ -93,6 +97,7 @@ public class MvwGenerator {
 		actionsdir		= mvwdir + File.separator + "actions";
 		placesdir		= mvwdir + File.separator + "places";
 		formsdir		= mvwdir + File.separator + "forms";
+		propertiesdir	= mvwdir + File.separator + "properties";
 		
 		createGenDir(gendir);
 //		createGenDirs();
@@ -208,6 +213,15 @@ public class MvwGenerator {
 					createGenDir(formsdir);
 					gem.getMappingGenerator().formatEnumMapping(formsdir, gem);
 //					GxtEnumMappingFormatter.formatEnumMapping(formsdir, gem);
+				}
+			}
+		}
+		
+		if (defManager.getPropertyAccessGenerators().size() > 0){
+			for(PropertyAccess pa: defManager.getPropertyAccessDefs().values()){
+				if (pa.getDefinedInModule() == defManager.codeGenModule){
+					createGenDir(propertiesdir);
+					pa.getAccessGenerator().formatPropertyAccess(propertiesdir, pa);
 				}
 			}
 		}

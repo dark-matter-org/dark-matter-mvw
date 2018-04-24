@@ -773,6 +773,36 @@ description		The fully qualified Java class name of a class that implements the 
  <p/>
  An example of this can be seen in the dark-matter-gxt project.
 
+AttributeDefinition
+name			propertyAccessGeneratorClass
+dmdID			104
+type			String
+description		The fully qualified Java class name of a class that implements the MvwPropertyAccessGeneratorIF.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
+
+AttributeDefinition
+name			accessFor
+dmdID			105
+type			ClassDefinition
+valueType		TREESET
+description		Indicates a set of classes for which we want to generate property
+ access mechanism.
+
+AttributeDefinition
+name			accessGenerator
+dmdID			106
+type			PropertyAccessGenerator
+description		A reference to the generator that will create the property access code.
+ <p/>
+ An example of this can be seen in the dark-matter-gxt project.
+
+AttributeDefinition
+name			propertyAccessName
+dmdID			107
+type			CamelCaseName
+description		The name of a PropertyAccess specification.
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

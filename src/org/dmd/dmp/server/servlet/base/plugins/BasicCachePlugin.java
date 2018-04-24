@@ -576,7 +576,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	///////////////////////////////////////////////////////////////////////////
 
 	@Override
-	public void create(DmwNamedObjectWrapper obj) {
+	public void create(DmwNamedObjectWrapper obj, Request request) {
 		// TODO Auto-generated method stub
 		
 	}

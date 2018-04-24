@@ -12,6 +12,8 @@ public class MvwDMSAGAMAP {
 
     static protected void initSmAp(HashMap<Integer, DmcAttributeInfo> _SmAp){
         _SmAp.put(MvwDMSAG.__abstractActivity.id,MvwDMSAG.__abstractActivity);
+        _SmAp.put(MvwDMSAG.__accessFor.id,MvwDMSAG.__accessFor);
+        _SmAp.put(MvwDMSAG.__accessGenerator.id,MvwDMSAG.__accessGenerator);
         _SmAp.put(MvwDMSAG.__actionBindingName.id,MvwDMSAG.__actionBindingName);
         _SmAp.put(MvwDMSAG.__activityName.id,MvwDMSAG.__activityName);
         _SmAp.put(MvwDMSAG.__addToMenu.id,MvwDMSAG.__addToMenu);
@@ -80,6 +82,8 @@ public class MvwDMSAGAMAP {
         _SmAp.put(MvwDMSAG.__presenterImport.id,MvwDMSAG.__presenterImport);
         _SmAp.put(MvwDMSAG.__presenterMethod.id,MvwDMSAG.__presenterMethod);
         _SmAp.put(MvwDMSAG.__presenterName.id,MvwDMSAG.__presenterName);
+        _SmAp.put(MvwDMSAG.__propertyAccessGeneratorClass.id,MvwDMSAG.__propertyAccessGeneratorClass);
+        _SmAp.put(MvwDMSAG.__propertyAccessName.id,MvwDMSAG.__propertyAccessName);
         _SmAp.put(MvwDMSAG.__runsActivity.id,MvwDMSAG.__runsActivity);
         _SmAp.put(MvwDMSAG.__selectEvent.id,MvwDMSAG.__selectEvent);
         _SmAp.put(MvwDMSAG.__selectedDMO.id,MvwDMSAG.__selectedDMO);

@@ -24,6 +24,7 @@
             </td>
             <td colspan="2" class="description">            <div class="argvector">(String reason) </div> <p/> 
             Fired if we cannot establish full asynchronous communications or if we have some other situation where communications fails.
+
             </td>
         </tr>
         <tr>
@@ -43,6 +44,7 @@
             <a class="navLink" href="mvwcomms.html">mvwcomms</a>
             </td>
             <td colspan="2" class="description">            Fired when we've established full asynchronous communications with the server, in this case, the gwteventservice is up and running.
+
             </td>
         </tr>
         <tr>
@@ -62,6 +64,7 @@
             <a class="navLink" href="mvwcomms.html">mvwcomms</a>
             </td>
             <td colspan="2" class="description">            When a logout is successfully executed, the CommsController resets itself in preparation for the next login. However, in circumstances where something goes wrong e.g. RPC errors, failed logout etc. An application can fire this event and forceably reset the communications controller.
+
             </td>
         </tr>
         <tr>
@@ -77,6 +80,7 @@
             <a class="navLink" href="mvwcomms.html">mvwcomms</a>
             </td>
             <td colspan="2" class="description">            Fired when we have sucessfully logged in. This indicates that we've successfully logged in, but we are not yet ready for full communications. Your application must wait for the CommsSessionReady event before commencing other DMP operations e.g. GetRequest, SetRequest, CreateRequest, DeleteRequest etc.
+
             </td>
         </tr>
         <tr>
@@ -96,6 +100,7 @@
             <a class="navLink" href="mvwcomms.html">mvwcomms</a>
             </td>
             <td colspan="2" class="description">            Fired when we have sucessfully logged out.
+
             </td>
         </tr>
         <tr>
@@ -115,6 +120,7 @@
             <a class="navLink" href="mvwcomms.html">mvwcomms</a>
             </td>
             <td colspan="2" class="description">            Fired by some component when an application user wants to logout. This is meant to be a reusable event across application.
+
             </td>
         </tr>
         <tr>
@@ -131,6 +137,7 @@
             </td>
             <td colspan="2" class="description">            <div class="argvector">(DmcObject obj) </div> <p/> 
             The SingleDMOSelectedEvent is fired when a component selects a single DMO.
+
             </td>
         </tr>
         <tr>
@@ -147,6 +154,7 @@
 
     <div id="sidebar">
     <div class="sidebarTitle"> Modules </div>
+        <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="mvw.html"> mvw</a>
         <a class="navLink" href="mvwcomms.html"> mvwcomms</a>
         <a class="navLink" href="mvwmenus.html"> mvwmenus</a>

@@ -63,6 +63,8 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
     HashMap<String,ModuleDMO>	loadedFiles;
     
     DmvRuleManager				ruleManager;
+    
+    private boolean				debug;
     	
 	public MvwParser(SchemaManager sm, ConfigFinder cf, MvwDefinitionManager dm){
 		schema 			= sm;
@@ -74,6 +76,10 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 		ruleManager		= new DmvRuleManager();
 	}
 	
+	public void debug(boolean flag) {
+		debug = flag;
+	}
+	
 	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
 		defManager.reset();
 		parseConfigInternal(cl);
@@ -81,10 +87,12 @@ public class MvwParser implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	void parseConfigInternal(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet, DmcNameClashException {
-		if (cl.isFromJAR())
-			System.out.println("Reading: " + cl.getFileName() + " - from " + cl.getJarFilename());
-		else
-			System.out.println("Reading: " + cl.getFileName());
+		if (debug) {
+			if (cl.isFromJAR())
+				System.out.println("Reading: " + cl.getFileName() + " - from " + cl.getJarFilename());
+			else
+				System.out.println("Reading: " + cl.getFileName());
+		}
 		
 		if (cl.isFromJAR())
 			configParser.parseFile(cl.getFileName(),true);

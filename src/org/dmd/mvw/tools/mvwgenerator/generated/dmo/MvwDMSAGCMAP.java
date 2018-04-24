@@ -31,6 +31,8 @@ public class MvwDMSAGCMAP {
         _CmAp.put(MvwDMSAG.__MvwDefinition.id,MvwDMSAG.__MvwDefinition);
         _CmAp.put(MvwDMSAG.__Place.id,MvwDMSAG.__Place);
         _CmAp.put(MvwDMSAG.__Presenter.id,MvwDMSAG.__Presenter);
+        _CmAp.put(MvwDMSAG.__PropertyAccess.id,MvwDMSAG.__PropertyAccess);
+        _CmAp.put(MvwDMSAG.__PropertyAccessGenerator.id,MvwDMSAG.__PropertyAccessGenerator);
         _CmAp.put(MvwDMSAG.__RunContextItem.id,MvwDMSAG.__RunContextItem);
         _CmAp.put(MvwDMSAG.__Separator.id,MvwDMSAG.__Separator);
         _CmAp.put(MvwDMSAG.__SubMenu.id,MvwDMSAG.__SubMenu);

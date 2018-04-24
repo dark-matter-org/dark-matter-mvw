@@ -747,7 +747,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
      * just wants to reset things to a known state.
      */
 	@Override
-	protected void onForceCommsReset() {
+	public void onForceCommsReset() {
 		reset();
 	}
 

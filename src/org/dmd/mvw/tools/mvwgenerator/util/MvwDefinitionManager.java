@@ -52,6 +52,8 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
+import org.dmd.mvw.tools.mvwgenerator.extended.PropertyAccess;
+import org.dmd.mvw.tools.mvwgenerator.extended.PropertyAccessGenerator;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
@@ -118,6 +120,8 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 	
 	TreeMap<CamelCaseName, EnumMappingGenerator>	enumGenerators;
 	
+	TreeMap<CamelCaseName, PropertyAccessGenerator>	propertyAccessGenerators;
+	
 	Controller									centralRpcErrorHandler;
 	
 	Controller									centralDmpErrorHandler;
@@ -158,17 +162,31 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 	
 	TreeMap<CamelCaseName, EnumMapping>			enumMappings;
 	
+	TreeMap<CamelCaseName, PropertyAccess>			propertyAccessDefs;
+	
 	
 	// Gets set to true is any of our components send requests
 	boolean										needMvwComms;
 	
 	CamelCaseName								key;
 	
+	private boolean								debug;
+	
+	private boolean								schemadebug;
+	
 	public MvwDefinitionManager(SchemaManager s, DmsSchemaParser sp) throws ResultException, DmcValueException, DmcNameClashException{
 		schema 			= s;
 		schemaParser	= sp;
 		key				= new CamelCaseName();
 		init();
+	}
+	
+	public void debug(boolean flag) {
+		debug = flag;
+	}
+	
+	public void schemadebug(boolean flag) {
+		schemadebug = flag;
 	}
 	
 	void init() throws ResultException, DmcValueException, DmcNameClashException{
@@ -187,6 +205,7 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		places			= new TreeMap<CamelCaseName, Place>();
 		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
 		enumGenerators	= new TreeMap<CamelCaseName, EnumMappingGenerator>();
+		propertyAccessGenerators	= new TreeMap<CamelCaseName, PropertyAccessGenerator>();
 		
 		contexts		= new TreeMap<String, RunContextItemCollection>();
 		defaultContext 	= new RunContextItemCollection("Default");
@@ -213,6 +232,7 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
 		enumMappings			= new TreeMap<CamelCaseName, EnumMapping>();
+		propertyAccessDefs		= new TreeMap<CamelCaseName, PropertyAccess>();
 	}
 	
 	/**
@@ -304,6 +324,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		return(enumMappings);
 	}
 	
+	public TreeMap<CamelCaseName,PropertyAccess> getPropertyAccessDefs(){
+		return(propertyAccessDefs);
+	}
+	
 	public void reset() throws ResultException, DmcValueException, DmcNameClashException{
 		init();
 	}
@@ -360,7 +384,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 				Iterator<String> it = dmo.getDependsOnSchema();
 				while(it.hasNext()){
 					String ref = it.next();
-					schemaParser.parseSchema(readSchemas, ref, false);
+					
+					// Note: the flag for the parser is whether or not we want terse output,
+					// so it's the opposite of our schema debug flag
+					schemaParser.parseSchema(readSchemas, ref, !schemadebug);
 				}
 			}
 		}
@@ -447,34 +474,46 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 			
 			if (controller.isCentralRPCErrorHandler()){
 				if (centralRpcErrorHandler != null){
-					ResultException ex = new ResultException();
-					ex.addError("Multiple controllers are specified as the central RPC error handler.");
-					ex.result.lastResult().moreMessages(centralRpcErrorHandler.getControllerName() + " in " + centralRpcErrorHandler.getDefinedInModule().getFile() + " at line " + centralRpcErrorHandler.getDefinedInModule().getLineNumber());
-					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
-					throw(ex);
+					// If it's the same controller - just ignore
+					if (!controller.getControllerName().equals(centralRpcErrorHandler.getControllerName())) {
+						ResultException ex = new ResultException();
+						ex.addError("Multiple controllers are specified as the central RPC error handler.");
+						ex.result.lastResult().moreMessages(centralRpcErrorHandler.getControllerName() + " in " + centralRpcErrorHandler.getDefinedInModule().getFile() + " at line " + centralRpcErrorHandler.getDefinedInModule().getLineNumber());
+						ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+						throw(ex);
+					}
 				}
-				centralRpcErrorHandler = controller;
+				else
+					centralRpcErrorHandler = controller;
 			}
 			if (controller.isCentralDMPErrorHandler()){
 				if (centralDmpErrorHandler != null){
-					ResultException ex = new ResultException();
-					ex.addError("Multiple controllers are specified as the central DMP error handler.");
-					ex.result.lastResult().moreMessages(centralDmpErrorHandler.getControllerName() + " in " + centralDmpErrorHandler.getDefinedInModule().getFile() + " at line " + centralDmpErrorHandler.getDefinedInModule().getLineNumber());
-					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
-					throw(ex);
+					// If it's the same controller - just ignore
+					if (!controller.getControllerName().equals(centralDmpErrorHandler.getControllerName())) {
+						ResultException ex = new ResultException();
+						ex.addError("Multiple controllers are specified as the central DMP error handler.");
+						ex.result.lastResult().moreMessages(centralDmpErrorHandler.getControllerName() + " in " + centralDmpErrorHandler.getDefinedInModule().getFile() + " at line " + centralDmpErrorHandler.getDefinedInModule().getLineNumber());
+						ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+						throw(ex);
+					}
 				}
-				centralDmpErrorHandler = controller;
+				else
+					centralDmpErrorHandler = controller;
 			}
 			if (controller.isCentralAsyncErrorHandler()){
 				if (centralAsyncErrorHandler != null){
-					ResultException ex = new ResultException();
-					ex.addError("Multiple controllers are specified as the central asynchronous code loading error handler.");
-					ex.result.lastResult().moreMessages(centralAsyncErrorHandler.getControllerName() + " in " + centralAsyncErrorHandler.getDefinedInModule().getFile() + " at line " + centralDmpErrorHandler.getDefinedInModule().getLineNumber());
-					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
-					throw(ex);
+					if (!controller.getControllerName().equals(centralAsyncErrorHandler.getControllerName())) {
+						ResultException ex = new ResultException();
+						ex.addError("Multiple controllers are specified as the central asynchronous code loading error handler.");
+						ex.result.lastResult().moreMessages(centralAsyncErrorHandler.getControllerName() + " in " + centralAsyncErrorHandler.getDefinedInModule().getFile() + " at line " + centralAsyncErrorHandler.getDefinedInModule().getLineNumber());
+						ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+						throw(ex);
+					}
 				}
-				centralAsyncErrorHandler = controller;
-				centralAsyncErrorHandlerRCI = controllerRCI;
+				else {
+					centralAsyncErrorHandler = controller;
+					centralAsyncErrorHandlerRCI = controllerRCI;
+				}
 //				
 //				// We will fill in the details of the predefined place holder context item - defined in the mvw module
 //				RunContextItemCollection rcic = contexts.get(controllerRCI.getContextImpl());
@@ -619,6 +658,9 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		else if (def instanceof EnumMappingGenerator){
 			enumGenerators.put(def.getCamelCaseName(), (EnumMappingGenerator) def);
 		}
+		else if (def instanceof PropertyAccessGenerator){
+			propertyAccessGenerators.put(def.getCamelCaseName(), (PropertyAccessGenerator) def);
+		}
 		else if (def instanceof RunContextItem){
 			RunContextItem rci = (RunContextItem) def;
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
@@ -721,6 +763,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		else if (def instanceof EnumMapping){
 			EnumMapping gem = (EnumMapping) def;
 			enumMappings.put(gem.getMappingName(), gem);
+		}
+		else if (def instanceof PropertyAccess) {
+			PropertyAccess pa = (PropertyAccess) def;
+			propertyAccessDefs.put(pa.getPropertyAccessName(), pa);
 		}
 		
 		if (def instanceof Component){
@@ -1114,6 +1160,9 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		for(EnumMappingGenerator gen: enumGenerators.values()){
 			gen.init();
 		}
+		for(PropertyAccessGenerator gen: propertyAccessGenerators.values()){
+			gen.init();
+		}
 		for(ActionBinding action: actions.values()){
 			action.initCodeGenInfo();
 		}
@@ -1265,6 +1314,10 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		return enumGenerators;
 	}
 
+	public TreeMap<CamelCaseName, PropertyAccessGenerator> getPropertyAccessGenerators() {
+		return propertyAccessGenerators;
+	}
+
 	public TreeMap<CamelCaseName, View> getViews() {
 		return views;
 	}
@@ -1379,6 +1432,11 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 			allDefs.put(gen.getCamelCaseName(), gen);
 		}
 		
+		for(PropertyAccessGenerator gen: mdm.propertyAccessGenerators.values()){
+			propertyAccessGenerators.put(gen.getCamelCaseName(), gen);
+			allDefs.put(gen.getCamelCaseName(), gen);
+		}
+		
 		for(View def: mdm.views.values()){
 			views.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
@@ -1443,7 +1501,7 @@ public class MvwDefinitionManager implements DmcNameClashResolverIF, DmcNameReso
 		
 		for(MvwDefinition def: allDefs.values()){
 			try {
-				def.getDMO().resolveReferences(this);
+				def.getDMO().resolveReferences(this,this);
 			} catch (DmcValueExceptionSet e) {
 				e.printStackTrace();
 				System.out.println("\nWhile resolving: \n" + def.getDMO().toOIF());
