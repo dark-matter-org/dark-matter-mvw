@@ -49,6 +49,7 @@ import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
+import org.dmd.dmp.server.servlet.base.SessionIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
 import org.dmd.dmp.server.servlet.base.cache.CacheListener;
@@ -58,6 +59,7 @@ import org.dmd.dmp.server.servlet.base.cache.NameGeneratorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectIndexer;
 import org.dmd.dmw.DmwNamedObjectWrapper;
@@ -622,7 +624,13 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	public void set(DmcObjectName name, DmcTypeModifierMV modifier, Request request) throws ResultException {
+		// TODO Auto-generated method stub
+		
+	}
+
 	///////////////////////////////////////////////////////////////////////////
 
 	@Override
@@ -682,8 +690,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 
 	@Override
-	public CacheRegistration register() {
-		return( new CacheRegistration(this));
+	public CacheRegistration register(SessionIF session) {
+		return( new CacheRegistration(this, session));
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -822,6 +830,12 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	@Override
 	public DmcNamedObjectIF resolveClash(DmcObject obj, DmcAttributeInfo ai, DmcNameClashObjectSet<?> ncos) throws DmcValueException {
 		throw(new IllegalStateException("NOT IMPLEMENTED"));
+		
+	}
+
+	@Override
+	public void removeListenersForSession(SessionIF session) {
+		listenerManager.removeListenersForSession(session);
 		
 	}
 

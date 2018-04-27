@@ -15,11 +15,14 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.actions;
 
+import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.LongVar;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
@@ -35,6 +38,8 @@ import org.slf4j.LoggerFactory;
  */
 abstract public class ActionHandler implements Runnable {
 	
+	public final static long DEFAULT_HEARTBEAT_MS = 3000;
+	
 	// The request we're servicing
 	protected ActionRequest		request;
 	
@@ -45,7 +50,7 @@ abstract public class ActionHandler implements Runnable {
 	protected CacheIF			cache;
 	
 	// The last time that a response was sent
-	private long					responseSendTime;
+	private LongVar					responseSendTime;
 	
 	// The unique identifier provided by the actionManager
 	protected final Integer		serverActionID;
@@ -82,7 +87,8 @@ abstract public class ActionHandler implements Runnable {
 		cancelled = new BooleanVar(false);
 		
 		ses = Executors.newSingleThreadScheduledExecutor();
-		heartbeatTask = ses.scheduleWithFixedDelay(new HeartbeatTask(this), 500, 3000, TimeUnit.MILLISECONDS);
+		heartbeatTask = ses.scheduleWithFixedDelay(new HeartbeatTask(this), 500, DEFAULT_HEARTBEAT_MS, TimeUnit.MILLISECONDS);
+		responseSendTime = new LongVar();
 		lastResponseSent	= false;
 	}
 	
@@ -143,7 +149,7 @@ abstract public class ActionHandler implements Runnable {
 			logger.debug("sending response");
 
 			response.setServerActionID(serverActionID);
-			responseSendTime = System.currentTimeMillis();
+			lastResponseTime(System.currentTimeMillis());
 			requestTracker.processResponse(response);
 
 			if (response.isLastResponse()) {
@@ -152,6 +158,18 @@ abstract public class ActionHandler implements Runnable {
 				lastResponseSent = true;
 				heartbeatTask.cancel(true);
 			}
+		}
+	}
+	
+	protected long lastResponseTime() {
+		synchronized (responseSendTime) {
+			return(responseSendTime.longValue());
+		}
+	}
+	
+	protected void lastResponseTime(long time) {
+		synchronized (responseSendTime) {
+			responseSendTime.set(time);
 		}
 	}
 	
@@ -180,16 +198,76 @@ abstract public class ActionHandler implements Runnable {
 			ActionResponse response = handler.request.getResponse();
 			response.setResponseType(ResponseTypeEnum.HEARTBEAT);
 			
-			if (handler.cancelled())
-				response.setResponseText("Cancel pending");
-			else
-				response.setResponseText("Still running");
+			long delta = System.currentTimeMillis() - lastResponseTime();
 			
-			response.setLastResponse(false);
-			
-			handler.sendResponse(response);
+			// We only send a heartbeat if there hasn't been a response for more than
+			// the heartbeat interval
+			if (delta > DEFAULT_HEARTBEAT_MS) {
+				if (handler.cancelled())
+					response.setResponseText("Cancel pending");
+				else
+					response.setResponseText("Still running");
+				
+				response.setLastResponse(false);
+				
+				handler.sendResponse(response);
+			}
 		}
 
 	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// Convenience methods
+	
+	/**
+	 * Sends a PROGRESSOBJECTS message with a single object.
+	 * @param objects the objects to be sent
+	 */
+	protected void sendProgressObject(DmcObject object) {
+		ActionResponse response = (ActionResponse) request.getResponse();
+		response.setResponseType(ResponseTypeEnum.PROGRESSOBJECTS);
+		response.addObjectList(object);
+		response.setLastResponse(false);
+		sendResponse(response);
+	}
+	
+	/**
+	 * Sends a PROGRESSOBJECTS message with multiple objects.
+	 * @param objects the objects to be sent
+	 */
+	protected void sendProgressObjects(ArrayList<DmcObject> objects) {
+		ActionResponse response = (ActionResponse) request.getResponse();
+		response.setResponseType(ResponseTypeEnum.PROGRESSOBJECTS);
+		for(DmcObject obj: objects)
+			response.addObjectList(obj);
+		response.setLastResponse(false);
+		sendResponse(response);
+	}
+	
+	/**
+	 * Sends a PROGRESSTEXT message.
+	 * @param message the progress message.
+	 */
+	protected void sendProgressText(String message) {
+		ActionResponse response = (ActionResponse) request.getResponse();
+		response.setResponseType(ResponseTypeEnum.PROGRESSTEXT);
+		response.setResponseText(message);
+		response.setLastResponse(false);
+		sendResponse(response);
+	}
+
+	/**
+	 * This method sends an ActionResponse of type ERROR and sets it to be the last response.
+	 * YOU SHOULD IMMEDIATELY RETURN FROM YOUR ACTION AFTER CALLING THIS!
+	 * @param message the error message.
+	 */
+	protected void sendError(String message) {
+		ActionResponse response = (ActionResponse) request.getErrorResponse();
+		response.setResponseText(message);
+		response.setLastResponse(true);
+		sendResponse(response);
+	}
+
+	
 
 }

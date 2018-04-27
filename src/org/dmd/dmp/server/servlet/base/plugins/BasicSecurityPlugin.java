@@ -134,6 +134,8 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 					
 					sessions.put(session.getSessionIDRI(), session);
 					
+					logger.debug("Session created:\n\n" + session.toOIF());
+					
 					response.setSessionID(session.getSessionIDRI());
 					
 					if (request.isTrackingEnabled())
@@ -164,7 +166,7 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 			else{
 				sessions.remove(session.getSessionIDRI());
 				
-				// TODO: remove it from the cache
+				cache.removeListenersForSession(session);
 			}
 		}
 		

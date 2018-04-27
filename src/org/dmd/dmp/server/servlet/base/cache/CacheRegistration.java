@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.cache;
 
+import org.dmd.dmp.server.servlet.base.SessionIF;
 
 /**
  * The CacheRegistration serves to uniquely identify all entities that operate
@@ -34,14 +35,16 @@ public class CacheRegistration {
 
 	private static int 		nextRegistrantID = 1;
 	private final CacheIF	cache;
+	private final SessionIF	session;
 	private	int				ID;
 	
 	/**
 	 * Instantiates a new registration against the specified cache.
 	 * @param c the cache.
 	 */
-	public CacheRegistration(CacheIF c){
+	public CacheRegistration(CacheIF c, SessionIF s){
 		cache = c;
+		session = s;
 		initRegistrantID();
 	}
 	
@@ -57,6 +60,13 @@ public class CacheRegistration {
 	 */
 	public CacheIF getCache(){
 		return(cache);
+	}
+	
+	/**
+	 * @return the session associated with this registration.
+	 */
+	public SessionIF getSession() {
+		return(session);
 	}
 	
 	/**

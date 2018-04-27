@@ -37,6 +37,7 @@ import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.server.servlet.base.GetRequestProcessor;
+import org.dmd.dmp.server.servlet.base.SessionIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
@@ -64,7 +65,7 @@ import org.slf4j.LoggerFactory;
  * client, this mechanism can be used to determine whether events coming from the
  * server were caused by you or by some other client.
  */
-public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, DmpPipeIF, DmpEventHandlerIF {
+public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, DmpPipeIF, DmpEventHandlerIF, SessionIF {
 	
 	// Our handle to the servlet which implements the GWT Event Service
 	RemoteEventServiceServlet	eventChannel;
@@ -98,7 +99,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 * @param c the cache.
 	 */
 	public SessionRI(CacheIF c, RequestTrackerIF rt){
-		cacheRegistration 	= c.register();
+		cacheRegistration 	= c.register(this);
 		getRequestProcessor = new GetRequestProcessor(this, cacheRegistration);
 		requestTracker		= rt;
 	}
@@ -272,6 +273,14 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		logger.trace("Sending event...");
 		// Fire the event on our session based domain
 		eventChannel.addEvent(domain, event.getDMO());
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// SessionIF implementation
+	
+	@Override
+	public String sessionID() {
+		return(getSessionIDRI());
 	}
 
 

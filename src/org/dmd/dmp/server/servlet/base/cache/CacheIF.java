@@ -27,6 +27,8 @@ import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
+import org.dmd.dmp.server.servlet.base.SessionIF;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
@@ -56,9 +58,10 @@ public interface CacheIF extends DmcNameResolverIF {
 	/**
 	 * If you are going to perform operations against a cache, you will need a 
 	 * unique registration against that cache.
+	 * @param session the session that's registering against the cache
 	 * @return a registration against the cache.
 	 */
-	public CacheRegistration register();
+	public CacheRegistration register(SessionIF session);
 	
 	/**
 	 * This method is used to add a new object to the cache during the initialization
@@ -84,6 +87,8 @@ public interface CacheIF extends DmcNameResolverIF {
 	public void deleteAndNotify(DmcObjectName name);
 	
 	public void set(DmwNamedObjectWrapper obj) throws ResultException;
+	
+	public void set(DmcObjectName name, DmcTypeModifierMV modifier, Request request) throws ResultException;
 	
 	public void setAndNotify(DmwNamedObjectWrapper obj) throws ResultException;
 	
@@ -138,6 +143,12 @@ public interface CacheIF extends DmcNameResolverIF {
 	 * @param listener the listener to be removed.
 	 */
 	public void removeListener(CacheListener listener);
+	
+	/**
+	 * Removes all cache listeners associated with the specified session.
+	 * @param sessionID the session
+	 */
+	public void removeListenersForSession(SessionIF session);
 	
 	////////////////////////////////////////////////////////////////////////////
 	// Object retrieval

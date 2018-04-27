@@ -118,6 +118,11 @@ abstract public class MvwFieldEditor implements DmcPresentationIF, IsWidget {
 		if (tracker.debug())
 			System.out.println(msg);
 	}
+	
+	/**
+	 * Derived classes should attempt to force focus on their associated widget.
+	 */
+	abstract public void focus();
 
 
 }

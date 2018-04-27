@@ -19,6 +19,7 @@ import java.util.Collection;
 
 import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.servlet.base.SessionIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.slf4j.LoggerFactory;
@@ -58,6 +59,13 @@ abstract public class CacheListener {
     
     public long getListenerID(){
     	return(listenerId);
+    }
+    
+    /**
+     * @return the session associated with this listener.
+     */
+    public SessionIF session() {
+    	return(cacheRegistration.getSession());
     }
     
     /**
