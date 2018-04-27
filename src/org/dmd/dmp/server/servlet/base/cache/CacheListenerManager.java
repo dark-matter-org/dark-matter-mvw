@@ -1,6 +1,7 @@
 package org.dmd.dmp.server.servlet.base.cache;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.servlet.base.SessionIF;
 import org.dmd.dms.ClassDefinition;
 
 /**
@@ -55,6 +57,13 @@ public class CacheListenerManager {
 	}
 	
 	/**
+	 * Clears all existing listeners.
+	 */
+	public void removeAllListeners() {
+		fullListeners	= new ListenerSet<CacheFullListener>();
+		indexListeners = new HashMap<DmcClassInfo, IndexListenerSet>();	}
+	
+	/**
 	 * Removes a cache listener.
 	 * @param listener the listener to be removed.
 	 */
@@ -75,6 +84,36 @@ public class CacheListenerManager {
 			}
 			
 			logger.trace("Removed listener: " + listener.getTraceInfo());
+		}
+	}
+	
+	/**
+	 * Removes all listeners associated with the specified session.
+	 * @param sessionID
+	 */
+	public void removeListenersForSession(SessionIF session) {
+		synchronized (this) {
+			ArrayList<CacheFullListener> fl = new ArrayList<>();
+			for(CacheFullListener cfl: fullListeners.getListeners()) {
+				if (cfl.session().sessionID().equals(session.sessionID()))
+					fl.add(cfl);
+			}
+			for(CacheFullListener cfl: fl) {
+				fullListeners.remove(cfl);
+			}
+			
+			for(DmcClassInfo dci : indexListeners.keySet()) {
+				IndexListenerSet set = indexListeners.get(dci);
+				
+				ArrayList<CacheIndexListener> listeners = new ArrayList<>();
+				for(CacheIndexListener cil: set.getListeners()) {
+					if (cil.session().sessionID().equals(session.sessionID()))
+						listeners.add(cil);
+				}
+				for(CacheIndexListener cil: listeners) {
+					set.remove(cil);
+				}
+			}
 		}
 	}
 	
