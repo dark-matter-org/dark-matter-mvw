@@ -803,6 +803,14 @@ dmdID			107
 type			CamelCaseName
 description		The name of a PropertyAccess specification.
 
+AttributeDefinition
+name			emptyText
+dmdID			108
+type			String
+description		The text to be displayed when something, for instance an editor,
+ doesn't have a value yet.
+
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

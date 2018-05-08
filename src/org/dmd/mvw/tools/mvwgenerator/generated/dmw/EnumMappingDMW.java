@@ -100,6 +100,37 @@ abstract public class EnumMappingDMW extends MvwDefinition implements DmcNamedOb
     }
 
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    public String getEmptyText(){
+        return(((EnumMappingDMO) core).getEmptyText());
+    }
+
+    /**
+     * Sets emptyText to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    public void setEmptyText(Object value) throws DmcValueException {
+        ((EnumMappingDMO) core).setEmptyText(value);
+    }
+
+    /**
+     * Sets emptyText to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    public void setEmptyText(String value){
+        ((EnumMappingDMO) core).setEmptyText(value);
+    }
+
+    /**
+     * Removes the emptyText attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remEmptyText(){
+        ((EnumMappingDMO) core).remEmptyText();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public String getEnumName(){
         return(((EnumMappingDMO) core).getEnumName());
     }

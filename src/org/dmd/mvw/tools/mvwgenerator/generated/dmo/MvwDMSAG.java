@@ -75,6 +75,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __editObject = new DmcAttributeInfo("mvw", "editObject", 886, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __editorName = new DmcAttributeInfo("mvw", "editorName", 888, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __elementName = new DmcAttributeInfo("mvw", "elementName", 868, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
+    public final static DmcAttributeInfo __emptyText = new DmcAttributeInfo("mvw", "emptyText", 908, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __enumGeneratorClass = new DmcAttributeInfo("mvw", "enumGeneratorClass", 903, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("mvw", "eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);
     public final static DmcAttributeInfo __firedInThisModule = new DmcAttributeInfo("mvw", "firedInThisModule", 899, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, 0, false);

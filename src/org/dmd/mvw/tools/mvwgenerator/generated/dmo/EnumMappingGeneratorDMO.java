@@ -115,7 +115,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public CamelCaseName getCamelCaseName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -128,7 +128,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setCamelCaseName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -147,7 +147,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setCamelCaseName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MetaDMSAG.__camelCaseName);
         if (attr == null)
@@ -160,12 +160,12 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remCamelCaseName(){
          rem(MetaDMSAG.__camelCaseName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public String getEnumGeneratorClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__enumGeneratorClass);
         if (attr == null)
@@ -178,7 +178,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
      * Sets enumGeneratorClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setEnumGeneratorClass(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__enumGeneratorClass);
         if (attr == null)
@@ -197,7 +197,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
      * Sets enumGeneratorClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setEnumGeneratorClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__enumGeneratorClass);
         if (attr == null)
@@ -210,7 +210,7 @@ public class EnumMappingGeneratorDMO  extends MvwDefinitionDMO  implements DmcNa
     /**
      * Removes the enumGeneratorClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remEnumGeneratorClass(){
          rem(MvwDMSAG.__enumGeneratorClass);
     }

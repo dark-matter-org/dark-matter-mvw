@@ -346,6 +346,7 @@ public class MvwDMSAG_INIT_1 {
         MvwDMSAG.__EnumMapping.addMust(MvwDMSAG.__mappingName);
         MvwDMSAG.__EnumMapping.addMust(MvwDMSAG.__unsetValue);
         MvwDMSAG.__EnumMapping.addMay(MetaDMSAG.__description);
+        MvwDMSAG.__EnumMapping.addMay(MvwDMSAG.__emptyText);
         MvwDMSAG.__EnumMapping.addMay(MetaDMSAG.__file);
         MvwDMSAG.__EnumMapping.addMay(MetaDMSAG.__lineNumber);
         MvwDMSAG.__EnumMapping.addMay(MvwDMSAG.__skipEnumValue);

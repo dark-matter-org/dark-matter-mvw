@@ -115,10 +115,26 @@ abstract public class MvwFieldEditor implements DmcPresentationIF, IsWidget {
 	 * @param msg
 	 */
 	protected void DEBUG(String msg){
-		if (tracker.debug())
-			System.out.println(msg);
+		if ( (tracker != null))
+			tracker.debug(msg);
 	}
 	
+	/**
+	 * If a tracker has been set, we notify it that we're "ready".
+	 */
+	protected void READY(){
+		if (tracker != null)
+			tracker.isReady(this);
+	}
+	
+	/**
+	 * If a tracker has been set, we notify it that we're not "ready"
+	 */
+	protected void NOTREADY(){
+		if (tracker != null)
+			tracker.isNotReady(this);
+	}
+
 	/**
 	 * Derived classes should attempt to force focus on their associated widget.
 	 */

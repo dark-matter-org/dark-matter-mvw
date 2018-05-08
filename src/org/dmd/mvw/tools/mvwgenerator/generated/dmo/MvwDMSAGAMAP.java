@@ -55,6 +55,7 @@ public class MvwDMSAGAMAP {
         _SmAp.put(MvwDMSAG.__editObject.id,MvwDMSAG.__editObject);
         _SmAp.put(MvwDMSAG.__editorName.id,MvwDMSAG.__editorName);
         _SmAp.put(MvwDMSAG.__elementName.id,MvwDMSAG.__elementName);
+        _SmAp.put(MvwDMSAG.__emptyText.id,MvwDMSAG.__emptyText);
         _SmAp.put(MvwDMSAG.__enumGeneratorClass.id,MvwDMSAG.__enumGeneratorClass);
         _SmAp.put(MvwDMSAG.__eventName.id,MvwDMSAG.__eventName);
         _SmAp.put(MvwDMSAG.__firedInThisModule.id,MvwDMSAG.__firedInThisModule);

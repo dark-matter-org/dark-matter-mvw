@@ -124,7 +124,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public Boolean isUseSingleEditor(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -137,7 +137,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useSingleEditor to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setUseSingleEditor(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -156,7 +156,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useSingleEditor to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setUseSingleEditor(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
         if (attr == null)
@@ -169,12 +169,12 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useSingleEditor attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remUseSingleEditor(){
          rem(MvwDMSAG.__useSingleEditor);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public CamelCaseName getEditorName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -187,7 +187,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editorName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setEditorName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -206,7 +206,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editorName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setEditorName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__editorName);
         if (attr == null)
@@ -219,12 +219,12 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the editorName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remEditorName(){
          rem(MvwDMSAG.__editorName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public String getUseClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -237,7 +237,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setUseClass(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -256,7 +256,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setUseClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -269,7 +269,7 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remUseClass(){
          rem(MvwDMSAG.__useClass);
     }
