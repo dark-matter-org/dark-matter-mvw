@@ -127,7 +127,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public Boolean isCodeSplit(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -140,7 +140,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets codeSplit to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setCodeSplit(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -159,7 +159,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets codeSplit to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setCodeSplit(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
         if (attr == null)
@@ -172,12 +172,12 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the codeSplit attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remCodeSplit(){
          rem(MvwDMSAG.__codeSplit);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public Boolean isSingleton(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__singleton);
         if (attr == null)
@@ -190,7 +190,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets singleton to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setSingleton(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__singleton);
         if (attr == null)
@@ -209,7 +209,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets singleton to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setSingleton(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__singleton);
         if (attr == null)
@@ -222,7 +222,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the singleton attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remSingleton(){
          rem(MvwDMSAG.__singleton);
     }
@@ -231,7 +231,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of PresenterDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public Iterator<PresenterREF> getInstantiatesPresenter(){
         DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -251,7 +251,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of PresenterREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
     public Iterator<PresenterREF> getInstantiatesPresenterREFs(){
         DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -264,7 +264,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Adds another instantiatesPresenter to the specified value.
      * @param value Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
     public DmcAttribute<?> addInstantiatesPresenter(PresenterDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -284,7 +284,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
     public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -298,7 +298,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Returns the number of values in instantiatesPresenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
     public int getInstantiatesPresenterSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null){
@@ -314,7 +314,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         
@@ -329,12 +329,12 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:796)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
     public CamelCaseName getPresenterName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__presenterName);
         if (attr == null)
@@ -347,7 +347,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets presenterName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
     public void setPresenterName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterName);
         if (attr == null)
@@ -366,7 +366,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Sets presenterName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:889)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
     public void setPresenterName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__presenterName);
         if (attr == null)
@@ -379,7 +379,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the presenterName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:909)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remPresenterName(){
          rem(MvwDMSAG.__presenterName);
     }
@@ -388,7 +388,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of ViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public Iterator<ViewREF> getManagesView(){
         DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -408,7 +408,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of ViewREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1156)
     public Iterator<ViewREF> getManagesViewREFs(){
         DmcTypeViewREFMV attr = (DmcTypeViewREFMV) get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -421,7 +421,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Adds another managesView to the specified value.
      * @param value View
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1016)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1170)
     public DmcAttribute<?> addManagesView(ViewDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -441,7 +441,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Adds another managesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1257)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1411)
     public DmcAttribute<?> addManagesView(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -455,7 +455,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Returns the number of values in managesView
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1274)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1428)
     public int getManagesViewSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null){
@@ -471,7 +471,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1313)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1467)
     public DmcAttribute<?> delManagesView(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         
@@ -486,7 +486,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1367)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1521)
     public void remManagesView(){
          rem(MvwDMSAG.__managesView);
     }

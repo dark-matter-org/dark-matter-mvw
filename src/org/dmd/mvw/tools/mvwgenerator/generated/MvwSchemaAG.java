@@ -147,6 +147,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _accessFor;
     public static AttributeDefinition _accessGenerator;
     public static AttributeDefinition _propertyAccessName;
+    public static AttributeDefinition _emptyText;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -804,7 +805,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EnumMappingOBJ.setDmdID("1626");
             _EnumMappingOBJ.setClassType("STRUCTURAL");
             _EnumMappingOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _EnumMappingOBJ.setLineNumber("509");
+            _EnumMappingOBJ.setLineNumber("510");
             _EnumMappingOBJ.setIsNamedBy("mvw.mappingName");
             _EnumMappingOBJ.addDescription("Way too long!");
             _EnumMappingOBJ.setUseWrapperType("EXTENDED");
@@ -816,6 +817,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EnumMappingOBJ.addMust("mvw.mappingGenerator");
             _EnumMappingOBJ.addMay("mvw.useNameAsLabel");
             _EnumMappingOBJ.addMay("mvw.skipEnumValue");
+            _EnumMappingOBJ.addMay("mvw.emptyText");
             _EnumMappingOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EnumMappingIterableDMW");
             _EnumMappingOBJ.setDmwIteratorClass("EnumMappingIterableDMW");
             _EnumMappingOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.EnumMappingREF");
@@ -830,7 +832,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EnumMappingGeneratorOBJ.setDmdID("1627");
             _EnumMappingGeneratorOBJ.setClassType("STRUCTURAL");
             _EnumMappingGeneratorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _EnumMappingGeneratorOBJ.setLineNumber("521");
+            _EnumMappingGeneratorOBJ.setLineNumber("522");
             _EnumMappingGeneratorOBJ.setIsNamedBy("meta.camelCaseName");
             _EnumMappingGeneratorOBJ.addDescription("The EnumMappingGenerator definition allows for the specification of code\n generation extension that generates enum mapping code for a particular widget set.");
             _EnumMappingGeneratorOBJ.setUseWrapperType("EXTENDED");
@@ -851,7 +853,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PropertyAccessGeneratorOBJ.setDmdID("1628");
             _PropertyAccessGeneratorOBJ.setClassType("STRUCTURAL");
             _PropertyAccessGeneratorOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PropertyAccessGeneratorOBJ.setLineNumber("534");
+            _PropertyAccessGeneratorOBJ.setLineNumber("535");
             _PropertyAccessGeneratorOBJ.setIsNamedBy("meta.camelCaseName");
             _PropertyAccessGeneratorOBJ.addDescription("The PropertyAccessGenerator allows for the specification of the code\n generation extension that generates property access code mechanisms for a particular\n widget set.");
             _PropertyAccessGeneratorOBJ.setUseWrapperType("EXTENDED");
@@ -872,7 +874,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PropertyAccessOBJ.setDmdID("1629");
             _PropertyAccessOBJ.setClassType("STRUCTURAL");
             _PropertyAccessOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PropertyAccessOBJ.setLineNumber("548");
+            _PropertyAccessOBJ.setLineNumber("549");
             _PropertyAccessOBJ.setIsNamedBy("mvw.propertyAccessName");
             _PropertyAccessOBJ.addDescription("The PropertyAccess class allows for the specification of a set of classes\n for which you'd like to invoke the specified property access generator that creates\n property access mechanisms.");
             _PropertyAccessOBJ.setUseWrapperType("EXTENDED");
@@ -2216,6 +2218,19 @@ public class MvwSchemaAG extends SchemaDefinition {
             _propertyAccessNameOBJ.setLineNumber("805");
             _propertyAccessName.setDefinedIn(this);
             addAttributeDefList(_propertyAccessName);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:585)
+            AttributeDefinitionDMO _emptyTextOBJ = new AttributeDefinitionDMO();
+            _emptyText = new AttributeDefinition(_emptyTextOBJ);
+            _emptyTextOBJ.addDescription("The text to be displayed when something, for instance an editor,\n doesn't have a value yet.");
+            _emptyTextOBJ.setName("emptyText");
+            _emptyTextOBJ.setDmdID("908");
+            _emptyTextOBJ.setType("meta.String");
+            _emptyTextOBJ.setFile("/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _emptyTextOBJ.setDotName("mvw.emptyText.AttributeDefinition");
+            _emptyTextOBJ.setLineNumber("812");
+            _emptyText.setDefinedIn(this);
+            addAttributeDefList(_emptyText);
 
     }
 
