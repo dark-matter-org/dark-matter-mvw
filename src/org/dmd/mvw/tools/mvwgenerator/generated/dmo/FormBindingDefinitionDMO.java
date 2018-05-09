@@ -30,6 +30,7 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;                          
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type - (GenUtility.java:339)
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:339)
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                       // Reference type - (GenUtility.java:311)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                                  // Required type - (GenUtility.java:339)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (GenUtility.java:230)
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.I18NConfigDMO;                    // Type specific set/add - (GenUtility.java:318)
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class - (GenUtility.java:367)
@@ -295,6 +296,56 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
     public void remTipsFromI18N(){
          rem(MvwDMSAG.__tipsFromI18N);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)
+    public Integer getLabelWidth(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MvwDMSAG.__labelWidth);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets labelWidth to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:829)
+    public void setLabelWidth(Integer value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__labelWidth);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MvwDMSAG.__labelWidth);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__labelWidth,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets labelWidth to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:882)
+    public void setLabelWidth(Object value) throws DmcValueException {
+        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(MvwDMSAG.__labelWidth);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MvwDMSAG.__labelWidth);
+        
+        attr.set(value);
+        set(MvwDMSAG.__labelWidth,attr);
+    }
+
+    /**
+     * Removes the labelWidth attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:902)
+    public void remLabelWidth(){
+         rem(MvwDMSAG.__labelWidth);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:789)

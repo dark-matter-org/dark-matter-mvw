@@ -315,6 +315,7 @@ public class MvwDMSAG_INIT_1 {
         MvwDMSAG.__FormBindingDefinition.addMust(MvwDMSAG.__editObject);
         MvwDMSAG.__FormBindingDefinition.addMay(MetaDMSAG.__description);
         MvwDMSAG.__FormBindingDefinition.addMay(MetaDMSAG.__file);
+        MvwDMSAG.__FormBindingDefinition.addMay(MvwDMSAG.__labelWidth);
         MvwDMSAG.__FormBindingDefinition.addMay(MetaDMSAG.__lineNumber);
         MvwDMSAG.__FormBindingDefinition.addMay(MvwDMSAG.__strictlyChecked);
         MvwDMSAG.__FormBindingDefinition.addMay(MvwDMSAG.__tipsFromI18N);

@@ -277,6 +277,37 @@ abstract public class FormBindingDefinitionDMW extends MvwDefinition implements 
     }
 
     // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
+    public Integer getLabelWidth(){
+        return(((FormBindingDefinitionDMO) core).getLabelWidth());
+    }
+
+    /**
+     * Sets labelWidth to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1584)
+    public void setLabelWidth(Object value) throws DmcValueException {
+        ((FormBindingDefinitionDMO) core).setLabelWidth(value);
+    }
+
+    /**
+     * Sets labelWidth to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1593)
+    public void setLabelWidth(Integer value){
+        ((FormBindingDefinitionDMO) core).setLabelWidth(value);
+    }
+
+    /**
+     * Removes the labelWidth attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1619)
+    public void remLabelWidth(){
+        ((FormBindingDefinitionDMO) core).remLabelWidth();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGenerator.formatSV(BaseDMWGenerator.java:1474)
     public Boolean isStrictlyChecked(){
         return(((FormBindingDefinitionDMO) core).isStrictlyChecked());
     }
