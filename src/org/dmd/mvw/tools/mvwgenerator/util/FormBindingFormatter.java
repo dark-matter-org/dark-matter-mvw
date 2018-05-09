@@ -19,7 +19,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 import org.dmd.dms.ClassDefinition;
-import org.dmd.mvw.tools.mvwgenerator.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.util.FileUpdateManager;
@@ -44,11 +43,15 @@ public class FormBindingFormatter {
         BufferedWriter 	out 	= FileUpdateManager.instance().getWriter(outdir, name + ".java");
         ImportManager	imports = new ImportManager();
 
+        imports.addImport("java.util.ArrayList", "To store the complete set of editors");
+        imports.addImport("java.util.Iterator", "To access the complete set of editors");
+        imports.addImport("org.dmd.dmc.presentation.DmcPresentationIF", "To access the complete set of editors");
         imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Used when testing if an object named");
         imports.addImport("org.dmd.dmc.DmcValueException", "Required if we have modification errors");
         imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Required if we have modification errors");
         imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object has no name");
         imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object has no name");
+        imports.addImport("org.dmd.mvw.client.mvwforms.base.MvwFormBindingIF", "Standard interface for bindings");
         
 //        if (binding.getEditObject().getIsNamedBy() == null){
 //            imports.addImport("org.dmd.dmc.DmcValueException", "Required when edit object is unnamed");
@@ -73,14 +76,19 @@ public class FormBindingFormatter {
         out.write(imports.getFormattedImports() + "\n");
         
         out.write("// " + DebugInfo.getWhereWeAreNow() + "\n");
-        out.write("public class " + name + " {\n\n");
+        out.write("public class " + name + " implements MvwFormBindingIF {\n\n");
         
-        out.write("    " + cd.getName() + "DMO dmo;\n\n");
+        out.write("    private " + cd.getName() + "DMO dmo;\n\n");
+        
+        out.write("    private Integer labelWidth;\n\n");
         
         out.write("    // If the object set on the binding doesn't have a name, it is considered a new object\n");
-        out.write("    boolean isNewObject;\n\n");
+        out.write("    private boolean isNewObject;\n\n");
         
-        out.write("    DmcPresentationTrackerIF	tracker;\n\n");
+        out.write("    // The complete set of editors\n");
+        out.write("    private ArrayList<DmcPresentationIF>	editors;\n\n");
+        
+        out.write("    private DmcPresentationTrackerIF	tracker;\n\n");
         
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getDeclaration(field));
@@ -92,6 +100,12 @@ public class FormBindingFormatter {
         out.write("\n");
         
         out.write("        isNewObject = false;\n\n");
+        
+        out.write("        editors = new ArrayList<>();\n\n");
+        
+        if (binding.getLabelWidth() != null)
+            out.write("        labelWidth = " + binding.getLabelWidth() + ";\n\n");
+        	
         
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getInstantiation(field));
@@ -152,6 +166,15 @@ public class FormBindingFormatter {
         	out.write(getSetEnabled(field));
         }
         
+        out.write("    }\n\n");
+        
+        ///////////////////////////////////////////////////////////////////////
+        out.write("    public Iterator<DmcPresentationIF>    getEditors(){\n");
+        out.write("        return(editors.iterator());\n");
+        out.write("    }\n\n");
+
+        out.write("    public Integer    getLabelWidth(){\n");
+        out.write("        return(labelWidth);\n");
         out.write("    }\n\n");
 
         ///////////////////////////////////////////////////////////////////////
@@ -353,13 +376,13 @@ public class FormBindingFormatter {
 		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			// This is indexed, so we actually create a separate editor for each index
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
-		    	sb.append("    " + editor + " " + field.getAttribute() + i + ";\n");
-		    	sb.append("    " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter" + i + ";\n\n");				
+		    	sb.append("    private " + editor + " " + field.getAttribute() + i + ";\n");
+		    	sb.append("    private " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter" + i + ";\n\n");				
 			}
 		}
 		else{
-	    	sb.append("    " + editor + " " + field.getAttribute() + ";\n");
-	    	sb.append("    " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter;\n\n");
+	    	sb.append("    private " + editor + " " + field.getAttribute() + ";\n");
+	    	sb.append("    private " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter;\n\n");
 		}
 
 		return(sb.toString());
@@ -379,7 +402,7 @@ public class FormBindingFormatter {
 				sb.append("        " + field.getAttribute() + i + ".setValueIndex(" + i + ");\n");
 				
 				sb.append("        " + field.getAttribute() + i + ".setLabel(\"" + field.getLabel() + "\");\n");
-		    	
+				
 		    	if (field.isMandatory())
 		    		sb.append("        " + field.getAttribute() + i + ".setMandatory(true);\n");
 		    	
@@ -392,6 +415,7 @@ public class FormBindingFormatter {
 		    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
 		    	sb.append("        " + field.getAttribute() + "Adapter" + i + " = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
 		    	sb.append("        " + field.getAttribute() + i + ".setAdapter(" + field.getAttribute() + "Adapter" + i + ");\n");
+		    	sb.append("        editors.add(" + field.getAttribute() + ");\n");
 		    	sb.append("\n");
 			}
 		}
@@ -411,6 +435,7 @@ public class FormBindingFormatter {
 	    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
 	    	sb.append("        " + field.getAttribute() + "Adapter = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
 	    	sb.append("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
+	    	sb.append("        editors.add(" + field.getAttribute() + ");\n");
 	    	sb.append("\n");
 		}
 

@@ -810,6 +810,11 @@ type			String
 description		The text to be displayed when something, for instance an editor,
  doesn't have a value yet.
 
+AttributeDefinition
+name			labelWidth
+dmdID			109
+type			Integer
+description		The width of the labels associated with a form binding.
 
 //AttributeDefinition
 //name			mandatoryStyle

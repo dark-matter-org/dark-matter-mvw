@@ -68,6 +68,7 @@ public class MvwDMSAGAMAP {
         _SmAp.put(MvwDMSAG.__instantiatesView.id,MvwDMSAG.__instantiatesView);
         _SmAp.put(MvwDMSAG.__itemName.id,MvwDMSAG.__itemName);
         _SmAp.put(MvwDMSAG.__itemOrder.id,MvwDMSAG.__itemOrder);
+        _SmAp.put(MvwDMSAG.__labelWidth.id,MvwDMSAG.__labelWidth);
         _SmAp.put(MvwDMSAG.__local.id,MvwDMSAG.__local);
         _SmAp.put(MvwDMSAG.__localEvent.id,MvwDMSAG.__localEvent);
         _SmAp.put(MvwDMSAG.__managesView.id,MvwDMSAG.__managesView);
