@@ -215,4 +215,10 @@ public class DMTBasicObjectField implements DmcPresentationIF {
 		return false;
 	}
 
+	@Override
+	public void setEmpty() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
