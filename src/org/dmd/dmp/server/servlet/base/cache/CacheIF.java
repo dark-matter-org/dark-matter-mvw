@@ -82,7 +82,7 @@ public interface CacheIF extends DmcNameResolverIF {
 	
 	public void deleteAndNotify(DmwNamedObjectWrapper obj);
 	
-	public void delete(DmcObjectName name);
+	public void delete(DmcObjectName name, Request request)  throws ResultException;
 	
 	public void deleteAndNotify(DmcObjectName name);
 	

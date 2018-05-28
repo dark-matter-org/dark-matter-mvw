@@ -596,7 +596,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 
 	@Override
-	public void delete(DmcObjectName name) {
+	public void delete(DmcObjectName name, Request request) throws ResultException {
 		// TODO Auto-generated method stub
 		
 	}

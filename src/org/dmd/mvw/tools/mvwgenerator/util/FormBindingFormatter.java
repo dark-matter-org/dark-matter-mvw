@@ -131,6 +131,8 @@ public class FormBindingFormatter {
 	        out.write("        if (obj instanceof DmcNamedObjectIF){\n");
 	        out.write("            if (((DmcNamedObjectIF)obj).getObjectName() == null)\n");
 	        out.write("                isNewObject = true;\n");
+	        out.write("            else\n");
+	        out.write("                isNewObject = false;\n");
 	        out.write("        }\n");
         }
 
@@ -415,7 +417,7 @@ public class FormBindingFormatter {
 		    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
 		    	sb.append("        " + field.getAttribute() + "Adapter" + i + " = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
 		    	sb.append("        " + field.getAttribute() + i + ".setAdapter(" + field.getAttribute() + "Adapter" + i + ");\n");
-		    	sb.append("        editors.add(" + field.getAttribute() + ");\n");
+		    	sb.append("        editors.add(" + field.getAttribute() + i +");\n");
 		    	sb.append("\n");
 			}
 		}
