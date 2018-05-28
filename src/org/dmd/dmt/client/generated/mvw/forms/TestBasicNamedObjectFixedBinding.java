@@ -1,64 +1,75 @@
 package org.dmd.dmt.client.generated.mvw.forms;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:73)
-import org.dmd.dmc.DmcNamedObjectIF;                                                      // Used when testing if an object named - (FormBindingFormatter.java:47)
-import org.dmd.dmc.DmcValueException;                                                     // Required if we have modification errors - (FormBindingFormatter.java:48)
-import org.dmd.dmc.DmcValueExceptionSet;                                                  // Required if we have modification errors - (FormBindingFormatter.java:49)
-import org.dmd.dmc.presentation.DmcPresentationTrackerIF;                                 // Presentation tracker - (FormBindingFormatter.java:59)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                               // Required when edit object has no name - (FormBindingFormatter.java:50)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                     // Required when edit object has no name - (FormBindingFormatter.java:51)
-import org.dmd.dmt.client.editors.DMTBasicObjectField;                                    // Editor - (FormBindingFormatter.java:62)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                         // Required schema - (FormBindingFormatter.java:64)
-import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                     // For the object we're editting - (FormBindingFormatter.java:69)
-import org.dmd.dmt.shared.generated.types.adapters.TestBasicObjectFixedMVAdapter;         // Adapter for mvIdxUnnamedObj - (FormBindingFormatter.java:61)
+// Called from: org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:76)
+import java.util.ArrayList;                                                               // To store the complete set of editors - (FormBindingFormatter.java:46)
+import java.util.Iterator;                                                                // To access the complete set of editors - (FormBindingFormatter.java:47)
+import org.dmd.dmc.DmcNamedObjectIF;                                                      // Used when testing if an object named - (FormBindingFormatter.java:49)
+import org.dmd.dmc.DmcValueException;                                                     // Required if we have modification errors - (FormBindingFormatter.java:50)
+import org.dmd.dmc.DmcValueExceptionSet;                                                  // Required if we have modification errors - (FormBindingFormatter.java:51)
+import org.dmd.dmc.presentation.DmcPresentationIF;                                        // To access the complete set of editors - (FormBindingFormatter.java:48)
+import org.dmd.dmc.presentation.DmcPresentationTrackerIF;                                 // Presentation tracker - (FormBindingFormatter.java:62)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                               // Required when edit object has no name - (FormBindingFormatter.java:52)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                     // Required when edit object has no name - (FormBindingFormatter.java:53)
+import org.dmd.dmt.client.editors.DMTBasicObjectField;                                    // Editor - (FormBindingFormatter.java:65)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                         // Required schema - (FormBindingFormatter.java:67)
+import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                     // For the object we're editting - (FormBindingFormatter.java:72)
+import org.dmd.dmt.shared.generated.types.adapters.TestBasicObjectFixedMVAdapter;         // Adapter for mvIdxUnnamedObj - (FormBindingFormatter.java:64)
+import org.dmd.mvw.client.mvwforms.base.MvwFormBindingIF;                                 // Standard interface for bindings - (FormBindingFormatter.java:54)
 
 
-// org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:75)
-public class TestBasicNamedObjectFixedBinding {
+// org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:78)
+public class TestBasicNamedObjectFixedBinding implements MvwFormBindingIF {
 
-    TestBasicNamedObjectFixedDMO dmo;
+    private TestBasicNamedObjectFixedDMO dmo;
+
+    private Integer labelWidth;
 
     // If the object set on the binding doesn't have a name, it is considered a new object
-    boolean isNewObject;
+    private boolean isNewObject;
 
-    DmcPresentationTrackerIF	tracker;
+    // The complete set of editors
+    private ArrayList<DmcPresentationIF>	editors;
 
-    DMTBasicObjectField mvIdxUnnamedObj0;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter0;
+    private DmcPresentationTrackerIF	tracker;
 
-    DMTBasicObjectField mvIdxUnnamedObj1;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter1;
+    private DMTBasicObjectField mvIdxUnnamedObj0;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter0;
 
-    DMTBasicObjectField mvIdxUnnamedObj2;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter2;
+    private DMTBasicObjectField mvIdxUnnamedObj1;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter1;
 
-    DMTBasicObjectField mvIdxUnnamedObj3;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter3;
+    private DMTBasicObjectField mvIdxUnnamedObj2;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter2;
 
-    DMTBasicObjectField mvIdxUnnamedObj4;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter4;
+    private DMTBasicObjectField mvIdxUnnamedObj3;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter3;
 
-    DMTBasicObjectField mvIdxUnnamedObj5;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter5;
+    private DMTBasicObjectField mvIdxUnnamedObj4;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter4;
 
-    DMTBasicObjectField mvIdxUnnamedObj6;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter6;
+    private DMTBasicObjectField mvIdxUnnamedObj5;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter5;
 
-    DMTBasicObjectField mvIdxUnnamedObj7;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter7;
+    private DMTBasicObjectField mvIdxUnnamedObj6;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter6;
 
-    DMTBasicObjectField mvIdxUnnamedObj8;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter8;
+    private DMTBasicObjectField mvIdxUnnamedObj7;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter7;
 
-    DMTBasicObjectField mvIdxUnnamedObj9;
-    TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter9;
+    private DMTBasicObjectField mvIdxUnnamedObj8;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter8;
+
+    private DMTBasicObjectField mvIdxUnnamedObj9;
+    private TestBasicObjectFixedMVAdapter mvIdxUnnamedObjAdapter9;
 
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:90)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:98)
     public TestBasicNamedObjectFixedBinding(){
 
         isNewObject = false;
+
+        editors = new ArrayList<>();
 
         mvIdxUnnamedObj0 = new DMTBasicObjectField();
         mvIdxUnnamedObj0.setValueIndex(0);
@@ -66,6 +77,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj0.setMandatory(true);
         mvIdxUnnamedObjAdapter0 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj0.setAdapter(mvIdxUnnamedObjAdapter0);
+        editors.add(mvIdxUnnamedObj0);
 
         mvIdxUnnamedObj1 = new DMTBasicObjectField();
         mvIdxUnnamedObj1.setValueIndex(1);
@@ -73,6 +85,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj1.setMandatory(true);
         mvIdxUnnamedObjAdapter1 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj1.setAdapter(mvIdxUnnamedObjAdapter1);
+        editors.add(mvIdxUnnamedObj1);
 
         mvIdxUnnamedObj2 = new DMTBasicObjectField();
         mvIdxUnnamedObj2.setValueIndex(2);
@@ -80,6 +93,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj2.setMandatory(true);
         mvIdxUnnamedObjAdapter2 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj2.setAdapter(mvIdxUnnamedObjAdapter2);
+        editors.add(mvIdxUnnamedObj2);
 
         mvIdxUnnamedObj3 = new DMTBasicObjectField();
         mvIdxUnnamedObj3.setValueIndex(3);
@@ -87,6 +101,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj3.setMandatory(true);
         mvIdxUnnamedObjAdapter3 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj3.setAdapter(mvIdxUnnamedObjAdapter3);
+        editors.add(mvIdxUnnamedObj3);
 
         mvIdxUnnamedObj4 = new DMTBasicObjectField();
         mvIdxUnnamedObj4.setValueIndex(4);
@@ -94,6 +109,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj4.setMandatory(true);
         mvIdxUnnamedObjAdapter4 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj4.setAdapter(mvIdxUnnamedObjAdapter4);
+        editors.add(mvIdxUnnamedObj4);
 
         mvIdxUnnamedObj5 = new DMTBasicObjectField();
         mvIdxUnnamedObj5.setValueIndex(5);
@@ -101,6 +117,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj5.setMandatory(true);
         mvIdxUnnamedObjAdapter5 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj5.setAdapter(mvIdxUnnamedObjAdapter5);
+        editors.add(mvIdxUnnamedObj5);
 
         mvIdxUnnamedObj6 = new DMTBasicObjectField();
         mvIdxUnnamedObj6.setValueIndex(6);
@@ -108,6 +125,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj6.setMandatory(true);
         mvIdxUnnamedObjAdapter6 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj6.setAdapter(mvIdxUnnamedObjAdapter6);
+        editors.add(mvIdxUnnamedObj6);
 
         mvIdxUnnamedObj7 = new DMTBasicObjectField();
         mvIdxUnnamedObj7.setValueIndex(7);
@@ -115,6 +133,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj7.setMandatory(true);
         mvIdxUnnamedObjAdapter7 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj7.setAdapter(mvIdxUnnamedObjAdapter7);
+        editors.add(mvIdxUnnamedObj7);
 
         mvIdxUnnamedObj8 = new DMTBasicObjectField();
         mvIdxUnnamedObj8.setValueIndex(8);
@@ -122,6 +141,7 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj8.setMandatory(true);
         mvIdxUnnamedObjAdapter8 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj8.setAdapter(mvIdxUnnamedObjAdapter8);
+        editors.add(mvIdxUnnamedObj8);
 
         mvIdxUnnamedObj9 = new DMTBasicObjectField();
         mvIdxUnnamedObj9.setValueIndex(9);
@@ -129,21 +149,24 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj9.setMandatory(true);
         mvIdxUnnamedObjAdapter9 = new TestBasicObjectFixedMVAdapter(DmtDMSAG.__mvIdxUnnamedObj);
         mvIdxUnnamedObj9.setAdapter(mvIdxUnnamedObjAdapter9);
+        editors.add(mvIdxUnnamedObj9);
 
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:105)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:119)
     public boolean isNewObject(){
         return(isNewObject);
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:112)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:126)
     public void setObject(TestBasicNamedObjectFixedDMO obj){
         dmo = obj;
 
         if (obj instanceof DmcNamedObjectIF){
             if (((DmcNamedObjectIF)obj).getObjectName() == null)
                 isNewObject = true;
+            else
+                isNewObject = false;
         }
         mvIdxUnnamedObj0.setDMO(dmo);
         mvIdxUnnamedObj1.setDMO(dmo);
@@ -230,7 +253,7 @@ public class TestBasicNamedObjectFixedBinding {
         tracker.reset();
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:138)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:154)
     public void setTracker(DmcPresentationTrackerIF t){
         tracker = t;
 
@@ -246,7 +269,7 @@ public class TestBasicNamedObjectFixedBinding {
         tracker.track(mvIdxUnnamedObj9);
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:149)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:165)
     public void setEnabledAll(boolean enabled){
         mvIdxUnnamedObj0.setEnabled(enabled);
         mvIdxUnnamedObj1.setEnabled(enabled);
@@ -260,7 +283,15 @@ public class TestBasicNamedObjectFixedBinding {
         mvIdxUnnamedObj9.setEnabled(enabled);
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:193)
+    public Iterator<DmcPresentationIF>    getEditors(){
+        return(editors.iterator());
+    }
+
+    public Integer    getLabelWidth(){
+        return(labelWidth);
+    }
+
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:218)
     public TestBasicNamedObjectFixedDMO getModRec(){
         if (dmo == null)
             return(null);
@@ -294,7 +325,7 @@ public class TestBasicNamedObjectFixedBinding {
         return(modrec);
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:213)
+    // org.dmd.mvw.tools.mvwgenerator.util.FormBindingFormatter.formatFormBinding(FormBindingFormatter.java:238)
     public TestBasicNamedObjectFixedDMO getModifiedObject(){
         if (dmo == null)
             return(null);
