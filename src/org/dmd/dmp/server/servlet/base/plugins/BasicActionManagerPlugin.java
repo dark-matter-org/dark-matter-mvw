@@ -22,6 +22,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.dmd.dmc.DmcNameClashException;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmp.server.extended.ActionCancelRequest;
 import org.dmd.dmp.server.extended.ActionCancelResponse;
@@ -36,6 +37,7 @@ import org.dmd.dmp.server.servlet.base.actions.ActionManagerIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
+import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.slf4j.Logger;
@@ -272,6 +274,27 @@ public class BasicActionManagerPlugin extends DmpServletPlugin implements Runnab
 			
 			// TODO: the cache isn't properly initialized in the DmpServletPlugin base - need
 			// a new method there to initialize the cache when it's ready
+			
+			// Check that we have the right type of action trigger
+			if (!factory.isCorrectTypeOfATI(request.getActionTrigger())) {
+				ActionResponse response = (ActionResponse) request.getErrorResponse();
+				response.setResponseText("Incorrect action trigger type: " + request.getActionTrigger().getClass().getName());
+				response.setLastResponse(true);
+				requestTracker.processResponse(response);
+				return;
+			}
+			
+			// Check that the mandatory parameters are available
+			ActionTriggerInfo ati = (ActionTriggerInfo) request.getActionTrigger();
+			try {
+				ati.checkParams();
+			} catch (DmcValueExceptionSet e) {
+				ActionResponse response = (ActionResponse) request.getErrorResponse();
+				response.setResponseText(e.toString());
+				response.setLastResponse(true);
+				requestTracker.processResponse(response);
+				return;
+			}
 			
 //			ActionHandler	handler = factory.newHandler(actionID++, request, this, cache, requestTracker);
 			ActionHandler	handler = factory.newHandler(actionID++, request, this, pluginManager.getCache(), requestTracker);
