@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.actions;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
@@ -36,6 +37,14 @@ public abstract class ActionFactory<ACTION extends ActionHandler, INFO extends A
 	 */
 	public ActionFactory() {
 		ati = createNewATI();
+	}
+	
+	/**
+	 * @param object the ATI to be tested.
+	 * @return true if the object is an instance of the correct type.
+	 */
+	public boolean isCorrectTypeOfATI(DmcObject object) {
+		return(ati.isInstanceOf(object));
 	}
 
 	/**
