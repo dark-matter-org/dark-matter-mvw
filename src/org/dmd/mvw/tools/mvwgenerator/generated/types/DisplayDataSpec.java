@@ -38,11 +38,11 @@ import org.dmd.dmc.util.JSONUtil;                                               
 import org.dmd.dmc.util.ParsedNameValuePair;                                                  // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                                              // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                             // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.ClassDefinitionREF;                                        // Object reference - (NewComplexTypeFormatter.java:1116)
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSTATIC;                           // Internally generated type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type - (NewComplexTypeFormatter.java:1124)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1141)
+import org.dmd.dms.generated.types.ClassDefinitionREF;                                        // Object reference - (NewComplexTypeFormatter.java:1179)
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSTATIC;                           // Internally generated type - (NewComplexTypeFormatter.java:1204)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                       // Standard type - (NewComplexTypeFormatter.java:1204)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;                      // Primitive type - (NewComplexTypeFormatter.java:1187)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1204)
 
 
 
@@ -82,7 +82,7 @@ public class DisplayDataSpec implements Serializable {
      * Copy constructor.
      */
     public DisplayDataSpec(DisplayDataSpec original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1141)
         dataClassV =  original.dataClassV;
         cardinalityV =  original.cardinalityV;
         varNameV =  original.varNameV;
@@ -148,9 +148,16 @@ public class DisplayDataSpec implements Serializable {
         return(sb.toString());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof DisplayDataSpec) {
+            return(this.toString().equals(((DisplayDataSpec)obj).toString()));
+        }
+        return(false);
+    }
     /**
      * JSON form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:516)
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
@@ -172,7 +179,7 @@ public class DisplayDataSpec implements Serializable {
         return(varNameV);
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:692)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:704)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
@@ -192,7 +199,7 @@ public class DisplayDataSpec implements Serializable {
         
     }
 
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:763)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:775)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverWithClashSupportIF resolver, DmcObject object, DmcNameClashResolverIF ncr, DmcAttributeInfo ai) throws DmcValueException, DmcValueExceptionSet {
         DmcNamedObjectIF  obj = null;
@@ -210,13 +217,22 @@ public class DisplayDataSpec implements Serializable {
                 ((DmcNamedObjectREF)dataClassV).setObject(obj);
         
             if (DmcOmni.instance().backRefTracking()){
-                Modifier backrefMod = new Modifier("dataClass", object, dataClassV, ai.id);
+                Modifier backrefMod = new Modifier("dataClass", object, dataClassV, ai.id, ai.name);
                 if (obj instanceof DmcContainerIF)
                     ((DmcContainerIF)obj).getDmcObject().addBackref(backrefMod);
                 else
                     ((DmcObject)obj).addBackref(backrefMod);
                 dataClassV.setBackrefModifier(backrefMod);
             }
+        }
+        
+    }
+
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:864)
+    public void removeBackRefsFromValue(){
+        // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:871)
+        if (dataClassV != null){
+            dataClassV.removeBackref();
         }
         
     }
