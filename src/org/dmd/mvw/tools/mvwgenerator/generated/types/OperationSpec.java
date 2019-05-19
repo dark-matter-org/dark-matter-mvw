@@ -28,9 +28,9 @@ import org.dmd.dmc.util.JSONUtil;                                               
 import org.dmd.dmc.util.ParsedNameValuePair;                                               // To store values parsed from initial input - (NewComplexTypeFormatter.java:121)
 import org.dmd.dms.generated.enums.DataTypeEnum;                                           // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:116)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                                          // For fake DmcAttributeInfo - (NewComplexTypeFormatter.java:117)
-import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                    // Standard type - (NewComplexTypeFormatter.java:1141)
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                      // Primitive type - (NewComplexTypeFormatter.java:1124)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1141)
+import org.dmd.dms.generated.types.DmcTypeStringSTATIC;                                    // Standard type - (NewComplexTypeFormatter.java:1204)
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;                      // Primitive type - (NewComplexTypeFormatter.java:1187)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATIC;         // Internally generated type - (NewComplexTypeFormatter.java:1204)
 
 
 
@@ -65,7 +65,7 @@ public class OperationSpec implements Serializable {
      * Copy constructor.
      */
     public OperationSpec(OperationSpec original){
-    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1078)
+    // Generated from: org.dmd.dms.util.NewComplexTypeFormatter.getCopyConstructorAssignments(NewComplexTypeFormatter.java:1141)
         varNameV =  original.varNameV;
         scopeV =  original.scopeV;
     }
@@ -126,9 +126,16 @@ public class OperationSpec implements Serializable {
         return(sb.toString());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof OperationSpec) {
+            return(this.toString().equals(((OperationSpec)obj).toString()));
+        }
+        return(false);
+    }
     /**
      * JSON form.
-     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:504)
+     * Generated from: org.dmd.dms.util.NewComplexTypeFormatter.dumpComplexType(NewComplexTypeFormatter.java:516)
      */
     public void toJSON(StringBuffer sb, int padding, String indent){
         sb.append(indent + "{\n");
