@@ -706,9 +706,9 @@ description		Indicates that a component sends the specified type of request. Thi
  standard requests from the Dark Matter Protocol as well as for requests that you have derived
  from Request. The classes you derive MUST end with the standard Request/Response suffixes e.g.
  if you had a request to perform some operation you could have OperationRequest and OperationResponse.
- <p/>
+ <p>
  The form of this attribute is: sendRequest requestName functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS]
- <p/>
+ <p>
  Or, for get requests: sendRequest GetRequest functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS CACHE EVENTS]
 
 AttributeDefinition
@@ -762,7 +762,7 @@ name			mappingGenerator
 dmdID			102
 type			EnumMappingGenerator
 description		A reference to the generator that will create the enum mapping code.
- <p/>
+ <p>
  An example of this can be seen in the dark-matter-gxt project.
 
 AttributeDefinition
@@ -770,7 +770,7 @@ name			enumGeneratorClass
 dmdID			103
 type			String
 description		The fully qualified Java class name of a class that implements the MvwEnumMappingGeneratorIF.
- <p/>
+ <p>
  An example of this can be seen in the dark-matter-gxt project.
 
 AttributeDefinition
@@ -778,7 +778,7 @@ name			propertyAccessGeneratorClass
 dmdID			104
 type			String
 description		The fully qualified Java class name of a class that implements the MvwPropertyAccessGeneratorIF.
- <p/>
+ <p>
  An example of this can be seen in the dark-matter-gxt project.
 
 AttributeDefinition
@@ -794,7 +794,7 @@ name			accessGenerator
 dmdID			106
 type			PropertyAccessGenerator
 description		A reference to the generator that will create the property access code.
- <p/>
+ <p>
  An example of this can be seen in the dark-matter-gxt project.
 
 AttributeDefinition
