@@ -128,16 +128,27 @@ public class CacheListenerManager {
 		synchronized (this) {
 			LinkedList<CacheListener> 	listeners = new LinkedList<CacheListener>();
 			ListenerSet<?>				listenerSet = null;
+			ListenerSet<?>				listenerSet2 = null;
 			
 			listeners.addAll(fullListeners.getListeners());
 			
 			ClassDefinition cd = (ClassDefinition) event.getSourceObjectClass();
 			
+			ClassDefinition cd2 = cd.getDerivedFrom();
+			
 			// Index listeners
 			listenerSet = indexListeners.get(cd.getClassInfo());
+			
 			if (listenerSet != null)
 				listeners.addAll(listenerSet.getListeners());
+	
+			if (cd2!=null) {
+				listenerSet2 = indexListeners.get(cd2.getClassInfo());
 			
+				if (listenerSet2 != null)
+				listeners.addAll(listenerSet2.getListeners());
+			}
+
 			return(listeners);			
 		}
 		
